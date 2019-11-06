@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>預約行程</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        html {
+            height: 100%; 
+        }
+
+        body {
+            background-image: url("images/reserve/reBg3.png");
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position: bottom center;
+            background-size: cover; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container headerStyle">
+            <a href="index.html">
+                <h1>
+                    <img src="images/logo.png" alt="logo">
+                </h1>
+            </a>
+            <input type="checkbox" id="headerCheck">
+            <label for="headerCheck" class="headerClick">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <nav class="navMenu">
+                <div class="navDarken">
+                    <ul>
+                        <li>
+                            <a href="spotIntro.html">行程介紹</a>
+                        </li>
+                        <li>
+                            <a href="reserve.html">預約行程</a>
+                        </li>
+                        <li>
+                            <a href="postcard.html">客製明信片</a>
+                        </li>
+                        <li>
+                            <a href="shop.html">購物商城</a>
+                        </li>
+                        <li>
+                            <a href="competition.html">投票比賽</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="headerMemInfo">
+                <span id="headerMemName"></span>
+                <a href="javascript:;"></a>
+            </div>
+            <div class="headerIcon">
+                <a href="shopcart.html">
+                    <img src="images/icon_shopcar.png" alt="icon_shopcar">
+                </a>
+                <a href="member.php">
+                    <img src="images/icon_login.png" alt="icon_login">
+                </a>
+            </div>
+        </div>
+    </header>
+    <div style="display: inline-block"></div>
+    <div class="linearOrange">
+        <section class="indexReserve">
+            <h1 class="">預約行程</h1>
+            <div class="containerpa">
+                <div class="row">
+                    <div class="col-12 col-md-6 indexReLeft">
+                        <form action="">
+                            <div class="indexReContent">
+                                <p>想要更加了解九份嗎?歡迎預約專屬行程!</p>
+                                <div class="reYuJourney">
+                                    <label for="seYuJourney">想選的旅程:</label>
+                                    <select id="seYuJourney">
+                                        <option value="尋幽訪古">尋幽訪古</option>
+                                        <option value="漫遊山城">漫遊山城</option>
+                                        <option value="船遊秘境">船遊秘境</option>
+                                    </select>
+                                </div>
+                                <div class="reYuPeople">
+                                    <label for="seYuPeople">選擇的人數:</label>
+                                    <select id="seYuPeople">
+                                        <option value="1">1</option>
+                                    </select>
+                                </div>
+                                <p>***不提供預約當日***<br>
+                                    <span class="reComfirmDate">2019/10/16</span>資訊如下:
+                                </p>
+                                <div class="reComfirmInform">
+                                    <div class="reInformLeft">
+                                        <p>時間</p>
+                                        <p>集合地點</p>
+                                    </div>
+
+                                    <div class="reInformRight">
+                                        <p>9:00~12:00</p>
+                                        <p id="peopleShouldGo">九份客棧</p>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                </div>
+                                <div class="verificationCode">
+                                    <div class="textCode">
+                                        <label for="enterCode">請輸入驗證碼:</label>
+                                        <input type="text" id="enterCode">
+                                        <div>
+                                            <span id="produceCode">1234</span>
+                                            <img src="images/reserve/produceCodeAgain.png" alt="produceCodeAgain" id="produceCodeAgain">
+                                        </div>
+                                    
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="whiteButton">送出</div>
+                        </form>
+                    </div>
+                    <div class="col-12 col-md-5 indexReRight">
+                        <div class="reserveCalendar">
+                            <div class="calendarBox">
+                                <div class="calendarTitle">
+                                    <span class="caLeftArrow"></span>
+                                    <span id="calendarYear">2019</span>
+                                    <span>/</span>
+                                    <span id="calendarMonth">10</span>
+                                    <span class="caRightArrow"></span>
+                                </div>
+                                <div class="calendarBody">
+                                    <div class="calendarWeek">
+                                        <ul>
+                                            <li>日</li>
+                                            <li>一</li>
+                                            <li>二</li>
+                                            <li>三</li>
+                                            <li>四</li>
+                                            <li>五</li>
+                                            <li>六</li>
+                                        </ul>
+                                    </div>
+                                    <div class="calendarBody">
+                                        <ul>
+                                            <li></li>
+                                            <li></li>
+                                            <li>1</li>
+                                            <li>2</li>
+                                            <li>3</li>
+                                            <li>4</li>
+                                            <li>5</li>
+                                        </ul>
+                                        <ul>
+                                            <li>6</li>
+                                            <li>7</li>
+                                            <li>8</li>
+                                            <li>9</li>
+                                            <li>10</li>
+                                            <li>11</li>
+                                            <li>12</li>
+                                        </ul>
+                                        <ul>
+                                            <li>13</li>
+                                            <li>14</li>
+                                            <li>15</li>
+                                            <li>16</li>
+                                            <li>17</li>
+                                            <li>18</li>
+                                            <li>19</li>
+                                        </ul>
+                                        <ul>
+                                            <li>20</li>
+                                            <li>21</li>
+                                            <li>22</li>
+                                            <li>23</li>
+                                            <li>24</li>
+                                            <li>25</li>
+                                            <li>26</li>
+                                        </ul>
+                                        <ul>
+                                            <li>27</li>
+                                            <li>28</li>
+                                            <li>29</li>
+                                            <li>30</li>
+                                            <li>31</li>
+                                            <li></li>
+                                            <li></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="timelyBus"> 
+            <h1>及時公車資訊</h1>
+            <div class="container">
+                <div class="busContent">
+                    <div class="chooseBusPlace">
+                        <div class="leafButton">尋幽訪古</div>
+                        <div class="leafButton">漫遊山城</div>
+                        <div class="leafButton">船遊秘境</div>
+                    </div>
+                    <div class="chooseBusDirection">
+                        <div class="leafButton departure">去程</div>
+                        <div class="leafButton return">回程</div>
+                    </div>
+                    <h3 id="busStopName">768號往大仁路<span>(59秒前更新)</span></h3>
+                    <div class="mobileShow" >
+                        <div class="ms">
+                            <div class="etaM" id="etaiM0"><!--放將到站 約幾分鐘....-->
+                                <div class="etaOnload">約50分</div>
+                            </div>
+                            <div class="stopname">小仁路</div>
+                        </div>
+                        <div class="ms">
+                            <div class="etaM" id="etaiM1">
+                                <div class="etaOnload">約50分</div>
+                            </div>
+                            <div class="stopname">小仁路</div>
+                        </div>
+                        <div class="ms">
+                            <div class="etaM" id="etaiM2">
+                                <div class="etaOnload">約50分</div>
+                            </div>
+                            <div class="stopname">小仁路</div>
+                        </div>
+                        <div class="ms">
+                            <div class="etaM" id="etaiM3">
+                                <div class="etaOnload">約50分</div>
+                            </div>
+                            <div class="stopname">小仁路</div>
+                        </div>
+                        <div class="ms">
+                            <div class="etaM" id="etaiM4">
+                                <div class="etaOnload">約50分</div>
+                            </div>
+                            <div class="stopname">小仁路</div>
+                        </div>
+                        <div class="ms">
+                            <div class="etaM" id="etaiM5">
+                                <div class="etaOnload">約50分</div>
+                            </div>
+                            <div class="stopname">小仁路</div>
+                        </div>
+                        <div class="ms">
+                            <div class="etaM" id="etaiM6">
+                                <div class="etaOnload">約50分</div>
+                            </div>
+                            <div class="stopname">小仁路</div>
+                        </div>
+                        <div class="ms">
+                            <div class="etaM" id="etaiM7">
+                                <div class="etaOnload">約50分</div>
+                            </div>
+                            <div class="stopname">小仁路</div>
+                        </div>
+                        <div class="ms">
+                            <div class="etaM" id="etaiM8">
+                                <div class="etaOnload">約50分</div>
+                            </div>
+                            <div class="stopname">小仁路</div>
+                        </div>
+                        <div class="ms">
+                            <div class="etaM" id="etaiM9">
+                                <div class="etaOnload">約50分</div>
+                            </div>
+                            <div class="stopname">小仁路</div>
+                        </div>
+                    </div>
+                    <div class="computerShow">
+                        <div class="stop left">
+                            <div class="t sFont relative">
+                                <div class="eta" id="etai0">
+                                    <span class="etaOnload">約50分</span>
+                                </div>
+                                <div class="etaol" id="etao0"></div>
+                            </div>
+                            <div class="m fill relative">
+                                <div class="stopIcon">
+                                    <div class="busl" id="busi0"></div>
+                                </div>
+                                <div class="buslo" id="buso0"></div>
+                            </div>
+                            <div class="b relative">
+                                <div class="stopnameC">小仁路</div>
+                            </div>
+                        </div>
+                        <div class="stop left">
+                            <div class="t sFont relative">
+                                <div class="eta" id="etai1">
+                                    <span class="etaOnload">約50分</span>
+                                </div>
+                                <div class="etaol" id="etao0"></div>
+                            </div>
+                            <div class="m fill relative">
+                                <div class="stopIcon">
+                                    <div class="busl" id="busi0"></div>
+                                </div>
+                                <div class="buslo" id="buso0"></div>
+                            </div>
+                            <div class="b relative">
+                                <div class="stopnameC">小仁路</div>
+                            </div>
+                        </div>
+                        <div class="stop left">
+                            <div class="t sFont relative">
+                                <div class="eta" id="etai1">
+                                    <span class="etaOnload">約50分</span>
+                                </div>
+                                <div class="etaol" id="etao0"></div>
+                            </div>
+                            <div class="m fill relative">
+                                <div class="stopIcon">
+                                    <div class="busl" id="busi0"></div>
+                                </div>
+                                <div class="buslo" id="buso0"></div>
+                            </div>
+                            <div class="b relative">
+                                <div class="stopnameC">小仁路</div>
+                            </div>
+                        </div>
+                        <div class="stop left">
+                            <div class="t sFont relative">
+                                <div class="eta" id="etai1">
+                                    <span class="etaOnload">約50分</span>
+                                </div>
+                                <div class="etaol" id="etao0"></div>
+                            </div>
+                            <div class="m fill relative">
+                                <div class="stopIcon">
+                                    <div class="busl" id="busi0"></div>
+                                </div>
+                                <div class="buslo" id="buso0"></div>
+                            </div>
+                            <div class="b relative">
+                                <div class="stopnameC">小仁路</div>
+                            </div>
+                        </div>
+                        <div class="stop left">
+                            <div class="t sFont relative">
+                                <div class="eta" id="etai1">
+                                    <span class="etaOnload">約50分</span>
+                                </div>
+                                <div class="etaol" id="etao0"></div>
+                            </div>
+                            <div class="m fill relative">
+                                <div class="stopIcon">
+                                    <div class="busl" id="busi0"></div>
+                                </div>
+                                <div class="buslo" id="buso0"></div>
+                            </div>
+                            <div class="b relative">
+                                <div class="stopnameC">小仁路</div>
+                            </div>
+                        </div>
+                        <div class="bar left">
+                            <div class="t"></div>
+                            <div class="m fill"></div>
+                            <div class="b fill"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="bar right">
+                            <div class="t fill"></div>
+                            <div class="m fill"></div>
+                            <div class="b "></div>
+                        </div>
+
+                        <div class="stop right">
+                            <div class="t sFont relative">
+                                <div class="eta" id="etai5">
+                                    <span class="etaOnload">約50分</span>
+                                </div>
+                                <div class="etaor" id="etao5"></div>
+                            </div>
+                            <div class="m fill relative">
+                                <div class="stopIcon">
+                                    <div class="busr" id="busi5"></div>
+                                </div>
+                                <div class="busro" id="buso5"></div>
+                            </div>
+                            <div class="b relative">
+                                <div class="stopnameC">小仁路</div>
+                            </div>
+                        </div>
+                        <div class="stop right">
+                            <div class="t sFont relative">
+                                <div class="eta" id="etai5">
+                                    <span class="etaOnload">約50分</span>
+                                </div>
+                                <div class="etaor" id="etao5"></div>
+                            </div>
+                            <div class="m fill relative">
+                                <div class="stopIcon">
+                                    <div class="busr" id="busi5"></div>
+                                </div>
+                                <div class="busro" id="buso5"></div>
+                            </div>
+                            <div class="b relative">
+                                <div class="stopnameC">小仁路</div>
+                            </div>
+                        </div>
+                        <div class="stop right">
+                            <div class="t sFont relative">
+                                <div class="eta" id="etai5">
+                                    <span class="etaOnload">約50分</span>
+                                </div>
+                                <div class="etaor" id="etao5"></div>
+                            </div>
+                            <div class="m fill relative">
+                                <div class="stopIcon">
+                                    <div class="busr" id="busi5"></div>
+                                </div>
+                                <div class="busro" id="buso5"></div>
+                            </div>
+                            <div class="b relative">
+                                <div class="stopnameC">小仁路</div>
+                            </div>
+                        </div>
+                        <div class="stop right">
+                            <div class="t sFont relative">
+                                <div class="eta" id="etai5">
+                                    <span class="etaOnload">約50分</span>
+                                </div>
+                                <div class="etaor" id="etao5"></div>
+                            </div>
+                            <div class="m fill relative">
+                                <div class="stopIcon">
+                                    <div class="busr" id="busi5"></div>
+                                </div>
+                                <div class="busro" id="buso5"></div>
+                            </div>
+                            <div class="b relative">
+                                <div class="stopnameC">小仁路</div>
+                            </div>
+                        </div>
+                        <div class="stope right">
+                            <div class="t"></div>
+                            <div class="m fill"></div>
+                            <div class="b"></div>
+                        </div>
+                        <div class="bar right">
+                            <div class="t"></div>
+                            <div class="m fill"></div>
+                            <div class="b fill"></div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="bar left">
+                            <div class="t fill"></div>
+                            <div class="m fill"></div>
+                            <div class="b"></div>
+                        </div>
+                        <div class="stope left">
+                            <div class="t"></div>
+                            <div class="m fill"></div>
+                            <div class="b"></div>
+                        </div>
+                        <div class="stop left">
+                            <div class="t sFont relative">
+                                <div class="eta" id="etai0">
+                                    <span class="etaOnload">約50分</span>
+                                </div>
+                                <div class="etaol" id="etao0"></div>
+                            </div>
+                            <div class="m  relative">
+                                <div class="stopIcon">
+                                    <div class="busl" id="busi0"></div>
+                                </div>
+                                <div class="busgone" id="buso0"></div>
+                            </div>
+                            <div class="b relative">
+                                <div class="stopnameC">小仁路</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cat">
+                    <img src="images/reserve/cat.png" alt="cat">
+                </div>
+                <div class="feetLeft">
+                    <div class="catFeet1">
+                        <img src="images/reserve/footl1.png" alt="footl">
+                    </div>
+                    <div class="catFeet2">
+                        <img src="images/reserve/footl2.png" alt="footl">
+                    </div>
+                    <div class="catFeet3">
+                        <img src="images/reserve/footl3.png" alt="footl">
+                    </div>
+                    <div class="catFeet4">
+                        <img src="images/reserve/footl4.png" alt="footl">
+                    </div>
+                </div>
+                <div class="feetRight">
+                    <div class="catFeetr1">
+                        <img src="images/reserve/footr1.png" alt="footr">
+                    </div>
+                    <div class="catFeetr2">
+                        <img src="images/reserve/footr2.png" alt="footr">
+                    </div>
+                    <div class="catFeetr3">
+                        <img src="images/reserve/footr3.png" alt="footr">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="waitingBus">
+            <div class="busLeft">
+                <img src="images/reserve/bigBus.png" alt="bus">
+            </div>
+            <div class="busStopRight">
+                <div class="busStop">
+                    <img src="images/reserve/busStop.png" alt="busstop">
+                </div>
+                <div class="waitLine">
+                    <div class="waitBoy">
+                        <img src="images/reserve/watchphoneman.png" alt="waitboy">
+                    </div>
+                    <div class="waitGirl">
+                        <img src="images/reserve/waitbuspeople.png" alt="waitgirl">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    
+    </div>
+    <footer>
+        <div>
+            <a href="#">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="#">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="#">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+        </div>
+        <p>DD103 G1 copyright</p>
+    </footer>
+</body>
+</html>

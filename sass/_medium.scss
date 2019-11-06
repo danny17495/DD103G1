@@ -1,0 +1,6 @@
+
+@mixin respondMedium() {
+        @media all and (min-width: $ScreenMedium) {
+            @content;
+        }
+}

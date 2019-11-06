@@ -1,0 +1,6 @@
+@mixin respondDesktop() {
+        @media all and (min-width: $ScreenMaxWidth) {
+            @content;
+        }
+    
+}

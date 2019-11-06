@@ -1,0 +1,511 @@
+@import "var";
+@import "mixin";
+@import "medium";
+@import "large";
+@import "nine";
+/*-----------------reset css初始化-----------------------*/
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; 
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block; 
+}
+
+ol, ul {
+  list-style: none; 
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; 
+}
+
+button {
+  outline: none; 
+}
+a{
+    text-decoration: none;
+    display:block;
+}
+/*-----------------basic set 基本設定-----------------------*/
+*{
+    box-sizing: border-box;
+    color:rgba(0,0,0,0.9);
+}
+
+body{
+    font-family: $fontFamily;
+    line-height: 1.6em;
+     font-family: 'Noto Serif TC', serif;
+}
+
+@font-face {
+    font-family: '華康秀風體';
+    src: url('華康秀風體.TTF') format('truetype');
+    /*unicode-range: U+884C, U+7A0B, U+4ECB, U+7D39;*/
+}
+
+h1{
+  font-family: '華康秀風體';  
+}
+
+h1, h2, h3, h4, p, a, li, span, button, input {
+    letter-spacing: 1px;
+}
+
+@each $title,$num in $FontSize{
+    #{$title}{
+        font-size: $num;
+    }
+}
+
+@include respondDesktop(){
+      @each $title,$num in $DesktopFontSize{
+         #{$title}{
+            font-size: $num;
+        }
+}
+}
+/*-----------------1200置中-----------------------*/
+.container{
+   @include marginCenter();
+}
+/*-----------------clear float清除浮動-----------------------*/
+.clearfix{
+    clear:both;
+}
+/*----------------- bootstrap gridSystem-----------------------*/
+%clear {
+  &:after {
+    content: " ";
+    display: table;
+    clear: both;
+  }
+}
+
+[class|="col"]{
+			 float: left; 
+			 padding: 0  $gridPadding; 
+			 box-sizing: border-box;
+    }
+    
+.containerpa{           /*最大螢幕寬度1200px ， 1200px後內容全置中*/
+    @include marginCenter();
+    @extend %clear;
+    padding:0 10px;
+    .row{
+        margin-left: $gridPadding*-1;
+        margin-right: $gridPadding*-1;
+        @extend %clear;
+        @include grid();
+        @include respondMedium(){
+              @include grid('768px');
+        }
+        @include respondNine(){
+              @include grid('992px');
+        }
+        @include respondDesktop(){
+              @include grid('1200px');
+        }
+}
+}
+
+/*----------------- 共用 button -----------------------*/
+%commBtnStyle {
+   cursor: pointer;
+   display:inline-block;
+   border-radius:50px;
+   font-family: '華康秀風體'; 
+    font-size: 18px;
+}
+
+.whiteButton{
+    @extend %commBtnStyle;
+     padding:0px 8px;
+     background-color: #fff;
+     color: #3d3c3c;
+     box-shadow: 1px 1px 3px #ccc;
+     &:hover{
+        background-color: rgba(243, 152, 0, .8);
+        transition: all .5s;
+        color:#fff;
+        box-shadow :0 0 0 transparent;
+     }
+}
+
+.leafButton{
+    @extend %commBtnStyle;
+    border: 1.5px solid #f39700;
+    font-weight:bold;
+    padding:2px 5px;
+    position: relative;
+    &:before {
+        content:'';
+        position: absolute;
+        background-image: url(../images/leaf.png);
+        width: 29px;
+        height: 34px;
+        top: -22px;
+        left:-22px;
+        transition: .5s;
+        opacity: 0;
+     }
+      &:hover:before {
+        opacity: 1;
+        transform: rotate(10deg);
+     }
+}
+  @include respondMedium(){
+      .leafButton{
+           border:2px solid #f39700;
+           font-size: 22px;
+           padding: 2px 15px;
+      }
+      .whiteButton{
+          font-size: 22px;
+          padding: 4px 10px;
+      }
+
+}
+
+/*----------------- header -----------------------*/
+header{
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    background-color: #fff;
+    box-shadow: 0 1px 3px #eee;
+    transition: all 1s;
+    .container{
+     @include marginCenter();
+    }
+    img{
+        width: 100%;
+    }
+}
+header.clearHeaderStyle{
+    background-color: transparent;
+    box-shadow: none;
+}
+.headerStyle{
+   position: relative;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   height: 100px;
+  
+   >a{
+        width: 90px;
+        display: block;
+        margin: 0 auto;
+      }
+}
+#headerCheck{
+      display: none;
+}
+
+.navMenu{
+    position: absolute;
+    top: 100%;
+    left: -100%;
+    width: 100%;
+    height: calc(100vh - 100px);
+    background:url(../images/menuBg1.png) no-repeat;
+    background-position: center;
+    transition:left 1s;
+    .navDarken{
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,0.1);
+        padding-top: 50px;
+    }
+    ul{
+      padding: 0 15px;
+    }
+    li{
+      margin-bottom: 15px;
+      position: relative;
+      &:after{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            content: "";
+            display: block;
+            width: 100%;
+            height: 1px;
+            background: #fff;
+            opacity: .3;
+        }
+      }
+    a{
+      color: #fff;
+      font-weight: bold;
+      padding-top: 12px;
+      padding-bottom: 15px;
+      position: relative;
+      &:after {
+          content: ">";
+          position: absolute;
+          left: calc(100% - 10px);
+          height: 10px;
+          width: 10px;
+          font-size: 10px;
+          opacity: 1;
+      }
+    }
+}
+
+#headerCheck:checked ~ .navMenu{
+      left:0;
+}
+.headerClick{
+      position: absolute;
+      transform-origin: center;
+       display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      height: 20px;
+      width: 40px;
+      left: $pagePadding;
+      cursor: pointer;
+      span{
+          display:block;
+          width: 25px;
+          height: 3px;
+          background-color: #324261;
+          border-radius: 5px;      
+          position: absolute;
+         &:nth-child(1){ 
+            top: 5%;
+            animation: makeCross1Backward 0.25s ease 0s 1 forwards, 
+              moveDownBackward 0.25s ease 0.25s 1 forwards;
+      };
+         &:nth-child(2){ 
+            top: 50%;
+            transition: opacity 0.5s ease;
+      };
+         &:nth-child(3){ 
+            top: 95%;
+            animation: makeCross2Backward 0.25s ease 0s 1 forwards,
+             moveUpBackward 0.25s ease 0.25s 1 forwards;
+      }
+}
+}
+@keyframes makeCross1Backward {
+  from { top: 50%; transform: rotate(40deg) translateY(-50%); }
+  to { top: 50%; transform: rotate(0deg) translateY(-50%); }
+}
+@keyframes moveDownBackward {
+  from { top: 50%; transform: translateY(-50%); }
+  to { top: 5%; transform: translateY(0); }
+}
+@keyframes makeCross2Backward {
+  from { top: 50%; transform: rotate(-40deg) translateY(-50%); }
+  to { top: 50%; transform: rotate(0deg) translateY(-50%); }
+}
+@keyframes moveUpBackward {
+  from { top: 50%; transform: translateY(-50%); }
+  to { top: 95%; transform: translateY(0); }
+}
+#headerCheck:checked + .headerClick{
+    span{
+            &:nth-child(1){ 
+                  animation: moveDown 0.25s ease 0s 1 forwards, 
+                  makeCross1 0.25s ease 0.25s 1 forwards;
+         
+            };
+            &:nth-child(2){
+                opacity: 0;
+            };
+            &:nth-child(3){ 
+                animation: moveUp 0.25s ease 0s 1 forwards,
+                makeCross2 0.25s ease 0.25s 1 forwards;
+            };
+    }
+}
+@keyframes moveDown {
+  from { top: 5%; transform: translateY(0); }
+  to { top: 50%; transform: translateY(-50%); }
+}
+@keyframes makeCross1 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(40deg); }
+}
+@keyframes moveUp {
+  from { top: 95%; transform: translateY(0); }
+  to { top: 50%; transform: translateY(-50%); }
+}
+@keyframes makeCross2 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-40deg); }
+}
+
+.headerIcon{
+  @include flexCenter();
+  position: absolute;
+  right: $pagePadding;
+   a{
+      &:first-child {
+        margin-right: 10px;
+      }
+      width: 22px;
+      display: inline-block;
+   }
+ 
+}
+
+@media all and (max-width:$ScreenNine) {
+      .changeWhiteColor{
+          background-color: #fff;
+        }
+}
+
+
+  @include respondNine(){
+    .headerStyle{
+        height: 105px;
+    }
+    .headerClick{
+        display: none;
+    }
+    .headerStyle>a{
+        margin:0;
+        padding-left: 20px;
+        width: 100px;
+    }
+    .navMenu{
+      position: static;
+      height: auto;//恢復原始值
+      width: auto;//恢復原始值
+      background:none;
+      .navDarken{
+          background:none;
+          padding: 0;
+      }
+      ul{
+        overflow: hidden;
+      }
+      li{
+        float: left;
+        margin-right: 44px;
+        margin-bottom: 0;
+        &:after{
+          height: 0;
+        }
+        a{
+           color:$color;
+           font-size: 20px;
+           position: relative;
+            &:after{
+                content: "";
+                left: 50%;
+                bottom: 0;
+                width: 100%;
+                height: 3px;
+                background-color: $color;
+                transform-origin: center;
+                transform: translate(-50%, 0) scaleX(0);
+                transition: transform 0.3s ease-in-out;
+            }
+            &:hover:after{
+               transform: translate(-50%, 0) scaleX(1);
+            }
+        }
+      }
+    }
+  }
+
+   @include respondDesktop(){
+        .navMenu ul{
+            margin-left:65px ;
+        }
+   }
+   /*----------------- footer -----------------------*/
+   footer{
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      background-color: #081334;
+      height: 120px;
+     p{
+       color:#fff;
+       text-align: right;
+       padding-right: 30px;
+     }
+   }
+   footer>div{
+      display: flex;
+      justify-content: center;
+      margin-bottom: 10px;
+      a{
+         width: 50px;
+         height: 50px;
+         background: #6896e7;
+         margin: 10px;
+         border-radius:50%;
+         text-align: center;
+         overflow: hidden;
+         position: relative;
+         line-height: 58px;
+         z-index: 1;
+         &:hover{
+              i{
+                    color:#081334;
+                }
+              }
+         
+         &:before{
+           content:'';
+           position: absolute;
+           width: 120%;
+           height: 120%;
+           background: #f1f1f1;
+           transform: rotate(45deg);
+           left: -110%;
+           top: 90%;
+           z-index: -1;
+         }
+         &:hover:before{
+              animation:removeFooterBtn 0.8s 1;
+              top: -10%;
+              left: -10%;
+           }
+          i{
+              color:#fff;
+          }
+       
+        
+      }
+      @keyframes removeFooterBtn {
+        0%{
+           left: -110%;
+           top: 90%;
+        }
+        50%{
+           left: 10%;
+           top: -40%;
+        }
+        100%{
+            top: -10%;
+            left: -10%;
+        }
+      }
+    
+      .fa{
+        width: 100%;
+         font-size: 25px;
+      }
+   }
+

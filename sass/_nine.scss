@@ -1,0 +1,5 @@
+@mixin respondNine() {
+        @media all and (min-width: $ScreenNine) {
+            @content;
+    }
+}

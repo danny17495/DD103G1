@@ -1,0 +1,34 @@
+@mixin grid($screenWidth:'') {
+      @for $i from 1 through 12{
+          @if $screenWidth=='768px' {
+            .col-md-#{$i}{
+                width: (100%/12)*$i
+            }
+          }
+          @else if $screenWidth=='992px' {
+            .col-lg-#{$i}{
+                width: (100%/12)*$i
+            }
+        }
+          @else if $screenWidth=='1200px' {
+            .col-xl-#{$i}{
+                width: (100%/12)*$i
+            }
+        }
+         @else {
+            .col-#{$i}{
+                width: (100%/12)*$i
+            }
+         }
+    }
+};
+@mixin flexCenter() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@mixin marginCenter(){
+    width:100%;
+    max-width:$ScreenMaxWidth;
+    margin: 0 auto;
+}
