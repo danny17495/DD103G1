@@ -158,3 +158,5 @@ ctx.fillRect(0, 0, can.width, can.height)
 };
 
 resizeCanvas();
+
+1
