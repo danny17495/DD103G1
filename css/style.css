@@ -3065,3 +3065,66 @@
 		font-size: 22px;
 	}
 }
+
+/*------------警告視窗------------*/
+.alertWindow{
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+    text-align: center;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+    display: none
+}
+.alertWindow .alert{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 30%;
+    min-width: 250px;
+    max-width: 350px;
+    padding: 20px 20px 30px;
+    border-radius: 10px;
+    background-color: #081334;
+}
+.alertWindow .alert>div{
+    color: #fff;
+}
+.alertWindow .alertTitle{
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+.alertWindow .alertContent{
+    margin-bottom: 25px;
+}
+
+.alertWindow .cancelButton{
+    display: none;
+    margin-left: 15px;
+}
+.alertWindow .alertClose {
+    display: block;
+    border-radius: 50%;
+    background-color: #fff;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 10px;
+    right: 9px;
+    text-align: center;
+    font-family: Microsoft JhengHei;
+    font-weight: bold;
+    cursor: pointer;
+}
+.reserveCalendar .disabledDate{
+    color:gray;
+}
+.reserveCalendar .today{
+    color:#f39700;
+    font-weight: bold;
+}
