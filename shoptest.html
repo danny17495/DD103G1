@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>九份客棧</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+        <header>
+            <div class="container headerStyle">
+                <a href="index.html">
+                    <h1>
+                        <img src="images/logo.png" alt="logo">
+                    </h1>
+                </a>
+                <input type="checkbox" id="headerCheck" >
+                <label for="headerCheck" class="headerClick">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                    <nav  class="navMenu">
+                        <div class="navDarken">
+                            <ul>
+                                <li>
+                                    <a href="#">行程介紹</a> 
+                                </li>
+                                <li>
+                                    <a href="#">預約行程</a> 
+                                </li>
+                                <li>
+                                    <a href="postcard.html">客製明信片</a>
+                                </li>
+                                <li>
+                                    <a href="#">購物商城</a> 
+                                </li>
+                                <li>
+                                    <a href="competition.html">投票比賽</a> 
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <div class="headerMemInfo">
+                        <span id="headerMemName"></span>
+                        <a href="javascript:;"></a>
+                    </div>
+                    <div class="headerIcon">
+                        <a href="shopcart.html">
+                            <img src="images/icon_shopcar.png" alt="icon_shopcar">
+                        </a>
+                        <a href="#">
+                            <img src="images/icon_login.png" alt="icon_login">
+                        </a>
+                    </div>
+            </div>
+        </header>
+        <section class="indexBanner">
+            <div>
+                <div class="headerBg01"></div>
+            </div>
+            <div class="cloudAnimation">
+                    <img src="images/cloud01.png" alt="cloud01">
+            </div>
+            <div class="topCloud"></div>
+            <div class="bottomCloud"></div>
+        </section>
+
+<!-- indexSpot  首頁行程介紹 -->
+<div class="spotOuter">
+    <section class="indexSpot">
+      <div class="container spotContainer">
+            <div class="indexSpotIntro">
+                <h1>行程介紹</h1>
+                <h2>尋幽訪古之旅</h2>
+                <p>如果您喜歡充滿歷史氣息的旅行，那麼您一定不能錯過這條路線！景點包括九份老街、黃金博物館、黃金瀑布，過去因採礦業相當繁榮的地方，隨著礦業的衰退跟著沒落，卻留下不可彌滅的歷史痕跡。</p>
+                <div class="more">more</div>
+            </div>
+            <div class="indexSpotPic">
+                <div class="indexSpotPic_OOuter">
+                    <div class="indexSpotPic_outer">
+                    <img src="images/indexSpot/pic.jpg" alt="">
+                </div>
+                </div>
+            </div>
+            <div class="indexSpotBtns">
+                <div class="indexSpotBtn1 leafButton">
+                    尋幽訪古之旅
+                </div>
+                <div class="indexSpotBtn2 leafButton">
+                    漫遊山城之旅
+                </div>
+                <div class="indexSpotBtn1 leafButton">
+                    船遊秘境之旅
+                </div>
+            </div>
+      </div>
+    </section>
+
+            <!----- indexSpot  首頁預約行程 ------>
+        <section class="indexReserve">
+            <div class="containerpa">
+                <div class="row">
+                    <div class="col-12 col-md-6 indexReLeft">
+                        <h1>預約行程</h1>
+                            <form action="" >
+                                <div class="indexReContent">
+                                    <p>想要更加了解九份嗎?歡迎預約專屬行程!</p>
+                                    <div class="reYuJourney">
+                                        <label for="seYuJourney">想選的旅程:</label>
+                                        <select id="seYuJourney">
+                                            <option value="尋幽訪古">尋幽訪古</option>
+                                            <option value="漫遊山城">漫遊山城</option>
+                                            <option value="船遊秘境">船遊秘境</option>
+                                        </select>
+                                    </div>
+                                    <div class="reYuPeople">
+                                        <label for="seYuPeople">選擇的人數:</label>
+                                        <select id="seYuPeople">
+                                            <option value="1">1</option>
+                                        </select>
+                                    </div>
+                                     <p>***不提供預約當日***<br>
+                                    <span class="reComfirmDate">2019/10/16</span>資訊如下:
+                                    </p>
+                                    <div class="reComfirmInform">
+                                        <div class="reInformLeft">
+                                            <p>時間</p>
+                                            <p>集合地點</p>
+                                        </div>
+                                        <div class="reInformRight">
+                                            <p>9:00~12:00</p>
+                                            <p id="peopleShouldGo">九份客棧</p>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="tree">
+                                        <img src="images/reserveTree.png" alt="tree">
+                                    </div>
+                                </div>
+                                <div class="whiteButton">我要預約</div>
+                            </form>
+                    </div>
+                    <div class="col-12 col-md-5 indexReRight">
+                        <div class="reserveCalendar">
+                            <div class="calendarBox">
+                                <div class="calendarTitle">
+                                    <span class="caLeftArrow"></span>
+                                    <span id="calendarYear">2019</span>
+                                    <span>/</span>
+                                    <span id="calendarMonth">10</span>
+                                    <span class="caRightArrow"></span>
+                                </div>
+                                <div class="calendarBody">
+                                    <div class="calendarWeek">
+                                        <ul>
+                                            <li>日</li>
+                                            <li>一</li>
+                                            <li>二</li>
+                                            <li>三</li>
+                                            <li>四</li>
+                                            <li>五</li>
+                                            <li>六</li>
+                                        </ul>
+                                    </div>
+                                    <div class="calendarBody">
+                                        <ul>
+                                            <li></li>
+                                            <li></li>
+                                            <li>1</li>
+                                            <li>2</li>
+                                            <li>3</li>
+                                            <li>4</li>
+                                            <li>5</li>
+                                        </ul>
+                                        <ul>
+                                            <li>6</li>
+                                            <li>7</li>
+                                            <li>8</li>
+                                            <li>9</li>
+                                            <li>10</li>
+                                            <li>11</li>
+                                            <li>12</li>
+                                        </ul>
+                                        <ul>
+                                            <li>13</li>
+                                            <li>14</li>
+                                            <li>15</li>
+                                            <li>16</li>
+                                            <li>17</li>
+                                            <li>18</li>
+                                            <li>19</li>
+                                        </ul>
+                                        <ul>
+                                            <li>20</li>
+                                            <li>21</li>
+                                            <li>22</li>
+                                            <li>23</li>
+                                            <li>24</li>
+                                            <li>25</li>
+                                            <li>26</li>
+                                        </ul>
+                                        <ul>
+                                            <li>27</li>
+                                            <li>28</li>
+                                            <li>29</li>
+                                            <li>30</li>
+                                            <li>31</li>
+                                            <li></li>
+                                            <li></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="busStop">
+                                <img src="images/busStop.png" alt="busstop">
+                                <div class="seeBus">+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottomRoadBus">
+                    <div class="roadTree">
+                    </div>
+                    <div class="roadBus">
+                        <img src="images/bus.png" alt="bus">
+                    </div>
+                </div>
+            </div>
+        </section>
+</div>
+    <!----- indexVote  首頁投票比賽 ------>
+    <section class="indexVoteGame">
+        <div class="containerpa voteContent">
+            <h1>投票比賽</h1>
+           
+            <div class="row">
+                <p class="col-12">2019年10月份比賽結果</p>
+                <div class="col-12 col-md-4 order3">
+                    <div class=" gameResult">
+                        <h2>第一名</h2>
+                        <div class="voteSrc">
+                            <img src="images/indexSpot/card01.png" alt="card">
+                        </div>
+                        <p>中壢金城武</p>
+                        <p>680票</p>
+                        <div class="indexVoBtn">
+                            <div class="vote">
+                                <img src="images/indexSpot/voteIcon.png" alt="voteIcon">
+                                <p>投票</p>
+                            </div>
+                            <div class="message">
+                                <img src="images/indexSpot/messIcon.png" alt="messIcon">
+                                <p>留言</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 order2">
+                    <div class="gameResult">
+                        <h2>第二名</h2>
+                        <div class="voteSrc">
+                            <img src="images/indexSpot/card02.png" alt="card">
+                        </div>
+                        <p>台北阿寶</p>
+                        <p>470票</p>
+                        <div class="indexVoBtn">
+                            <div class="vote">
+                                <img src="images/indexSpot/voteIcon.png" alt="voteIcon">
+                                <p>投票</p>
+                            </div>
+                            <div class="message">
+                                <img src="images/indexSpot/messIcon.png" alt="messIcon">
+                                <p>留言</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 order4">
+                    <div class="gameResult">
+                        <h2>第三名</h2>
+                        <div class="voteSrc">
+                            <img src="images/indexSpot/card03.png" alt="card">
+                        </div>
+                        <p>板橋宋慧喬</p>
+                        <p>325票</p>
+                        <div class="indexVoBtn">
+                            <div class="vote">
+                                <img src="images/indexSpot/voteIcon.png" alt="voteIcon">
+                                <p>投票</p>
+                            </div>
+                            <div class="message">
+                                <img src="images/indexSpot/messIcon.png" alt="messIcon">
+                                <p>留言</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="whiteButton order5">馬上參加比賽</div>
+            </div>
+        </div>
+  
+            <canvas id="canvas" class="canvasBox"></canvas>
+
+    </section>
+   
+
+     <!-- indexSpot  首頁小遊戲 -->
+    <section class="indexGame">
+        <div class="container  indexGameContainer">
+            <h1>玩遊戲</h1>
+            <div class="indexGameOuter">
+                <img src="images/indexGame/game.png" alt="">
+            </div>
+            <div class="indexGameBtn whiteButton">玩遊戲拿優惠券
+            </div>
+        </div>  
+    </section>
+    <footer>
+        <div>
+            <a href="#">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="#">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="#">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+        </div>
+        <p>DD103 G1 copyright</p>
+    </footer>
+<script src="js/header.js"></script>
+<script src="js/star.js"></script>
+</body>
+</html>
