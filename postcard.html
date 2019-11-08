@@ -4,9 +4,295 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>客製化明信片</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/stylePostcard.css">
 </head>
-<body>
-    
+<body class="postcardBody">
+    <header>
+        <div class="container headerStyle">
+            <a href="index.html">
+                <h1>
+                    <img src="images/logo.png" alt="logo">
+                </h1>
+            </a>
+        <input type="checkbox" id="headerCheck" >
+        <label for="headerCheck" class="headerClick">
+        <span></span>
+        <span></span>
+        <span></span>
+        </label>
+        <nav class="navMenu">
+            <div class="navDarken">
+                <ul>
+                    <li>
+                        <a href="spotIntro.html">行程介紹</a>
+                    </li>
+                    <li>
+                        <a href="reserve.html">預約行程</a>
+                    </li>
+                    <li>
+                        <a href="postcard.html">客製明信片</a>
+                    </li>
+                    <li>
+                        <a href="shop.php">購物商城</a>
+                    </li>
+                    <li>
+                        <a href="competition.html">投票比賽</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="headerMemInfo">
+            <span id="headerMemName"></span>
+            <a href="javascript:;"></a>
+        </div>
+        <div class="headerIcon">
+            <a href="shopcart.html">
+                <img src="images/icon_shopcar.png" alt="icon_shopcar">
+            </a>
+            <a href="member.php">
+                <img src="images/icon_login.png" alt="icon_login">
+            </a>
+        </div>
+        </header>
+
+
+    <div class="forFoodDeco">
+        <!-----  1-1.pageTitle  標題:明信片範例  ----->
+        <section class="pageTitle postcardExampleTitle wrapA">
+            <div class="container">
+                <h1>精彩的明信片</h1>
+                <h3>已有&nbsp;&nbsp;<span>10,820</span>&nbsp;&nbsp;個訪客製作</h3>
+                <div>
+                    <img src="images/postcard/birdEnvelope.png" alt="bird">
+                </div>
+        
+            </div><!-- .container結束div -->
+        </section><!-- section.pageTitle結束div -->
+        
+        <!-----  1-2.postcardExample  明信片範例  ----->
+        <section class="postcardExample wrapA">
+            <div class="container">
+                <div>
+                    <div class="postWhiteBack postWhiteBackDemo">
+                        <img src="images/postcard/postDemo_1.jpg" alt="">
+                    </div>
+                    <div class="postWhiteBack postWhiteBackDemo">
+                        <img src="images/postcard/postDemo_2.jpg" alt="">
+                    </div>
+                    <div class="postWhiteBack postWhiteBackDemo">
+                        <img src="images/postcard/postDemo_3.jpg" alt="">
+                    </div>
+                    <div class="postWhiteBack postWhiteBackDemo">
+                        <img src="images/postcard/postDemo_1.jpg" alt="">
+                    </div>
+                    <!--<div class="postWhiteBack postWhiteBackDemo">
+                        <img src="images/postcard/postDemo_2.jpg" alt="">
+                    </div> -->
+                </div>
+                <span>
+                    <div class="postcardFood postcardFood1">
+                        <img src="images/postcard/food-1.png" alt="food">
+                    </div>
+                </span>
+                <span>
+                    <div class="postcardFood postcardFood2">
+                        <img src="images/postcard/food-2.png" alt="food">
+                    </div>
+                </span>
+                <span>
+                    <div class="postcardFood postcardFood3">
+                        <img src="images/postcard/food-3.png" alt="food">
+                    </div>
+                </span>
+            </div><!-- .container結束div -->
+        </section>
+    </div>
+
+
+
+
+
+    <!-----  2-1.postLine  明信片裝飾斜線  ----->
+    <section class="postLine wrapA"></section>
+
+    <!-----  2-2.postcardMain  明信片主要客製畫面  ----->
+    <section class="postcardMain wrapA">
+        <!-- 2-2-1.標題 -->
+        <div class="container postcardTitleContainer">
+            <div class="postGirl">
+                <img src="images/postcard/postGirl.png" alt="postGirl">
+            </div>
+            <h1>客製明信片</h1>
+            <div class="stemp">
+               <img src="images/postcard/stemp.png" alt="stemp"> 
+            </div>
+        </div><!-- .container結束div -->
+
+
+        <!-- 2-2-2.預覽畫面.postLeft + 操作畫面.postRight -->
+        <div class="container postcardLRContainer">
+            <!-- (一)預覽畫面.postLeft -->
+            <div class="postLeft">
+                <!-- (1)<768的步驟圈圈在上方 -->
+                <div class="postLeftStepBox postLeftStepBoxSmall">
+                    <div class="postStep postStep1">
+                        <p>選背景</p>
+                    </div>
+                    <div class="postStep postStep2">
+                        <p>選貼圖</p>
+                    </div>
+                    <div class="postStep postStep3">
+                        <p>寫文字</p>
+                    </div>
+                    <div class="postStep postStep4">
+                        <p>選郵戳</p>
+                    </div>
+                    <div class="postStep postStep5">
+                        <p>完成</p>
+                    </div>
+                </div><!-- .postStepBoxSmall結束div -->
+
+                <!-- (2)明信片預覽畫面 -->
+                <div class="postWhiteBack"><!-- 明信片白底陰影 -->
+                    <img src="images/postcard/postBlack.jpg" alt="postCard">
+                </div>
+
+                <!-- (3)>=768的步驟圈圈在下方 -->
+                <div class="postLeftStepBox postLeftStepBoxBig">
+                    <div class="postStep postStep1">
+                        <p>選背景</p>
+                    </div>
+                    <div class="postStep postStep2">
+                        <p>選貼圖</p>
+                    </div>
+                    <div class="postStep postStep3">
+                        <p>寫文字</p>
+                    </div>
+                    <div class="postStep postStep4">
+                        <p>選郵戳</p>
+                    </div>
+                    <div class="postStep postStep5">
+                        <p>完成</p>
+                    </div>
+                </div>
+            </div><!-- .postLeft結束div -->
+
+
+            <!-- (二)操作畫面.postRight -->
+            <div class="postRight">
+                <div class="postRightDIY_1">
+                    <h3>選個喜歡的背景吧</h3>
+                    <!-- (1)3個可選用背景 -->
+                    <div class="postBGC postBGC_1">
+                        <img src="images/postcard/postBGC_1.jpg" alt="postBGC">
+                    </div>
+                    <div class="postBGC postBGC_2">
+                        <img src="images/postcard/postBGC_2.jpg" alt="postBGC">
+                    </div>
+                    <div class="postBGC postBGC_3">
+                        <img src="images/postcard/postBGC_3.jpg" alt="postBGC">
+                    </div>
+                    <!-- (2)上傳窗格 -->
+                    <div class="uploadBGC">
+                        <p>上傳圖片</p>
+                        <div>
+                            <img src="images/postcard/uploadPlus.png" alt="upload">
+                        </div>
+                    </div>
+                </div><!-- .postRightDIY_1結束div -->
+                <div class="whiteButton postDIYNextBtn">下一步</div>
+            </div><!-- .postRight結束div -->
+            <div class="clearfix"></div>
+        </div><!-- .container結束div -->
+
+    </section>
+
+
+
+
+    <!-----  2-3.postLine  明信片裝飾斜線  ----->
+    <section class="postLine wrapA"></section>
+
+
+
+
+    <div class="forWallDeco">
+        <!-----  3-1.pageTitle  標題:注意事項  ----->
+        <section class="pageTitle postcardNoticeTitle wrapA">
+            <div class="container">
+                <h1>注意事項</h1>
+            </div><!-- .container結束div -->
+        </section><!-- section.pageTitle結束div -->
+        
+        
+        <!-----  3-2.postcardNotice  注意事項  ----->
+        <section class="postcardNotice wrapA">
+            <div class="container">
+                <!-- 注意事項白色區塊 -->
+                <div class="postCardNoticeBox">
+                    <div class="catSleep">
+                        <img src="images/postcard/catSleep.png" alt="cat">
+                    </div>
+                    <div class="roadTop">
+                        <img src="images/postcard/roadTop.png" alt="cat">
+                    </div>
+                    <div class="roadBottom">
+                        <img src="images/postcard/roadBottom.png" alt="cat">
+                    </div>  
+                    <ol>
+                        <li>
+                            明信片背景圖可上傳您自己拍攝的風景圖，製作獨一無二的九份明信片！<br>
+                            按照我們建議的照片大小可以有最好的製作效果唷。
+                        </li>
+                        <li>
+                            客製化明信片取件地點為九份老街的阿妹茶樓，除了取件之外同時提供幫您寄送明信片的服務。<br>
+                            地址：新北市瑞芳區市下巷20號。<br>
+                            取件時間：周一至周五早上8點30分至晚間11點30分。
+                        </li>
+                        <li>
+                            明信片製作時間僅需要一個小時，也就是在您完成付款之後一個小時可以取件。<br>
+                            您可以悠閒地逛逛九份老街之後再過來取件以及去送您位親友寫下的明信片祝福，與他們分享您此次到訪九份的喜悅。
+                        </li>
+                    </ol>
+                    <div class="postcardNoticeDeco">
+                        <div class="postBox">
+                            <img src="images/postcard/postBox-2.png" alt="postBox">
+                        </div>
+                        <div class="catWalk">
+                            <img src="images/postcard/catWalk.png" alt="cat">
+                        </div>
+                        <div class="wall">
+                            <img src="images/postcard/wall.png" alt="wall">
+                        </div>
+                    </div>
+                </div>
+            </div><!-- .container結束div -->
+        </section>
+    </div>
+
+
+
+
+
+
+    <footer>
+        <div>
+            <a href="#">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="#">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="#">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+        </div>
+        <p>DD103 G1 copyright</p>
+    </footer>
+
 </body>
 </html>
