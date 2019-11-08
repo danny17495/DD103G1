@@ -116,14 +116,14 @@
                                         <label for="enterCode">請輸入驗證碼:</label>
                                         <input type="text" id="enterCode">
                                         <div>
-                                            <span id="produceCode">1234</span>
-                                            <img src="images/reserve/produceCodeAgain.png" alt="produceCodeAgain" id="produceCodeAgain">
+                                            <span id="produceCode" onclick="createCode()"></span>
+                                            <img onclick="createCode()" src="images/reserve/produceCodeAgain.png" alt="produceCodeAgain">
                                         </div>
                                     
                                     </div>
                                 </div>
                             </div>
-                            <div class="whiteButton">送出</div>
+                            <div class="whiteButton" id="submit" onclick="validateCode()">送出</div>
                         </form>
                     </div>
                     <div class="col-12 col-md-5 indexReRight">
@@ -131,9 +131,9 @@
                             <div class="calendarBox">
                                 <div class="calendarTitle">
                                     <span class="caLeftArrow"></span>
-                                    <span id="calendarYear">2019</span>
+                                    <span id="calendarYear"></span>
                                     <span>/</span>
-                                    <span id="calendarMonth">10</span>
+                                    <span id="calendarMonth"></span>
                                     <span class="caRightArrow"></span>
                                 </div>
                                 <div class="calendarBody">
@@ -148,53 +148,7 @@
                                             <li>六</li>
                                         </ul>
                                     </div>
-                                    <div class="calendarBody">
-                                        <ul>
-                                            <li></li>
-                                            <li></li>
-                                            <li>1</li>
-                                            <li>2</li>
-                                            <li>3</li>
-                                            <li>4</li>
-                                            <li>5</li>
-                                        </ul>
-                                        <ul>
-                                            <li>6</li>
-                                            <li>7</li>
-                                            <li>8</li>
-                                            <li>9</li>
-                                            <li>10</li>
-                                            <li>11</li>
-                                            <li>12</li>
-                                        </ul>
-                                        <ul>
-                                            <li>13</li>
-                                            <li>14</li>
-                                            <li>15</li>
-                                            <li>16</li>
-                                            <li>17</li>
-                                            <li>18</li>
-                                            <li>19</li>
-                                        </ul>
-                                        <ul>
-                                            <li>20</li>
-                                            <li>21</li>
-                                            <li>22</li>
-                                            <li>23</li>
-                                            <li>24</li>
-                                            <li>25</li>
-                                            <li>26</li>
-                                        </ul>
-                                        <ul>
-                                            <li>27</li>
-                                            <li>28</li>
-                                            <li>29</li>
-                                            <li>30</li>
-                                            <li>31</li>
-                                            <li></li>
-                                            <li></li>
-                                        </ul>
-                                    </div>
+                                    <div class="calendarBody"></div>
                                 </div>
                             </div>
                         </div>
@@ -549,5 +503,20 @@
         </div>
         <p>DD103 G1 copyright</p>
     </footer>
+    <div class="alertWindow">
+        <div class="alert">
+            <div class="alertTitle">提示</div>
+            <div class="alertContent">我是內容</div>
+            <div class="closeWrap">
+                <div class="yesButton whiteButton">確認</div>
+                <div class="cancelButton whiteButton">取消</div>
+            </div>
+            <div class="alertClose">
+                <span>x</span>
+            </div>
+        </div>
+    </div>
+<script src="js/reserveDate.js"></script>
+<script src="js/canlendar.js"></script>
 </body>
 </html>

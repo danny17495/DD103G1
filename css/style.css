@@ -102,9 +102,9 @@
     padding:70px 20px 10px;
     position: relative;
 }
-.indexSpot .spotContainer{}
+
 /*   indexSpot  首頁行程介紹---左側介紹文字  */
-.indexSpot .indexSpotIntro{}
+
 .indexSpot .indexSpotIntro h1{
     text-align: center;
     position: relative;
@@ -402,7 +402,7 @@
 }
 .calendarBox{
     position: absolute;
-    bottom: 57px;
+    top: 205px;
     left:50%;
     transform: translateX(-50%);
     width: 70%;
@@ -531,7 +531,7 @@
         margin-top: 0;
     }
     .calendarBox {
-        bottom: 96px;
+        top: 268px;
     }
     .indexReserve .indexReLeft {
         margin-top: 58px;
@@ -2037,7 +2037,6 @@
 	width: 100%;
 	background: linear-gradient(#fff 0%, #feeed4 10%);
 }
-.spotIntroTrip1{}
 .spotIntroTrip1Nav{
 	width: 100%;
 	padding-top: 120px;
