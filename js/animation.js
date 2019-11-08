@@ -77,12 +77,16 @@ T7.to('#skylight5', 3,{
 
 var canvas = document.getElementById("can");
 var ctx = canvas.getContext("2d");
-var x = canvas.width = window.innerWidth;
-var y = canvas.height = window.innerHeight;
+// var x = canvas.width = window.innerWidth;
+// var y = canvas.height = window.innerHeight;
+// 這樣寫如果進來的時候是小畫面，拉大時畫布會爆掉，所以一開始就給他最大畫面這樣縮放就不會壞掉。*要注意如果畫面寬大於1920還是會壞掉
+var x = canvas.width = 2400;
+var y = canvas.height = 937;
+// alert(canvas.height);
 
 var img = new Image();
 img.src = "../images/competition/star.png";
-var num = 60;
+var num = 100;
 var arrStar = [];
 
 
@@ -118,7 +122,9 @@ Star.prototype.draw = function(){
    ctx.drawImage(img,this.start*7,0,7,7,this.x,this.y,7,7);
 }
 
+
 window.onload = function(){
+    ctx.drawImage(document.getElementById("can"), this.x, this.y);
     init();
     setInterval(loop,100);
 }
@@ -146,17 +152,17 @@ function loop(){
     draw();
 }
 
+// resize 
 $(window).resize(resizeCanvas);
 
 function resizeCanvas() {
 
-$("#can").attr("width", $(window).get(0).innerWidth);
+    $("#can").attr("width", $(window).get(0).innerWidth);
 
-$("#can").attr("height", $(window).get(0).innerHeight);
+    $("#can").attr("height", $(window).get(0).innerHeight);
 
-ctx.fillRect(0, 0, can.width, can.height)
+    ctx.fillRect(0, 0, can.width, can.height)
 };
 
 resizeCanvas();
 
-1

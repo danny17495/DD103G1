@@ -1,0 +1,833 @@
+/* *{
+    outline:1px solid #f00;
+} */
+body{
+    background-image: url(../images/competition/comptitionbackground.png);
+}
+
+/* 留言板 */
+.message {
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    position: fixed;
+    transition: all 1s ease-out;
+    z-index: 10;
+    display: none; 
+}
+
+.message .messageContainer {
+  max-width: 500px;
+  width: 100%;
+  max-height: 550px;
+  height: 100%;
+  border-radius: 10px;
+  background-color: rgb(82, 124, 160);
+  border: 2px solid #4F98A5;
+  padding: 10px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto; 
+}
+
+.message .messageTitle {
+  width: 100%;
+  height: 10%;
+  margin: auto;
+  position: relative;
+  border-bottom: 2px solid #333333;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+}
+
+.message .messageTitle h3 {
+    font-weight: 800; 
+}
+
+.message .messageTitle img {
+    width: 5%;
+    height: 50%;
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    box-sizing: border-box;
+    cursor: pointer; 
+}
+
+/* 留言區塊 */
+#message_wrap {
+    display: non; 
+}
+
+  .messageContent {
+    width: 100%;
+    height: 370px;
+    margin: 10px auto;
+    box-sizing: border-box;
+    overflow-y: scroll; }
+    .messageContent .messageWrap {
+      width: 100%;
+      height: 130px;
+      padding: 10px;
+      margin-bottom: 3px;
+      border-radius: 10px;
+      background: #efefef;
+      border: 1px solid #333333;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-sizing: border-box; }
+      .messageContent .messageWrap figure {
+        background-image: url(../images/competition/comptitionPost.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100px;
+        height: 100%;
+        margin-right: 5px;
+        position: relative; }
+        .messageContent .messageWrap figure img {
+          width: 50%;
+          height: 50%;
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 5px;
+          margin: auto; }
+  
+  .memText {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    box-sizing: border-box; }
+    .memText .megsageMemName {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-sizing: border-box; }
+      .memText .megsageMemname .messageDate {
+        font-size: 14px;
+        color: #666; }
+    .memText .messageBox {
+      width: 100%;
+      box-sizing: border-box; }
+      .memText .messageBox .messageText {
+        width: 100%;
+        box-sizing: border-box; }
+    .memText .messageBtn {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      text-align: right; }
+    .memText .btnCloudp {
+      width: 50%;
+      color: #efefef;
+      font-size: 16px;
+      background-color: #d18082;
+      border: 2px solid #d18082;
+      border-radius: 20px;
+      font-weight: bold;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      display: inline-block;
+      z-index: 1;
+      transition: 0.3s;
+      box-sizing: border-box;
+      cursor: pointer; }
+      .memText .btnCloudp .btnCloudeffect {
+        position: absolute;
+        width: 25%;
+        height: 100%;
+        background-color: #efefef;
+        transform: translateY(150%);
+        border-radius: 50%;
+        transition: 0.3s;
+        z-index: -1; }
+        .memText .btnCloudp .btnCloudeffect:nth-child(1) {
+          left: calc((1 - 1) * 25%);
+          transition-delay: calc((1 - 1) * 0.1s); }
+        .memText .btnCloudp .btnCloudeffect:nth-child(2) {
+          left: calc((2 - 1) * 25%);
+          transition-delay: calc((2 - 1) * 0.1s); }
+        .memText .btnCloudp .btnCloudeffect:nth-child(3) {
+          left: calc((3 - 1) * 25%);
+          transition-delay: calc((3 - 1) * 0.1s); }
+        .memText .btnCloudp .btnCloudeffect:nth-child(4) {
+          left: calc((4 - 1) * 25%);
+          transition-delay: calc((4 - 1) * 0.1s); }
+      .memText .btnCloudp:hover {
+        color: #d18082; }
+      .memText .btnCloudp:hover .btnCloudeffect {
+        transform: translateY(30%) scale(2.2); }
+  
+  .messageWrapInput {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box; }
+    .messageWrapInput input {
+      width: 100%;
+      height: 30px;
+      padding-left: 5px;
+      margin-right: 10px;
+      border-radius: 10px;
+      outline: none; }
+    .messageWrapInput .messageInputBtn {
+      margin-right: 28px; }
+      .messageWrapInput .messageInputBtn input .btnCloudp {
+        width: 80%;
+        color: #efefef;
+        font-size: 16px;
+        background-color: #d18082;
+        border: 2px solid #d18082;
+        border-radius: 20px;
+        font-weight: bold;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+        z-index: 1;
+        transition: 0.3s;
+        box-sizing: border-box;
+        cursor: pointer; }
+        .messageWrapInput .messageInputBtn input .btnCloudp .btnCloudeffect {
+          position: absolute;
+          width: 25%;
+          height: 100%;
+          background-color: #efefef;
+          transform: translateY(150%);
+          border-radius: 50%;
+          transition: 0.3s;
+          z-index: -1; }
+          .messageWrapInput .messageInputBtn input .btnCloudp .btnCloudeffect:nth-child(1) {
+            left: calc((1 - 1) * 25%);
+            transition-delay: calc((1 - 1) * 0.1s); }
+          .messageWrapInput .messageInputBtn input .btnCloudp .btnCloudeffect:nth-child(2) {
+            left: calc((2 - 1) * 25%);
+            transition-delay: calc((2 - 1) * 0.1s); }
+          .messageWrapInput .messageInputBtn input .btnCloudp .btnCloudeffect:nth-child(3) {
+            left: calc((3 - 1) * 25%);
+            transition-delay: calc((3 - 1) * 0.1s); }
+          .messageWrapInput .messageInputBtn input .btnCloudp .btnCloudeffect:nth-child(4) {
+            left: calc((4 - 1) * 25%);
+            transition-delay: calc((4 - 1) * 0.1s); }
+        .messageWrapInput .messageInputBtn input .btnCloudp:hover {
+          color: #d18082; }
+        .messageWrapInput .messageInputBtn input .btnCloudp:hover .btnCloudeffect {
+          transform: translateY(30%) scale(2.2); }
+  
+/* canvas */
+.can{
+    display: inline-block;
+}
+#can{
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+
+}
+
+.competitionBanner{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.competitionBanner .container{
+    margin: auto;
+}
+
+.skylightBanner{
+    margin-top: 50px;
+}
+
+.skylightBanner h1{
+    font-family: "華康秀風體";
+    text-align: center;
+    color: #fff;
+    margin-bottom: 50px
+}
+
+.skylightBanner h2{
+    font-family: "華康秀風體";
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+
+#skylight1{
+    width: 15%;
+    float: left;
+    margin-top: 20%;
+}
+
+#skylight3{
+    width: 8%;
+    float: left;
+    margin-top: 25%;
+}
+
+#skylight2{
+    width: 4%;
+    float: right;
+    margin-top: 30%;
+    
+}
+
+.skylightBanner{
+    margin-top: 5%;
+
+}
+
+.skylightBanner h2{
+    text-align: center;
+    border-radius: 50px;
+    width: 150px;
+    margin: 0 auto;
+}
+
+
+.competitionMessageBoard{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 150px;
+}
+
+
+.messageNo1{
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 30px;
+}
+
+.messageNo2{
+    width: 100%;
+    max-width:1200px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.messageNo2 #under{
+    margin-top: 50px;
+}
+
+.messageNo2 .messageBoard{
+    width: 40%;
+}
+
+.messageBoard{
+    width: 100%;
+    max-width: 580px;
+    height: 370px;
+    background-color: #5581ba;
+    border-radius:30px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.messageNo2 .messageBoard{
+    width: 100%;
+    max-width: 450px;
+    height: 300px;
+    background-color: #5581ba;
+    border-radius:30px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.messageBoard h2{
+    font-size: 16px;
+    padding-top: 10px;
+}
+.competitionPost{
+    width: 100%;
+    max-width: 1200px;
+}
+.messageBoard img{
+    width: 45%;
+    float: left;
+    margin-top: 20px;
+    margin-left: 35px;
+}
+
+.competitionText{
+    display: flex;
+    flex-flow: column nowrap;
+    padding-top: 20px;
+    padding-left: 28px;
+}
+
+.messageNo2 .competitionText{
+    display: flex;
+    flex-flow: column nowrap;
+    padding-top: 20px;
+    padding-left: 18px;
+}
+
+.competitionText .comptitionText1{
+    width: 100%;
+    width: 230px;
+    height: 90px;
+    background-color: #ddd;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    opacity: 0.5;
+}
+
+.messageNo2 .comptitionText1{
+    width: 100%;
+    width: 180px;
+    height: 65px;
+    background-color: #ddd;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    opacity: 0.5;
+}
+
+.competitionButton{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 60px;
+}
+
+.messageNo2 .competitionButton{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+/* span{
+    width: 70px;
+    cursor: pointer;
+    background-color: #ddd;
+    border:2px solid #ddd;
+    border-radius: 50px;
+    font-weight: bold;
+} */
+
+
+.competitionOther{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.skylightBanner #skylight4,.skylightBanner #skylight5{
+    float: left;
+    margin-left: 35%;
+    margin-top: -2%;
+}
+
+.competitionOther .OtherButton{
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top:50px;
+}
+.competitionOther .OtherButton span{
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+}
+
+
+
+.messageOtherBoard{
+    margin-top: 3%;
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly; 
+
+}
+
+.smallMessage{
+    width: 301px;
+    height: 350px;
+    background-color: #ddd;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column wrap;
+    box-shadow: 5px 5px 10px rgb(42, 37, 37) ;
+    margin-bottom: 30px;
+    margin-right: 10px;
+    margin-left: 10px;
+    
+}
+
+.smallMessage img{
+    width: 80%;
+    max-width: 300px;
+    height: 150px
+}
+
+.smallMessageButton{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 60px;
+}
+
+.smallMessageButton span{
+
+    width: 70px;
+    cursor: pointer;
+    background-color: #ddd;
+    border:1px solid #000;
+    border-radius: 50px;
+    font-weight: bold;
+
+}
+
+/* 流星特效 */
+
+.starShoot{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+.star {
+    display: inline-block;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: #fff;
+    transform-origin: 100% 0;
+    animation: star-move 4s infinite ease-out;
+    animation-direction: normal;
+    opacity: 0;
+}
+.star:after {
+    content: '';
+    position: absolute;
+    top: 20px;
+    border: 1px solid #ddd;
+    border-width: 1px 150px 1px 150px;
+    border-color: transparent transparent transparent #fff;
+    transform: rotate(-45deg) translate3d(1px, -1px, 0);
+    transform-origin: 0% 100%;
+    animation: shooting 4s infinite ease-out;
+    animation-direction: normal;
+}
+
+.blue {
+    top: 15%;
+    background: #e9e9e9;
+    animation-delay: 4.5s;
+}
+.blue:after {
+    border-color: transparent transparent transparent #fff;
+    animation-delay: 4.5s;
+}
+
+@keyframes shooting {
+    50% {
+        transform: scale(1) rotate(-45deg) translate(0px, 0px);
+    }
+    100% {
+        transform: scale(0.5) rotate(-45deg) translate(0px, -1px);
+    }
+}
+@keyframes star-move {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(0) translate3d(0, 0, 0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1) rotate(0) translate3d(-100px, 100px, 0);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1) rotate(0) translate3d(-200px, 200px, 0);
+    }
+}
+
+.bigChoseButton{
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: row nowrap;
+}
+
+.competitionDescription{
+    width: 700px;
+    height: 400px;
+    background-color: #ddd;
+    border-radius: 50px;
+    margin-top: 5%;
+    margin-left: 8%;
+    margin-bottom: 5%;
+}
+
+.choseButton{
+    margin-left: 30px;
+    display: flex;
+    justify-content: center;
+    flex-flow: column nowrap;
+}
+
+.choseButton span{
+    width: 150px;
+    height: 30px;
+    text-align: center;
+    margin: 10px;
+}
+
+.competitionOther1{
+    width: 100%;
+    background-image:url(../images/competition/backHouse.png);
+    background-size: cover;
+    /* background-repeat: no-repeat; */
+    margin: 0 auto;
+}
+
+span:hover{
+    background-color: #081334;
+}
+
+
+
+@media all and (max-width: 768px) {
+
+
+
+.messageBoard img{
+    width: 45%;
+    float: left;
+    margin-top: 20px;
+    margin-left: 15px;
+}
+
+.competitionText{
+    display: flex;
+    flex-flow: column nowrap;
+    padding-top: 20px;
+    padding-left: 13px;
+}
+
+.messageNo2 .competitionText{
+    display: flex;
+    flex-flow: column nowrap;
+    padding-top: 20px;
+    padding-left: 13px;
+}
+
+.competitionText .comptitionText1{
+    width: 100%;
+    width: 180px;
+    height: 58px;
+    background-color: #ddd;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    opacity: 0.5;
+}
+
+.messageNo2 .messageBoard,.messageBoard{
+    width: 100%;
+    max-width: 400px;
+    height: 290px;
+    background-color: #5581ba;
+    border-radius:30px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.competitionButton{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 60px;
+}
+
+.messageNo2{
+    width: 100%;
+    max-width:1200px;
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.messageNo2 #under{
+    margin-top: 30px;
+}
+
+.skylightBanner #skylight4,.skylightBanner #skylight5{
+    float: left;
+    margin-left: 15%;
+    margin-top: -1%;
+}
+
+.smallMessage{
+    width: 220px;
+    height: 300px;
+    background-color: #ddd;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: column wrap;
+    box-shadow: 5px 5px 10px rgb(42, 37, 37) ;
+    margin-bottom: 20px;
+    
+}
+
+}
+@media all and (max-width: 425px) {
+    #skylight1,#skylight2,#skylight3{
+        display: none;
+    }
+}
+@media all and (max-width: 375px) {
+
+.messageNo2 .messageBoard,.messageBoard{
+    width: 100%;
+    max-width: 340px;
+    height: 290px;
+    background-color: #5581ba;
+    border-radius:30px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.competitionText .comptitionText1{
+    width: 100%;
+    width: 150px;
+    height: 50px;
+    background-color: #ddd;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    opacity: 0.5;
+}
+.bigChoseButton{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: column nowrap;
+}
+
+.competitionDescription{
+    width: 250px;
+    height: 200px;
+    background-color: #ddd;
+    border-radius: 50px;
+    margin: 0 auto;
+}
+
+.choseButton{
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    margin: 0 auto;
+    width: 100%;
+}
+
+}
+@media all and (max-width: 320px) {
+
+.competitionText .comptitionText1{
+    width: 100%;
+    width: 120px;
+    height: 58px;
+    background-color: #ddd;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    opacity: 0.5;
+}
+
+.messageNo2 .messageBoard,.messageBoard{
+    width: 100%;
+    max-width: 280px;
+    height: 250px;
+    background-color: #5581ba;
+    border-radius:30px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.competitionButton{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+.messageNo2 .competitionButton{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.competitionText{
+    display: flex;
+    flex-flow: column nowrap;
+    padding-top: 20px;
+    padding-left: 11px;
+}
+
+.messageNo2 .competitionText{
+    display: flex;
+    flex-flow: column nowrap;
+    padding-top: 20px;
+    padding-left: 11px;
+}
+
+.competitionText .comptitionText1{
+    width: 100%;
+    width: 120px;
+    height: 40px;
+    background-color: #ddd;
+    margin-bottom: 10px;
+    border-radius: 15px;
+
+}
+
+.bigChoseButton{
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-flow: column nowrap;
+}
+
+.competitionDescription{
+    width: 250px;
+    height: 200px;
+    background-color: #ddd;
+    border-radius: 50px;
+    margin: 0 auto;
+}
+
+.choseButton{
+    display: flex;
+    justify-content: center;
+    flex-flow: row wrap;
+    margin: 0 auto;
+    width: 100%;
+}
+
+
+
+}

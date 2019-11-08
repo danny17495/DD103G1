@@ -1,0 +1,282 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/competition.css">
+    <link rel="stylesheet" href="css/common.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <title>Competition</title>
+</head>
+<body>
+    <header>
+        <div class="container headerStyle">
+            <a href="index.html">
+                <h1>
+                    <img src="images/logo.png" alt="logo">
+                </h1>
+            </a>
+            <input type="checkbox" id="headerCheck" >
+            <label for="headerCheck" class="headerClick">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+                <nav  class="navMenu">
+                    <div class="navDarken">
+                        <ul>
+                            <li>
+                                <a href="spotIntro.html">行程介紹</a>
+                            </li>
+                            <li>
+                                <a href="reserve.html">預約行程</a>
+                            </li>
+                            <li>
+                                <a href="postcard.html">客製明信片</a>
+                            </li>
+                            <li>
+                                <a href="shop.html">購物商城</a>
+                            </li>
+                            <li>
+                                <a href="competition.html">投票比賽</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <div class="headerMemInfo">
+                    <span id="headerMemName"></span>
+                    <a href="javascript:;"></a>
+                </div>
+                <div class="headerIcon">
+                    <a href="shopcart.html">
+                        <img src="images/icon_shopcar.png" alt="icon_shopcar">
+                    </a>
+                    <a href="login tabs/login.html">
+                        <img src="images/icon_login.png" alt="icon_login">
+                    </a>
+                </div>
+        </div>
+    </header>
+
+    <!-- canvas 星空畫布 -->
+
+    <div class="can">
+        <canvas id="can"></canvas> 
+    </div>
+
+    <!-- 流星特效 -->
+
+    <div class="starShoot">
+        <span class="star"></span>
+        <span class="star blue"></span>
+    </div>
+
+    <!-- 留言板 -->
+
+    <section class="message" id="message">
+        <div class="messageContainer">
+
+               <!-- 留言板開頭 -->
+
+            <div class="messageTitle">
+                <h3>留言板</h3> 
+                <img src="images/competition/X.png" alt="close" class="closs_btn">
+            </div>
+            
+            <!-- 留言區 -->
+
+            <div id="messageContent" class="messageContent">
+              <div class="messageWrap" id="messageWrap">
+                     <figure class="mem_pic" id="bg_pic">
+                    </figure>
+                    <div id="memText" class="memText">
+                        <div class="megsageMemName">
+                            <p id="messageMemId"></p>
+                            <p class="messageDate" id="messageDate"></p> 
+                        </div>
+                        <div class="messageBox">
+                            <p class="messageText" id="messageText">
+                            </p>  
+                        </div> 
+                        <div class="messageBtn">
+                            <span class="btnCloudb">檢舉</span>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+            <form class="messageWrapInput">
+                <input type="hidden" id="msgBtnNo">
+                <input type="text" id="inputText" name="msg" placeholder="最多輸入10字數" maxlength="10">
+                <div class="messageInputBtn">
+                    <input type="button" id="msgBtn" value="留言"class="btnCloudb">
+<span class="btnCloudeffect"></span>
+<span class="btnCloudeffect"></span>
+<span class="btnCloudeffect"></span>
+<span class="btnCloudeffect"></span>
+                </div>
+            </form> 
+    </section>
+    <section class="competitionMessageBoard">
+        <div id="containerpa floatBoard">
+            <div class="skylightBanner">
+                    <h1>投票比賽</h1>
+                    <h2>九月份比賽</h2>
+            </div>
+            <img src="images/competition/skyLight1.png" id="skylight1" alt="">
+            <img src="images/competition/skyLight3.png" id="skylight3" alt="">
+            <img src="images/competition/skyLight2.png" id="skylight2" alt="">
+            <div class="messageNo1 row">
+                <div class="messageBoard col-xl-6">
+                    <h2>第一名</h2>
+                    <div class="competitionPost">
+                        <img src="images/competition/comptitionPost.png" alt="">
+                    </div>
+                    <div class="competitionText">
+                        <div class="comptitionText1"></div>
+                        <div class="comptitionText1"></div>
+                    </div>
+                    <div class="competitionButton">
+                        <span href="#">投票</span>
+                        <span href="#" class="btnCloudp">留言</span>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+            <div class="messageNo2 row">
+                <div class="messageBoard col-xl-6">
+                    <h2>第二名</h2>
+                    <div class="competitionPost">
+                        <img src="images/competition/comptitionPost.png" alt="">
+                    </div>
+                    <div class="competitionText">
+                        <div class="comptitionText1"></div>
+                        <div class="comptitionText1"></div>
+                    </div>
+                    <div class="competitionButton">
+                        <span href="#">投票</span>
+                        <span href="#">留言</span>
+                    </div>
+                </div>
+                <div class="messageBoard col-xl-6" id="under">
+                    <h2>第三名</h2>
+                    <div class="competitionPost">
+                        <img src="images/competition/comptitionPost.png" alt="">
+                    </div>
+                    <div class="competitionText">
+                        <div class="comptitionText1"></div>
+                        <div class="comptitionText1"></div>
+                    </div>
+                    <div class="competitionButton">
+                        <span href="#">投票</span>
+                        <span href="#">留言</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </section>
+    <section class="competitionOther">
+        <div class="starShoot">
+            <span class="star"></span>
+            <span class="star blue"></span>
+        </div>
+        <div class="containerpa">
+            <div class="row">
+                <div class="skylightBanner ">
+                    <img src="images/competition/skylight4.png" id="skylight4" alt="">
+                    <h2>其他作品</h2>
+                </div>
+                <div class="OtherButton">
+                    <span href="#">熱門作品</span>
+                    <span href="#">最新作品</span>
+                    <span href="#">最夯作品</span>
+                </div>
+                <div class="messageOtherBoard" id="fly1">
+                    <div class="smallMessage">
+                        <img src="images/competition/comptitionPost.png" alt="">
+                        <div class="smallMessageButton">
+                            <span href="#">投票</span>
+                            <span href="#">留言</span>
+                        </div>
+                    </div>
+                    <div class="smallMessage">
+                        <img src="images/competition/comptitionPost.png" alt="">
+                        <div class="smallMessageButton">
+                            <span href="#">投票</span>
+                            <span href="#">留言</span>
+                        </div>
+                    </div>
+                    <div class="smallMessage">
+                        <img src="images/competition/comptitionPost.png" alt="">
+                        <div class="smallMessageButton">
+                            <span href="#">投票</span>
+                            <span href="#">留言</span>
+                        </div>
+                    </div>
+                <!-- </div>
+                <div class="messageOtherBoard col-12" id="fly2"> -->
+                    <div class="smallMessage">
+                        <img src="images/competition/comptitionPost.png" alt="">
+                        <div class="smallMessageButton">
+                            <span href="#">投票</span>
+                            <span href="#">留言</span>
+                        </div>
+                    </div>
+                    <div class="smallMessage">
+                        <img src="images/competition/comptitionPost.png" alt="">
+                        <div class="smallMessageButton">
+                            <span href="#">投票</span>
+                            <span href="#">留言</span>
+                        </div>
+                    </div>
+                    <div class="smallMessage">
+                        <img src="images/competition/comptitionPost.png" alt="">
+                        <div class="smallMessageButton">
+                            <span href="#">投票</span>
+                            <span href="#">留言</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="competitionOther1">
+        <div class="container">
+            <div class="skylightBanner">
+                <img src="images/competition/skylight4.png" id="skylight5" alt="">
+                <h2>比賽說明</h2>
+            </div>
+            <div class="bigChoseButton">
+                <div class="competitionDescription">
+                </div>
+                <div class="choseButton">
+                    <span>手刀加入會員</span>
+                    <span>我也要客製明信片</span>
+                    <span>我不知道要說什麼</span>
+                    <div class="clearfix"></div>  
+                </div>
+            </div>
+        </div>  
+    </section>
+    <footer>
+        <div>
+            <a href="#">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="#">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="#">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+        </div>
+        <p>DD103 G1 copyright</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script src="js/animation.js"></script>
+
+</body>
+</html>
