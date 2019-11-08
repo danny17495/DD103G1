@@ -102,9 +102,9 @@ section.postcardExampleTitle .container div{
 
 @keyframes opacity1{
     0%{opacity: 1;}
-    35%{opacity: .9;}
-    41%{opacity: .8;}
-    42%{opacity: .7;}
+    30%{opacity: .9;}
+    36%{opacity: .8;}
+    40%{opacity: .7;}
     43%{opacity: .6;}
     100%{opacity: .5;}
 }
@@ -161,6 +161,7 @@ body.postcardBody .forFoodDeco .postcardFood img{
     height: auto;
 }
 
+
 /*----------------2-1,2-3.postLine  明信片裝飾斜線----------------*/
 section.postLine{
     height: 8px;
@@ -169,11 +170,13 @@ section.postLine{
     background-repeat: repeat-x; 
 }
 
+
 /*----------------2-2.postcardMain  明信片主要客製畫面----------------*/
 section.postcardMain{
     width: 100%;
     background-color: #fef6ea;
 }
+
 
 /*----------------2-2.postcardMain  明信片主要客製畫面----------------*/
 /*2-2-1.標題*/
@@ -214,8 +217,6 @@ section.postcardMain .postcardTitleContainer img{
     width: 100%;
     height: auto;
 }
-
-
 
 /*2-2-2.(一)+(二)預覽畫面.postLeft + 操作畫面.postRight*/
 section.postcardMain .postcardLRContainer{
@@ -260,41 +261,46 @@ section.postcardMain .postLeft .postLeftStepBoxBig{
     display: none;
 }
 
-section.postcardMain .postLeft .postStep{
+/*步驟黃色圓底, 放在外包裝,+postcard.js跟著步驟做切換*/
+section.postcardMain .postLeft .postStepYellow{
     width: 16%;
+    margin-bottom: 10px;
+    border-radius: 50%;
+    position: relative;
+}
+
+section.postcardMain .postLeft .postStepYellow1{
+    background-color: rgba(255, 201, 121, .6);
+}
+
+/*用來放圖騰背景*/
+section.postcardMain .postLeft .postStep{
+    width: 100%;
     height: 0;
-    padding-top: 6%;
-    padding-bottom: 10%;
+    padding-bottom: 100%;
+    /*background-color: red;*/
     background-image: url(../images/postcard/postStepBorder.png);
     background-size: contain;
     position: relative;
-    margin-bottom: 10px;
+
 }
 
 section.postcardMain .postLeft .postStep p{
     font-size: 12px;
     width: 100%;
+    /*background-color: blue;*/
     text-align: center;
     position: absolute;
     top: 50%;
-    transform: translate( 0, -50%);/*減掉自己本身的*/
+    left: 0;
+    transform: translate( 0, -52%);/*減掉自己本身的,視覺上讓下面重一點*/
 }
 
-/*步驟黃色圓底*/
-section.postcardMain .postLeft .postStep1:before{
-    content: "";
-    display: block;
-    position: absolute;
-    width: 100%;
-    padding-bottom: 100%;
-    top: 0px;
-    /*left: 3px;*/
-    background-color: rgba(255, 201, 121, .6);
-    border-radius: 50%;
-    /*z-index: -9999;*/
-}
-
-section.postcardMain .postLeft .postStep1:after, .postStep2:after, .postStep3:after, .postStep4:after{
+/*步驟的三角形*/
+section.postcardMain .postLeft .postStepYellow1:after,
+section.postcardMain .postLeft .postStepYellow2:after,
+section.postcardMain .postLeft .postStepYellow3:after,
+section.postcardMain .postLeft .postStepYellow4:after{
     content: "";
     display: block;
     width: 12px;
@@ -308,12 +314,21 @@ section.postcardMain .postLeft .postStep1:after, .postStep2:after, .postStep3:af
 }
 
 
-/*2-2-2(二).操作畫面.postRight*/
+/*2-2-2(二).操作畫面.postRight設定*/
+/*===============================================================*/
+/*2-2-2(二).操作畫面.postRight切換步驟css + postcard.js*/
+.postRight_2{display: none}
+.postRight_3{display: none}
+.postRight_4{display: none}
+.postRight_5{display: none}
+
+/*2-2-2(二).操作畫面.postRight排版*/
 section.postcardMain .postRight h3{
     font-size: 14px;
+    padding-top: 15px;    
 }
 
-section.postcardMain .postRight .postRightDIY_1{
+section.postcardMain .postRight .postRightDIY{
     width: 70%;
     background-color: #fff;
     margin: 0 auto;
@@ -322,12 +337,11 @@ section.postcardMain .postRight .postRightDIY_1{
     position: relative;
     padding-bottom: 80%;
 }
+/*===============================================================*/
 
-section.postcardMain .postRight .postRightDIY_1 h3{
-    padding-top: 15px;
-}
 
-section.postcardMain .postRight .postRightDIY_1 > div{
+/*2-2-2(二).操作畫面.postRight步驟一樣式*/
+section.postcardMain .postRight_1 .postRightDIY > div{
     width: 60%;
     box-sizing: border-box;
     border: 1px solid #fff;
@@ -335,27 +349,27 @@ section.postcardMain .postRight .postRightDIY_1 > div{
     position: absolute; 
 }
 
-section.postcardMain .postRight .postRightDIY_1 > div > img{
+section.postcardMain .postRight_1 .postRightDIY > div > img{
     display: block;
     width: 100%;
     height: auto;
 }
 
-section.postcardMain .postRight .postBGC_1{
+section.postcardMain .postRight_1 .postBGC_1{
     transform: rotateZ(-10deg);
     top: 18%;
     left: 18%;
     z-index: 5;
 }
 
-section.postcardMain .postRight .postBGC_2{
+section.postcardMain .postRight_1 .postBGC_2{
     transform: rotateZ(10deg);
     top: 40%;
     left: 45%;
     z-index: 4;
 }
 
-section.postcardMain .postRight .postBGC_3{
+section.postcardMain .postRight_1 .postBGC_3{
     transform: rotateZ(-6deg);
     top: 52%;
     left: -5%;
@@ -363,7 +377,7 @@ section.postcardMain .postRight .postBGC_3{
 }
 
 /*上傳窗格*/
-section.postcardMain .postRight .postRightDIY_1 .uploadBGC{
+section.postcardMain .postRight_1 .postRightDIY .uploadBGC{
     height: 0;
     padding-bottom: 40%;
     background-color: #ccc;
@@ -374,7 +388,7 @@ section.postcardMain .postRight .postRightDIY_1 .uploadBGC{
     z-index: 2;
 }
 
-section.postcardMain .postRight .postRightDIY_1 .uploadBGC div{
+section.postcardMain .postRight_1 .postRightDIY .uploadBGC div{
     width: 40px;
     height: 40px;
     margin: 0 auto;
@@ -383,21 +397,33 @@ section.postcardMain .postRight .postRightDIY_1 .uploadBGC div{
     border-radius: 50%;
 }
 
-section.postcardMain .postRight .postRightDIY_1 .uploadBGC img{
+section.postcardMain .postRight_1 .postRightDIY .uploadBGC img{
     display: inline-block;
     width: 19px;
     height: auto;
     margin-top: 10px;
 }
 
-section.postcardMain .postRight .postRightDIY_1 .uploadBGC p{
+section.postcardMain .postRight_1 .postRightDIY .uploadBGC p{
     margin-top: 10%;
 }
 
-/*按鈕*/
-section.postcardMain .postRight .postDIYNextBtn{
+/*postRight_1 + postRight_5 按鈕*/
+section.postcardMain .postRight_1 .postDIYBtn_1_Next,
+section.postcardMain .postRight_4 .postDIYBtn_8_Back{
     margin: 20px auto 30px;
 }
+
+/*postRight_2 + postRight_3 + postRight_4按鈕*/
+section.postcardMain .postRight_2 .postDIYBtn,
+section.postcardMain .postRight_3 .postDIYBtn,
+section.postcardMain .postRight_4 .postDIYBtn{
+    margin: 20px 5px 30px;
+}
+
+
+
+
 
 /*----------------3-1.pageTitle  標題:注意事項----------------*/
 section.postcardNoticeTitle .container{
@@ -584,19 +610,19 @@ body.postcardBody .forWallDeco{
         justify-content: center;
     }
 
+    /*組員要求改用flex*/
+    /*
     section.postcardMain .container .postLeft,
     section.postcardMain .container .postRight{
         float: left;
-    }
+    }*/
 
     section.postcardMain .container .postLeft{
         width: 45%;  
-        /*background-color: yellow;*/
     }
 
     section.postcardMain .container .postRight{
         width: 40%;
-        /*background-color: green;*/
     }
 
     /*2-2-2(一).預覽畫面.postLeft*/
@@ -616,26 +642,37 @@ body.postcardBody .forWallDeco{
         display: none;
     }
 
-    section.postcardMain .postLeft .postStep{
-        width: 16%;
-        height: 0;
-        padding-top: 6%;
-        padding-bottom: 10%;
-        background-image: url(../images/postcard/postStepBorder.png);
-        background-size: contain;
-        position: relative;
-        margin-bottom: 10px;
-    }
 
-    /*2-2-2(二).操作畫面.postRight*/
-    section.postcardMain .postRight .postRightDIY_1{
+
+
+
+
+
+
+
+
+
+    /*===============================================================*/
+    /*2-2-2(二).操作畫面.postRight排版*/
+    section.postcardMain .postRight .postRightDIY{
         margin: 10px 3% 0 27%;
     }
+    /*===============================================================*/
 
-    /*按鈕*/
-    section.postcardMain .postRight .postDIYNextBtn{
+    /*2-2-2(二).操作畫面.postRight步驟一樣式*/
+    /*postRight_1 + postRight_5 按鈕*/
+    section.postcardMain .postRight_1 .postDIYBtn_1_Next,
+    section.postcardMain .postRight_4 .postDIYBtn_8_Back{
       margin: 20px 0 30px 20%;
     }
+
+    /*postRight_2 + postRight_3 + postRight_4按鈕*/
+    section.postcardMain .postRight .postDITBtn_Wrap{
+        /*background-color: blue;*/
+        width: 70%;
+        margin: 0 3% 0 27%;
+    }
+
 
     /*----------------3-1.pageTitle  標題:注意事項----------------*/
     section.postcardNoticeTitle .container{
@@ -698,34 +735,54 @@ body.postcardBody .forWallDeco{
     }
 
     /*步驟*/
-    section.postcardMain .postLeft .postLeftStepBox{
+    section.postcardMain .postLeft .postLeftStepBoxBig{
         width: 87%;
         margin: 0 3% 0 10%;
     }
 
-    section.postcardMain .postLeft .postStep{
+    section.postcardMain .postLeft .postStepYellow{
         width: 14%;
-        padding-top: 5%;
-        padding-bottom: 9%;
     }
 
-    section.postcardMain .postLeft .postStep1:after, .postStep2:after, .postStep3:after, .postStep4:after{
+    /*步驟的三角形*/
+    section.postcardMain .postLeft .postStepYellow1:after,
+    section.postcardMain .postLeft .postStepYellow2:after,
+    section.postcardMain .postLeft .postStepYellow3:after,
+    section.postcardMain .postLeft .postStepYellow4:after{
         right: -40%;
     }
 
-    /*2-2-2(二).操作畫面.postRight*/
+
+
+    /*===============================================================*/
+    /*2-2-2(二).操作畫面.postRight排版*/
     section.postcardMain .postRight h3{
         font-size: 18px;
     }
+    /*===============================================================*/
 
-    section.postcardMain .postRight .postRightDIY_1{
+    section.postcardMain .postRight .postRightDIY{
         margin: 10px 10% 0 20%;
     }
 
-    /*按鈕*/
-    section.postcardMain .postRight .postDIYNextBtn{
+    /*2-2-2(二).操作畫面.postRight步驟一樣式*/
+    /*postRight_1 + postRight_5 按鈕*/
+    section.postcardMain .postRight_1 .postDIYBtn_1_Next,
+    section.postcardMain .postRight_4 .postDIYBtn_8_Back{
       margin: 20px 0 30px 30px;
     }
+
+    /*postRight_2 + postRight_3 + postRight_4按鈕*/
+    section.postcardMain .postRight .postDITBtn_Wrap{
+        width: 70%;
+        margin: 0 10% 0 20%;
+    }
+
+
+
+
+
+
 
     /*----------------3-2.postcardNotice  注意事項----------------*/
     section.postcardNotice .container{
@@ -742,9 +799,11 @@ body.postcardBody .forWallDeco{
 
 @media screen and (min-width: 1200px){
     /*----------------2-2.postcardMain  明信片主要客製畫面----------------*/
-    /*2-2-2(二)操作畫面.postRight*/
-    section.postcardMain .postRight .postRightDIY_1 h3{
+    /*===============================================================*/
+    /*2-2-2(二).操作畫面.postRight排版*/
+    section.postcardMain .postRight .postRightDIY h3{
         padding-top: 25px;
     }
+    /*===============================================================*/
 
 }

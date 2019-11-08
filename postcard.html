@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/stylePostcard.css">
+    <script src="js/postcard.js"></script>
 </head>
 <body class="postcardBody">
     <header>
@@ -18,47 +19,47 @@
                     <img src="images/logo.png" alt="logo">
                 </h1>
             </a>
-        <input type="checkbox" id="headerCheck" >
-        <label for="headerCheck" class="headerClick">
-        <span></span>
-        <span></span>
-        <span></span>
-        </label>
-        <nav class="navMenu">
-            <div class="navDarken">
-                <ul>
-                    <li>
-                        <a href="spotIntro.html">行程介紹</a>
-                    </li>
-                    <li>
-                        <a href="reserve.html">預約行程</a>
-                    </li>
-                    <li>
-                        <a href="postcard.html">客製明信片</a>
-                    </li>
-                    <li>
-                        <a href="shop.php">購物商城</a>
-                    </li>
-                    <li>
-                        <a href="competition.html">投票比賽</a>
-                    </li>
-                </ul>
+            <input type="checkbox" id="headerCheck" >
+            <label for="headerCheck" class="headerClick">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+            <nav  class="navMenu">
+                <div class="navDarken">
+                    <ul>
+                        <li>
+                            <a href="spotIntro.html">行程介紹</a> 
+                        </li>
+                        <li>
+                            <a href="reserve.html">預約行程</a> 
+                        </li>
+                        <li>
+                            <a href="postcard.html">客製明信片</a>
+                        </li>
+                        <li>
+                            <a href="shop.html">購物商城</a> 
+                        </li>
+                        <li>
+                            <a href="competition.html">投票比賽</a> 
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div class="headerMemInfo">
+                <span id="headerMemName"></span>
+                <a href="javascript:;"></a>
             </div>
-        </nav>
-        <div class="headerMemInfo">
-            <span id="headerMemName"></span>
-            <a href="javascript:;"></a>
+            <div class="headerIcon">
+                <a href="shopcart.html">
+                    <img src="images/icon_shopcar.png" alt="icon_shopcar">
+                </a>
+                <a href="member_html/member.html">
+                    <img src="images/icon_login.png" alt="icon_login">
+                </a>
+            </div>
         </div>
-        <div class="headerIcon">
-            <a href="shopcart.html">
-                <img src="images/icon_shopcar.png" alt="icon_shopcar">
-            </a>
-            <a href="member.php">
-                <img src="images/icon_login.png" alt="icon_login">
-            </a>
-        </div>
-        </header>
-
+    </header>
 
     <div class="forFoodDeco">
         <!-----  1-1.pageTitle  標題:明信片範例  ----->
@@ -72,26 +73,24 @@
         
             </div><!-- .container結束div -->
         </section><!-- section.pageTitle結束div -->
-        
+
+
         <!-----  1-2.postcardExample  明信片範例  ----->
         <section class="postcardExample wrapA">
             <div class="container">
                 <div>
                     <div class="postWhiteBack postWhiteBackDemo">
-                        <img src="images/postcard/postDemo_1.jpg" alt="">
+                        <img src="images/postcard/postDemo_1.jpg" alt="postcard">
                     </div>
                     <div class="postWhiteBack postWhiteBackDemo">
-                        <img src="images/postcard/postDemo_2.jpg" alt="">
+                        <img src="images/postcard/postDemo_2.jpg" alt="postcard">
                     </div>
                     <div class="postWhiteBack postWhiteBackDemo">
-                        <img src="images/postcard/postDemo_3.jpg" alt="">
+                        <img src="images/postcard/postDemo_3.jpg" alt="postcard">
                     </div>
                     <div class="postWhiteBack postWhiteBackDemo">
-                        <img src="images/postcard/postDemo_1.jpg" alt="">
+                        <img src="images/postcard/postDemo_1.jpg" alt="postcard">
                     </div>
-                    <!--<div class="postWhiteBack postWhiteBackDemo">
-                        <img src="images/postcard/postDemo_2.jpg" alt="">
-                    </div> -->
                 </div>
                 <span>
                     <div class="postcardFood postcardFood1">
@@ -111,8 +110,6 @@
             </div><!-- .container結束div -->
         </section>
     </div>
-
-
 
 
 
@@ -139,21 +136,31 @@
             <div class="postLeft">
                 <!-- (1)<768的步驟圈圈在上方 -->
                 <div class="postLeftStepBox postLeftStepBoxSmall">
-                    <div class="postStep postStep1">
-                        <p>選背景</p>
-                    </div>
-                    <div class="postStep postStep2">
-                        <p>選貼圖</p>
-                    </div>
-                    <div class="postStep postStep3">
-                        <p>寫文字</p>
-                    </div>
-                    <div class="postStep postStep4">
-                        <p>選郵戳</p>
-                    </div>
-                    <div class="postStep postStep5">
-                        <p>完成</p>
-                    </div>
+                    <span class="postStepYellow postStepYellow1">
+                        <div class="postStep postStep1">
+                            <p>選背景</p>
+                        </div>
+                    </span>
+                    <span class="postStepYellow postStepYellow2">
+                        <div class="postStep postStep2">
+                            <p>選貼圖</p>
+                        </div>
+                    </span>
+                    <span class="postStepYellow postStepYellow3">
+                        <div class="postStep postStep3">
+                            <p>寫文字</p>
+                        </div>
+                    </span>
+                    <span class="postStepYellow postStepYellow4">
+                        <div class="postStep postStep4">
+                            <p>選郵戳</p>
+                        </div>
+                    </span>
+                    <span class="postStepYellow postStepYellow5">
+                        <div class="postStep postStep5">
+                            <p>完成</p>
+                        </div>
+                    </span>
                 </div><!-- .postStepBoxSmall結束div -->
 
                 <!-- (2)明信片預覽畫面 -->
@@ -163,28 +170,41 @@
 
                 <!-- (3)>=768的步驟圈圈在下方 -->
                 <div class="postLeftStepBox postLeftStepBoxBig">
-                    <div class="postStep postStep1">
-                        <p>選背景</p>
-                    </div>
-                    <div class="postStep postStep2">
-                        <p>選貼圖</p>
-                    </div>
-                    <div class="postStep postStep3">
-                        <p>寫文字</p>
-                    </div>
-                    <div class="postStep postStep4">
-                        <p>選郵戳</p>
-                    </div>
-                    <div class="postStep postStep5">
-                        <p>完成</p>
-                    </div>
+                    <span class="postStepYellow postStepYellow1">
+                        <div class="postStep postStep1">
+                            <p>選背景</p>
+                        </div>
+                    </span>
+                    <span class="postStepYellow postStepYellow2">
+                        <div class="postStep postStep2">
+                            <p>選貼圖</p>
+                        </div>
+                    </span>
+                    <span class="postStepYellow postStepYellow3">
+                        <div class="postStep postStep3">
+                            <p>寫文字</p>
+                        </div>
+                    </span>
+                    <span class="postStepYellow postStepYellow4">
+                        <div class="postStep postStep4">
+                            <p>選郵戳</p>
+                        </div>
+                    </span>
+                    <span class="postStepYellow postStepYellow5">
+                        <div class="postStep postStep5">
+                            <p>完成</p>
+                        </div>
+                    </span>
                 </div>
             </div><!-- .postLeft結束div -->
 
 
-            <!-- (二)操作畫面.postRight -->
-            <div class="postRight">
-                <div class="postRightDIY_1">
+
+
+
+            <!-- ==============(二-1)操作畫面.postRight_1(選背景)============== -->
+            <div class="postRight_1 postRight" id="postRight_1">
+                <div class="postRightDIY">
                     <h3>選個喜歡的背景吧</h3>
                     <!-- (1)3個可選用背景 -->
                     <div class="postBGC postBGC_1">
@@ -204,9 +224,104 @@
                         </div>
                     </div>
                 </div><!-- .postRightDIY_1結束div -->
-                <div class="whiteButton postDIYNextBtn">下一步</div>
-            </div><!-- .postRight結束div -->
-            <div class="clearfix"></div>
+                <div>
+                    <div class="whiteButton postDIYBtn_1_Next postDIYBtn" id="postDIYBtn_1_Next">下一步</div>   
+                </div>
+
+            </div><!-- .postRight_1結束div -->
+
+
+            <!-- ==============(二-2)操作畫面.postRight_2(選食物)============== -->
+            <div class="postRight_2 postRight" id="postRight_2">
+                <div class="postRightDIY">
+                    <h3>紀錄愛上的九份美食</h3>
+                    <!-- (1)3個可選用背景 -->
+
+
+
+
+                    <!-- (2)上傳窗格 -->
+
+
+
+                </div><!-- .postRightDIY結束div -->
+                <div class="postDITBtn_Wrap">
+                    <div class="whiteButton postDIYBtn_2_Back postDIYBtn" id="postDIYBtn_2_Back">上一步</div>
+                    <div class="whiteButton postDIYBtn_3_Next postDIYBtn" id="postDIYBtn_3_Next">下一步</div>
+                </div>
+            </div><!-- .postRight_2結束div -->
+
+
+            <!-- ==============(二-3)操作畫面.postRight_3(寫文字)============== -->
+            <div class="postRight_3 postRight" id="postRight_3">
+                <div class="postRightDIY">
+                    <h3>寫文字</h3>
+                    <!-- (1)3個可選用背景 -->
+
+
+
+
+                    <!-- (2)上傳窗格 -->
+
+
+
+
+                </div><!-- .postRightDIY結束div -->
+                <div class="postDITBtn_Wrap">
+                    <div class="whiteButton postDIYBtn_4_Back postDIYBtn" id="postDIYBtn_4_Back">上一步</div>
+                    <div class="whiteButton postDIYBtn_5_Next postDIYBtn" id="postDIYBtn_5_Next">下一步</div>
+                </div>
+            </div><!-- .postRight_3結束div -->
+
+
+            <!-- ==============(二-4)操作畫面.postRight_4(選郵戳)============== -->
+            <div class="postRight_4 postRight" id="postRight_4">
+                <div class="postRightDIY">
+                    <h3>蓋郵戳！九份認證！</h3>
+                    <!-- (1)3個可選用背景 -->
+
+
+
+
+                    <!-- (2)上傳窗格 -->
+
+
+
+
+
+
+                </div><!-- .postRightDIY結束div -->
+                <div class="postDITBtn_Wrap">
+                    <div class="whiteButton postDIYBtn_6_Back postDIYBtn" id="postDIYBtn_6_Back">上一步</div>
+                    <div class="whiteButton postDIYBtn_7_Next postDIYBtn" id="postDIYBtn_7_Next">下一步</div>
+                </div>
+            </div><!-- .postRight_4結束div -->
+
+
+            <!-- ==============(二-5)操作畫面.postRight_5(完成)============== -->
+            <div class="postRight_5 postRight" id="postRight_5">
+                <div class="postRightDIY">
+                    <h3>選個喜歡的背景吧</h3>
+                    <!-- (1)3個可選用背景 -->
+
+
+
+
+                    <!-- (2)上傳窗格 -->
+
+
+
+
+
+                </div><!-- .postRightDIY結束div -->
+                <div>
+                    <div class="whiteButton postDIYBtn_8_Back postDIYBtn" id="postDIYBtn_8_Back">上一步</div>
+                </div>
+            </div><!-- .postRight_5結束div -->
+
+
+
+            <!-- <div class="clearfix"></div> --><!-- 組員要求改用flex -->
         </div><!-- .container結束div -->
 
     </section>
