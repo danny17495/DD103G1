@@ -7,13 +7,15 @@
     <title>九份客棧</title>
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-    <link rel="stylesheet" type="text/css" href="slick/slick.css" />
-    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
+    <link rel="stylesheet" type="text/css" href="css/slick.css">
+    <link rel="stylesheet" type="text/css" href="css/slick-theme.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
     <script src="js/slick.js"></script>
     <script src="js/oneSlide.js"></script>
+    <script src="js/cloudMove.js"></script>
 </head>
 <body>
         <header>
@@ -69,8 +71,22 @@
                 <div class="headerBg01"></div>
             </div>
             <div class="cloudAnimation">
-                    <img src="images/cloud01.png" alt="cloud01">
-            </div>
+                <li>
+                <img src="images/cloud01--1.png" id="moveCloud"> 
+               </li>
+               <li>
+                <img src="images/cloud03.png" id="moveCloud2"> 
+               </li> 
+               <li>
+                <img src="images/cloud01--2.png" id="moveCloud3"> 
+               </li>
+               <li>
+                <img src="images/cloud01.png" id="moveCloud2"> 
+               </li> 
+               <li>
+                <img src="images/cloud01_mobile.png" alt="" id="moveCloud4"> 
+               </li>
+        </div>
             <div class="topCloud"></div>
             <div class="bottomCloud"></div>
         </section>
