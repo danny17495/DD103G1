@@ -166,3 +166,17 @@ function resizeCanvas() {
 
 resizeCanvas();
 
+// 控制留言板開關
+
+$('.messageBtn').click(function(){
+    $('.message').show();
+});
+
+$('.closeBtn').click(function(){
+    $('.message').hide();
+});
+
+new Vue({
+    el: '#vote'
+    
+})
