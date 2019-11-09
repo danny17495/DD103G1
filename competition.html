@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
     <title>Competition</title>
 </head>
 <body>
@@ -59,13 +60,13 @@
                 </div>
         </div>
     </header>
+    
 
     <!-- canvas 星空畫布 -->
 
     <div class="can">
         <canvas id="can"></canvas> 
     </div>
-
     <!-- 流星特效 -->
 
     <div class="starShoot">
@@ -82,7 +83,7 @@
 
             <div class="messageTitle">
                 <h3>留言板</h3> 
-                <img src="images/competition/X.png" alt="close" class="closs_btn">
+                <img src="images/competition/X.png" alt="close" class="closeBtn">
             </div>
             
             <!-- 留言區 -->
@@ -110,11 +111,7 @@
                 <input type="hidden" id="msgBtnNo">
                 <input type="text" id="inputText" name="msg" placeholder="最多輸入10字數" maxlength="10">
                 <div class="messageInputBtn">
-                    <input type="button" id="msgBtn" value="留言"class="btnCloudb">
-<span class="btnCloudeffect"></span>
-<span class="btnCloudeffect"></span>
-<span class="btnCloudeffect"></span>
-<span class="btnCloudeffect"></span>
+                    <input type="button" id="msgBtn" value="留言" class="btnCloudb">
                 </div>
             </form> 
     </section>
@@ -137,9 +134,14 @@
                         <div class="comptitionText1"></div>
                         <div class="comptitionText1"></div>
                     </div>
+                    <div id="vote">
+                        <p id="memId">中壢金城武</p>
+                        <div id="vote">123票</div>
+                    </div>
                     <div class="competitionButton">
                         <span href="#">投票</span>
-                        <span href="#" class="btnCloudp">留言</span>
+                        <span href="#" class="messageBtn" id="messageButton">留言</span>
+                        <input type="hidden" name="work_no2" value="23">
                     </div>
                 </div>
             </div>
@@ -156,7 +158,7 @@
                     </div>
                     <div class="competitionButton">
                         <span href="#">投票</span>
-                        <span href="#">留言</span>
+                        <span href="#"class="messageBtn">留言</span>
                     </div>
                 </div>
                 <div class="messageBoard col-xl-6" id="under">
@@ -170,7 +172,7 @@
                     </div>
                     <div class="competitionButton">
                         <span href="#">投票</span>
-                        <span href="#">留言</span>
+                        <span href="#"class="messageBtn">留言</span>
                     </div>
                 </div>
             </div>
@@ -198,21 +200,21 @@
                         <img src="images/competition/comptitionPost.png" alt="">
                         <div class="smallMessageButton">
                             <span href="#">投票</span>
-                            <span href="#">留言</span>
+                            <span href="#"class="messageBtn">留言</span>
                         </div>
                     </div>
                     <div class="smallMessage">
                         <img src="images/competition/comptitionPost.png" alt="">
                         <div class="smallMessageButton">
                             <span href="#">投票</span>
-                            <span href="#">留言</span>
+                            <span href="#"class="messageBtn">留言</span>
                         </div>
                     </div>
                     <div class="smallMessage">
                         <img src="images/competition/comptitionPost.png" alt="">
                         <div class="smallMessageButton">
                             <span href="#">投票</span>
-                            <span href="#">留言</span>
+                            <span href="#"class="messageBtn">留言</span>
                         </div>
                     </div>
                 <!-- </div>
@@ -221,21 +223,21 @@
                         <img src="images/competition/comptitionPost.png" alt="">
                         <div class="smallMessageButton">
                             <span href="#">投票</span>
-                            <span href="#">留言</span>
+                            <span href="#"class="messageBtn">留言</span>
                         </div>
                     </div>
                     <div class="smallMessage">
                         <img src="images/competition/comptitionPost.png" alt="">
                         <div class="smallMessageButton">
                             <span href="#">投票</span>
-                            <span href="#">留言</span>
+                            <span href="#"class="messageBtn">留言</span>
                         </div>
                     </div>
                     <div class="smallMessage">
                         <img src="images/competition/comptitionPost.png" alt="">
                         <div class="smallMessageButton">
                             <span href="#">投票</span>
-                            <span href="#">留言</span>
+                            <span href="#"class="messageBtn">留言</span>
                         </div>
                     </div>
                 </div>
@@ -275,7 +277,6 @@
         </div>
         <p>DD103 G1 copyright</p>
     </footer>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
     <script src="js/animation.js"></script>
 
 </body>
