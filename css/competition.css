@@ -5,6 +5,10 @@ body{
     background-image: url(../images/competition/comptitionbackground.png);
 }
 
+.competitionMessageBoard span,.competitionOther span,.competitionOther1 span{
+    font-family: '華康秀風體';
+}
+
 /* 留言板 */
 .message {
     width: 100%;
@@ -62,7 +66,7 @@ body{
 
 /* 留言區塊 */
 #message_wrap {
-    display: non; 
+    display: none; 
 }
 
   .messageContent {
@@ -251,14 +255,12 @@ body{
 }
 
 .skylightBanner h1{
-    font-family: "華康秀風體";
     text-align: center;
     color: #fff;
     margin-bottom: 50px
 }
 
 .skylightBanner h2{
-    font-family: "華康秀風體";
     text-align: center;
     color: #fff;
     margin-bottom: 20px;
@@ -400,14 +402,38 @@ body{
     width: 100%;
     display: flex;
     justify-content: space-around;
-    margin-top: 60px;
+    flex-flow: row nowrap;
 }
 
+#voteBtn,#messageBtn{
+    width: 70px;
+    cursor: pointer;
+    border: 1px solid #000;
+    border-radius: 50px;
+    font-weight: bold;
+    background-color: #ddd;
+    line-height: 2;
+}
+
+.competitionButton #vote1,.competitionButton #vote2,
+.competitionButton #vote3{
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.competitionButton #vote{
+    display: flex;
+    flex-flow: column;
+}
+
+#vote .messageBtn{
+    margin-top: 50px;
+
+}
 .messageNo2 .competitionButton{
     width: 100%;
     display: flex;
     justify-content: space-around;
-    margin-top: 50px;
 }
 
 /* span{
@@ -772,7 +798,7 @@ span:hover{
     width: 100%;
     display: flex;
     justify-content: space-around;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 .messageNo2 .competitionButton{
     width: 100%;

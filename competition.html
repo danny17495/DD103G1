@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
     <title>Competition</title>
 </head>
 <body>
@@ -67,6 +68,7 @@
     <div class="can">
         <canvas id="can"></canvas> 
     </div>
+
     <!-- 流星特效 -->
 
     <div class="starShoot">
@@ -90,30 +92,44 @@
 
             <div id="messageContent" class="messageContent">
               <div class="messageWrap" id="messageWrap">
+
+                    <!-- 會員圖片 -->
+
                      <figure class="mem_pic" id="bg_pic">
                     </figure>
+
+                    <!-- 會員留言資料 -->
+
                     <div id="memText" class="memText">
                         <div class="megsageMemName">
-                            <p id="messageMemId"></p>
-                            <p class="messageDate" id="messageDate"></p> 
+                            <p id="messageMemId">董董</p>
+                            <p class="messageDate" id="messageDate">2019-11-10</p> 
                         </div>
                         <div class="messageBox">
                             <p class="messageText" id="messageText">
+                                我覺得好棒棒喔
                             </p>  
                         </div> 
+
+                    <!-- 會員檢舉 -->
+
                         <div class="messageBtn">
                             <span class="btnCloudb">檢舉</span>
                         </div>
                     </div>
                 </div> 
             </div>
-            <form class="messageWrapInput">
+
+            <!-- 留言輸入區塊 -->
+
+            <form class="messageWrapInput" method="POST" action="memComprtitionMessage.php">
                 <input type="hidden" id="msgBtnNo">
                 <input type="text" id="inputText" name="msg" placeholder="最多輸入10字數" maxlength="10">
                 <div class="messageInputBtn">
                     <input type="button" id="msgBtn" value="留言" class="btnCloudb">
                 </div>
             </form> 
+        </div>
     </section>
     <section class="competitionMessageBoard">
         <div id="containerpa floatBoard">
@@ -134,14 +150,20 @@
                         <div class="comptitionText1"></div>
                         <div class="comptitionText1"></div>
                     </div>
-                    <div id="vote">
-                        <p id="memId">中壢金城武</p>
-                        <div id="vote">123票</div>
-                    </div>
                     <div class="competitionButton">
-                        <span href="#">投票</span>
-                        <span href="#" class="messageBtn" id="messageButton">留言</span>
-                        <input type="hidden" name="work_no2" value="23">
+                        <div class="vote1">                        
+                            <p id="memId">中壢金城武</p>
+                            <div id="vote"  @click="num++" value="10">
+                                {{num}} 票
+                            <span href="#" id="voteBtn">投票</span>
+                            </div>
+                        </div>
+                        <div class="vote2">
+                                <div id="vote">
+                                    <span href="#" class="messageBtn" id="messageBtn">留言</span>
+                                </div>             
+                            <input type="hidden" name="work_no2" value="23">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -157,10 +179,22 @@
                         <div class="comptitionText1"></div>
                     </div>
                     <div class="competitionButton">
-                        <span href="#">投票</span>
-                        <span href="#"class="messageBtn">留言</span>
+                        <div class="vote1">                        
+                            <p id="memId">中壢金城武</p>
+                            <div id="vote2"  @click="num++" value="10">
+                                {{num}} 票
+                            <span href="#" id="voteBtn">投票</span>
+                            </div>
+                        </div>
+                        <div class="vote2">
+                                <div id="vote">
+                                    <span href="#" class="messageBtn" id="messageBtn">留言</span>
+                                </div>             
+                            <input type="hidden" name="work_no2" value="23">
+                        </div>
                     </div>
                 </div>
+
                 <div class="messageBoard col-xl-6" id="under">
                     <h2>第三名</h2>
                     <div class="competitionPost">
@@ -171,9 +205,20 @@
                         <div class="comptitionText1"></div>
                     </div>
                     <div class="competitionButton">
-                        <span href="#">投票</span>
-                        <span href="#"class="messageBtn">留言</span>
-                    </div>
+                            <div class="vote1">                        
+                                <p id="memId">中壢金城武</p>
+                                <div id="vote3"  @click="num++" value="10">
+                                    {{num}} 票
+                                <span href="#" id="voteBtn">投票</span>
+                                </div>
+                            </div>
+                            <div class="vote2">
+                                    <div id="vote">
+                                        <span href="#" class="messageBtn" id="messageBtn">留言</span>
+                                    </div>             
+                                <input type="hidden" name="work_no2" value="23">
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
