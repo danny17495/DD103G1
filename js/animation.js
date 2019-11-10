@@ -177,6 +177,10 @@ $('.closeBtn').click(function(){
 });
 
 new Vue({
-    el: '#vote'
-    
+    el: '#vote',
+    data: {
+        message:'',
+        num: 0,
+    }
+
 })

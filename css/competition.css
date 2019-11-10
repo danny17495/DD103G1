@@ -400,14 +400,23 @@ body{
     width: 100%;
     display: flex;
     justify-content: space-around;
-    margin-top: 60px;
+    flex-flow: row nowrap;
+}
+
+.competitionButton #vote1{
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.competitionButton #vote{
+    display: flex;
+    flex-flow: column;
 }
 
 .messageNo2 .competitionButton{
     width: 100%;
     display: flex;
     justify-content: space-around;
-    margin-top: 50px;
 }
 
 /* span{
@@ -772,7 +781,7 @@ span:hover{
     width: 100%;
     display: flex;
     justify-content: space-around;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 .messageNo2 .competitionButton{
     width: 100%;
