@@ -100,73 +100,6 @@ body{
           bottom: 5px;
           margin: auto; }
   
-  .memText {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    box-sizing: border-box; }
-    .memText .megsageMemName {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-sizing: border-box; }
-      .memText .megsageMemname .messageDate {
-        font-size: 14px;
-        color: #666; }
-    .memText .messageBox {
-      width: 100%;
-      box-sizing: border-box; }
-      .memText .messageBox .messageText {
-        width: 100%;
-        box-sizing: border-box; }
-    .memText .messageBtn {
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      margin: auto;
-      text-align: right; }
-    .memText .btnCloudp {
-      width: 50%;
-      color: #efefef;
-      font-size: 16px;
-      background-color: #d18082;
-      border: 2px solid #d18082;
-      border-radius: 20px;
-      font-weight: bold;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      display: inline-block;
-      z-index: 1;
-      transition: 0.3s;
-      box-sizing: border-box;
-      cursor: pointer; }
-      .memText .btnCloudp .btnCloudeffect {
-        position: absolute;
-        width: 25%;
-        height: 100%;
-        background-color: #efefef;
-        transform: translateY(150%);
-        border-radius: 50%;
-        transition: 0.3s;
-        z-index: -1; }
-        .memText .btnCloudp .btnCloudeffect:nth-child(1) {
-          left: calc((1 - 1) * 25%);
-          transition-delay: calc((1 - 1) * 0.1s); }
-        .memText .btnCloudp .btnCloudeffect:nth-child(2) {
-          left: calc((2 - 1) * 25%);
-          transition-delay: calc((2 - 1) * 0.1s); }
-        .memText .btnCloudp .btnCloudeffect:nth-child(3) {
-          left: calc((3 - 1) * 25%);
-          transition-delay: calc((3 - 1) * 0.1s); }
-        .memText .btnCloudp .btnCloudeffect:nth-child(4) {
-          left: calc((4 - 1) * 25%);
-          transition-delay: calc((4 - 1) * 0.1s); }
-      .memText .btnCloudp:hover {
-        color: #d18082; }
-      .memText .btnCloudp:hover .btnCloudeffect {
-        transform: translateY(30%) scale(2.2); }
   
   .messageWrapInput {
     width: 100%;
@@ -199,32 +132,6 @@ body{
         transition: 0.3s;
         box-sizing: border-box;
         cursor: pointer; }
-        .messageWrapInput .messageInputBtn input .btnCloudp .btnCloudeffect {
-          position: absolute;
-          width: 25%;
-          height: 100%;
-          background-color: #efefef;
-          transform: translateY(150%);
-          border-radius: 50%;
-          transition: 0.3s;
-          z-index: -1; }
-          .messageWrapInput .messageInputBtn input .btnCloudp .btnCloudeffect:nth-child(1) {
-            left: calc((1 - 1) * 25%);
-            transition-delay: calc((1 - 1) * 0.1s); }
-          .messageWrapInput .messageInputBtn input .btnCloudp .btnCloudeffect:nth-child(2) {
-            left: calc((2 - 1) * 25%);
-            transition-delay: calc((2 - 1) * 0.1s); }
-          .messageWrapInput .messageInputBtn input .btnCloudp .btnCloudeffect:nth-child(3) {
-            left: calc((3 - 1) * 25%);
-            transition-delay: calc((3 - 1) * 0.1s); }
-          .messageWrapInput .messageInputBtn input .btnCloudp .btnCloudeffect:nth-child(4) {
-            left: calc((4 - 1) * 25%);
-            transition-delay: calc((4 - 1) * 0.1s); }
-        .messageWrapInput .messageInputBtn input .btnCloudp:hover {
-          color: #d18082; }
-        .messageWrapInput .messageInputBtn input .btnCloudp:hover .btnCloudeffect {
-          transform: translateY(30%) scale(2.2); }
-  
 /* canvas */
 .can{
     display: inline-block;
