@@ -184,3 +184,21 @@ new Vue({
     }
 
 })
+
+new Vue({
+    el: '#vote2',
+    data: {
+        message:'',
+        num: 0,
+    }
+
+})
+
+new Vue({
+    el: '#vote3',
+    data: {
+        message:'',
+        num: 0,
+    }
+
+})

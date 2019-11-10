@@ -153,13 +153,15 @@
                     <div class="competitionButton">
                         <div class="vote1">                        
                             <p id="memId">中壢金城武</p>
-                            <div id="vote"  @click="num++" value="20">
-                                {{num}}
+                            <div id="vote"  @click="num++" value="10">
+                                {{num}} 票
                             <span href="#" id="voteBtn">投票</span>
                             </div>
                         </div>
                         <div class="vote2">
-                            <span href="#" class="messageBtn" id="messageBtn">留言</span>
+                                <div id="vote">
+                                    <span href="#" class="messageBtn" id="messageBtn">留言</span>
+                                </div>             
                             <input type="hidden" name="work_no2" value="23">
                         </div>
                     </div>
@@ -177,10 +179,22 @@
                         <div class="comptitionText1"></div>
                     </div>
                     <div class="competitionButton">
-                        <span href="#">投票</span>
-                        <span href="#"class="messageBtn">留言</span>
+                        <div class="vote1">                        
+                            <p id="memId">中壢金城武</p>
+                            <div id="vote2"  @click="num++" value="10">
+                                {{num}} 票
+                            <span href="#" id="voteBtn">投票</span>
+                            </div>
+                        </div>
+                        <div class="vote2">
+                                <div id="vote">
+                                    <span href="#" class="messageBtn" id="messageBtn">留言</span>
+                                </div>             
+                            <input type="hidden" name="work_no2" value="23">
+                        </div>
                     </div>
                 </div>
+
                 <div class="messageBoard col-xl-6" id="under">
                     <h2>第三名</h2>
                     <div class="competitionPost">
@@ -191,9 +205,20 @@
                         <div class="comptitionText1"></div>
                     </div>
                     <div class="competitionButton">
-                        <span href="#">投票</span>
-                        <span href="#"class="messageBtn">留言</span>
-                    </div>
+                            <div class="vote1">                        
+                                <p id="memId">中壢金城武</p>
+                                <div id="vote3"  @click="num++" value="10">
+                                    {{num}} 票
+                                <span href="#" id="voteBtn">投票</span>
+                                </div>
+                            </div>
+                            <div class="vote2">
+                                    <div id="vote">
+                                        <span href="#" class="messageBtn" id="messageBtn">留言</span>
+                                    </div>             
+                                <input type="hidden" name="work_no2" value="23">
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>
