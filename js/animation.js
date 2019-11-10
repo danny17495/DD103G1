@@ -233,7 +233,7 @@ new Vue({
 new Vue({
     el: '#vote7',
     data: {
-        message:'資策會BIG大',
+        message:'BIG大',
         num: 0,
     }
 
@@ -251,8 +251,9 @@ new Vue({
 new Vue({
     el: '#vote9',
     data: {
-        message:'中壢金城武',
+        message:'中金城武',
         num: 0,
     }
 
 })
+//會員名字大於4個字會爆掉 求解
