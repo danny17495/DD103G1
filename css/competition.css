@@ -5,6 +5,10 @@ body{
     background-image: url(../images/competition/comptitionbackground.png);
 }
 
+.competitionMessageBoard span,.competitionOther span,.competitionOther1 span{
+    font-family: serif;
+}
+
 /* 留言板 */
 .message {
     width: 100%;
@@ -62,7 +66,7 @@ body{
 
 /* 留言區塊 */
 #message_wrap {
-    display: non; 
+    display: none; 
 }
 
   .messageContent {
@@ -158,14 +162,12 @@ body{
 }
 
 .skylightBanner h1{
-    font-family: "華康秀風體";
     text-align: center;
     color: #fff;
     margin-bottom: 50px
 }
 
 .skylightBanner h2{
-    font-family: "華康秀風體";
     text-align: center;
     color: #fff;
     margin-bottom: 20px;
@@ -226,7 +228,8 @@ body{
 }
 
 .messageNo2 #under{
-    margin-top: 50px;
+    margin-top: 60px;
+    margin-left: -20px;
 }
 
 .messageNo2 .messageBoard{
@@ -247,11 +250,12 @@ body{
 .messageNo2 .messageBoard{
     width: 100%;
     max-width: 450px;
-    height: 300px;
+    height: 310px;
     background-color: #5581ba;
     border-radius:30px;
     text-align: center;
     margin: 0 auto;
+    margin-top: 20px;
 }
 
 .messageBoard h2{
@@ -307,24 +311,40 @@ body{
     width: 100%;
     display: flex;
     justify-content: space-around;
-    margin-top: 60px;
+    flex-flow: row nowrap;
 }
 
+#voteBtn,#messageBtn,.OtherButton{
+    width: 70px;
+    cursor: pointer;
+    border: 1px solid #000;
+    border-radius: 50px;
+    font-weight: bold;
+    background-color: #ddd;
+    line-height: 2;
+}
+
+.competitionButton #vote1,.competitionButton #vote2,
+.competitionButton #vote3{
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.competitionButton #vote{
+    display: flex;
+    flex-flow: column;
+}
+
+#vote .messageBtn{
+    margin-top: 50px;
+
+}
 .messageNo2 .competitionButton{
     width: 100%;
     display: flex;
     justify-content: space-around;
-    margin-top: 50px;
 }
 
-/* span{
-    width: 70px;
-    cursor: pointer;
-    background-color: #ddd;
-    border:2px solid #ddd;
-    border-radius: 50px;
-    font-weight: bold;
-} */
 
 
 .competitionOther{
@@ -511,15 +531,100 @@ body{
     margin: 0 auto;
 }
 
-span:hover{
-    background-color: #081334;
+#vote span:hover,#vote2 span:hover,#vote3 span:hover,.OtherButton span:hover{
+    background-color: orange;
 }
 
+@media all and (max-width: 1024px) {
+
+    .messageBoard img{
+        width: 45%;
+        float: left;
+        margin-top: 20px;
+        margin-left: 15px;
+    }
+    
+    .competitionText{
+        display: flex;
+        flex-flow: column nowrap;
+        padding-top: 20px;
+        padding-left: 13px;
+    }
+    
+    .messageNo2 .competitionText{
+        display: flex;
+        flex-flow: column nowrap;
+        padding-top: 20px;
+        padding-left: 13px;
+    }
+    
+    .competitionText .comptitionText1{
+        width: 100%;
+        width: 180px;
+        height: 58px;
+        background-color: #ddd;
+        margin-bottom: 10px;
+        border-radius: 20px;
+        opacity: 0.5;
+    }
+    
+    .messageNo2 .messageBoard,.messageBoard{
+        width: 100%;
+        max-width: 400px;
+        height: 290px;
+        background-color: #5581ba;
+        border-radius:30px;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+    
+    .competitionButton{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 5px;
+    }
+    
+    .messageNo2{
+        width: 100%;
+        max-width:1200px;
+        display: flex;
+        flex-flow: column wrap;
+    }
+    
+    .messageNo2 #under{
+        margin-top: 50px;
+        margin-left: 185px;
+    }
+    
+    .skylightBanner #skylight4,.skylightBanner #skylight5{
+        float: left;
+        margin-left: 15%;
+        margin-top: -1%;
+    }
+    
+    .smallMessage{
+        width: 220px;
+        height: 300px;
+        background-color: #ddd;
+        border-radius: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: column wrap;
+        box-shadow: 5px 5px 10px rgb(42, 37, 37) ;
+        margin-bottom: 20px;
+        
+    }
+    }
 
 
 @media all and (max-width: 768px) {
 
-
+#skylight1,#skylight2,#skylight3{
+    display: none;
+}
 
 .messageBoard img{
     width: 45%;
@@ -567,7 +672,7 @@ span:hover{
     width: 100%;
     display: flex;
     justify-content: space-around;
-    margin-top: 60px;
+    margin-top: 5px;
 }
 
 .messageNo2{
@@ -578,7 +683,7 @@ span:hover{
 }
 
 .messageNo2 #under{
-    margin-top: 30px;
+    margin-left: 24%;
 }
 
 .skylightBanner #skylight4,.skylightBanner #skylight5{
@@ -600,69 +705,194 @@ span:hover{
     margin-bottom: 20px;
     
 }
-
 }
-@media all and (max-width: 425px) {
+@media all and (max-width: 500px) {
+
     #skylight1,#skylight2,#skylight3{
         display: none;
     }
+
+    .competitionText .comptitionText1{
+        width: 100%;
+        width: 120px;
+        height: 58px;
+        background-color: #ddd;
+        margin-bottom: 10px;
+        border-radius: 20px;
+        opacity: 0.5;
+    }
+    
+    .messageNo2 .messageBoard,.messageBoard{
+        width: 100%;
+        max-width: 280px;
+        height: 250px;
+        background-color: #5581ba;
+        border-radius:30px;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+    
+    .messageNo2 #under{
+        margin-left: 17%;
+    }
+    
+    .competitionButton{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 0px;
+    }
+    .messageNo2 .competitionButton{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 0px;
+    }
+    
+    .competitionText{
+        display: flex;
+        flex-flow: column nowrap;
+        padding-top: 20px;
+        padding-left: 11px;
+    }
+    
+    .messageNo2 .competitionText{
+        display: flex;
+        flex-flow: column nowrap;
+        padding-top: 20px;
+        padding-left: 11px;
+    }
+    
+    .competitionText .comptitionText1{
+        width: 100%;
+        width: 120px;
+        height: 40px;
+        background-color: #ddd;
+        margin-bottom: 10px;
+        border-radius: 15px;
+    
+    }
+    
+    .bigChoseButton{
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        flex-flow: column nowrap;
+    }
+    
+    .competitionDescription{
+        width: 250px;
+        height: 200px;
+        background-color: #ddd;
+        border-radius: 50px;
+        margin: 0 auto;
+    }
+    
+    .choseButton{
+        display: flex;
+        justify-content: center;
+        flex-flow: row wrap;
+        margin: 0 auto;
+        width: 100%;
+    }
+
 }
 @media all and (max-width: 375px) {
+    #skylight1,#skylight2,#skylight3{
+        display: none;
+    }
 
-.messageNo2 .messageBoard,.messageBoard{
-    width: 100%;
-    max-width: 340px;
-    height: 290px;
-    background-color: #5581ba;
-    border-radius:30px;
-    text-align: center;
-    margin: 0 auto;
-    margin-top: 20px;
-}
-
-.competitionText .comptitionText1{
-    width: 100%;
-    width: 150px;
-    height: 50px;
-    background-color: #ddd;
-    margin-bottom: 10px;
-    border-radius: 20px;
-    opacity: 0.5;
-}
-.bigChoseButton{
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    flex-flow: column nowrap;
-}
-
-.competitionDescription{
-    width: 250px;
-    height: 200px;
-    background-color: #ddd;
-    border-radius: 50px;
-    margin: 0 auto;
-}
-
-.choseButton{
-    display: flex;
-    justify-content: center;
-    flex-flow: row wrap;
-    margin: 0 auto;
-    width: 100%;
-}
+    .competitionText .comptitionText1{
+        width: 100%;
+        width: 120px;
+        height: 58px;
+        background-color: #ddd;
+        margin-bottom: 10px;
+        border-radius: 20px;
+        opacity: 0.5;
+    }
+    
+    .messageNo2 .messageBoard,.messageBoard{
+        width: 100%;
+        max-width: 280px;
+        height: 250px;
+        background-color: #5581ba;
+        border-radius:30px;
+        text-align: center;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+    
+    .messageNo2 #under{
+        margin-left: 13%;
+    }
+    
+    .competitionButton{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 0px;
+    }
+    .messageNo2 .competitionButton{
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 0px;
+    }
+    
+    .competitionText{
+        display: flex;
+        flex-flow: column nowrap;
+        padding-top: 20px;
+        padding-left: 11px;
+    }
+    
+    .messageNo2 .competitionText{
+        display: flex;
+        flex-flow: column nowrap;
+        padding-top: 20px;
+        padding-left: 11px;
+    }
+    
+    .competitionText .comptitionText1{
+        width: 100%;
+        width: 120px;
+        height: 40px;
+        background-color: #ddd;
+        margin-bottom: 10px;
+        border-radius: 15px;
+    
+    }
+    
+    .bigChoseButton{
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        flex-flow: column nowrap;
+    }
+    
+    .competitionDescription{
+        width: 250px;
+        height: 200px;
+        background-color: #ddd;
+        border-radius: 50px;
+        margin: 0 auto;
+    }
+    
+    .choseButton{
+        display: flex;
+        justify-content: center;
+        flex-flow: row wrap;
+        margin: 0 auto;
+        width: 100%;
+    }
 
 }
 @media all and (max-width: 320px) {
 
-.competitionText .comptitionText1{
-    width: 100%;
-    width: 120px;
-    height: 58px;
-    background-color: #ddd;
-    margin-bottom: 10px;
-    border-radius: 20px;
-    opacity: 0.5;
+#skylight1,#skylight2,#skylight3{
+    display: none;
 }
 
 .messageNo2 .messageBoard,.messageBoard{
@@ -673,19 +903,24 @@ span:hover{
     border-radius:30px;
     text-align: center;
     margin: 0 auto;
+    margin-top: 20px;
+}
+
+.messageNo2 #under{
+    margin-left: 7%;
 }
 
 .competitionButton{
     width: 100%;
     display: flex;
     justify-content: space-around;
-    margin-top: 50px;
+    margin-top: 0px;
 }
 .messageNo2 .competitionButton{
     width: 100%;
     display: flex;
     justify-content: space-around;
-    margin-top: 50px;
+    margin-top: 0px;
 }
 
 .competitionText{
