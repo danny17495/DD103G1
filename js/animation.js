@@ -177,9 +177,9 @@ $('.closeBtn').click(function(){
 });
 
 new Vue({
-    el: '#vote',
+    el: '#vote1',
     data: {
-        message:'',
+        message:'桃園阿玫',
         num: 0,
     }
 
@@ -188,7 +188,7 @@ new Vue({
 new Vue({
     el: '#vote2',
     data: {
-        message:'',
+        message:'台北亭亭',
         num: 0,
     }
 
@@ -197,7 +197,61 @@ new Vue({
 new Vue({
     el: '#vote3',
     data: {
-        message:'',
+        message:'雲林靜靜',
+        num: 0,
+    }
+
+})
+
+new Vue({
+    el: '#vote4',
+    data: {
+        message:'新竹愷愷',
+        num: 0,
+    }
+
+})
+
+new Vue({
+    el: '#vote5',
+    data: {
+        message:'淡水豪豪',
+        num: 0,
+    }
+
+})
+
+new Vue({
+    el: '#vote6',
+    data: {
+        message:'台南喬喬',
+        num: 0,
+    }
+
+})
+
+new Vue({
+    el: '#vote7',
+    data: {
+        message:'資策會BIG大',
+        num: 0,
+    }
+
+})
+
+new Vue({
+    el: '#vote8',
+    data: {
+        message:'怪怪齊齊',
+        num: 0,
+    }
+
+})
+
+new Vue({
+    el: '#vote9',
+    data: {
+        message:'中壢金城武',
         num: 0,
     }
 

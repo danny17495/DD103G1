@@ -91,7 +91,7 @@
             <!-- 留言區 -->
 
             <div id="messageContent" class="messageContent">
-              <div class="messageWrap" id="messageWrap">
+                <div class="messageWrap" id="messageWrap">
 
                     <!-- 會員圖片 -->
 
@@ -154,16 +154,16 @@
                     </div>
                     <div class="competitionButton">
                         <div class="vote1">                        
-                            <p id="memId">中壢金城武</p>
-                            <div id="vote"  @click="num++" value="10">
-                                {{num}} 票
+                            <div id="vote1"  @click="num++" value="10">
+                                <p id="memId">{{message}}</p>
+                                <p>{{num}} 票</p>
                             <span href="#" id="voteBtn">投票</span>
                             </div>
                         </div>
                         <div class="vote2">
-                                <div id="vote">
-                                    <span href="#" class="messageBtn" id="messageBtn">留言</span>
-                                </div>             
+                            <div id="vote">
+                                <span href="#" class="messageBtn" id="messageBtn">留言</span>
+                            </div>             
                             <input type="hidden" name="work_no2" value="23">
                         </div>
                     </div>
@@ -182,16 +182,16 @@
                     </div>
                     <div class="competitionButton">
                         <div class="vote1">                        
-                            <p id="memId">中壢金城武</p>
                             <div id="vote2"  @click="num++" value="10">
-                                {{num}} 票
+                                <p id="memId">{{message}}</p>
+                                <p>{{num}} 票</p>
                             <span href="#" id="voteBtn">投票</span>
                             </div>
                         </div>
                         <div class="vote2">
-                                <div id="vote">
-                                    <span href="#" class="messageBtn" id="messageBtn">留言</span>
-                                </div>             
+                            <div id="vote">
+                                <span href="#" class="messageBtn" id="messageBtn">留言</span>
+                            </div>             
                             <input type="hidden" name="work_no2" value="23">
                         </div>
                     </div>
@@ -207,20 +207,20 @@
                         <div class="comptitionText1"></div>
                     </div>
                     <div class="competitionButton">
-                            <div class="vote1">                        
-                                <p id="memId">中壢金城武</p>
-                                <div id="vote3"  @click="num++" value="10">
-                                    {{num}} 票
-                                <span href="#" id="voteBtn">投票</span>
-                                </div>
-                            </div>
-                            <div class="vote2">
-                                    <div id="vote">
-                                        <span href="#" class="messageBtn" id="messageBtn">留言</span>
-                                    </div>             
-                                <input type="hidden" name="work_no2" value="23">
+                        <div class="vote1">                        
+                            <div id="vote3"  @click="num++" value="10">
+                                <p id="memId">{{message}}</p>
+                                <p>{{num}} 票</p>
+                            <span href="#" id="voteBtn">投票</span>
                             </div>
                         </div>
+                        <div class="vote2">
+                            <div id="vote">
+                                <span href="#" class="messageBtn" id="messageBtn">留言</span>
+                            </div>             
+                            <input type="hidden" name="work_no2" value="23">
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -246,22 +246,55 @@
                     <div class="smallMessage">
                         <img src="images/competition/comptitionPost.png" alt="">
                         <div class="smallMessageButton">
-                            <span href="#">投票</span>
-                            <span href="#"class="messageBtn">留言</span>
+                            <div class="vote1">                        
+                                <div id="vote4"  @click="num++" value="10">
+                                    <p id="memId">{{message}}</p>
+                                    <p>{{num}} 票</p>
+                                <span href="#" id="voteBtn">投票</span>
+                                </div>
+                            </div>
+                            <div class="vote2">
+                                    <div id="vote">
+                                        <span href="#" class="messageBtn" id="messageBtn">留言</span>
+                                    </div>             
+                                <input type="hidden" name="work_no2" value="23">
+                            </div>
                         </div>
                     </div>
                     <div class="smallMessage">
                         <img src="images/competition/comptitionPost.png" alt="">
                         <div class="smallMessageButton">
-                            <span href="#">投票</span>
-                            <span href="#"class="messageBtn">留言</span>
+                            <div class="vote1">                        
+                                <div id="vote5"  @click="num++" value="10">
+                                    <p id="memId">{{message}}</p>
+                                    <p>{{num}} 票</p>
+                                <span href="#" id="voteBtn">投票</span>
+                                </div>
+                            </div>
+                            <div class="vote2">
+                                    <div id="vote">
+                                        <span href="#" class="messageBtn" id="messageBtn">留言</span>
+                                    </div>             
+                                <input type="hidden" name="work_no2" value="23">
+                            </div>
                         </div>
                     </div>
                     <div class="smallMessage">
                         <img src="images/competition/comptitionPost.png" alt="">
                         <div class="smallMessageButton">
-                            <span href="#">投票</span>
-                            <span href="#"class="messageBtn">留言</span>
+                            <div class="vote1">                        
+                                <div id="vote6"  @click="num++" value="10">
+                                    <p id="memId">{{message}}</p>
+                                    <p>{{num}} 票</p>
+                                <span href="#" id="voteBtn">投票</span>
+                                </div>
+                            </div>
+                            <div class="vote2">
+                                    <div id="vote">
+                                        <span href="#" class="messageBtn" id="messageBtn">留言</span>
+                                    </div>             
+                                <input type="hidden" name="work_no2" value="23">
+                            </div>
                         </div>
                     </div>
                 <!-- </div>
@@ -269,22 +302,55 @@
                     <div class="smallMessage">
                         <img src="images/competition/comptitionPost.png" alt="">
                         <div class="smallMessageButton">
-                            <span href="#">投票</span>
-                            <span href="#"class="messageBtn">留言</span>
+                            <div class="vote1">                        
+                                <div id="vote7"  @click="num++" value="10">
+                                    <p id="memId">{{message}}</p>
+                                    <p>{{num}} 票</p>
+                                <span href="#" id="voteBtn">投票</span>
+                                </div>
+                            </div>
+                            <div class="vote2">
+                                    <div id="vote">
+                                        <span href="#" class="messageBtn" id="messageBtn">留言</span>
+                                    </div>             
+                                <input type="hidden" name="work_no2" value="23">
+                            </div>
                         </div>
                     </div>
                     <div class="smallMessage">
                         <img src="images/competition/comptitionPost.png" alt="">
                         <div class="smallMessageButton">
-                            <span href="#">投票</span>
-                            <span href="#"class="messageBtn">留言</span>
+                            <div class="vote1">                        
+                                <div id="vote8"  @click="num++" value="10">
+                                    <p id="memId">{{message}}</p>
+                                    <p>{{num}} 票</p>
+                                <span href="#" id="voteBtn">投票</span>
+                                </div>
+                            </div>
+                            <div class="vote2">
+                                <div id="vote">
+                                    <span href="#" class="messageBtn" id="messageBtn">留言</span>
+                                </div>             
+                                <input type="hidden" name="work_no2" value="23">
+                            </div>
                         </div>
                     </div>
                     <div class="smallMessage">
                         <img src="images/competition/comptitionPost.png" alt="">
                         <div class="smallMessageButton">
-                            <span href="#">投票</span>
-                            <span href="#"class="messageBtn">留言</span>
+                            <div class="vote1">                        
+                                <div id="vote9"  @click="num++" value="10">
+                                    <p id="memId">{{message}}</p>
+                                    <p>{{num}} 票</p>
+                                <span href="#" id="voteBtn">投票</span>
+                                </div>
+                            </div>
+                            <div class="vote2">
+                                <div id="vote">
+                                    <span href="#" class="messageBtn" id="messageBtn">留言</span>
+                                </div>             
+                                <input type="hidden" name="work_no2" value="23">
+                            </div>
                         </div>
                     </div>
                 </div>
