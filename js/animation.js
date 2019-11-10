@@ -80,8 +80,8 @@ var ctx = canvas.getContext("2d");
 // var x = canvas.width = window.innerWidth;
 // var y = canvas.height = window.innerHeight;
 // 這樣寫如果進來的時候是小畫面，拉大時畫布會爆掉，所以一開始就給他最大畫面這樣縮放就不會壞掉。*要注意如果畫面寬大於1920還是會壞掉
-var x = canvas.width = 2400;
-var y = canvas.height = 937;
+var x = canvas.width = 2560;
+var y = canvas.height = 1875;
 // alert(canvas.height);
 
 var img = new Image();
