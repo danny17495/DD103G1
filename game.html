@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>小遊戲</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+	<link rel="stylesheet" href="css/common.css">
+	<link rel="stylesheet" href="css/style.css">
+    <script src="js/playGame.js"></script>
+</head>
+<body>
+  <header>
+            <div class="container headerStyle">
+                <a href="index.html">
+                    <h1>
+                        <img src="images/logo.png" alt="logo">
+                    </h1>
+                </a>
+                <input type="checkbox" id="headerCheck" >
+                <label for="headerCheck" class="headerClick">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                    <nav  class="navMenu">
+                        <div class="navDarken">
+                            <ul>
+                                <li>
+                                    <a href="spotIntro.html">行程介紹</a>
+                                </li>
+                                <li>
+                                    <a href="reserve.html">預約行程</a>
+                                </li>
+                                <li>
+                                    <a href="postcard.html">客製明信片</a>
+                                </li>
+                                <li>
+                                    <a href="shop.html">購物商城</a>
+                                </li>
+                                <li>
+                                    <a href="competition.html">投票比賽</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <div class="headerMemInfo">
+                        <span id="headerMemName"></span>
+                        <a href="javascript:;"></a>
+                    </div>
+                   <div class="headerIcon">
+                        <a href="shopcart.html">
+                            <img src="images/icon_shopcar.png" alt="icon_shopcar">
+                        </a>
+                        <a href="member.php">
+                            <img src="images/icon_login.png" alt="icon_login">
+                        </a>
+                    </div>
+            </div>
+    </header>
+   <!------- 小遊戲 說明 ------> 
+   <section class="gameOuter">
+    <div class="container">
+       <h1>玩遊戲拿優惠券</h1>
+       <div class="game_illustration">
+           <h3>遊戲說明</h3>
+           <p>遊戲的任務是尋找九份特產。
+            <br>
+            <span></span>
+            找出以上三個隱藏在畫面中的特產，在遊戲面板上點選指定的九份特產即可獲得優惠券，優惠券可以折抵購物商城中的消費唷!
+            <br>
+            您需要尋找的三個物品皆為九份特產，
+            找到並使用滑鼠點選特產後，您選到的特產會以紅圈標示：<span></span>
+            該特產名稱的顏色會變暗。 
+            當您找不到特產時，您可以按左上角的提示尋求幫助。<span></span>
+            提示按鈕可以幫助你找到特產、達成任務。
+            <br>
+            現在就開始遊戲吧!
+            </p>
+       </div>
+       <!------- 小遊戲------> 
+       <div class="littleGame">
+            <div class="littleGameWrap" id="GameWrap">
+                <img src="images/game/game1_playbtn.png" id="game_playbtn" alt="" id="game_playbtn"> 
+                <div class="suggestionBar" id="suggestionBar">
+                   <img src="images/game/suggestion.png" alt="" id="game_suggestion">
+                   <span id="taroText">芋園</span> 
+                   <img src="images/game/taro.png" alt="" id="taro">
+                   <span id="grassriceText">草仔粿</span> 
+                   <img src="images/game/grassrice.png" alt="" id="grassrice">
+                   <span id="meatballText">肉圓</span> 
+                   <img src="images/game/meatball.png" alt="" id="meatball">
+                </div>
+                <div class="game1" id="game1">
+                    <img src="images/game/taro_in_game.png" alt="" id="taro_in_game1">
+                    <img src="images/game/grassrice_in_game.png" alt="" id="grassrice_in_game1">
+                    <img src="images/game/meatball_in_game.png" alt="" id="meatball_in_game1">
+                </div>
+
+            </div>
+            <div class="game_coupon_wrap" id="game_coupon_wrap">
+                    <p>恭喜您獲得優惠券!!</p>
+                    <img src="images/game/coupon.jpg" alt="" id="game_coupon">
+            <i class="fa fa-times-circle Trip2_lightBoxBTN" aria-hidden="true" id="game_close"></i>
+            </div>
+        </div>
+     </div>
+   </section>
+
+    <footer>
+        <div>
+            <a href="#">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="#">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="#">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+        </div>
+        <p>DD103 G1 copyright</p>
+ </footer>
+<script src="js/jquery-3.4.1.min.js"></script>
+
+</body>
+</html>

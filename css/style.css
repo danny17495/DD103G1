@@ -3215,6 +3215,212 @@
 		font-size: 22px;
 	}
 }
+/*----------------小遊戲分頁-------------------*/
+/*----------------遊戲說明-------------------*/
+.gameOuter{
+  width: 100%;
+  padding-top: 160px;
+  padding-bottom: 20px;
+  background-image: url(../images/indexGame/bgimg.jpg);
+  margin: 0 auto;
+}
+.gameOuter h1{
+  margin-bottom:40px;
+  text-align: center;
+}
+.gameOuter .game_illustration{
+  padding:15px 20px;
+  width:85%;
+  margin: auto;
+  background-color: rgba(255,255,255,0.6);
+  border-radius: 40px;
+}
+.gameOuter .game_illustration h3{
+  text-align: center;
+  font-size: 24px;
+  font-family: 'Noto Serif TC', serif;
+  margin-bottom: 20px;
+}
+.gameOuter .game_illustration p{
+  font-size: 15px;
+  line-height: 1.5;
+}
+.gameOuter .game_illustration span:first-of-type{
+  display: block;
+  width: 152px;
+  height: 46px;
+  background-image: url(../images/game/ill_01.png);
+}
+.gameOuter .game_illustration span:nth-of-type(2){
+  display: block;
+  width: 55px;
+  height:55px;
+  background-image: url(../images/game/ill_02.png);
+}
+.gameOuter .game_illustration span:nth-of-type(3){
+  display: inline-block;
+  width: 72px;
+  height: 44px;
+  background-image: url(../images/game/ill_03.png);
+}
+@media all and (min-width: 768px) {
+    .gameOuter{
+    width: 100%;
+    padding-top: 220px;
+    padding-bottom: 70px;
+  }
+    .gameOuter h1{
+    margin-bottom:70px;
+  }
+    .gameOuter .game_illustration{
+    padding:20px 45px;
+    width: 75%;
+    margin: auto;
+    background-color: rgba(255,255,255,0.6);
+    border-radius: 50px;
+  }
+    .gameOuter .game_illustration p{
+    font-size: 18px;
+    line-height: 1.7;
+  }
+    .gameOuter .game_illustration h3{
+    font-size: 32px;
+  }
+}
+/*----------------小遊戲(手機版)-------------------*/
+.gameOuter .littleGame{
+  width:70%;
+  margin: 25px auto 40px;
+  position: relative;
+}
+#GameWrap{
+    width: 88%;
+    padding-bottom:68%; 
+    background-image: url(../images/game/game1_bg.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 12%;
+    position: relative; 
+    margin: auto;
+    overflow: hidden;  
+}
+.gameOuter .littleGame #game_playbtn{
+  display: block;
+  width: 60%;
+  max-width: 300px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+  cursor: pointer;
+}
+.littleGame .suggestionBar{
+    width:85%;
+    position: absolute;
+    top: 20px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    display: inline-block;
+    display: none;
+}
+.littleGame .suggestionBar img{
+    vertical-align:middle; 
+}
+.littleGame .suggestionBar #game_suggestion{
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+}
+.littleGame .suggestionBar #taro{
+    width: 32px;
+    height: 38px;
+}
+.littleGame .suggestionBar #grassrice{
+    width: 41px;
+    height: 29px;
+}
+.littleGame .suggestionBar #meatball{
+    width: 45px;
+    height: 30px;
+}
+.littleGame .suggestionBar span{
+    color: #fff;
+    font-size: 24px;
+    margin-left: 50px;
+    margin-right: 20px;
+    vertical-align:middle;
+}
+.littleGame .suggestionBar #taroText{
+    margin-left: 10%;
+}
+#game_suggestion{
+    width: 82px;
+    height: 48px;
+}
+.littleGameWrap .game1{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    display: none;
+}
+.game1 #taro_in_game1{
+    position: absolute;
+    top: 277px;
+    left: 296px;
+}
+.game1 #grassrice_in_game1{
+    position: absolute;
+    top: 269px;
+    right: 50px;
+}
+.game1 #meatball_in_game1{
+    position: absolute;
+    bottom: 182px;
+    left: 160px;
+}
+#game_coupon_wrap{
+    display: none;
+}
+#game_coupon{
+    width: 65%;
+    max-width: 700px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;  
+}
+.game_coupon_wrap p{
+    position: absolute;
+    top: 40px;
+    right: 0;
+    left: 0;
+    color: #fff;
+    text-align: center;
+    font-size: 26px;
+}
+.game_coupon_wrap #game_close{
+    position: absolute;
+    top: 20px;
+    right: 110px;
+    font-size: 36px;
+}
+
+/*----------------小遊戲(網頁版)-------------------*/
+@media all and (min-width: 768px) {
+    .gameOuter .littleGame{
+    width:80%;
+    margin: 60px auto 80px;
+    border-radius: 50px;
+  }
+
+}
+
 
 /*------------警告視窗------------*/
 .alertWindow{
