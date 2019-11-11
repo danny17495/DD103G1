@@ -1,0 +1,424 @@
+/*----------------共用-------------------*/
+body{
+    font-family: 'Noto Serif TC', serif;
+    background-color: rgb(255, 230, 193);
+}
+
+@font-face {
+    font-family: '華康秀風體';
+    src: url('華康秀風體W3.ttc') format('truetype');
+    /*unicode-range: U+884C, U+7A0B, U+4ECB, U+7D39;*/
+}
+
+h1{
+    font-family: '華康秀風體';  
+    font-size: 40px;
+}
+.whiteButton,
+.leafButton{
+    font-family: '華康秀風體'; 
+    font-size: 18px;
+}
+
+@media all and (min-width: 768px) {
+    h1{
+        font-size: 60px;
+    } 
+    .whiteButton,
+    .leafButton{
+        font-size: 22px;
+    }
+}
+
+
+
+
+/*----------------shopcart購物車頁面開始(<768)---------------*/
+/*----------------購物車, 客製化明信片頁面的共用----------------*/
+.wrapA{
+    width: 100%;
+}
+
+section.pageTitle .container{
+    text-align: center;
+    padding: 100px 0 50px;
+    position: relative;
+}
+
+/*=============0.最外層為了雲消失包的=============*/
+.forCloudAnimation{
+    overflow: hidden;
+    min-height: 800px;
+    background: rgb(255, 230, 193) url(../images/shopcart/mountain_01_90.png) no-repeat center bottom / contain;
+}
+
+/*=============1.標題=============*/
+
+section.shopcartPageTitle div{
+    position: absolute;
+}
+
+section.shopcartPageTitle div.pageTitleCloud1{width: 20%; max-width: 200px; top: 70%; right: -5%;}
+section.shopcartPageTitle div.pageTitleCloud2{width: 10%; max-width: 120px; min-width: 70px; top: 60%; left: 40px;}
+section.shopcartPageTitle div.pageTitleBird1{display: none; width: 3%; max-width: 57px; min-width: 30px; top: 50%; right: 5%;}
+section.shopcartPageTitle div.pageTitleBird2{width: 4%; max-width: 57px; min-width: 30px; top: 65%; right: 15%;}
+
+section.shopcartPageTitle img{
+    display: block;
+    width: 100%;
+}
+
+/***2.會員中心內容**********************************************************************************/
+
+.memberTabGroup .input{
+    margin: 10px 0;
+    border-radius: 5px;
+    }     
+  .memberTabGroup #visa {
+    width: 10%;
+  }
+  #memberWrap{
+    /* padding-top: 100px; */
+    min-height:750px;
+  }
+  #memberTab-content{
+    margin-top: 20px;
+  }
+  #memberTab-panel {
+    max-width: 690px;
+    margin: 0 auto;
+    padding: 50px 20px;
+  }
+  #memberTab-panel .memberTabs {
+    /* margin-bottom:-20px; */
+    overflow: hidden;
+    text-align: center;
+  }
+  #memberTab-panel .memberTabs i{
+    display:none;
+  }
+  #memberTab-panel .memberTabs a {
+    float: left;
+    display: block;
+    width: 20%;
+    padding: 10px 0;
+    border: 1px solid #CCC;
+    border-radius: 20px 20px 0 0;
+    background-color: #FFF;
+    opacity: 0.9;
+    font-size: 16px;
+    color: #333;
+    box-sizing: border-box;
+    transition: all .3s;
+  }
+  #memberTab-panel .memberTabs a.active {
+    background: rgba(243, 152, 0, .8);
+    color: #FFF;
+  }
+  #memberTab-panel .memberTab-content {
+    /* border: 1px solid #CCC; */
+    background-color: #fff;
+    opacity:0.9;
+    width: 100%;
+    padding: 5%;
+  }
+  #memberTab-panel .memberTab-content > li {
+    display: none;
+    padding: 20px;
+    font-size: 14px;
+    color: #666;
+    line-height: 25px;
+  }
+  #memberTab1{
+    display:none;
+  }
+
+
+ /*----------表格部分-------------- */
+
+ .memberul{
+  width: 100%;
+  max-width: 375px;
+  display: block;
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.memberthead{
+  display: table-header-group;
+}
+.memberol{
+  display: table-row;
+}
+.membertbody{
+  display: table-row-group;
+}
+.memberthead .memberli, .membertbody .memberli{
+  display: table-cell;
+  padding: 5px;
+  border: 1px solid #aaa;
+}
+.memberthead .memberli{
+  text-align: center;
+  font-weight: bold;
+  background: #e6f9ff;
+}
+.memberol:nth-child(even){
+  background: rgba(#6cffd1,.2);
+}
+.memberwbtn{
+  padding:10px 0;
+}
+.memberli2{
+  border-bottom:1px solid #aaa;
+  text-align: center;
+  padding:5px;
+
+}
+.memberbody{
+  padding:0 10%;
+}
+.memberBigBoxdiv{
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+}
+.memberboxdiv{
+  width: 100%;
+  max-width: 180px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column nowrap;
+  /* padding: 3.5%; */
+}
+
+.memberboxdiv > a{
+  padding: 40px 3.5px;
+  text-align: center;
+}
+#memberTab2{
+width: 100%;
+max-width: 375px;
+margin: 0 auto;
+
+}
+/* ----- */
+.memberBigBoxdiv2{
+  display: flex;
+  flex-direction: row;
+  padding-right: 10px;
+}
+
+.memberboxdiv3{
+  /* padding: 3.5%; */
+  border:1px solid #AAA;
+}
+.memberboxdiv3 > .memberli{
+  flex-direction: row;
+ }
+ .memberboxdiv3 > a{
+   padding:5px;
+   text-align: center;
+ }
+/* RWD頁籤部分------------------------------------------------------------------------------------ */
+@media only screen and (max-width:768px){
+  .memberthead{
+    display: none;
+  }
+  .memberol{
+    display: block;
+    border: #ddd 1px solid;
+    margin-bottom: 5px;
+  }
+  .memberol .memberli{
+    display: inline-block;
+    width: 100%;
+    border: none;
+  }
+  .memberol .memberli:before{
+    content: attr(data-title);
+    display: inline-block;
+    width: auto;
+    min-width: 20%;
+    font-weight: 900;
+    padding-right: 1rem;
+  }
+  #memberTab-panel .memberTabs i{
+    display:block;
+  }
+
+  .memberli2{
+    display:none;
+  }
+  .memberboxdiv3 > .memberli{
+    display:flex;
+    flex-direction:column;
+  }
+ 
+}
+ 
+  @media all and (max-width: 320px) {
+    .memberTabs p{
+       display: none;
+     }
+  }
+  @media all and (max-width: 321px) {
+    .memberTabs p{
+      display: none;
+    }
+  }
+  @media all and (max-width: 322px) {
+    .memberTabs p{
+      display: none;
+    }
+  }
+  @media all and (max-width: 323px) {
+    .memberTabs p{
+      display: none;
+    }
+  }
+  @media all and (max-width: 324px) {
+    .memberTabs p{
+      display: none;
+    }
+  }
+  @media all and (max-width: 325px) {
+    .memberTabs p{
+      display: none;
+    }
+  }
+  @media all and (max-width: 326px) {
+    .memberTabs p{
+      display: none;
+    }
+  }
+    
+  @media all and (max-width: 327px) {
+    .memberTabs p{
+      display: none;
+    }
+  }
+  @media all and (max-width: 328px) {
+    .memberTabs p{
+      display: none;
+    }
+  }
+  @media all and (max-width: 329px) {
+    p{
+      display: none;
+    }
+  }
+  @media all and (max-width: 330px) {
+    .memberTabsp{
+        display: none;
+      }
+  }
+  @media all and (max-width: 340px) {
+    .memberTabs p{
+        display: none;
+      }
+  }
+  @media all and (max-width: 350px) {
+    .memberTabs p{
+      display: none;
+    }
+  }
+  @media all and (max-width: 350px) {
+    .memberTabs p{
+      display: none;
+    }
+  }
+  @media all and (max-width: 351px) {
+    .memberTabs p{
+      display: none;
+    }
+  }
+  @media all and (max-width: 352px) {
+    .memberTabs p{
+      display: none;
+    }
+  }
+  @media all and (max-width: 353px) {
+    .memberTabs p{
+      display: none;
+    }
+  }
+  @media all and (max-width: 354px) {
+    .memberTabs p{
+      display: none;
+    }
+  }
+  @media all and (max-width: 355px) {
+    .memberTabs p{
+      display: none;
+    }
+  }
+  @media all and (max-width: 356px) {
+    .memberTabs p{
+      display: none;
+    }
+  }
+  @media all and (max-width: 357px) {
+    .memberTabs p{
+      display: none;
+    }
+  }
+  @media all and (max-width: 358px) {
+    .memberTabs p{
+      display: none;
+    }
+  } 
+  @media all and (max-width: 359px) {
+    .memberTabs p{
+      display: none;
+    }
+  }
+  @media all and (max-width: 360px) {
+    .memberTabs p{
+      display: none;
+    }
+  }
+  @media all and (max-width: 361px) {
+    .memberTabs p{
+      display: none;
+    }
+  }
+  @media all and (max-width: 362px) {
+    .memberTabs p{
+      display: none;
+    }
+  }
+  @media all and (max-width: 363px) {
+    .memberTabs p{
+      display: none;
+    }
+  }
+  @media all and (max-width: 364px) {
+    .memberTabs p{
+      display: none;
+    }
+  }
+  @media all and (max-width: 365px) {
+    .memberTabs p{
+      display: none;
+    }
+  }
+  @media all and (max-width: 367px) {
+    .memberTabs p{
+      display: none;
+    }
+  }
+  @media all and (max-width: 368px) {
+    .memberTabs p{
+      display: none;
+    }
+  }
+  @media all and (max-width: 369px) {
+    .memberTabs p{
+      display: none;
+    }
+  }
+  
+/***2.會員中心內容底部**********************************************************************************/
