@@ -3484,3 +3484,134 @@
     color:#f39700;
     font-weight: bold;
 }
+
+/*bg add*/
+.indexBanner .cont{
+	position: relative;
+	height: 100%;
+}
+.indexBanner .slider {
+	position: relative;
+	height: 100%;
+	transform: translate3d(0, 0, 0);
+	will-change: transform;
+	cursor: all-scroll;
+	user-select: none;
+}
+.indexBanner .animation{
+	transition: -webkit-transform 750ms ease-in-out;
+    transition: transform 750ms ease-in-out;
+}
+
+.indexBanner .slide{
+	position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.indexBanner .slide1{
+	left: 0;
+}
+.indexBanner .slide2{
+	left: 100%;
+}
+.indexBanner .slide3{
+	left: 200%;
+}
+
+.indexBanner .slideTextWrap {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    z-index: 15;
+}
+.indexBanner .slideText {
+    text-transform: uppercase;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    letter-spacing: 12px;
+    color: #fff;
+    will-change: transform;
+	user-select: none;
+	font-family: '華康秀風體'; 
+}
+.indexBanner .slideText:first-child {
+	font-size: 72px;
+}
+.indexBanner .slideText:last-child {
+	font-size: 30px;
+}
+.indexBanner .animation .slideText {
+    transition: -webkit-transform 750ms ease-in-out;
+    transition: transform 750ms ease-in-out;
+}
+.indexBanner .slideDarkBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+    z-index: 10;
+}
+.indexBanner .slideDarkBg:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(11, 15, 39, 0.1);
+}
+.indexBanner .animation .slideDarkBg{
+	transition: -webkit-transform 750ms ease-in-out;
+    transition: transform 750ms ease-in-out;
+}
+.indexBanner .slideDarkBg--1{
+    background: url(../images/BG_PIC.png) no-repeat;
+    width: 100%;
+    height:863px;
+	background-position:  center center;
+}
+.indexBanner .slideDarkBg--2{
+    background: url(../images/BG_PIC2.png) no-repeat;
+    width: 100%;
+    height:863px;
+	background-position:  center center;
+	left: -50%;
+}
+.indexBanner .slideDarkBg--3{
+    background: url(../images/BG_PIC3.png) no-repeat;
+    width: 100%;
+    height:863px;
+	background-position:  center center;
+	left: -100%;
+}
+
+.indexBanner .sidenav {
+    position: absolute;
+    width: 10%;
+    height: 100%;
+    top: 0;
+    z-index: 20;
+    cursor: pointer;
+    opacity: 0;
+    transition: 300ms;
+}
+.indexBanner .sidenav:hover {
+    opacity: 0.1;
+}
+.indexBanner .sidenavRight {
+    right: 0;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, #eed7ff 100%);
+}
+.indexBanner .sidenavLeft {
+    left: 0;
+    background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #eed7ff 100%);
+}
+
+
