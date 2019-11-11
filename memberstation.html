@@ -105,31 +105,31 @@
                             <div class="top_part">
                                 <h3>基本資料</h3>   
                                         <div class="memberTabGroup">
-                                            <label for="name" class="label">姓名</label>
-                                            <input id="input" type="text" class="input">
+                                            <label for="membername" class="label">姓名</label>
+                                            <input id="memberinput" type="text" class="memberinput">
                                         </div>
                                         <div class="memberTabGroup">
                                                 <label for="nickname" class="label">暱稱</label>
-                                                <input id="input" type="text" class="input">
+                                                <input id="memberinput" type="text" class="memberinput">
                                             </div>
                                         <div class="memberTabGroup">
                                             <label for="phone" class="label">電話</label>
-                                            <input id="input" type="text" class="input">
+                                            <input id="memberinput" type="text" class="memberinput">
                                         </div>
                                         <div class="memberTabGroup">
                                             <label for="email" class="label">Email</label>
-                                            <input id="input" type="text" class="input">
+                                            <input id="memberinput" type="text" class="memberinput">
                                         </div>
                                         <div class="memberTabGroup">
                                             <label for="add" class="label">地址</label>
-                                            <input id="input" type="text" class="input">
+                                            <input id="memberinput" type="text" class="memberinput">
                                         </div>
                                         <div class="memberTabGroup">
                                             <label for="card" class="label">VISA</label>
-                                            <input id="visa" type="text" class="input">
-                                            <input id="visa" type="text" class="input">
-                                            <input id="visa" type="text" class="input">
-                                            <input id="visa" type="text" class="input">
+                                            <input id="membervisa" type="text" class="memberinput">
+                                            <input id="membervisa" type="text" class="memberinput">
+                                            <input id="membervisa" type="text" class="memberinput">
+                                            <input id="membervisa" type="text" class="memberinput">
                                         </br >
                                         <div id="memberwbtn" class="whiteButton" style="border:1px solid #ccc;">
                                             修改
@@ -141,15 +141,15 @@
                                     <h3>更改密碼</h3>   
                                     <div class="memberTabGroup">
                                             <label for="password" class="label">目前密碼&nbsp;&nbsp;</label>
-                                            <input id="input" type="text" class="input">
+                                            <input id="memberinput" type="text" class="memberinput">
                                     </div>
                                     <div class="memberTabGroup">
                                             <label for="change" class="label">新的密碼&nbsp;&nbsp;</label>
-                                            <input id="input" type="text" class="input">
+                                            <input id="memberinput" type="text" class="memberinput">
                                     </div>
                                     <div class="memberTabGroup">
                                             <label for="change" class="label">再輸入密碼</label>
-                                            <input id="input" type="text" class="input" style="width: 23.5%;">
+                                            <input id="memberinput" type="text" class="memberinput" style="width: 23.5%;">
                                     </br >
                                         <!-- <input type="submit" class="memberButton" style="margin:10px 0;" value="儲存變更" class="whiteButton"> -->
                                         <div id="memberwbtn" class="whiteButton" style="border:1px solid #ccc;">儲存變更</div>	
@@ -166,8 +166,8 @@
                                     <div class="memberboxdiv">
                                         <li class="memberli"> <img src="images/memberPostercard.png" ></li>
                                     </div>
-                                    <div class="memberboxdiv" style="display: flex; flex-direction: row;">
-                                        <a href="#">下載圖片</a>
+                                    <div class="memberboxdiv">
+                                        <a href="#">下載圖片</a>                                        
                                         <a href="#">FB</a>
                                         <a href="#">LINE</a>
                                         <a href="#">刪除</a>
@@ -177,9 +177,9 @@
                                     <div class="memberboxdiv">
                                         <li class="memberli"> <img src="images/memberPostercard.png" ></li>
                                     </div>
-                                    <div class="memberboxdiv" style="display: flex; flex-direction: row;">
+                                    <div class="memberboxdiv">
                                         <a href="#">下載圖片</a>
-                                        <a href="#">FB</a>
+                                        <a href="#">FB</a> 
                                         <a href="#">LINE</a>
                                         <a href="#">刪除</a>
                                     </div>      
@@ -189,26 +189,32 @@
             <!-- 第三頁-優惠劵 -->
                         <span id="memberTab3">
                             <ul id="memberCoupon" class="memberul">
-                                <div class="memberBigBoxdiv2">      
-                                    <div class="memberboxdiv3">  
-                                        <a href="#" style="text-align: left;">芋圓</a>
-                                        <a href="#" style="text-align: left;">$-5元</a>
-                                        <a href="#" style="text-align: left;">序號:12345</a> 
-                                    </div>
-                                    <div class="memberboxdiv3" style="display: flex; flex-direction: row;">
-                                        <li class="memberli"> <img src="images/memberCoupon.png" ></li>
-                                    </div>  
-                                    <div class="memberBigBoxdiv2">      
-                                        <div class="memberboxdiv3">  
-                                            <a href="#" style="text-align: left;">芋圓</a>
-                                            <a href="#" style="text-align: left;">$-5元</a>
-                                            <a href="#" style="text-align: left;">序號:12345</a> 
+                                <div class="memberboxdivwrap1">
+                                        <div class="memberBigBoxdiv2">      
+                                            <div class="memberboxdiv3">  
+                                                <a href="#" style="text-align: left;">芋圓</a>
+                                                <a href="#" style="text-align: left;">$-5元</a>
+                                                <a href="#" style="text-align: left;">序號:<br>12345</a> 
+                                            </div>
+                                                <div class="memberboxdiv3" >
+                                                     <img src="images/memberCoupon.png" >
+                                                </div>  
                                         </div>
-                                        <div class="memberboxdiv3" style="display: flex; flex-direction: row;">
-                                            <li class="memberli"> <img src="images/memberCoupon.png" ></li>
-                                        </div>  
-                                    </div> 
-                                </div> 
+                                        <div class="memberBigBoxdiv2">      
+                                                <div class="memberboxdiv3">  
+                                                    <a href="#" style="text-align: left;">芋圓</a>
+                                                    <a href="#" style="text-align: left;">$-5元</a>
+                                                    <a href="#" style="text-align: left;">序號:<br>12345</a> 
+                                                </div>
+                                                <div class="memberboxdiv3">
+                                                   <img src="images/memberCoupon.png" >
+                                                </div>  
+                                            </div> 
+
+                                </div>
+                               
+                                
+                               
                             </ul>  
                         </span>
             <!-- 第四頁-訂單查詢 -->
@@ -219,18 +225,17 @@
                                         <li class="memberli">訂單<br>編號</li>
                                         <li class="memberli">訂購<br>日期</li>
                                         <li class="memberli">商品<br>名稱</li>
-
                                         <li class="memberli">運費</li>
                                         <li class="memberli">總金額</li>
                                         <li class="memberli">數量</li>
                                         <li class="memberli">訂單<br>狀態</li> 
-                                        <li class="memberli">取消訂單</li>   
+                                        <li class="memberli">取消<br>訂單</li>   
 
                                     </ol>
                                 </li>
                                 <li class="membertbody">
                                     <ol class="memberol">
-                                        <li class="memberli" data-title="訂單編號">10001</li>
+                                        <li class="memberli" data-title="訂單編號">1000110</li>
                                         <li class="memberli" data-title="訂購日期">20191106</li> 
                                         <!-- <li class="memberli" data-title="商品名稱">馬克杯</li> -->
                                         <div class="memberboxdiv2">
@@ -251,7 +256,7 @@
                                 </li>
                                 <li class="membertbody">
                                     <ol class="memberol">
-                                        <li class="memberli" data-title="訂單編號">10001</li>
+                                        <li class="memberli" data-title="訂單編號">1000110</li>
                                         <li class="memberli" data-title="訂購日期">20191106</li> 
                                         <!-- <li class="memberli" data-title="商品名稱">馬克杯</li> -->
                                         <div class="memberboxdiv2">
@@ -274,7 +279,7 @@
                             </ul>  	  
                         </span>
             <!-- 第五頁-預約行程 -->
-                        <span id="memberTab5" style="padding: 0 8.5%;">
+                        <span id="memberTab5">
                             <li id="memberReserve"class="memberthead">
                                 <ol class="memberol">
                                     <li class="memberli">日期</li>

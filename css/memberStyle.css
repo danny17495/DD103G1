@@ -70,11 +70,11 @@ section.shopcartPageTitle img{
 
 /***2.會員中心內容**********************************************************************************/
 
-.memberTabGroup .input{
+.memberTabGroup .memberinput{
     margin: 10px 0;
     border-radius: 5px;
     }     
-  .memberTabGroup #visa {
+  .memberTabGroup #membervisa {
     width: 10%;
   }
   #memberWrap{
@@ -119,8 +119,9 @@ section.shopcartPageTitle img{
     /* border: 1px solid #CCC; */
     background-color: #fff;
     opacity:0.9;
-    width: 100%;
-    padding: 5%;
+    /* width: 100%; */
+    display: flex;
+    padding:10%;
   }
   #memberTab-panel .memberTab-content > li {
     display: none;
@@ -132,13 +133,15 @@ section.shopcartPageTitle img{
   #memberTab1{
     display:none;
   }
-
+  .memberboxdivwrap1{
+    display: flex;
+    flex-flow: row wrap;
+  }
 
  /*----------表格部分-------------- */
 
  .memberul{
   width: 100%;
-  max-width: 375px;
   display: block;
   margin: 0 auto;
   border-collapse: collapse;
@@ -168,11 +171,12 @@ section.shopcartPageTitle img{
 }
 .memberwbtn{
   padding:10px 0;
+  margin:4%
 }
 .memberli2{
   border-bottom:1px solid #aaa;
   text-align: center;
-  padding:5px;
+  padding:10.5px;
 
 }
 .memberbody{
@@ -180,48 +184,49 @@ section.shopcartPageTitle img{
 }
 .memberBigBoxdiv{
   width: 100%;
-  max-width: 350px;
+  padding: 5%;
   margin: 0 auto;
   display: flex;
   flex-flow: row wrap;
 }
 .memberboxdiv{
-  width: 100%;
-  max-width: 180px;
   margin: 0 auto;
   display: flex;
-  flex-flow: column nowrap;
-  /* padding: 3.5%; */
+  flex-flow: row wrap;
 }
 
 .memberboxdiv > a{
-  padding: 40px 3.5px;
+  padding: 40px 0px;
   text-align: center;
 }
+
 #memberTab2{
 width: 100%;
-max-width: 375px;
+
 margin: 0 auto;
 
 }
 /* ----- */
 .memberBigBoxdiv2{
   display: flex;
-  flex-direction: row;
-  padding-right: 10px;
+  flex-flow:row nowrap;
+  padding: 4%;
 }
 
 .memberboxdiv3{
-  /* padding: 3.5%; */
+  /* padding:4%; */
   border:1px solid #AAA;
 }
-.memberboxdiv3 > .memberli{
+.memberboxdiv3 .memberli{
   flex-direction: row;
+  padding:5%;
  }
- .memberboxdiv3 > a{
+ .memberboxdiv3 a{
    padding:5px;
-   text-align: center;
+   /* text-align: center; */
  }
+
+
 /* RWD頁籤部分------------------------------------------------------------------------------------ */
 @media only screen and (max-width:768px){
   .memberthead{
@@ -233,9 +238,11 @@ margin: 0 auto;
     margin-bottom: 5px;
   }
   .memberol .memberli{
-    display: inline-block;
-    width: 100%;
+    display:flex;
+    flex-flow: row wrap;
+    /* width: 100%; */
     border: none;
+    
   }
   .memberol .memberli:before{
     content: attr(data-title);
