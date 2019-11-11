@@ -272,16 +272,14 @@ function postcardInit3(){
 window.addEventListener("resize", postcardInit3, false);
 
 
-/*======三-3.插入貼圖======*/
+/*======三-3.插入貼圖(步驟二跟四)======*/
 /*設定全部物件控制的樣式*/
-
-
 fabric.Object.prototype.set({
 	  transparentCorners: false,
 	  borderColor: 'rgb(156, 20, 24)', // 邊框顏色
 	  cornerColor: 'rgb(156, 20, 24)', // 控制點填滿色
 	  cornerSize: 10, // 控制點大小
-	  //cornerStrokeColor: 'blue', // 控制點邊框色
+	  cornerStrokeColor: 'white', // 控制點邊框色
 	  padding: 10,
 	  borderDashArray: [5, 5],
 	  cornerStyle: 'circle',
@@ -289,33 +287,13 @@ fabric.Object.prototype.set({
 
 
 
-
-
-
-
-
-
-const iText = new fabric.IText('雙擊我編輯', {
-  left: 0,
-  top: 120
-})
-postcardCanvas.add(iText);
-
-aa='Hello'
-
-
-const text = new fabric.Text(aa, {
-  left: 0,
-  top: 80
-})
-postcardCanvas.add(text)
-
-
-
 //建立html連結:按鈕
 let postDecoFood_1 = document.getElementById("postDecoFood_1");
 let postDecoFood_2 = document.getElementById("postDecoFood_2");
 let postDecoFood_3 = document.getElementById("postDecoFood_3");
+let postDecoMark_1 = document.getElementById("postDecoMark_1");
+let postDecoMark_2 = document.getElementById("postDecoMark_2");
+
 
 function newFood_1(){
 	fabric.Image.fromURL('images/postcard/postDeco-1.png', (img) => {
@@ -331,7 +309,7 @@ function newFood_1(){
 
 
 function newFood_2(){
-	var aa =fabric.Image.fromURL('images/postcard/postDeco-2.png', (img) => {
+	fabric.Image.fromURL('images/postcard/postDeco-2.png', (img) => {
 	  const oImg = img.set({
 	      left: 120,
 	      top: 60,
@@ -339,17 +317,13 @@ function newFood_2(){
 	      height: 115,
 	  })
 	  postcardCanvas.add(oImg) // 加進canvas
-	  // postcardCanvas.remove(oImg) // 加進canvas
-
-
 	})
 
 
 }
 
 function newFood_3(){
-
-	var aa =fabric.Image.fromURL('images/postcard/postDeco-3.png', (img) => {
+	fabric.Image.fromURL('images/postcard/postDeco-3.png', (img) => {
 	  const oImg = img.set({
 	      left: 120,
 	      top: 60,
@@ -357,20 +331,42 @@ function newFood_3(){
 	      height: 115,
 	  })
 	  postcardCanvas.add(oImg) // 加進canvas
-	  // postcardCanvas.remove(oImg) // 加進canvas
-
-
 	})
-
 
 }
 
+function newMark_1(){
+	fabric.Image.fromURL('images/postcard/postDeco-rect-1.png', (img) => {
+	  const oImg = img.set({
+	      left: 60,
+	      top: 60,
+	      width: 150,
+	      height: 150,
+	  })
+	  postcardCanvas.add(oImg) // 加進canvas
+	})
+}
+
+function newMark_2(){
+	fabric.Image.fromURL('images/postcard/postDeco-rect-2.png', (img) => {
+	  const oImg = img.set({
+	      left: 60,
+	      top: 60,
+	      width: 150,
+	      height: 150,
+	  })
+	  postcardCanvas.add(oImg) // 加進canvas
+	})
+
+}
 
 function postcardInit4(){
 	console.log("hi^_^3");
 	postDecoFood_1.addEventListener("click", newFood_1, false);
 	postDecoFood_2.addEventListener("click", newFood_2, false);
 	postDecoFood_3.addEventListener("click", newFood_3, false);
+	postDecoMark_1.addEventListener("click", newMark_1, false);
+	postDecoMark_2.addEventListener("click", newMark_2, false);
 }
 
 window.addEventListener("load", postcardInit4, false);
@@ -395,5 +391,129 @@ postcardCanvas.on('mouse:dblclick', e => {
     postcardCanvas.renderAll();
   }
 })
+
+
+
+/*======三-4.寫文字(步驟三)======*/
+/*三-4-1.點擊顏色更換*/
+//建立html連結:註冊顏色按鈕
+var postcardTextColor1 = document.getElementById("postcardTextColor1");
+var postcardTextColor2 = document.getElementById("postcardTextColor2");
+var postcardTextColor3 = document.getElementById("postcardTextColor3");
+var postcardTextColor4 = document.getElementById("postcardTextColor4");
+
+/*切換顏色*/
+function postcardTextColorChoose_1(){
+	postcardTextColor1.classList.add("postcardTextColorSelected");
+	postcardTextColor2.classList.remove("postcardTextColorSelected");
+	postcardTextColor3.classList.remove("postcardTextColorSelected");
+	postcardTextColor4.classList.remove("postcardTextColorSelected");
+}
+
+function postcardTextColorChoose_2(){
+	postcardTextColor1.classList.remove("postcardTextColorSelected");
+	postcardTextColor2.classList.add("postcardTextColorSelected");
+	postcardTextColor3.classList.remove("postcardTextColorSelected");
+	postcardTextColor4.classList.remove("postcardTextColorSelected");
+}
+
+function postcardTextColorChoose_3(){
+	postcardTextColor1.classList.remove("postcardTextColorSelected");
+	postcardTextColor2.classList.remove("postcardTextColorSelected");
+	postcardTextColor3.classList.add("postcardTextColorSelected");
+	postcardTextColor4.classList.remove("postcardTextColorSelected");
+}
+
+function postcardTextColorChoose_4(){
+	postcardTextColor1.classList.remove("postcardTextColorSelected");
+	postcardTextColor2.classList.remove("postcardTextColorSelected");
+	postcardTextColor3.classList.remove("postcardTextColorSelected");
+	postcardTextColor4.classList.add("postcardTextColorSelected");
+}
+
+
+
+
+$("html").hasClass("no-js")
+
+
+
+/*三-4-2.按下按鈕會生字*/
+//建立html連結:按鈕
+var newTextBtn = document.getElementById("newTextBtn");
+
+function newText(){
+	console.log("hi^_^4, 輸入文字函式newText");
+
+	//建立html連結:抓取文字盒內容(注意抓input值的要寫在函式裡面, 通常打完才會按按鈕抓取文字)
+	var postcardText = document.getElementById("postcardText");
+	var realText = postcardText.value;
+
+	//fabric文字
+	const Text_1 = new fabric.Text(realText, {
+		left: 40,
+		top: 120,
+	  	fill: 'white',
+	  	fontSize: 40,
+	  	fontFamily: '微軟正黑體',
+	})
+	postcardCanvas.add(Text_1);
+}
+
+function postcardInit5(){
+	newTextBtn.addEventListener("click", newText, false);
+	postcardTextColor1.addEventListener("click", postcardTextColorChoose_1, false);
+	postcardTextColor2.addEventListener("click", postcardTextColorChoose_2, false);
+	postcardTextColor3.addEventListener("click", postcardTextColorChoose_3, false);
+	postcardTextColor4.addEventListener("click", postcardTextColorChoose_4, false);
+}
+
+window.addEventListener("load", postcardInit5, false);
+
+
+
+
+
+
+
+// const iText111 = new fabric.IText('雙擊我編輯', {
+//   left: 0,
+//   top: 120,
+//   fill: 'white',
+//   fontSize: 40,
+// })
+// postcardCanvas.add(iText111);
+
+// const iText = new fabric.IText('雙擊我編輯', {
+//   left: 0,
+//   top: 120,
+//   fill: 'white',
+//   fontSize: 40,
+//   fontFamily: '微軟正黑體',
+// })
+// postcardCanvas.add(iText);
+
+// var aa='Hello';
+// // var bb='white'; //顏色不能帶變數,用if判斷寫
+
+// const text = new fabric.Text(aa, {
+//   left: 0,
+//   top: 80,
+//   fill: 'rgb(178, 100, 102)',
+// })
+// postcardCanvas.add(text)
+
+
+// var itext = new fabric.IText('This is a IText object', {
+// 	left: 100,
+// 	top: 150,
+// 	fill: '#D81B60',
+// 	strokeWidth: 2,
+// 	stroke: "#880E4F",
+// });
+
+
+
+
 
 
