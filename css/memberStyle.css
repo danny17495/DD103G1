@@ -116,12 +116,13 @@ section.shopcartPageTitle img{
     color: #FFF;
   }
   #memberTab-panel .memberTab-content {
-    /* border: 1px solid #CCC; */
+    border: 1px solid #CCC;
     background-color: #fff;
     opacity:0.9;
     /* width: 100%; */
     display: flex;
     padding:10%;
+    border-radius: 0 0 20px 20px;
   }
   #memberTab-panel .memberTab-content > li {
     display: none;
@@ -212,7 +213,7 @@ width: 100%;
 margin: 0 auto;
 
 }
-/* ----- */
+
 .memberBigBoxdiv2{
   display: flex;
   flex-flow:row nowrap;
@@ -231,14 +232,14 @@ margin: 0 auto;
  }
  .memberboxdiv3 a{
    padding:5px;
-   /* text-align: center; */
+  /* text-align: center; */
  }
- #memberTab4{
-   /* margin:0 auto; */
+/*#memberTab4{
+   margin:0 auto;
  }
  #memberTab5{
-  /* margin:0 auto; */
-}
+  margin:0 auto;
+} */
 #memberReserve{
   padding:5%;
 }
@@ -259,7 +260,7 @@ margin: 0 auto;
   text-align: center;
 } */
 /* RWD頁籤部分------------------------------------------------------------------------------------ */
-@media only screen and (max-width:768px){
+@media only screen and (max-width:570px){
   .memberthead{
     display: none;
   }
@@ -298,7 +299,12 @@ margin: 0 auto;
    
     margin-bottom: 20px;
   }
+  .memberboxdivwrap1{
+    display: flex;
+    flex-flow: column wrap;
+  }
 }
+
  
   @media all and (max-width: 320px) {
     .memberTabs p{
@@ -360,6 +366,11 @@ margin: 0 auto;
     .memberTabs p{
         display: none;
       }
+  }
+  @media all and (max-width: 343px) {
+    .memberboxdiv > a {
+     font-size: 10px;
+    }
   }
   @media all and (max-width: 350px) {
     .memberTabs p{
