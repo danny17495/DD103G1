@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="css/common.css">
     <!-- <link rel="stylesheet" href="css/style.css"> -->
-    <link rel="stylesheet" href="css/stylePostcard.css">  
+    <link rel="stylesheet" href="css/stylePostcard.css">
+    <script src="js/jquery-3.4.1.min.js"></script> 
     <script src="js/postcard.js" defer="true"></script>
 </head>
 <body class="postcardBody">
@@ -254,13 +255,13 @@
                             </div>
                         </div>
                         <div>
-                            <div>
+                            <div id="postDecoFoodWord_1">
                                 <p>芋圓</p>
                             </div>
-                            <div>
+                            <div id="postDecoFoodWord_2">
                                 <p>草仔粿</p>
                             </div>
-                            <div>
+                            <div id="postDecoFoodWord_3">
                                 <p>魚丸</p>
                             </div>
                         </div>                      
@@ -287,12 +288,42 @@
             <div class="postRight_3 aapostRight" id="postRight_3">
                 <div class="aapostRightDIY">
                     <h3>寫文字</h3>
-                    <!-- (1)3個可選用背景 -->
+                    <!-- (1)3輸入文字 -->
+                    <div>
+                        <div>
+                            <textarea id="postcardText" placeholder="請在這裡輸入文字"></textarea>
+                        </div>
+                        <h3>選擇文字顏色</h3>
+                        <div class="postcardTextColorBox">
+                            <span class="postcardTextColor postcardTextColor1 postcardTextColorSelected" id="postcardTextColor1">
+                                <span></span>
+                            </span>
+                            <span class="postcardTextColor postcardTextColor2" id="postcardTextColor2">
+                                <span></span>
+                            </span>
+                            <span class="postcardTextColor postcardTextColor3" id="postcardTextColor3">
+                                <span></span>
+                            </span>
+                            <span class="postcardTextColor postcardTextColor4" id="postcardTextColor4">
+                                <span></span>
+                            </span>
+                        </div>
+                        <div>
+                            <div class="whiteButton" id="newTextBtn">生成文字</div>
+                        </div>
+                    </div>
 
 
 
 
-                    <!-- (2)上傳窗格 -->
+
+                    <!-- (2)選色 -->
+
+
+
+
+
+                    <!-- (3)確認按鈕 -->
 
 
 
@@ -308,13 +339,33 @@
             <!-- ==============(二-4)操作畫面.postRight_4(選郵戳)============== -->
             <div class="postRight_4 aapostRight" id="postRight_4">
                 <div class="aapostRightDIY">
-                    <h3>蓋郵戳！九份認證！</h3>
-                    <!-- (1)3個可選用背景 -->
+                    <h3>蓋一個郵戳！九份認證！</h3>
+                    <!-- (1)3個可選用食物 -->
+                    <div>
+                        <div>
+                            <div class="postDecoMark_1 postDecoMark" id="postDecoMark_1">
+                                <img src="images/postcard/postDeco-rect-1.png" alt="postDeco">
+                            </div>
+                            <div class="postDecoMark_2 postDecoMark" id="postDecoMark_2">
+                                <img src="images/postcard/postDeco-rect-2.png" alt="postDeco">
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <p>郵戳一</p>
+                            </div>
+                            <div>
+                                <p>郵戳二</p>
+                            </div>
+                        </div>                      
+                    </div>
+                   
 
 
 
 
-                    <!-- (2)上傳窗格 -->
+
+                    <!-- (2)教學 -->
 
 
 
@@ -422,9 +473,6 @@
 
 
 
-
-
-
     <footer>
         <div>
             <a href="#">
@@ -439,6 +487,7 @@
         </div>
         <p>DD103 G1 copyright</p>
     </footer>
+
 
 </body>
 </html>

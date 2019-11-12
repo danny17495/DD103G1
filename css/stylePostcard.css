@@ -1,6 +1,3 @@
-
-
-
 /*----------------shopcart購物車頁面開始(<768)---------------*/
 /*----------------購物車, 客製化明信片頁面的共用----------------*/
 .wrapA{
@@ -259,8 +256,8 @@ section.postcardMain .aapostLeft .aapostStep{
     /*background-color: red;*/
     background-image: url(../images/postcard/postStepBorder.png);
     background-size: contain;
+    background-repeat: no-repeat; 
     position: relative;
-
 }
 
 section.postcardMain .aapostLeft .aapostStep p{
@@ -296,7 +293,7 @@ section.postcardMain .aapostLeft .postStepYellow4:after{
 /*===============================================================*/
 /*2-2-2(二).操作畫面.postRight切換步驟css + postcard.js*/
 .postRight_2{display: none}
-.postRight_3{display: none}
+.postRight_1{display: none}
 .postRight_4{display: none}
 .postRight_5{display: none}
 
@@ -470,7 +467,7 @@ section.postcardMain .postRight_2 .aapostRightDIY .postDecoFood{
     width: 30%;
     padding: 5px;
     border-radius: 50%;
-    background-color: rgba(255, 201, 121, .8);
+    background-color: rgba(183, 153, 142, .8);
     margin-top: 20px;
     cursor: pointer;  
 }
@@ -489,18 +486,130 @@ section.postcardMain .postRight_2 .aapostRightDIY  div p{
 section.postcardMain .postRight_2 .aapostRightDIY .postDecoFood:hover{
     /*border: */
     box-sizing: border-box;
-    border: 2px solid #ccc;
+    /*border: 4px solid rgb(255, 201, 121);*/
     background-color: rgb(255, 201, 121);
+}
 
+
+/*2-2-2(二).操作畫面.postRight步驟四樣式*/
+section.postcardMain .postRight_4 .aapostRightDIY > div{
+    position: absolute;
+}
+
+section.postcardMain .postRight_4 .aapostRightDIY > div > div{
+    /*background-color: yellow;*/
+    display: flex;
+    justify-content: space-around;    
+    padding: 0 20px;
+}
+
+section.postcardMain .postRight_4 .aapostRightDIY .postDecoMark{
+    width: 30%;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: rgba(183, 153, 142, .8);
+    margin-top: 20px;
+    cursor: pointer;  
+}
+
+section.postcardMain .postRight_4 .postDecoMark img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+section.postcardMain .postRight_4 .aapostRightDIY  div p{
+    padding-top: 5px;
+    font-size: 14px;
+}
+
+section.postcardMain .postRight_4 .aapostRightDIY .postDecoMark:hover{
+    /*border: */
+    box-sizing: border-box;
+    /*border: 4px solid rgb(255, 201, 121);*/
+    background-color: rgb(255, 201, 121);
 }
 
 
 
+/*2-2-2(二).操作畫面.postRight步驟三樣式*/
+section.postcardMain .postRight_3 .aapostRightDIY > div{
+    position: absolute;
+    width: 100%;
+}
 
+section.postcardMain .postRight_3 .aapostRightDIY > div > div{
+    /*background-color: red;*/
+    width: 80%;
+    margin: 10px auto;
+    /*padding: 0 10px;*/
+}
 
+section.postcardMain .postRight_3 .aapostRightDIY textarea{
+    width: 100%;
+    height: 100px;
+    padding: 5px;
+    margin: 0 auto;
+    resize: none;
+    /*background-color: yellow;*/
+}
 
+section.postcardMain .postRight_3 .aapostRightDIY > div h3{
+    padding-top: 5px;
+}
 
+section.postcardMain .postRight_3 .aapostRightDIY .postcardTextColorBox{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+}
 
+/*搭配js用來製作選中效果*/
+section.postcardMain .postRight_3 .aapostRightDIY .postcardTextColor{
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid transparent;    
+}
+
+section.postcardMain .postRight_3 .aapostRightDIY .postcardTextColorSelected{
+    border: 2px solid rgba(0, 0, 0, .6);
+}
+
+/*內層真的顏色*/
+section.postcardMain .postRight_3 .aapostRightDIY .postcardTextColor span{
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, .7);
+    margin: 2px;
+}
+
+section.postcardMain .postRight_3 .aapostRightDIY .postcardTextColor1:hover,
+section.postcardMain .postRight_3 .aapostRightDIY .postcardTextColor2:hover,
+section.postcardMain .postRight_3 .aapostRightDIY .postcardTextColor3:hover,
+section.postcardMain .postRight_3 .aapostRightDIY .postcardTextColor4:hover{
+    background-color: rgba(255, 201, 121, .7);
+}
+
+section.postcardMain .postRight_3 .aapostRightDIY .postcardTextColor1 span{background-color: rgb(255, 255, 255);}
+section.postcardMain .postRight_3 .aapostRightDIY .postcardTextColor2 span{background-color: rgb(178, 100, 102);}
+section.postcardMain .postRight_3 .aapostRightDIY .postcardTextColor3 span{background-color: rgb(255, 201, 121);}
+section.postcardMain .postRight_3 .aapostRightDIY .postcardTextColor4 span{background-color: rgba(0, 0, 0, 0.9);}
+
+section.postcardMain .postRight_3 .aapostRightDIY .whiteButton{
+    font-size: 16px;
+    margin-top: 30px;    
+}
+
+section.postcardMain .postRight_3 .aapostRightDIY .whiteButton:hover{
+    background-color: rgba(255, 201, 121);
+    color: rgba(0, 0, 0, .9);
+
+}
 
 
 
@@ -516,6 +625,14 @@ section.postcardMain .postRight_3 .postDIYBtn,
 section.postcardMain .postRight_4 .postDIYBtn{
     margin: 20px 5px 30px;
 }
+
+
+
+
+
+
+
+
 
 
 
@@ -819,10 +936,6 @@ body.postcardBody .forWallDeco{
 
 @media screen and (min-width: 992px){
     /*----------------2-2.postcardMain  明信片主要客製畫面----------------*/
-    /*----------------2-1,2-3.postLine  明信片裝飾斜線----------------*/
-    section.postLine{
-        height: 14px;
-    }
     /*2-2-1.標題*/
     section.postcardMain h1{
         padding: 100px 0 30px;    
