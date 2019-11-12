@@ -92,18 +92,21 @@
                 <div id="memberTab-panel">
             <!-- 表頭 -->
                     <div class="memberTabs">
-                       <a><i class="fa fa-address-book-o" aria-hidden="true"></i><p>基本資料</p></a>
-                       <a><i class="fa fa-picture-o" aria-hidden="true"></i><p>明信片</p></a>
-                       <a><i class="fa fa-money" aria-hidden="true"></i><p>優惠卷</p></a>
-                       <a><i class="fa fa-shopping-bag" aria-hidden="true"></i><p>訂單查詢</p></a>
-                       <a><i class="fa fa-map" aria-hidden="true"></i><p>預約行程</p></a>
+                       <a><i id="member-i" class="fa fa-address-book-o" aria-hidden="true"></i><p>基本資料</p></a>
+                       <a><i id="member-i" class="fa fa-picture-o" aria-hidden="true"></i><p>明信片</p></a>
+                       <a><i id="member-i" class="fa fa-money" aria-hidden="true"></i><p>優惠卷</p></a>
+                       <a><i id="member-i" class="fa fa-shopping-bag" aria-hidden="true"></i><p>訂單查詢</p></a>
+                       <a><i id="member-i" class="fa fa-map" aria-hidden="true"></i><p>預約行程</p></a>
                     </div>
             <!-- 表身 -->
                     <ul class="memberTab-content">
             <!-- 第一頁-基本資料 -->
                         <span id="memberTab1">
                             <div class="top_part">
-                                <h3>基本資料</h3>   
+                                <div class="membertitle">
+                                   <h2>基本資料</h2>   
+                                </div>
+                                 
                                         <div class="memberTabGroup">
                                             <label for="membername" class="label">姓名</label>
                                             <input id="memberinput" type="text" class="memberinput">
@@ -131,14 +134,21 @@
                                             <input id="membervisa" type="text" class="memberinput">
                                             <input id="membervisa" type="text" class="memberinput">
                                         </br >
-                                        <div id="memberwbtn" class="whiteButton" style="border:1px solid #ccc;">
-                                            修改
-                                        </div>
+                                     
+                                        
                                        </div>
+                                       <div class="memberBigbtn">
+                                            <div id="memberwbtn" class="whiteButton" style="border:1px solid #ccc;">
+                                                修改
+                                            </div>  
+                                    </div>
                                     </div>
                             
                             <div class="bottom_part">
-                                    <h3>更改密碼</h3>   
+                                <div class="membertitle">
+                                     <h2>更改密碼</h2>  
+                                </div>
+                                    
                                     <div class="memberTabGroup">
                                             <label for="password" class="label">目前密碼&nbsp;&nbsp;</label>
                                             <input id="memberinput" type="text" class="memberinput">
@@ -151,10 +161,13 @@
                                             <label for="change" class="label">再輸入密碼</label>
                                             <input id="memberinput" type="text" class="memberinput" style="width: 23.5%;">
                                     </br >
-                                        <!-- <input type="submit" class="memberButton" style="margin:10px 0;" value="儲存變更" class="whiteButton"> -->
-                                        <div id="memberwbtn" class="whiteButton" style="border:1px solid #ccc;">儲存變更</div>	
+                                        <!-- <input type="submit" class="memberButton" style="margin:10px 0;" value="儲存變更" class="whiteButton"> --> 
                                     </div>
-                                    
+                                    <div class="memberBigbtn">
+                                        <div id="memberwbtn" class="whiteButton" style="border:1px solid #ccc;">
+                                             儲存變更
+                                         </div>	 
+                                     </div>
                             </div>
                           
                             
