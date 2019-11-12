@@ -5,7 +5,7 @@
 }
 *{
     list-style: none;
-	/*outline:solid 1px red;*/
+/*	outline:solid 1px red;*/
 }
 /*----------------index Banner(手機板)-----------------*/
 
@@ -3360,7 +3360,8 @@
     width: 82px;
     height: 48px;
 }
-.littleGameWrap .game1{
+.littleGameWrap .game1,
+.littleGameWrap .game2{
     width: 100%;
     height: 100%;
     position: absolute;
@@ -3372,15 +3373,114 @@
     top: 277px;
     left: 296px;
 }
+.game2 #taro_in_game1{
+    position: absolute;
+    top: 260px;
+    left: 495px;
+}
 .game1 #grassrice_in_game1{
     position: absolute;
     top: 269px;
     right: 50px;
 }
+.game2 #grassrice_in_game1{
+    position: absolute;
+    top: 540px;
+    right: 430px;
+}
 .game1 #meatball_in_game1{
     position: absolute;
     bottom: 182px;
     left: 160px;
+}
+.game2 #meatball_in_game1{
+    position: absolute;
+    top: 118px;
+    right: 173px;
+}
+.game1 #taro_img{
+    position: relative;
+}
+.game2 #taro_img,
+.game2 #grassrice_img,
+.game2 #meatball_img{
+    position: relative;
+}
+.game1 #taro_in_game1_after,
+.game1 #grassrice_in_game1_after,
+.game1 #meatball_in_game1_after{
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: #e60012 transparent transparent transparent;
+    border-width: 25px 20px 0 20px;
+    display: none;
+}
+.game1 #taro_in_game1_after{
+    top: 270px;
+    left: 307px;
+    animation: taroarrMove .8s linear alternate infinite;
+}
+.game1 #grassrice_in_game1_after{
+    top:250px;
+    right: 60px;
+    animation: grassricearrMove .8s linear alternate infinite;
+}
+.game1 #meatball_in_game1_after{
+    bottom: 230px;
+    left: 170px;
+    animation: meatballarrMove .8s linear alternate infinite;
+}
+@keyframes taroarrMove{
+    0%{top:272px}
+    100%{top:260px;}
+}
+@keyframes grassricearrMove{
+    0%{top:252px}
+    100%{top:240px;}
+}
+@keyframes meatballarrMove{
+    0%{bottom:232px}
+    100%{bottom:220px;}
+}
+.game2 #taro_in_game1_after,
+.game2 #grassrice_in_game1_after,
+.game2 #meatball_in_game1_after{
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: #e60012 transparent transparent transparent;
+    border-width: 25px 20px 0 20px;
+    display: none;
+}
+.game2 #taro_in_game1_after{
+    top: 240px;
+    right: 298px;
+    animation: taroarrMove2 .8s linear alternate infinite;
+}
+.game2 #grassrice_in_game1_after{
+    top: 515px;
+    right: 440px;
+    animation: grassricearrMove2 .8s linear alternate infinite;
+}
+.game2 #meatball_in_game1_after{
+    top: 92px;
+    right: 181px;
+    animation: meatballarrMove3 .8s linear alternate infinite;
+}
+@keyframes taroarrMove2{
+    0%{top:242px;}
+    100%{top:230px;}
+}
+@keyframes grassricearrMove2{
+    0%{top:517px;}
+    100%{top:505px;}
+}
+@keyframes meatballarrMove3{
+    0%{top: 94px;}
+    100%{top: 82px;}
 }
 #game_coupon_wrap{
     display: none;
@@ -3409,6 +3509,76 @@
     top: 20px;
     right: 110px;
     font-size: 36px;
+}
+.getGameSuggestion {
+    width: 60%;
+    position: absolute;
+    top: 20%;
+    right: 20%;
+}
+#taro_suggestion,
+#grassrice_suggestion,
+#meatball_suggestion{
+    background-color: #feeed4;
+    margin: auto;
+    border-radius: 40px;
+    padding: 20px;
+    display: none;
+}
+.getGameSuggestion .exposition{
+    display: flex;
+    flex-direction: row;
+}
+.getGameSuggestion h2{
+    font-family: '華康秀風體';
+    text-align: center;
+    font-size: 36px;
+    padding: 10px 0;
+}
+#taro_suggestion .taroexposition_img,
+#grassrice_suggestion .grassriceexposition_img,
+#meatball_suggestion .meatballexposition_img{
+    width: 50%;
+    margin: auto;
+}
+#taro_suggestion img,
+#grassrice_suggestion img,
+#meatball_suggestion img{
+    display: block;
+    margin: auto;
+    width: 100%;
+    max-width: 200px;
+}
+#taro_suggestion .taroexposition_text,
+#grassrice_suggestion .grassriceexposition_text,
+#meatball_suggestion .meatballexposition_text
+{
+    width: 55%;
+    padding:20px 25px;
+}
+#taro_suggestion_close,
+#grassrice_suggestion_close,
+#meatball_suggestion_close
+{
+    font-size: 36px;
+    color: #ddd;
+    position: absolute;
+    top: 12px;
+    right: 20px;
+}
+#game_getCoupon{
+    background-color: #fff;
+    border-radius: 20px;
+    border:none;
+    padding: 2px 8px;
+    color: #3d3c3c;
+    font-size: 26px;
+    font-family: '華康秀風體';
+    cursor: pointer;
+    position: absolute;
+    bottom: 60px;
+    right: 43%;
+    display: none;
 }
 
 /*----------------小遊戲(網頁版)-------------------*/
