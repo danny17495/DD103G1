@@ -5,7 +5,7 @@
 }
 *{
     list-style: none;
-/*	outline:solid 1px red;*/
+	/*outline:solid 1px red;*/
 }
 /*----------------index Banner(手機板)-----------------*/
 
@@ -3008,6 +3008,7 @@
         left: 0;
         padding-top: 80px;
         z-index: 999;
+        display: none;
     }
 .Trip2_lightBox .lightBox_wrapper{
         width: 80%;
@@ -3289,17 +3290,17 @@
 }
 /*----------------小遊戲(手機版)-------------------*/
 .gameOuter .littleGame{
-  width:70%;
-  margin: 25px auto 40px;
+  width:100%;
+  margin: 30px auto 70px;
   position: relative;
 }
 #GameWrap{
-    width: 88%;
+    width: 90%;
     padding-bottom:68%; 
-    background-image: url(../images/game/game1_bg.png);
+    background-image: url(../images/game/game1_bg_mobile.png);
     background-position: center center;
     background-repeat: no-repeat;
-    border-radius: 12%;
+    border-radius: 10%;
     position: relative; 
     margin: auto;
     overflow: hidden;  
@@ -3316,50 +3317,52 @@
   margin: auto;
   cursor: pointer;
 }
+
 .littleGame .suggestionBar{
-    width:85%;
+    width: 100%;
+    background-color: #282832;
     position: absolute;
-    top: 20px;
+    top: 7px;
     right: 0;
     left: 0;
     margin: auto;
     display: inline-block;
+    padding-left: 30px;
     display: none;
 }
 .littleGame .suggestionBar img{
     vertical-align:middle; 
 }
 .littleGame .suggestionBar #game_suggestion{
+    width: 40px;
+    height: 23px;
     cursor: pointer;
     position: relative;
     z-index: 2;
 }
 .littleGame .suggestionBar #taro{
-    width: 32px;
-    height: 38px;
+    width: 20px;
+    height: 23px;
 }
 .littleGame .suggestionBar #grassrice{
-    width: 41px;
-    height: 29px;
+    width: 20px;
+    height: 14px;
 }
 .littleGame .suggestionBar #meatball{
-    width: 45px;
-    height: 30px;
+    width: 25px;
+    height: 16.5px;
 }
 .littleGame .suggestionBar span{
     color: #fff;
-    font-size: 24px;
-    margin-left: 50px;
-    margin-right: 20px;
+    font-size: 14px;
+    margin-left: 5px;
+    margin-right: 5px;
     vertical-align:middle;
 }
 .littleGame .suggestionBar #taroText{
-    margin-left: 10%;
+    margin-left: 4%;
 }
-#game_suggestion{
-    width: 82px;
-    height: 48px;
-}
+
 .littleGameWrap .game1,
 .littleGameWrap .game2{
     width: 100%;
@@ -3370,33 +3373,39 @@
 }
 .game1 #taro_in_game1{
     position: absolute;
-    top: 277px;
-    left: 296px;
+    width: 35px;
+    top: 97px;
+    left: 110px;
 }
-.game2 #taro_in_game1{
+.game2 #taro_in_game2{
     position: absolute;
-    top: 260px;
-    left: 495px;
+    width: 35px;
+    top: 184px;
+    left: 10px;
 }
 .game1 #grassrice_in_game1{
     position: absolute;
-    top: 269px;
-    right: 50px;
+    width: 35px;
+    top: 64px;
+    right: 13px;
 }
-.game2 #grassrice_in_game1{
+.game2 #grassrice_in_game2{
     position: absolute;
-    top: 540px;
-    right: 430px;
+    width: 35px;
+    top: 190px;
+    right: 100px;
 }
 .game1 #meatball_in_game1{
     position: absolute;
-    bottom: 182px;
-    left: 160px;
+    width: 35px;
+    bottom: 122px;
+    left: 197px;
 }
-.game2 #meatball_in_game1{
+.game2 #meatball_in_game2{
     position: absolute;
-    top: 118px;
-    right: 173px;
+    width: 35px;
+    top: 48px;
+    left: 30px;
 }
 .game1 #taro_img{
     position: relative;
@@ -3414,73 +3423,73 @@
     height: 0;
     border-style: solid;
     border-color: #e60012 transparent transparent transparent;
-    border-width: 25px 20px 0 20px;
+    border-width: 12px 9px 0 9px;
     display: none;
 }
 .game1 #taro_in_game1_after{
-    top: 270px;
-    left: 307px;
+    top: 90px;
+    left: 120px;
     animation: taroarrMove .8s linear alternate infinite;
 }
 .game1 #grassrice_in_game1_after{
-    top:250px;
-    right: 60px;
+    top: 55px;
+    right: 23px;
     animation: grassricearrMove .8s linear alternate infinite;
 }
 .game1 #meatball_in_game1_after{
-    bottom: 230px;
-    left: 170px;
+    bottom: 155px;
+    left: 207px;
     animation: meatballarrMove .8s linear alternate infinite;
 }
 @keyframes taroarrMove{
-    0%{top:272px}
-    100%{top:260px;}
+    0%{top:92px}
+    100%{top:85px;}
 }
 @keyframes grassricearrMove{
-    0%{top:252px}
-    100%{top:240px;}
+    0%{top:57px}
+    100%{top:50px;}
 }
 @keyframes meatballarrMove{
-    0%{bottom:232px}
-    100%{bottom:220px;}
+    0%{bottom:157px}
+    100%{bottom:150px;}
 }
-.game2 #taro_in_game1_after,
-.game2 #grassrice_in_game1_after,
-.game2 #meatball_in_game1_after{
+.game2 #taro_in_game2_after,
+.game2 #grassrice_in_game2_after,
+.game2 #meatball_in_game2_after{
     position: absolute;
     width: 0;
     height: 0;
     border-style: solid;
     border-color: #e60012 transparent transparent transparent;
-    border-width: 25px 20px 0 20px;
+    border-width: 12px 9px 0 9px;
     display: none;
 }
-.game2 #taro_in_game1_after{
-    top: 240px;
-    right: 298px;
+.game2 #taro_in_game2_after{
+    top: 175px;
+    left: 19px;
     animation: taroarrMove2 .8s linear alternate infinite;
 }
-.game2 #grassrice_in_game1_after{
-    top: 515px;
-    right: 440px;
+.game2 #grassrice_in_game2_after{
+    top: 182px;
+    right: 108px;
     animation: grassricearrMove2 .8s linear alternate infinite;
 }
-.game2 #meatball_in_game1_after{
-    top: 92px;
-    right: 181px;
+.game2 #meatball_in_game2_after{
+    top: 42px;
+    left: 40px;
     animation: meatballarrMove3 .8s linear alternate infinite;
 }
 @keyframes taroarrMove2{
-    0%{top:242px;}
-    100%{top:230px;}
+    0%{top:177px;}
+    100%{top:170px;}
 }
 @keyframes grassricearrMove2{
-    0%{top:517px;}
-    100%{top:505px;}
+    0%{top:184px;}
+    100%{top:177px;}
 }
 @keyframes meatballarrMove3{
-    0%{top: 94px;}
-    100%{top: 82px;}
+    0%{top: 44px;}
+    100%{top: 37px;}
 }
 #game_coupon_wrap{
     display: none;
@@ -3489,50 +3498,61 @@
     width: 65%;
     max-width: 700px;
     position: absolute;
-    top: 0;
-    bottom: 0;
+    top: 80px;
     left: 0;
     right: 0;
     margin: auto;  
 }
-.game_coupon_wrap p{
+.game_coupon_wrap .coupon_wrap_text{
     position: absolute;
-    top: 40px;
+    top: 50px;
     right: 0;
     left: 0;
     color: #fff;
     text-align: center;
-    font-size: 26px;
+    font-size: 18px;
+}
+.game_coupon_wrap .couponNUM{
+    position: absolute;
+    bottom: 14%;
+    right: 20%;
+    margin: auto;
+    font-size: 16px;
+    font-family: '華康秀風體';
 }
 .game_coupon_wrap #game_close{
     position: absolute;
-    top: 20px;
-    right: 110px;
-    font-size: 36px;
+    top: 40px;
+    right: 40px;
+    font-size: 28px;
 }
 .getGameSuggestion {
-    width: 60%;
+    width: 80%;
     position: absolute;
-    top: 20%;
-    right: 20%;
+    top: 5%;
+    right: 0;
+    left: 0;
+    margin: auto;
+    margin-bottom: 50px;
+    z-index: 5;
 }
 #taro_suggestion,
 #grassrice_suggestion,
 #meatball_suggestion{
     background-color: #feeed4;
     margin: auto;
-    border-radius: 40px;
-    padding: 20px;
+    border-radius: 20px;
+    padding: 5px;
     display: none;
 }
 .getGameSuggestion .exposition{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 .getGameSuggestion h2{
     font-family: '華康秀風體';
     text-align: center;
-    font-size: 36px;
+    font-size: 22px;
     padding: 10px 0;
 }
 #taro_suggestion .taroexposition_img,
@@ -3540,6 +3560,7 @@
 #meatball_suggestion .meatballexposition_img{
     width: 50%;
     margin: auto;
+    display: none;
 }
 #taro_suggestion img,
 #grassrice_suggestion img,
@@ -3551,16 +3572,20 @@
 }
 #taro_suggestion .taroexposition_text,
 #grassrice_suggestion .grassriceexposition_text,
-#meatball_suggestion .meatballexposition_text
-{
-    width: 55%;
-    padding:20px 25px;
+#meatball_suggestion .meatballexposition_text{
+    width: 100%;
+    padding:5px;
+}
+#taro_suggestion .taroexposition_text p,
+#grassrice_suggestion .grassriceexposition_text p,
+#meatball_suggestion .meatballexposition_text p{
+    font-size: 12px;
 }
 #taro_suggestion_close,
 #grassrice_suggestion_close,
 #meatball_suggestion_close
 {
-    font-size: 36px;
+    font-size: 28px;
     color: #ddd;
     position: absolute;
     top: 12px;
@@ -3569,28 +3594,338 @@
 #game_getCoupon{
     background-color: #fff;
     border-radius: 20px;
-    border:none;
+    border: none;
     padding: 2px 8px;
     color: #3d3c3c;
-    font-size: 26px;
+    font-size: 20px;
     font-family: '華康秀風體';
     cursor: pointer;
     position: absolute;
-    bottom: 60px;
-    right: 43%;
+    bottom:-35px;
+    right: 34%;
     display: none;
 }
 
 /*----------------小遊戲(網頁版)-------------------*/
 @media all and (min-width: 768px) {
     .gameOuter .littleGame{
-    width:80%;
-    margin: 60px auto 80px;
-    border-radius: 50px;
+        width:80%;
+        margin: 60px auto 80px;
+        border-radius: 50px;
+        position: relative;
   }
-
+    #GameWrap{
+        width: 88%;
+        padding-bottom:68%; 
+        background-image: url(../images/game/game1_bg.png);
+        background-position: center center;
+        background-repeat: no-repeat;
+        border-radius: 10%;
+        position: relative; 
+        margin: auto;
+        overflow: hidden;  
+    }
+    .gameOuter .littleGame #game_playbtn{
+      display: block;
+      width: 60%;
+      max-width: 300px;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      margin: auto;
+      cursor: pointer;
+    }
+    .littleGame .suggestionBar{
+        width:100%;
+        background-color: #282832;
+        position: absolute;
+        top: 17px;
+        right: 0;
+        left: 0;
+        margin: auto;
+        display: inline-block;
+        padding-left: 80px;
+        display: none;
+    }
+    .littleGame .suggestionBar img{
+        vertical-align:middle; 
+    }
+    .littleGame .suggestionBar #game_suggestion{
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+        width: 80px;
+        height: 48px;
+    }
+    .littleGame .suggestionBar #taro{
+        width: 32px;
+        height: 38px;
+    }
+    .littleGame .suggestionBar #grassrice{
+        width: 41px;
+        height: 29px;
+    }
+    .littleGame .suggestionBar #meatball{
+        width: 45px;
+        height: 30px;
+    }
+    .littleGame .suggestionBar span{
+        color: #fff;
+        font-size: 24px;
+        margin-left: 50px;
+        margin-right: 20px;
+        vertical-align:middle;
+    }
+    .littleGame .suggestionBar #taroText{
+        margin-left: 10%;
+    }
+    #game_suggestion{
+        width: 82px;
+        height: 48px;
+    }
+    .littleGameWrap .game1,
+    .littleGameWrap .game2{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        display: none;
+    }
+    .game1 #taro_in_game1{
+        position: absolute;
+         width: 60px;
+        top: 277px;
+        left: 296px;
+    }
+    .game2 #taro_in_game2{
+        position: absolute;
+        width: 60px;
+        top: 395px;
+        left: 0;
+    }
+    .game1 #grassrice_in_game1{
+        position: absolute;
+        width: 60px;
+        top: 269px;
+        right: 50px;
+    }
+    .game2 #grassrice_in_game2{
+        position: absolute;
+        width: 60px;
+        top: 490px;
+        right: 280px;
+    }
+    .game1 #meatball_in_game1{
+        position: absolute;
+        width: 60px;
+        bottom: 182px;
+        left: 160px;
+    }
+    .game2 #meatball_in_game2{
+        position: absolute;
+        width: 60px;
+        top: 168px;
+        left: 120px;
+    }
+    .game1 #taro_img{
+        position: relative;
+    }
+    .game2 #taro_img,
+    .game2 #grassrice_img,
+    .game2 #meatball_img{
+        position: relative;
+    }
+    .game1 #taro_in_game1_after,
+    .game1 #grassrice_in_game1_after,
+    .game1 #meatball_in_game1_after{
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-color: #e60012 transparent transparent transparent;
+        border-width: 25px 20px 0 20px;
+        display: none;
+    }
+    .game1 #taro_in_game1_after{
+        top: 270px;
+        left: 307px;
+        animation: taroarrMove .8s linear alternate infinite;
+    }
+    .game1 #grassrice_in_game1_after{
+        top:250px;
+        right: 60px;
+        animation: grassricearrMove .8s linear alternate infinite;
+    }
+    .game1 #meatball_in_game1_after{
+        bottom: 230px;
+        left: 170px;
+        animation: meatballarrMove .8s linear alternate infinite;
+    }
+    @keyframes taroarrMove{
+        0%{top:272px}
+        100%{top:260px;}
+    }
+    @keyframes grassricearrMove{
+        0%{top:252px}
+        100%{top:240px;}
+    }
+    @keyframes meatballarrMove{
+        0%{bottom:232px}
+        100%{bottom:220px;}
+    }
+    .game2 #taro_in_game2_after,
+    .game2 #grassrice_in_game2_after,
+    .game2 #meatball_in_game2_after{
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-color: #e60012 transparent transparent transparent;
+        border-width: 25px 20px 0 20px;
+        display: none;
+    }
+    .game2 #taro_in_game2_after{
+        top: 375px;
+        left: 11px;
+        animation: taroarrMove2 .8s linear alternate infinite;
+    }
+    .game2 #grassrice_in_game2_after{
+        top: 485px;
+        right: 290px;
+        animation: grassricearrMove2 .8s linear alternate infinite;
+    }
+    .game2 #meatball_in_game2_after{
+        top: 150px;
+        left: 132px;
+        animation: meatballarrMove3 .8s linear alternate infinite;
+    }
+    @keyframes taroarrMove2{
+        0%{top:377px;}
+        100%{top:365px;}
+    }
+    @keyframes grassricearrMove2{
+        0%{top:487px;}
+        100%{top:475px;}
+    }
+    @keyframes meatballarrMove3{
+        0%{top: 152px;}
+        100%{top: 140px;}
+    }
+    #game_coupon_wrap{
+        display: none;
+    }
+    #game_coupon{
+        width: 65%;
+        max-width: 700px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;  
+    }
+    .game_coupon_wrap .coupon_wrap_text{
+        position: absolute;
+        top: 40px;
+        right: 0;
+        left: 0;
+        color: #fff;
+        text-align: center;
+        font-size: 26px;
+    }
+    .game_coupon_wrap .couponNUM{
+        position: absolute;
+        bottom: 25%;
+        right: 20%;
+        margin: auto;
+        font-size: 22px;
+        font-family: '華康秀風體';
+    }
+    .game_coupon_wrap #game_close{
+        position: absolute;
+        top: 20px;
+        right: 110px;
+        font-size: 36px;
+    }
+    .getGameSuggestion {
+        width: 60%;
+        position: absolute;
+        top: 20%;
+        right: 0;
+    }
+    #taro_suggestion,
+    #grassrice_suggestion,
+    #meatball_suggestion{
+        background-color: #feeed4;
+        margin: auto;
+        border-radius: 40px;
+        padding: 20px;
+        display: none;
+    }
+    .getGameSuggestion .exposition{
+        display: flex;
+        flex-direction: row;
+    }
+    .getGameSuggestion h2{
+        font-family: '華康秀風體';
+        text-align: center;
+        font-size: 36px;
+        padding: 10px 0;
+    }
+    #taro_suggestion .taroexposition_img,
+    #grassrice_suggestion .grassriceexposition_img,
+    #meatball_suggestion .meatballexposition_img{
+        width: 50%;
+        margin: auto;
+        display: block;
+    }
+    #taro_suggestion img,
+    #grassrice_suggestion img,
+    #meatball_suggestion img{
+        display: block;
+        margin: auto;
+        width: 100%;
+        max-width: 200px;
+    }
+    #taro_suggestion .taroexposition_text,
+    #grassrice_suggestion .grassriceexposition_text,
+    #meatball_suggestion .meatballexposition_text
+    {
+        width: 55%;
+        padding:20px 25px;
+    }
+    #taro_suggestion .taroexposition_text p,
+    #grassrice_suggestion .grassriceexposition_text p,
+    #meatball_suggestion .meatballexposition_text p{
+        font-size: 16px;
+    }
+    #taro_suggestion_close,
+    #grassrice_suggestion_close,
+    #meatball_suggestion_close
+    {
+        font-size: 36px;
+        color: #ddd;
+        position: absolute;
+        top: 12px;
+        right: 20px;
+    }
+    #game_getCoupon{
+        background-color: #fff;
+        border-radius: 20px;
+        border:none;
+        padding: 2px 8px;
+        color: #3d3c3c;
+        font-size: 26px;
+        font-family: '華康秀風體';
+        cursor: pointer;
+        position: absolute;
+        bottom: 60px;
+        right: 43%;
+        display: none;
+    }
 }
-
 
 /*------------警告視窗------------*/
 .alertWindow{
