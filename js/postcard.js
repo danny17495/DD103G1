@@ -1,8 +1,15 @@
-/*第一支程式: 切換步驟窗格
-	.postRight操作畫面裡的上一步和下一步按鈕, 10個窗格總共8顆
-	點擊時需要(1)切換postRight  (2)切換步驟的黃底postStepYellow*/
+/*第一支程式: 切換步驟窗格--點擊時需要(1)切換postRight  (2)切換步驟的黃底postStepYellow
+	1.postRight操作畫面裡的上一步和下一步按鈕, 10個窗格總共8顆
+	2.左下角標示狀態也要註冊*/
 
-//建立html連結:按鈕
+//1+2共用.建立html連結:操作視窗div.postRight
+let pr1 = document.getElementById("postRight_1");
+let pr2 = document.getElementById("postRight_2");
+let pr3 = document.getElementById("postRight_3");
+let pr4 = document.getElementById("postRight_4");
+let pr5 = document.getElementById("postRight_5");
+
+//1-1.建立html連結:按鈕
 let pDIYBtn1 = document.getElementById("postDIYBtn_1_Next");
 let pDIYBtn2 = document.getElementById("postDIYBtn_2_Back");
 let pDIYBtn3 = document.getElementById("postDIYBtn_3_Next");
@@ -13,15 +20,7 @@ let pDIYBtn7 = document.getElementById("postDIYBtn_7_Next");
 let pDIYBtn8 = document.getElementById("postDIYBtn_8_Back");
 //console.log(postDIYBtn_1_Next);
 
-
-//建立html連結:操作視窗div.postRight
-let pr1 = document.getElementById("postRight_1");
-let pr2 = document.getElementById("postRight_2");
-let pr3 = document.getElementById("postRight_3");
-let pr4 = document.getElementById("postRight_4");
-let pr5 = document.getElementById("postRight_5");
-
-//建立html連結:步驟黃底
+//1-2.建立html連結:步驟黃底
 let postStepYellow1 = document.getElementById("postStepYellow1");
 let postStepYellow2 = document.getElementById("postStepYellow2");
 let postStepYellow3 = document.getElementById("postStepYellow3");
@@ -33,14 +32,24 @@ let postStepYellowB3 = document.getElementById("postStepYellowBig3");
 let postStepYellowB4 = document.getElementById("postStepYellowBig4");
 let postStepYellowB5 = document.getElementById("postStepYellowBig5");
 
-
+//1-2.建立html連結:步驟圈圈
+let aapostStepS1 = document.getElementById("aapostStepS1");
+let aapostStepS2 = document.getElementById("aapostStepS2");
+let aapostStepS3 = document.getElementById("aapostStepS3");
+let aapostStepS4 = document.getElementById("aapostStepS4");
+let aapostStepS5 = document.getElementById("aapostStepS5");
+let aapostStepB1 = document.getElementById("aapostStepB1");
+let aapostStepB2 = document.getElementById("aapostStepB2");
+let aapostStepB3 = document.getElementById("aapostStepB3");
+let aapostStepB4 = document.getElementById("aapostStepB4");
+let aapostStepB5 = document.getElementById("aapostStepB5");
 
 function toPR1(){
-	pr1.style.display = "block";			
-	pr2.style.display = "none";			
-	pr3.style.display = "none";			
-	pr4.style.display = "none";			
-	pr5.style.display = "none";		
+	pr1.style.display = "block";
+	pr2.style.display = "none";
+	pr3.style.display = "none";
+	pr4.style.display = "none";
+	pr5.style.display = "none";
 
 	postStepYellow1.classList.add("postStepYellowHere");
 	postStepYellow2.classList.remove("postStepYellowHere");
@@ -135,10 +144,8 @@ function toPR5(){
 	postStepYellowB5.classList.add("postStepYellowHere");
 }
 
-
-
 function postcardInit(){
-
+	//右側.postRight按鈕
 	pDIYBtn1.addEventListener("click", toPR2, false);	//at postRight_1
 
 	pDIYBtn2.addEventListener("click", toPR1, false);	//at postRight_2
@@ -152,11 +159,25 @@ function postcardInit(){
 
 	pDIYBtn8.addEventListener("click", toPR4, false);	//at postRight_5
 
+	//左側.postLeft步驟
+	aapostStepS1.addEventListener("click", toPR1, false);	//to postRight_1
+	aapostStepB1.addEventListener("click", toPR1, false);	//to postRight_1
+
+	aapostStepS2.addEventListener("click", toPR2, false);	//to postRight_2
+	aapostStepB2.addEventListener("click", toPR2, false);	//to postRight_2
+
+	aapostStepS3.addEventListener("click", toPR3, false);	//to postRight_3
+	aapostStepB3.addEventListener("click", toPR3, false);	//to postRight_3
+
+	aapostStepS4.addEventListener("click", toPR4, false);	//to postRight_4
+	aapostStepB4.addEventListener("click", toPR4, false);	//to postRight_4
+
+	aapostStepS5.addEventListener("click", toPR5, false);	//to postRight_5
+	aapostStepB5.addEventListener("click", toPR5, false);	//to postRight_5
+
 }
 
 window.addEventListener("load", postcardInit, false);
-
-
 
 
 
@@ -434,7 +455,12 @@ function postcardTextColorChoose_4(){
 
 
 
-$("html").hasClass("no-js")
+
+
+
+
+
+
 
 
 
@@ -443,22 +469,66 @@ $("html").hasClass("no-js")
 var newTextBtn = document.getElementById("newTextBtn");
 
 function newText(){
-	console.log("hi^_^4, 輸入文字函式newText");
+	console.log("hi4, 輸入文字函式newText");
+
+	var postcardColor1 = $("#postcardTextColor1").hasClass("postcardTextColorSelected");
+	var postcardColor2 = $("#postcardTextColor2").hasClass("postcardTextColorSelected");
+	var postcardColor3 = $("#postcardTextColor3").hasClass("postcardTextColorSelected");
+	var postcardColor4 = $("#postcardTextColor4").hasClass("postcardTextColorSelected");
 
 	//建立html連結:抓取文字盒內容(注意抓input值的要寫在函式裡面, 通常打完才會按按鈕抓取文字)
 	var postcardText = document.getElementById("postcardText");
 	var realText = postcardText.value;
 
-	//fabric文字
-	const Text_1 = new fabric.Text(realText, {
-		left: 40,
-		top: 120,
-	  	fill: 'white',
-	  	fontSize: 40,
-	  	fontFamily: '微軟正黑體',
-	})
-	postcardCanvas.add(Text_1);
+	//沒辦法帶變數給顏色
+	if(postcardColor1){
+		console.log("jQuery測試成功");
+		const Text_1 = new fabric.Text(realText, {
+			left: 40,
+			top: 120,
+		  	fill: 'white',
+		  	fontSize: 40,
+		  	fontFamily: '微軟正黑體',
+		})
+		postcardCanvas.add(Text_1);
+	}else if(postcardColor2){
+		const Text_1 = new fabric.Text(realText, {
+			left: 40,
+			top: 120,
+		  	fill: 'rgb(178, 100, 102)',
+		  	fontSize: 40,
+		  	fontFamily: '微軟正黑體',
+		})
+		postcardCanvas.add(Text_1);		
+	}else if(postcardColor3){
+		const Text_1 = new fabric.Text(realText, {
+			left: 40,
+			top: 120,
+		  	fill: 'rgb(255, 201, 121)',
+		  	fontSize: 40,
+		  	fontFamily: '微軟正黑體',
+		})
+		postcardCanvas.add(Text_1);		
+	}else if(postcardColor4){
+		const Text_1 = new fabric.Text(realText, {
+			left: 40,
+			top: 120,
+		  	fill: 'rgba(0, 0, 0, 0.9)',
+		  	fontSize: 40,
+		  	fontFamily: '微軟正黑體',
+		})
+		postcardCanvas.add(Text_1);				
+	}
+
+	//清空
+	postcardText.value = "";
 }
+
+
+
+
+
+
 
 function postcardInit5(){
 	newTextBtn.addEventListener("click", newText, false);
