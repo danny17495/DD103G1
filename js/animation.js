@@ -86,7 +86,7 @@ var y = canvas.height = 1875;
 
 var img = new Image();
 img.src = "../images/competition/star.png";
-var num = 100;
+var num = 500;
 var arrStar = [];
 
 
@@ -142,7 +142,7 @@ function draw(){
 }
 
 function drawRect(){
-    ctx.fillStyle = "#385BA7";
+    ctx.fillStyle = "rgba(55, 88, 162,.5)"
     ctx.fillRect(0,0,x,y);
     
 }
