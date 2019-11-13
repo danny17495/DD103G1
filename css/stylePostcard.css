@@ -258,6 +258,7 @@ section.postcardMain .aapostLeft .aapostStep{
     background-size: contain;
     background-repeat: no-repeat; 
     position: relative;
+    cursor: pointer;
 }
 
 section.postcardMain .aapostLeft .aapostStep p{
@@ -292,8 +293,8 @@ section.postcardMain .aapostLeft .postStepYellow4:after{
 /*2-2-2(二).操作畫面.postRight設定*/
 /*===============================================================*/
 /*2-2-2(二).操作畫面.postRight切換步驟css + postcard.js*/
-.postRight_2{display: none}
 .postRight_1{display: none}
+.postRight_3{display: none}
 .postRight_4{display: none}
 .postRight_5{display: none}
 
@@ -387,13 +388,9 @@ section.postcardMain .postRight_1 .aapostRightDIY .aauploadBGC p{
 }
 
 /*操作畫面中背景圖focus, hover效果*/
-section.postcardMain .postRight_1 .aapostBGC_1:focus,
-section.postcardMain .postRight_1 .aapostBGC_2:focus,
-section.postcardMain .postRight_1 .aapostBGC_3:focus,
+section.postcardMain .postRight_1 .aapostBGC:focus,
 section.postcardMain .postRight_1 .aapostRightDIY .aauploadBGC:focus,
-section.postcardMain .postRight_1 .aapostBGC_1:hover,
-section.postcardMain .postRight_1 .aapostBGC_2:hover,
-section.postcardMain .postRight_1 .aapostBGC_3:hover,
+section.postcardMain .postRight_1 .aapostBGC:hover,
 section.postcardMain .postRight_1 .aapostRightDIY .aauploadBGC:hover{
     z-index: 10;
     transition: all .5s; 
@@ -454,6 +451,8 @@ section.postcardMain #postRight_1 .aauploadBGC_Selected{
 /*2-2-2(二).操作畫面.postRight步驟二樣式*/
 section.postcardMain .postRight_2 .aapostRightDIY > div{
     position: absolute;
+    width: 100%;
+    /*background-color: red;*/
 }
 
 section.postcardMain .postRight_2 .aapostRightDIY > div > div{
@@ -478,17 +477,46 @@ section.postcardMain .postRight_2 .postDecoFood img{
     height: auto;
 }
 
-section.postcardMain .postRight_2 .aapostRightDIY  div p{
+section.postcardMain .postRight_2 .aapostRightDIY > div > div:nth-child(2){
+    /*background-color: red;*/
     padding-top: 5px;
     font-size: 14px;
 }
 
 section.postcardMain .postRight_2 .aapostRightDIY .postDecoFood:hover{
-    /*border: */
     box-sizing: border-box;
-    /*border: 4px solid rgb(255, 201, 121);*/
     background-color: rgb(255, 201, 121);
 }
+
+section.postcardMain .postRight_2 .aapostRightDIY > div > div:nth-child(3){
+    /*background-color: yellow;*/
+    padding-top: 30px;
+    position: relative;
+}
+
+section.postcardMain .postRight_2 .aapostRightDIY .postcardTeachBox img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+section.postcardMain .postRight_2 .aapostRightDIY .postcardTeachText{
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    text-align: left;
+}
+
+section.postcardMain .postRight_2 .aapostRightDIY .postcardTeachText p{
+    /*font-size: 12px;*/
+    line-height: 1.8;
+}
+
+
+
+
+
+
 
 
 /*2-2-2(二).操作畫面.postRight步驟四樣式*/
@@ -528,6 +556,17 @@ section.postcardMain .postRight_4 .aapostRightDIY .postDecoMark:hover{
     box-sizing: border-box;
     /*border: 4px solid rgb(255, 201, 121);*/
     background-color: rgb(255, 201, 121);
+}
+
+
+section.postcardMain .postRight_4 .aapostRightDIY > div > div:nth-child(3){
+    padding-top: 30px;
+}
+
+section.postcardMain .postRight_4 .aapostRightDIY .postcardTeachBox img{
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
 
@@ -600,16 +639,47 @@ section.postcardMain .postRight_3 .aapostRightDIY .postcardTextColor2 span{backg
 section.postcardMain .postRight_3 .aapostRightDIY .postcardTextColor3 span{background-color: rgb(255, 201, 121);}
 section.postcardMain .postRight_3 .aapostRightDIY .postcardTextColor4 span{background-color: rgba(0, 0, 0, 0.9);}
 
-section.postcardMain .postRight_3 .aapostRightDIY .whiteButton{
-    font-size: 16px;
-    margin-top: 30px;    
+section.postcardMain .postRight_3 .aapostRightDIY .leafButton{
+    margin-top: 30px;
 }
 
-section.postcardMain .postRight_3 .aapostRightDIY .whiteButton:hover{
-    background-color: rgba(255, 201, 121);
-    color: rgba(0, 0, 0, .9);
 
+
+/*2-2-2(二).操作畫面.postRight步驟五樣式*/
+section.postcardMain .postRight_5 .aapostRightDIY table{
+    width: 90%;
+    max-width: 280px;
+    margin: 30px auto 0 ;    
 }
+
+
+
+section.postcardMain .postRight_5 .aapostRightDIY > div{
+    position: absolute;
+    width: 100%;
+}
+
+
+
+section.postcardMain .postRight_5 .finishBox th{
+    width: 90px;
+    padding: 10px 0;
+}
+
+section.postcardMain .postRight_5 .finishBox td{
+    padding: 10px 5px 10px 5px;
+}
+
+section.postcardMain .postRight_5 .aapostRightDIY .leafButton{
+    font-size: 20px;
+}
+
+section.postcardMain .postRight_5 .aapostRightDIY p{
+    text-align: left;
+    font-size: 14px;
+}
+
+
 
 
 
