@@ -1,4 +1,55 @@
-/*第一支程式: 切換步驟窗格--點擊時需要(1)切換postRight  (2)切換步驟的黃底postStepYellow
+/*第一支程式: 明信片數量計數器+ odometer.js*/
+const postcardOdometer = document.querySelector(".postcardOdometer");        
+
+function init(){
+	const odometer = new Odometer({
+		el: postcardOdometer,
+		// animation: 'count',
+		duration: 10000,
+	})
+	//console.log(hi5);
+
+	odometer.update(13261);
+
+	setTimeout(function(){odometer.update(13262);}, 1000);
+	setTimeout(function(){odometer.update(13263);}, 3000);
+	setTimeout(function(){odometer.update(13264);}, 5000);
+	setTimeout(function(){odometer.update(13265);}, 7000);
+	setTimeout(function(){odometer.update(13266);}, 11000);
+	setTimeout(function(){odometer.update(13268);}, 14000);
+	setTimeout(function(){odometer.update(13269);}, 16000);
+	setTimeout(function(){odometer.update(13270);}, 22000);
+	setTimeout(function(){odometer.update(13272);}, 27000);
+	setTimeout(function(){odometer.update(13273);}, 29000);
+	setTimeout(function(){odometer.update(13274);}, 34000);
+	setTimeout(function(){odometer.update(13275);}, 37000);
+	setTimeout(function(){odometer.update(13276);}, 39000);
+	setTimeout(function(){odometer.update(13277);}, 50000);
+	setTimeout(function(){odometer.update(13279);}, 57000);
+	setTimeout(function(){odometer.update(13280);}, 66000);
+	setTimeout(function(){odometer.update(13283);}, 72000);
+	setTimeout(function(){odometer.update(13284);}, 72000);
+
+	//for太快了
+	// var j=1
+	// setTimeout(function(){
+	//     for(var i=19969; i<300000; i++){
+	//         var time = 19000+ 3000*j;
+	//         console.log(time)
+	//         setTimeout(function(){odometer.update(i);}, time);
+	//         j++
+	//     }
+	// }, 18000);
+
+}
+
+window.addEventListener("load", init, false);
+
+
+
+
+
+/*第二支程式: 切換步驟窗格--點擊時需要(1)切換postRight  (2)切換步驟的黃底postStepYellow
 	1.postRight操作畫面裡的上一步和下一步按鈕, 10個窗格總共8顆
 	2.左下角標示狀態也要註冊*/
 
@@ -182,8 +233,7 @@ window.addEventListener("load", postcardInit, false);
 
 
 /*======================================================================*/
-/*第二支程式: 操作畫面步驟一(換背景)*/
-
+/*第三支程式: 操作畫面步驟一(換背景)*/
 //建立html連結:背景圖
 let aapostBGC_1 = document.getElementById("aapostBGC_1");
 let aapostBGC_2 = document.getElementById("aapostBGC_2");
@@ -192,7 +242,7 @@ let aauploadBGC = document.getElementById("aauploadBGC");
 // console.log(aapostBGC_1);
 
 
-//建立html連結:demo畫面, 第三支程式裡有用postcardCanvas抓一個Fabric.js的畫布
+//建立html連結:demo畫面, 第四支程式裡有用postcardCanvas抓一個Fabric.js的畫布
 let canvas2 = document.getElementById("postcardCanvas");
 
 //背景1
@@ -248,7 +298,7 @@ window.addEventListener("load", postcardInit2, false);
 
 
 /*======================================================================*/
-/*第三支程式: canvas--客製主畫面+ Fabric.js*/
+/*第四支程式: canvas--客製主畫面+ Fabric.js*/
 /*======三-1.基礎:html建立連結======*/
 //html建立連結抓canvas
 let postcardCanvas = new fabric.Canvas('postcardCanvas',{
@@ -260,8 +310,8 @@ let postcardCanvas = new fabric.Canvas('postcardCanvas',{
 });
 
 
-/*======三-2.使canvas畫布可以跟隨RWD======*/
-/*==三-2-(1).無條件先做一次==*/
+/*======四-2.使canvas畫布可以跟隨RWD======*/
+/*==四-2-(1).無條件先做一次==*/
 console.log("hi^_^2");
 //抓父層RWD之後的大小去設定畫布大小
 var postFather = document.getElementById("postWhiteBack");
@@ -278,7 +328,7 @@ postcardCanvas.setHeight( postcardCanvasH );
 
 
 
-/*==三-2-(2).視窗risize時就重新偵測==*/
+/*==四-2-(2).視窗risize時就重新偵測==*/
 function postcardInit3(){
 	console.log("hi^_^1");
 	var postFather = document.getElementById("postWhiteBack");
@@ -293,7 +343,7 @@ function postcardInit3(){
 window.addEventListener("resize", postcardInit3, false);
 
 
-/*======三-3.插入貼圖(步驟二跟四)======*/
+/*======四-3.插入貼圖(步驟二跟四)======*/
 /*設定全部物件控制的樣式*/
 fabric.Object.prototype.set({
 	  transparentCorners: false,
@@ -415,8 +465,8 @@ postcardCanvas.on('mouse:dblclick', e => {
 
 
 
-/*======三-4.寫文字(步驟三)======*/
-/*三-4-1.點擊顏色更換*/
+/*======四-4.寫文字(步驟三)======*/
+/*四-4-1.點擊顏色更換*/
 //建立html連結:註冊顏色按鈕
 var postcardTextColor1 = document.getElementById("postcardTextColor1");
 var postcardTextColor2 = document.getElementById("postcardTextColor2");
@@ -464,7 +514,7 @@ function postcardTextColorChoose_4(){
 
 
 
-/*三-4-2.按下按鈕會生字*/
+/*四-4-2.按下按鈕會生字*/
 //建立html連結:按鈕
 var newTextBtn = document.getElementById("newTextBtn");
 
