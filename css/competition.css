@@ -377,6 +377,18 @@ body{
     margin-top: 15px;
 }
 
+.comprtitionButton span{
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row nowrap;
+}
+
+.competitionButton img{
+    width:30%;
+    padding-top: 3px;
+    margin: 0;
+}
+
 .messageNo2 .competitionButton{
     width: 100%;
     display: flex;

@@ -1676,8 +1676,18 @@
 .linearOrange .computerShow{
     display: none;
 }
+
 .linearOrange .etaOnload{
     color:#ae4600;
+}
+.linearOrange .mobileShow .eta{
+   width: 95px;
+}
+.linearOrange  .etaComin,.linearOrange .etaArrive{
+    color:red;
+}
+.linearOrange  .etaNonStop{
+    color:rgb(158, 157, 157);
 }
 .linearOrange .mobileShow .ms{
     display: flex;
@@ -1687,9 +1697,7 @@
 .linearOrange .mobileShow .ms:last-child{
     border-bottom:0px;
 }
-.linearOrange .mobileShow .etaOnload{
-    margin-right: 10px;
-}
+
 .linearOrange .waitingBus{
     overflow: hidden;
     margin-top: 100px;
@@ -1802,8 +1810,14 @@
     }
     .linearOrange .computerShow .etaol {
         position: absolute;
-        bottom: 0;
-        left: 40px;
+        bottom: 15px;
+        left: 61px;
+        padding-bottom: 5px;
+    }
+    .linearOrange .computerShow .etaor {
+        position: absolute;
+        bottom: 15px;
+        left: -73px;
         padding-bottom: 5px;
     }
     .linearOrange .computerShow .fill{
@@ -1820,23 +1834,23 @@
         position: absolute;
         top: -7px;
     }
-    .linearOrange .computerShow .buslo{
+    .linearOrange .computerShow .busl{
         position: absolute;
-        left: 48px;
-        top: -5px;
+        left: -12px;
+        top: -8px;
         z-index: 10;
     }
     .linearOrange .computerShow .b{
         height: 97px;
     }
     .linearOrange .computerShow .stopnameC{
-        width: 72px;
+        width: 103px;
         height: 105px;
         padding-top: 5px;
         font-size: 16px;
         overflow: hidden;
         position: absolute;
-        left: -27px;
+        left: -39px;
         text-align: center;
         top: 7px;
     }
@@ -1850,6 +1864,45 @@
      }
     .linearOrange .computerShow .busgone{
         display: none;
+    }
+
+     .linearOrange .computerShow .busBodyL,.linearOrange .computerShow .busBodyR{
+        width: 51px;
+        height: 31px;
+        z-index: 2;
+    }
+    .linearOrange .computerShow .busBodyL{
+        background: url(../images/bus.png);
+        background-size: cover;
+    }
+    
+    .linearOrange .computerShow .busBodyR{
+        background: url(../images/busRight.png);
+        background-size: cover;
+    }
+    .linearOrange .computerShow .bustitle{
+        color: #cb00cb;
+        font-size: 12px;
+        font-weight: bold;
+    }
+    /*ama add*/
+    .linearOrange .computerShow .buslo{
+        position: absolute;
+        left: 60px;
+        top: -12px;
+        z-index: 10;
+    }
+    .linearOrange .computerShow .busro{
+        position: absolute;
+        left: -81px;
+        top: -12px;
+        z-index: 10;
+    }
+    .linearOrange .computerShow .busr{
+        position: absolute;
+        left: -10px;
+        top: -8px;
+        z-index: 10;
     }
 }
 @media screen and (min-width: 1200px){
