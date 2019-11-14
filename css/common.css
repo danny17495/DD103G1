@@ -517,8 +517,10 @@ header.clearHeaderStyle {
 
 .headerClick span:nth-child(1) {
   top: 5%;
-  -webkit-animation: makeCross1Backward 0.25s ease 0s 1 forwards,  moveDownBackward 0.25s ease 0.25s 1 forwards;
-          animation: makeCross1Backward 0.25s ease 0s 1 forwards,  moveDownBackward 0.25s ease 0.25s 1 forwards;
+  -webkit-animation: makeCross1Backward 0.25s ease 0s 1 forwards, 
+ moveDownBackward 0.25s ease 0.25s 1 forwards;
+          animation: makeCross1Backward 0.25s ease 0s 1 forwards, 
+ moveDownBackward 0.25s ease 0.25s 1 forwards;
 }
 
 .headerClick span:nth-child(2) {
@@ -529,8 +531,10 @@ header.clearHeaderStyle {
 
 .headerClick span:nth-child(3) {
   top: 95%;
-  -webkit-animation: makeCross2Backward 0.25s ease 0s 1 forwards, moveUpBackward 0.25s ease 0.25s 1 forwards;
-          animation: makeCross2Backward 0.25s ease 0s 1 forwards, moveUpBackward 0.25s ease 0.25s 1 forwards;
+  -webkit-animation: makeCross2Backward 0.25s ease 0s 1 forwards,
+ moveUpBackward 0.25s ease 0.25s 1 forwards;
+          animation: makeCross2Backward 0.25s ease 0s 1 forwards,
+ moveUpBackward 0.25s ease 0.25s 1 forwards;
 }
 
 @-webkit-keyframes makeCross1Backward {
@@ -638,8 +642,10 @@ header.clearHeaderStyle {
 }
 
 #headerCheck:checked + .headerClick span:nth-child(1) {
-  -webkit-animation: moveDown 0.25s ease 0s 1 forwards,  makeCross1 0.25s ease 0.25s 1 forwards;
-          animation: moveDown 0.25s ease 0s 1 forwards,  makeCross1 0.25s ease 0.25s 1 forwards;
+  -webkit-animation: moveDown 0.25s ease 0s 1 forwards, 
+ makeCross1 0.25s ease 0.25s 1 forwards;
+          animation: moveDown 0.25s ease 0s 1 forwards, 
+ makeCross1 0.25s ease 0.25s 1 forwards;
 }
 
 #headerCheck:checked + .headerClick span:nth-child(2) {
@@ -647,8 +653,10 @@ header.clearHeaderStyle {
 }
 
 #headerCheck:checked + .headerClick span:nth-child(3) {
-  -webkit-animation: moveUp 0.25s ease 0s 1 forwards, makeCross2 0.25s ease 0.25s 1 forwards;
-          animation: moveUp 0.25s ease 0s 1 forwards, makeCross2 0.25s ease 0.25s 1 forwards;
+  -webkit-animation: moveUp 0.25s ease 0s 1 forwards,
+ makeCross2 0.25s ease 0.25s 1 forwards;
+          animation: moveUp 0.25s ease 0s 1 forwards,
+ makeCross2 0.25s ease 0.25s 1 forwards;
 }
 
 @-webkit-keyframes moveDown {

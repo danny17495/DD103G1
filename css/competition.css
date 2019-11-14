@@ -5,6 +5,8 @@ body{
     background-image: url(../images/competition/comptitionbackground.png);
 }
 
+
+
 /* 留言板 */
 .message {
     width: 100%;
@@ -377,6 +379,10 @@ body{
     margin-top: 15px;
 }
 
+.competitionButton .whiteButton{
+    box-shadow: none;
+}
+
 .comprtitionButton span{
     display: flex;
     justify-content: space-around;
@@ -388,6 +394,15 @@ body{
     padding-top: 3px;
     margin: 0;
 }
+
+
+.smallMessage .competitionButton .voteBtn img,.smallMessage .competitionButton .messageBtn img{
+    width: 21.3px;
+    height: 23.44px;
+    padding-top: 3px;
+    margin: 0;
+}
+
 
 .messageNo2 .competitionButton{
     width: 100%;
@@ -460,10 +475,11 @@ body{
     text-align: center;
     width: 125px;
     cursor: pointer;
-    background-color: #FFFFFF;
+    /* background-color: transparent; */
     /* margin: 0 auto; */
 
 }
+
 
 
 /* 流星特效 */
@@ -680,7 +696,7 @@ body{
       bottom: -10px; } }
 
       
-
+/* 
 @media all and (max-width: 1024px) {
 
     .messageBoard img{
@@ -1177,4 +1193,4 @@ body{
 
 
 
-}
+} */
