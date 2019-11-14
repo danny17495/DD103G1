@@ -44,7 +44,6 @@ a {
 }
 
 body {
-  font-family: Microsoft JhengHei;
   line-height: 1.6em;
   font-family: 'Noto Serif TC', serif;
 }
@@ -355,6 +354,10 @@ a {
   opacity: 1;
   -webkit-transform: rotate(10deg);
           transform: rotate(10deg);
+}
+
+.leafButton.active::before {
+  opacity: 1;
 }
 
 @media all and (min-width: 768px) {
