@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  <link rel="stylesheet" href="css/loginstyle3.css">
+  <link rel="stylesheet" href="css/common.css">
+  <script src="js/Required.js"></script>
+</head>
+
+<body>
+  <div class="Loginwrap">
+    <div class="container login">
+      <div class="LoginForm">
+        <div class="Loginhead" id="LoginForm-head">
+          <div data-tab="login">
+            <div class="Loginclose">
+              <h3>會員註冊</h3>
+              <i class="fa fa-times-circle Trip2_lightBoxBTN" aria-hidden="true" id="game_close"></i>
+              <!-- <img class="LoginImg" src="LoginClose.svg" alt=""> -->
+            </div>
+          </div>
+
+          <!-- <div onclick="changeTab(this)" data-tab="login" class="login-tab">登入</div>
+            <div onclick="changeTab(this)" data-tab="signup" class="signup-tab">註冊</div> -->
+        </div>
+        <div class="Loginbody" id="LoginForm-body">
+
+          <!-- <div class="Loginclose">
+              <img src="Loginclose.png" alt="">
+            </div>   -->
+          <div class="Login-signup"><label class="Loginlabal" for=""></label>
+            <form class="Login-form" action="#">
+              <div class="LoginForm-row">
+                <label class="Loginlabal" for="">姓名</label>
+                <input id="name" class="Logininput" name="name" type="text" method="post" placeholder="Name">
+              </div>
+            </form>
+
+            <div class="LoginForm-row">
+              <label class="Loginlabal" for="">暱稱</label>
+              <input id="nickname" class="Logininput" name="nickName" type="text" method="post" placeholder="NickName">
+            </div>
+            <div class="LoginForm-row">
+              <label class="Loginlabal" style="color:aliceblue;" for="">密碼</label>
+              <input id="password" class="Logininput" name="password" type="password" method="post"
+                placeholder="Password">
+
+            </div>
+            <div class="LoginForm-row">
+              <label class="Loginlabal" style="color:aliceblue;" for="">密碼確認</label>
+              <input id="passwordcheck" class="Logininput" name="passwordcheck" type="password" method="post"
+                placeholder="passwordcheck">
+            </div>
+            <div class="LoginForm-row">
+              <label class="Loginlabal" style="color:aliceblue;" for="" onclick="checkEmail()">Email</label>
+              <input id="Email" class="Logininput" name="email" type="text" size=20 value="" method="post"
+                placeholder="email">
+            </div>
+            <div class="LoginForm-row">
+              <button class="Login-signup-btn1">
+                <a style="color:aliceblue;" href="#" id="signup" name="signup" onclick="validateForm()">註冊</a>
+              </button>
+              <button class="Login-signup-btn1"><a style="color:aliceblue;" href="login.html"
+                  onclick="goBack()">回上頁</a></button>
+            </div>
+            <div class="row">
+              <span class="LoginForm-span"></span>
+            </div>
+            <div class="Loginfooter">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    function validateForm() {
+      var name = document.getElementById('name').value;
+      var nickname = document.getElementById('nickname').value;
+      var password = document.getElementById('password').value;
+      var passwordcheck = document.getElementById('passwordcheck').value;
+      var Email = document.getElementById('Email').value;
+      index = email.indexOf('@', 0);
+      if (name == null || name == "") {
+        alert("姓名必須要寫");
+        return false;
+
+      } else if (nickname == null || nickname == "") {
+        alert("暱稱必須要寫");
+        return false;
+
+      } else if (password == null || password == "") {
+        alert("密碼必須要寫");
+        return false;
+
+      } else if (passwordcheck == null || passwordcheck == "") {
+        alert("密碼確認必須要寫");
+        return false;
+
+      } else if (Email == null || Email == "") {
+        alert("EMAIL 必須填寫");
+        return false;
+      } else {
+        alert("註冊成功");
+        form.submit();
+      }
+    }
+
+  </script>
+
+</body>
+
+</html>

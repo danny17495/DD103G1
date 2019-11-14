@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>LoginForm</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+  <link rel="stylesheet" href="css/loginstyle1.css">
+  <link rel="stylesheet" href="css/common.css">
+  <script src="js/loginNecessary.js"></script>
+     
+    
+
+</head>
+<body>
+    <div class="Loginwrap">
+      <div class="container login"> 
+        <div class="LoginForm">
+          <div class="Loginhead" id="LoginForm-head">
+            <div data-tab="login">
+                <div class="Loginclose">
+                    <h3>會員登入</h3>
+                    <!-- 關閉跳窗的叉叉請用這個font-awesome，比較統一喔
+                    直接加在html裡，css的font-size設定36px -->
+                    <i class="fa fa-times-circle Trip2_lightBoxBTN" aria-hidden="true" id="game_close"></i>
+                    <!-- <img class="LoginImg" src="images/LoginClose.svg" alt=""> -->
+                  </div>  
+            </div>
+           
+            <!-- <div onclick="changeTab(this)" data-tab="login" class="login-tab">登入</div>
+            <div onclick="changeTab(this)" data-tab="signup" class="signup-tab">註冊</div> -->
+          </div>
+          <div class="Loginbody" id="LoginForm-body">
+            
+            <!-- <div class="Loginclose">
+              <img src="Loginclose.png" alt="">
+            </div>   -->
+            <div class="Login-login">
+              <div class="LoginForm-row">
+                <label class="LoginLabel" for="">帳號</label>
+                <input class="Logininput" type="text" placeholder="account">
+              </div>
+              <div class="LoginForm-row">
+                <label class="LoginLabel" for="">密碼</label>
+                <input class="Logininput" type="password" placeholder="Password">
+              </div>
+              <div class="LoginForm-rom">
+                <div class="Login-forget">
+                  <label class="LoginLabel">
+                    <a class="Login-forget-password" href="loginforget.html">
+                      <div class="whiteButton">
+                          忘記密碼
+                      </div>   
+                      
+                    </a>
+                </label>
+              </div>
+            </div>
+            <div class="LoginForm-row">
+              <button class="Login-signup-btn1">登入</button>
+            </div>
+            <a class="LoginForm-signup-now" href="loginSignup.html">
+              <div class="whiteButton">
+                立即註冊
+              </div>
+             
+            <div class="row">
+              <span class="LoginForm-span"></span>
+            </div>
+            <div class="Loginfooter">
+              <!-- <div class="to-signup">
+                <a class="start-to-signup" href="#">立即註冊</a>
+              </div> -->
+            </div>
+            </div>
+                <div class="Login-signup">
+                  <div class="LoginForm-row">
+                    <label class="LoginLabel" for="">姓名</label>
+                    <input class="Logininput" type="text" placeholder="Name">
+                  </div>
+                  <div class="LoginForm-row">
+                        <label class="LoginLabel" for="">暱稱</label>
+                        <input class="Logininput" type="text" placeholder="NickName">
+                      </div>
+                  <div class="LoginForm-row">
+                    <label class="LoginLabel" style="color:aliceblue;" for="">密碼</label>
+                    <input class="Logininput" type="password" placeholder="Password">
+                  </div>
+                  <div class="LoginForm-row">
+                    <label class="LoginLabel" style="color:aliceblue;" for="">密碼確認</label>
+                    <input class="Logininput" type="password" placeholder="Password">
+                  </div>  
+                  <div class="LoginForm-row">
+                        <label class="LoginLabel" style="color:aliceblue;" for="">Email</label>
+                        <input class="Logininput" type="text" placeholder="Email">
+                      </div>          
+                  <div class="LoginForm-row">
+                    <button class="signup-btn1"><a style="color:aliceblue;" href="#">註冊</a></button>
+                  </div>  
+                   
+                </div>
+              </div>
+            </div>
+      </div> 
+    </div>
+    </body>
+    </html>
+</body>
+</html>
