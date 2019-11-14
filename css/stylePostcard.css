@@ -38,12 +38,14 @@ section.postcardExampleTitle .container h1{
     padding-bottom: 20px;
 }
 
-section.postcardExampleTitle .container span{
-    font-size: 20px;
+section.postcardExampleTitle .postcardOdometer{
+    font-family: 'Noto Serif TC', serif, '華康秀風體';
+    padding-bottom: 4px;
 }
 
+
 /*信封小鳥*/
-section.postcardExampleTitle .container div{
+section.postcardExampleTitle .container div.birdEnvelope{
     width: 5%;
     max-width: 70px;
     min-width: 30px;
@@ -811,8 +813,8 @@ body.postcardBody .forWallDeco{
         padding-bottom: 50px;
     }
 
-    section.postcardExampleTitle .container span{
-        font-size: 22px;
+    section.postcardExampleTitle .container .postcardOdometer{
+        font-size: 24px;
     }
 
     /*----------------1-2.postcardExample  明信片範例----------------*/
