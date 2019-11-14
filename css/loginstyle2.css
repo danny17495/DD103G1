@@ -1,0 +1,190 @@
+@font-face {
+    font-family:"華康仿宋體W2";
+    src:url("華康仿宋體W2.TTC") ;}
+ 
+
+.LoginForm .logintitle{
+  margin-top: 5%;
+  width: 100%;
+  height: 55px;
+  border-radius: 20px 20px 0 0;
+  background-color: #bec5e9;
+  text-align: center;
+  /* display: inline; */
+  vertical-align: middle;
+  line-height: 3em;
+}
+.LoginForm {
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:375px;
+  height:375px;     
+}
+
+.LoginForm .LoginForm-head {
+  width: 100%;
+  position: relative;
+}
+.LoginForm .LoginForm-head .login-head{
+  position: absolute;
+  top:0;
+  background-attachment: fixed;
+
+}
+
+.LoginForm-body {
+  position:absolute;
+  overflow:hidden;
+  width:100%;
+  height:100%;
+  /* background:#fdfdfd; */
+  background-image: url(../images/LoginBg.jpg);
+  /* opacity: 0.8; */
+  border-radius: 0 0 20px 20px;
+  display:inline-flex;
+  flex-wrap:wrap;
+}
+.LoginForm-body > div {
+  position:absolute;
+  width:100%;
+  height:100%;
+  /* transition:all 300ms ease-in-out; */
+}
+.LoginForm-body > div {
+  left:0%;
+  /* background:#fdfdfd; */
+  border-radius: 20px;
+
+}
+.LoginForm-body .login .LoginForm-row {
+    margin:0 auto;
+    padding: 5% 10%;
+    
+}
+.LoginForm-body > div.Login-signup {
+  left:100%;
+}
+.LoginForm-body.active > div.login {
+  left:-100%;
+}
+.LoginForm-body.active > div.Login-signup {
+  left:0%;
+}
+.LoginForm-body .Login-signup .LoginForm-row {
+    margin:0 auto;
+    padding: 5% 10%;
+    margin-top: 10%;
+    
+}
+.LoginForm-body .LoginForm-row .LoginLabel {
+  display:block;
+  padding:2px 12px 10px 0px;
+  /* font-size:12px; */
+  font-weight:600;
+  text-transform:uppercase;
+}
+.LoginForm-body .LoginForm-row .Logininput {
+  width:100%;
+  border:none;
+  outline:none;
+  height:32px;
+  text-indent:10px;
+  /* font-size:14px; */
+}
+.LoginForm .Login-signup-btn1 {
+  width: 25%;
+  border: none;
+  outline: none;
+  height: 40px;
+  text-transform: uppercase;
+  color: #fcfcfc;
+  /* font-size: 16px; */
+  cursor: pointer;
+  border-radius: 20px;
+  background: orange;
+  position: relative;
+  left: 15%;
+  margin: 0px 45px 0 5px;
+}
+/* .LoginForm-body .login .LoginForm-signup-btn1,.LoginForm-signup-btn2 {
+  width:33%;
+  border:none;
+  outline:none;
+  height:45px;
+  background:orange;
+  text-transform:uppercase;
+  color:#fcfcfc;
+  font-size:16px;
+  cursor:pointer;
+  position: absolute;
+  left: 33%;
+  right:33%;
+  top:48%;
+  border-radius: 20px;
+  
+} */
+/* .LoginForm-body .Login-signup .LoginForm-row button {
+    width:30%;
+    border:none;
+    outline:none;
+    height:45px;
+    text-transform:uppercase;
+    color:#fcfcfc;
+    font-size:16px;
+    cursor:pointer;
+    border-radius: 20px;
+    background:#3399ff;
+  } */
+/* .LoginForm-body .Login-signup .LoginForm-signup-btn1,.LoginForm-signup-btn2{
+    position: relative;
+    top:70%;
+    left: 30%;
+    right:30%;
+    width: 10%;
+    margin:0 45px 0 5px;
+} */
+/* .form .body .signup .signup-btn1{
+    margin-left: -7%;
+}
+.form .body .signup .signup-btn1{
+    margin-left: 25%;
+} */
+/* .form .body .signup .form-row button > div:nth-child(1) {
+    margin:10px;
+  
+} */
+
+
+
+
+/* .LoginForm-body .footer {
+  position:absolute;
+  bottom:50px;
+  width:100%;
+  /* border-top:1px solid #ccc; */
+/* }  */
+
+.LoginForm .Logininput{
+    border-radius: 10px;
+}
+/* .footer .to-signup{
+  margin-left: 42%;
+  margin-bottom: 30%;
+} */
+
+
+.logintitle{
+  position: relative;
+}
+.Loginforgetclose i{
+  font-size: 36px;
+  color: #FFF;
+  position: absolute;
+  top:15%;
+  left:87.5%;
+  right:0; 
+ 
+} 
+
