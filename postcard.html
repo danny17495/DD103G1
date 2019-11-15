@@ -14,6 +14,18 @@
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/odometer.js" async></script>
     <script src="js/postcard.js" defer></script>
+    <style>
+        #form1{
+            display: none;
+        }
+        #form2{
+            display: none;
+        }
+        #postcardCanvasSecret{
+            display: none;
+            /*background-color: red;*/
+        }
+    </style>
 </head>
 <body class="postcardBody">
     <header>
@@ -172,6 +184,7 @@
                 <!-- (2)明信片預覽畫面 -->
                 <div class="postWhiteBack" id="postWhiteBack"><!-- 明信片白底陰影 -->
                     <canvas id="postcardCanvas">您的瀏覽器不支援此技術，換Chrome瀏覽器開啟此網頁試試吧，不要錯過精彩好玩的客製明信片！</canvas>
+                    <canvas id="postcardCanvasSecret">秘密畫布</canvas>
                     <!-- <img src="images/postcard/postBlack.jpg" alt="postCard"> -->
                 </div>
                 <script src="js/fabric.min.js"></script>
@@ -398,6 +411,12 @@
                 </div><!-- .postRightDIY結束div -->
                 <div class="postDIYBtn_Wrap">
                     <div class="whiteButton postDIYBtn_6_Back postDIYBtn" id="postDIYBtn_6_Back">上一步</div>
+                    <form method="post" accept-charset="utf-8" id="form1">
+                        <input name="hidden_data" id='hidden_data' type="hidden"/>
+                    </form>
+                    <form method="post" accept-charset="utf-8" id="form2">
+                        <input name="hidden_data2" id='hidden_data2' type="hidden"/>
+                    </form>
                     <div class="whiteButton postDIYBtn_7_Next postDIYBtn" id="postDIYBtn_7_Next">&nbsp;儲存&nbsp;</div>
                 </div>
             </div><!-- .postRight_4結束div -->
