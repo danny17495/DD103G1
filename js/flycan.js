@@ -4,7 +4,7 @@ $(function(){
 		
 		var N = $(this).attr("id").substr(2);
 		
-		$("#BIG").attr( "src" , "img/top" + N + ".png" );	
+		$("#BIG").attr( "src" , "images/shopImg/top" + N + ".jpg" );	
 		
 	});
 
