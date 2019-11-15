@@ -1,0 +1,211 @@
+@font-face {
+  font-family:"華康仿宋體W2";
+  src:url("華康仿宋體W2.TTC") ;}
+ 
+
+.LoginForm {
+  position:absolute;
+  top:45%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:375px;
+  height:550px;
+
+  
+
+}
+.LoginForm .Loginhead {
+  width:100%;
+  height:55px;
+  display:flex;
+ 
+}
+.LoginForm .Loginhead > div {
+  width:100%;
+  height:100%;
+  text-align:center;
+  line-height:55px;
+  cursor:pointer;
+  background:transparent;
+  text-transform:uppercase;
+  /* font-size:15px; */
+  background-color: #bec5e9;
+  background-attachment: fixed;
+  /* opacity: 0.9; */
+  border-radius: 20px 20px 0 0;
+ 
+}
+/* .Loginhead.signup不可以分開 */
+/* .LoginForm .Loginhead.signup > div:nth-child(1),.LoginForm .Loginhead > div:nth-child(2) {
+  background:#eee;
+  border-radius: 20px 20px 0 0;
+}
+.LoginForm .Loginhead.signup > div:nth-child(2) {
+  background-color: #bec5e9;
+ 
+} */
+
+
+.LoginForm .Loginbody {
+  position:absolute;
+  overflow:hidden;
+  width:100%;
+  height:100%;
+  background-image: url(../images/login/LoginBg.jpg);
+  /* background:skyblue; */
+  /* opacity: 0.8; */
+  border-radius: 0 0 20px 20px;
+  display:inline-flex;
+  flex-wrap:wrap;
+}
+.LoginForm .Loginbody > div {
+  position:absolute;
+  width:100%;
+  height:100%;
+  transition:all 300ms ease-in-out;
+}
+.LoginForm .Loginbody > div.Login-login {
+  left:0%;
+  /* background:#fdfdfd; */
+  border-radius: 20px;
+
+}
+.LoginForm .LoginForm-row {
+    margin:0 auto;
+    padding: 5% 10%;
+    position: relative;
+    
+}
+.LoginForm-row .LoginBtnR{
+  position: absolute;
+  top:20px;
+  left:30%;
+}
+.LoginForm-row .LoginBtnL{
+  position: absolute;
+  top:20px;
+  left:50%;
+}
+/* .LoginForm .Loginbody > div.signup {
+  left:100%;
+} */
+/* .Loginbody.active不可以分開 */
+/* .LoginForm .Loginbody.active > div.Login-login{
+  left:-100%;
+} */
+/* .LoginForm .Loginbody.active > div.signup {
+  left:0%;
+} */
+.LoginForm .Loginbody .LoginForm-row {
+    margin:0 auto;
+    padding: 0% 10%;
+    
+}
+.LoginForm .Loginbody .LoginForm-row .Loginlabal {
+  display:block;
+  padding:20px 12px 10px 0px;
+  /* font-size:12px; */
+  font-weight:600;
+  text-transform:uppercase;
+  /* margin-left: 10%; */
+}
+.LoginForm .Loginbody .LoginForm-row .Logininput {
+  width:100%;
+  border:none;
+  outline:none;
+  height:32px;
+  text-indent:10px;
+
+}
+/* }
+.LoginForm .Loginbody .LoginForm-row .Login-signup-btn1 {
+    width: 25%;
+    border: none;
+    outline: none;
+    height: 35px;
+    text-transform: uppercase;
+    color: #fcfcfc;
+    /* font-size: 16px; */
+    /* cursor: pointer;
+    border-radius: 20px;
+    background: orange;
+    position: relative;
+    left: 15%;
+    margin: 30px 30px 0 10px;
+}  */
+
+.LoginForm .Loginbody .LoginForm-span{
+  text-align:center;
+  /* padding:8px 0px; */
+  border-top:1px dashed #CCC;
+  width: 70%;
+  margin: 0 auto;
+}
+.LoginForm .Loginbody .row .LoginForm-span {
+  /* font-size:14px; */
+  position:relative;
+  color:#fcfcfc;
+  top:5px;
+  font-weight:600;
+}
+/* .Loginfooter .to-signup{
+  margin-left: 42%;
+  margin-bottom: 30%;
+} */
+.LoginForm .Loginbody .Loginfooter {
+  position:absolute;
+  bottom:50px;
+  width:100%;
+  /* border-top:1px solid #ccc; */
+}
+/* .LoginForm .Loginbody .Loginfooter > div.social-form {
+  float:left;
+  padding-left:50px;
+  width:100%;
+  height:40px;
+  line-height:40px;
+  text-indent:2%;
+  color:#fcfcfc;
+  position:relative;
+  font-size:14px;
+  cursor:pointer;
+} */
+
+.LoginForm .Logininput{
+    border-radius: 10px;
+}
+.LoginForm .Login-forget-password{
+    text-decoration:none;
+    color:#FFF;
+    padding:4px;
+    margin-left: 10%;
+}
+.Loginclose{
+  position: relative;
+}
+.Loginclose i{
+  font-size: 36px;
+  color: #FFF;
+  position: absolute;
+  top:15%;
+  left:87.5%;
+  right:0;
+} 
+/* .Loginclose{
+    color:#FFF;
+    font: weight 800;
+    position: relative;
+}
+.Loginclose .LoginImg{
+    position: absolute;
+    top:15%;
+    left:87.5%;
+    right:0;
+
+} */
+/* .LoginForm .start-to-signup{
+    text-decoration:none;
+    color:#FFF;
+} */
+
+

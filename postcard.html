@@ -8,10 +8,12 @@
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="css/common.css">
-    <!-- <link rel="stylesheet" href="css/style.css"> -->
-    <link rel="stylesheet" href="css/stylePostcard.css">
-    <script src="js/jquery-3.4.1.min.js"></script> 
-    <script src="js/postcard.js" defer="true"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/stylePostcard.css"> -->
+    <link rel="stylesheet" href="css/odometer-theme-default.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/odometer.js" async></script>
+    <script src="js/postcard.js" defer></script>
 </head>
 <body class="postcardBody">
     <header>
@@ -70,8 +72,8 @@
         <section class="pageTitle postcardExampleTitle wrapA">
             <div class="container">
                 <h1>精彩的明信片</h1>
-                <h3>已有&nbsp;&nbsp;<span>10,820</span>&nbsp;&nbsp;個訪客製作</h3>
-                <div>
+                <h3>已有&nbsp;&nbsp;<div class="postcardOdometer">10,820</div>&nbsp;&nbsp;個訪客製作</h3>
+                <div class="birdEnvelope">
                     <img src="images/postcard/birdEnvelope.png" alt="bird">
                 </div>
         
@@ -141,27 +143,27 @@
                 <!-- (1)<768的步驟圈圈在上方 -->
                 <div class="postLeftStepBox postLeftStepBoxSmall">
                     <span class="postStepYellow postStepYellow1 postStepYellowHere" id="postStepYellow1">
-                        <div class="aapostStep aapostStep1">
+                        <div class="aapostStep aapostStep1" id="aapostStepS1">
                             <p>選背景</p>
                         </div>
                     </span>
                     <span class="postStepYellow postStepYellow2" id="postStepYellow2">
-                        <div class="aapostStep aapostStep2">
+                        <div class="aapostStep aapostStep2" id="aapostStepS2">
                             <p>選貼圖</p>
                         </div>
                     </span>
                     <span class="postStepYellow postStepYellow3" id="postStepYellow3">
-                        <div class="aapostStep aapostStep3">
+                        <div class="aapostStep aapostStep3" id="aapostStepS3">
                             <p>寫文字</p>
                         </div>
                     </span>
                     <span class="postStepYellow postStepYellow4" id="postStepYellow4">
-                        <div class="aapostStep aapostStep4">
+                        <div class="aapostStep aapostStep4" id="aapostStepS4">
                             <p>選郵戳</p>
                         </div>
                     </span>
                     <span class="postStepYellow postStepYellow5" id="postStepYellow5">
-                        <div class="aapostStep aapostStep5">
+                        <div class="aapostStep aapostStep5" id="aapostStepS5">
                             <p>完成</p>
                         </div>
                     </span>
@@ -177,27 +179,27 @@
                 <!-- (3)>=768的步驟圈圈在下方 -->
                 <div class="postLeftStepBox postLeftStepBoxBig">
                     <span class="postStepYellow postStepYellow1 postStepYellowHere"  id="postStepYellowBig1">
-                        <div class="aapostStep aapostStep1">
+                        <div class="aapostStep aapostStep1" id="aapostStepB1">
                             <p>選背景</p>
                         </div>
                     </span>
                     <span class="postStepYellow postStepYellow2"  id="postStepYellowBig2">
-                        <div class="aapostStep aapostStep2">
+                        <div class="aapostStep aapostStep2" id="aapostStepB2">
                             <p>選貼圖</p>
                         </div>
                     </span>
                     <span class="postStepYellow postStepYellow3"  id="postStepYellowBig3">
-                        <div class="aapostStep aapostStep3">
+                        <div class="aapostStep aapostStep3" id="aapostStepB3">
                             <p>寫文字</p>
                         </div>
                     </span>
                     <span class="postStepYellow postStepYellow4"  id="postStepYellowBig4">
-                        <div class="aapostStep aapostStep4">
+                        <div class="aapostStep aapostStep4" id="aapostStepB4">
                             <p>選郵戳</p>
                         </div>
                     </span>
                     <span class="postStepYellow postStepYellow5"  id="postStepYellowBig5">
-                        <div class="aapostStep aapostStep5">
+                        <div class="aapostStep aapostStep5" id="aapostStepB5">
                             <p>完成</p>
                         </div>
                     </span>
@@ -241,8 +243,8 @@
             <div class="postRight_2 aapostRight" id="postRight_2">
                 <div class="aapostRightDIY">
                     <h3>加上一些九份美食</h3>
-                    <!-- (1)3個可選用食物 -->
                     <div>
+                        <!-- (1)3個可選用食物 -->
                         <div>
                             <div class="postDecoFood_1 postDecoFood" id="postDecoFood_1">
                                 <img src="images/postcard/foodDeco-rect-1.png" alt="postDeco">
@@ -264,15 +266,24 @@
                             <div id="postDecoFoodWord_3">
                                 <p>魚丸</p>
                             </div>
-                        </div>                      
+                        </div>
+                        <!-- (2)教學 -->
+                        <div>
+                            <div class="postcardTeachBox">
+                                <img src="images/postcard/teachCursors-1move.png" alt="teachPic">
+                                <div class="postcardTeachText">
+                                    <p>1. 點擊移動</p>
+                                    <p>2. 點擊縮放</p>
+                                    <p>3. 點擊旋轉</p>
+                                    <p>4. 點兩下刪除</p>
+                                </div>
+                            </div>
+                        </div>                   
                     </div>
                    
 
 
-
-
-
-                    <!-- (2)教學 -->
+                    
 
 
 
@@ -309,7 +320,7 @@
                             </span>
                         </div>
                         <div>
-                            <div class="whiteButton" id="newTextBtn">生成文字</div>
+                            <div class="leafButton" id="newTextBtn">生成文字</div>
                         </div>
                     </div>
 
@@ -340,8 +351,8 @@
             <div class="postRight_4 aapostRight" id="postRight_4">
                 <div class="aapostRightDIY">
                     <h3>蓋一個郵戳！九份認證！</h3>
-                    <!-- (1)3個可選用食物 -->
                     <div>
+                    <!-- (1)3個可選用食物 -->                        
                         <div>
                             <div class="postDecoMark_1 postDecoMark" id="postDecoMark_1">
                                 <img src="images/postcard/postDeco-rect-1.png" alt="postDeco">
@@ -357,7 +368,19 @@
                             <div>
                                 <p>郵戳二</p>
                             </div>
-                        </div>                      
+                        </div>
+                        <!-- (2)教學 -->
+                        <div>
+                            <div class="postcardTeachBox">
+                                <img src="images/postcard/teachCursors2-1move.png" alt="teachPic">
+                                <div class="postcardTeachText">
+                                    <p>1. 點擊移動</p>
+                                    <p>2. 點擊縮放</p>
+                                    <p>3. 點擊旋轉</p>
+                                    <p>4. 點兩下刪除</p>
+                                </div>
+                            </div>
+                        </div>               
                     </div>
                    
 
@@ -375,7 +398,7 @@
                 </div><!-- .postRightDIY結束div -->
                 <div class="postDIYBtn_Wrap">
                     <div class="whiteButton postDIYBtn_6_Back postDIYBtn" id="postDIYBtn_6_Back">上一步</div>
-                    <div class="whiteButton postDIYBtn_7_Next postDIYBtn" id="postDIYBtn_7_Next">下一步</div>
+                    <div class="whiteButton postDIYBtn_7_Next postDIYBtn" id="postDIYBtn_7_Next">&nbsp;儲存&nbsp;</div>
                 </div>
             </div><!-- .postRight_4結束div -->
 
@@ -383,13 +406,51 @@
             <!-- ==============(二-5)操作畫面.postRight_5(完成)============== -->
             <div class="postRight_5 aapostRight" id="postRight_5">
                 <div class="aapostRightDIY">
-                    <h3>已完成，您現在可以選擇...</h3>
-                    <!-- (1)3個可選用背景 -->
+                    <h3>已完成，您現在可以...</h3>
+                    <!-- (1)按鈕 -->
+                    <div>
+                        <table>
+                            <tr class="finishBox">
+                                <th>
+                                    <div class="leafButton postFinishBtn">下載</div>
+                                </th>
+                                <td>
+                                    <p class="postcardFinishTextS">免費儲存</p>
+                                    <p class="postcardFinishTextB">免費儲存到您電腦珍藏</p>
+                                </td>
+                            </tr>
+                            <tr class="finishBox">
+                                <th>
+                                    <div class="leafButton postFinishBtn">分享</div>
+                                </th>
+                                <td>
+                                    <p>免費分享</p>
+                                </td>
+                            </tr>
+                            <tr class="finishBox">
+                                <th>
+                                    <a href="competition.html"><div class="leafButton postFinishBtn">比賽</div></a>
+                                </th>
+                                <td>
+                                    <p>免費參加比賽</p>
+                                </td>
+                            </tr>
+                            <tr class="finishBox">
+                                <th>
+                                    <div class="leafButton postFinishBtn">購買</div>
+                                </th>
+                                <td>
+                                    <p class="postcardFinishTextS">印實體明信片</p>
+                                    <p class="postcardFinishTextB">NT$60打印實體明信片</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
 
 
 
 
-                    <!-- (2)上傳窗格 -->
+                    <!-- (2) -->
 
 
 
@@ -470,6 +531,9 @@
             </div><!-- .container結束div -->
         </section>
     </div>
+
+
+
 
 
 

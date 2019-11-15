@@ -75,7 +75,7 @@ section.shopcartPageTitle img{
     border-radius: 5px;
     }     
   .memberTabGroup #membervisa {
-    width: 15%;
+    width:15%;
   }
   #memberWrap{
     /* padding-top: 100px; */
@@ -116,12 +116,14 @@ section.shopcartPageTitle img{
     color: #FFF;
   }
   #memberTab-panel .memberTab-content {
-    /* border: 1px solid #CCC; */
+    border: 1px solid #CCC;
     background-color: #fff;
     opacity:0.9;
     /* width: 100%; */
+    justify-content: center;
     display: flex;
-    padding:10%;
+    padding:5%;
+    border-radius: 0 0 20px 20px;
   }
   #memberTab-panel .memberTab-content > li {
     display: none;
@@ -164,6 +166,7 @@ section.shopcartPageTitle img{
   display: table-cell;
   padding: 0px 5px;
   border: 1px solid #aaa;
+  vertical-align: middle;
 }
 .memberthead .memberli{
   text-align: center;
@@ -188,10 +191,11 @@ section.shopcartPageTitle img{
 }
 .memberBigBoxdiv{
   width: 100%;
-  padding: 5%;
+  /* padding: 5%; */
   margin: 0 auto;
   display: flex;
   flex-flow: row wrap;
+  margin-bottom: 15px;
 }
 .memberboxdiv{
   margin: 0 auto;
@@ -215,8 +219,9 @@ margin: 0 auto;
 .memberBigBoxdiv2{
   display: flex;
   flex-flow:row nowrap;
-  padding: 8%;
-  margin:0 auto;
+  /* padding:8%; */
+  /* margin:0 auto; */
+  margin-left: 20px;
 }
 
 .memberboxdiv3{
@@ -228,32 +233,44 @@ margin: 0 auto;
   padding:5%;
  }
  .memberboxdiv3 a{
-   padding:5px;
-   /* text-align: center; */
+  /* padding:5px; */
+  padding: 15px 5px;
+  /* text-align: center; */
  }
- #memberTab4{
+/*#memberTab4{
    margin:0 auto;
  }
  #memberTab5{
   margin:0 auto;
-}
+} */
 #memberReserve{
   padding:5%;
 }
 #memberTab1{
   margin:0 auto;
   padding: 0 20%;
-  text-align: center;
+  /* text-align: center; */
 }
+#memberwbtn{
+  /* margin:8%; */
+  margin: 2% 0 20px;
+}
+.membertitle{
+  /* margin:3%; */
+  margin-bottom:15px;
+}
+/* .memberBigbtn{
+  text-align: center;
+} */
 /* RWD頁籤部分------------------------------------------------------------------------------------ */
-@media only screen and (max-width:768px){
+@media only screen and (max-width:570px){
   .memberthead{
     display: none;
   }
   .memberol{
     display: block;
     border: #ddd 1px solid;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
   }
   .memberol .memberli{
     display:flex;
@@ -270,7 +287,7 @@ margin: 0 auto;
     font-weight: 900;
     padding-right: 1rem;
   }
-  #memberTab-panel .memberTabs i{
+  #memberTab-panel .memberTabs #member-i{
     display:block;
   }
 
@@ -281,8 +298,17 @@ margin: 0 auto;
     display:flex;
     flex-direction:column;
   }
- 
+  .memberBigBoxdiv2{
+   
+    margin-bottom: 20px;
+  }
+  .memberboxdivwrap1{
+    display: flex;
+    /* flex-flow: column wrap; */
+    justify-content: center;
+  }
 }
+
  
   @media all and (max-width: 320px) {
     .memberTabs p{
@@ -331,12 +357,12 @@ margin: 0 auto;
     }
   }
   @media all and (max-width: 329px) {
-    p{
+    .memberTabs p{
       display: none;
     }
   }
   @media all and (max-width: 330px) {
-    .memberTabsp{
+    .memberTabs p{
         display: none;
       }
   }
@@ -344,6 +370,11 @@ margin: 0 auto;
     .memberTabs p{
         display: none;
       }
+  }
+  @media all and (max-width: 343px) {
+    .memberboxdiv > a {
+     font-size: 10px;
+    }
   }
   @media all and (max-width: 350px) {
     .memberTabs p{
@@ -441,6 +472,16 @@ margin: 0 auto;
     }
   }
   @media all and (max-width: 369px) {
+    .memberTabs p{
+      display: none;
+    }
+  }
+  @media all and (min-width: 375px) {
+    #memberTab-panel .memberTabs #member-i{
+      display: none;
+    }
+  }
+  @media all and (max-width: 374px) {
     .memberTabs p{
       display: none;
     }

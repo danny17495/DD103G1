@@ -46,9 +46,8 @@ a{
 }
 
 body{
-    font-family: $fontFamily;
     line-height: 1.6em;
-     font-family: 'Noto Serif TC', serif;
+    font-family: 'Noto Serif TC', serif;
 }
 
 @font-face {
@@ -166,6 +165,10 @@ h1, h2, h3, h4, p, a, li, span, button, input {
         opacity: 1;
         transform: rotate(10deg);
      }
+}
+.leafButton.active::before{
+        opacity: 1;
+
 }
   @include respondMedium(){
       .leafButton{

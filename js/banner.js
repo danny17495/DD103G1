@@ -142,16 +142,17 @@ $(document).ready(function () {
     });
 
     $('.indexBanner').on('mousewheel DOMMouseScroll', function (e) {
-
+        e.preventDefault();
         if (animation) return;
         let delta = e.originalEvent.wheelDelta;
 
         if (delta > 0 || e.originalEvent.detail < 0) {
             navigateLeft();
-
+            
         };
         if (delta < 0 || e.originalEvent.detail > 0) {
             navigateRight();
+
         }
     });
 });

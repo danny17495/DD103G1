@@ -86,7 +86,7 @@
                 <img src="images/game/game1_playbtn.png" id="game_playbtn" alt="" id="game_playbtn"> 
                 <div class="suggestionBar" id="suggestionBar">
                    <img src="images/game/suggestion.png" alt="" id="game_suggestion">
-                   <span id="taroText">芋園</span> 
+                   <span id="taroText">芋圓</span> 
                    <img src="images/game/taro.png" alt="" id="taro">
                    <span id="grassriceText">草仔粿</span> 
                    <img src="images/game/grassrice.png" alt="" id="grassrice">
@@ -94,17 +94,102 @@
                    <img src="images/game/meatball.png" alt="" id="meatball">
                 </div>
                 <div class="game1" id="game1">
-                    <img src="images/game/taro_in_game.png" alt="" id="taro_in_game1">
-                    <img src="images/game/grassrice_in_game.png" alt="" id="grassrice_in_game1">
-                    <img src="images/game/meatball_in_game.png" alt="" id="meatball_in_game1">
+                    <div id="taro_img">
+                        <img src="images/game/taro_in_game.png" alt="" id="taro_in_game1">
+                        <span id="taro_in_game1_after"></span>
+                    </div>
+                    <div class="grassrice_img">
+                       <img src="images/game/grassrice_in_game.png" alt="" id="grassrice_in_game1">
+                       <span id="grassrice_in_game1_after"></span> 
+                    </div>
+                    <div class="meatball_img">
+                       <img src="images/game/meatball_in_game.png" alt="" id="meatball_in_game1">
+                       <span id="meatball_in_game1_after"></span> 
+                    </div>  
                 </div>
-
+                <div class="game2" id="game2">
+                    <div id="taro_img">
+                        <img src="images/game/taro_in_game.png" alt="" id="taro_in_game2">
+                        <span id="taro_in_game2_after"></span>
+                    </div>
+                    <div id="grassrice_img">
+                       <img src="images/game/grassrice_in_game.png" alt="" id="grassrice_in_game2">
+                       <span id="grassrice_in_game2_after"></span> 
+                    </div>
+                    <div id="meatball_img">
+                       <img src="images/game/meatball_in_game.png" alt="" id="meatball_in_game2">
+                       <span id="meatball_in_game2_after"></span> 
+                    </div>  
+                </div>
             </div>
             <div class="game_coupon_wrap" id="game_coupon_wrap">
-                    <p>恭喜您獲得優惠券!!</p>
-                    <img src="images/game/coupon.jpg" alt="" id="game_coupon">
-            <i class="fa fa-times-circle Trip2_lightBoxBTN" aria-hidden="true" id="game_close"></i>
+                <p class="coupon_wrap_text">恭喜您獲得優惠券!!</p>
+                <img src="images/game/coupon.jpg" alt="" id="game_coupon">
+                <p class="couponNUM">序號
+                <span id="coupon_number">000001</span></p>  
+               <i class="fa fa-times-circle Trip2_lightBoxBTN" aria-hidden="true" id="game_close"></i>
             </div>
+            <div class="getGameSuggestion">
+                <div id="taro_suggestion">
+                    <h2>芋圓</h2>
+                    <div class="exposition">
+                        <div class="taroexposition_img">
+                          <img src="images/game/taro_exposition.png" alt="">  
+                        </div>
+                        <div class="taroexposition_text">
+                            <p>
+                                芋圓是在1946年被研發出來的
+                                ，創始者為蔡林保雲，居住在
+                                瑞芳。
+                                <br>
+                                1970年代，一位阿柑姨於九份
+                                國小附近擺攤兼賣冰品，因客
+                                人要求開始增加芋圓當佐料，
+                                隨著觀光推廣而成為當地著名
+                                小吃芋園剉冰，而成為著名的「賴阿婆芋圓」。
+                            </p>
+                        </div> 
+                    </div> 
+                    <i class="fa fa-times-circle" aria-hidden="true" id="taro_suggestion_close"></i>
+                </div>
+            </div>
+           <div class="getGameSuggestion">
+                <div id="grassrice_suggestion">
+                    <h2>草仔粿</h2>
+                    <div class="exposition">
+                        <div class="grassriceexposition_img">
+                          <img src="images/game/grassrice_exposition.png" alt="">  
+                        </div>
+                        <div class="grassriceexposition_text">
+                            <p>
+                                草仔粿又稱草粿，因將漿團加入鼠麴草，所以又稱鼠麴粿。草仔粿為台灣中元普渡和掃墓祭拜時的米製食品，為平埔族漢化過後的食物。
+                                <br>
+                                外型扁平約巴掌大小，以艾草或鼠麴草揉製而成，顏色呈綠色粿，帶著淡淡的青草香，內常以蘿蔔切絲或紅豆泥為餡，以香蕉葉、月桃葉等為墊底。
+                            </p>
+                        </div> 
+                    </div> 
+                    <i class="fa fa-times-circle" aria-hidden="true" id="grassrice_suggestion_close"></i>
+                </div>
+            </div>
+            <div class="getGameSuggestion">
+                <div id="meatball_suggestion">
+                    <h2>肉圓</h2>
+                    <div class="exposition">
+                        <div class="meatballexposition_img">
+                          <img src="images/game/meatball_exposition.png" alt="">  
+                        </div>
+                        <div class="meatballexposition_text">
+                            <p>
+                                肉圓是一種臺灣的特色街頭小吃，名稱源自於其外觀，肉圓半透明扁圓形，是一種以地瓜粉食品。除了最常見的圓形之外，亦有三角形的北斗肉圓，相傳北斗肉圓是最早的肉圓，但目前不若圓形肉圓普及。
+                                <br>
+                                肉圓誕生已有120年的歷史。九份的紅槽素肉圓以豆粉製作素肉，浸泡紅槽，再加入中藥炒香，以筍絲、香菇為內餡，以糯米漿、地瓜粉製作外皮，是九份著名小吃之一。
+                            </p>
+                        </div> 
+                    </div> 
+                    <i class="fa fa-times-circle" aria-hidden="true" id="meatball_suggestion_close"></i>
+                </div>
+            </div>
+            <button id="game_getCoupon">領取優惠券</button>
         </div>
      </div>
    </section>
