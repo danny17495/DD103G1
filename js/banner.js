@@ -1,4 +1,4 @@
-$(document).ready(function () {
+// $(document).ready(function () {
     const $slider = $('.slider');
     const winWidth = $(window).width();
     const animSpd = 750;
@@ -10,16 +10,16 @@ $(document).ready(function () {
 
     // Generating slides
     let arrCities = [
-        { ch: '九份', en: 'JiuFen' },
-        { ch: '深澳峽角', en: 'ShenAo' },
-        { ch: '不厭亭', en: 'Buyan' }
+      { ch: "九份", en: "JiuFen" },
+      { ch: "深澳峽角", en: "ShenAo" },
+      { ch: "不厭亭", en: "Buyan" },
     ];
     let numOfCities = arrCities.length;
 
     let generateSlide = function (cityindex) {
         let frag1 = $(document.createDocumentFragment());
         // let frag2 = $(document.createDocumentFragment());
-        const numSlide = arrCities.indexOf(arrCities[cityindex]) + 1;//slide從一開始
+        const numSlide = arrCities.indexOf(arrCities[cityindex])+1 ;//slide從一開始
         // const firstLetter = arrCitiesDivided[city][0].charAt(0);
 
         const $slide =
@@ -49,7 +49,7 @@ $(document).ready(function () {
     function timeout() {
         animation = false;
     }
-
+    
     function pagination(direction) {
         animation = true;
         diff = 0;
@@ -72,20 +72,25 @@ $(document).ready(function () {
         //if (!autoScrollVar) return;
         if (curSlide >= numOfCities) return;
         pagination(0);
+        passSecond = animSpd;
         setTimeout(timeout, animSpd);
+      //  setInterval(aa,1);
         curSlide++;
     }
 
     function navigateLeft() {
         if (curSlide <= 1) return;
         pagination(2);
+        passSecond = animSpd;
         setTimeout(timeout, animSpd);
         curSlide--;
     }
 
     function toDefault() {
         pagination(1);
+        passSecond = animSpd;
         setTimeout(timeout, animSpd);
+        // setInterval(timepass, animSpd);
     }
 
     // Events
@@ -142,17 +147,21 @@ $(document).ready(function () {
     });
 
     $('.indexBanner').on('mousewheel DOMMouseScroll', function (e) {
-        e.preventDefault();
-        if (animation) return;
-        let delta = e.originalEvent.wheelDelta;
+          let delta = e.originalEvent.wheelDelta;
+     
+            if ($(window).scrollTop() == 0) {
+                  e.preventDefault();
+                     if (animation) return;
 
-        if (delta > 0 || e.originalEvent.detail < 0) {
-            navigateLeft();
-            
-        };
-        if (delta < 0 || e.originalEvent.detail > 0) {
-            navigateRight();
-
-        }
+                     if (delta > 0 || e.originalEvent.detail < 0) {
+                       navigateLeft();
+                     }
+                     if (delta < 0 || e.originalEvent.detail > 0) {
+                       navigateRight();
+                     }
+                     if(curSlide==3){
+                        
+                     }
+            }
     });
-});
+// });
