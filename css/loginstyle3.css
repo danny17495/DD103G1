@@ -70,10 +70,21 @@
   border-radius: 20px;
 
 }
-.LoginForm .Loginbody .Login-login .LoginForm-row {
+.LoginForm .LoginForm-row {
     margin:0 auto;
     padding: 5% 10%;
+    position: relative;
     
+}
+.LoginForm-row .LoginBtnR{
+  position: absolute;
+  top:20px;
+  left:30%;
+}
+.LoginForm-row .LoginBtnL{
+  position: absolute;
+  top:20px;
+  left:50%;
 }
 /* .LoginForm .Loginbody > div.signup {
   left:100%;
@@ -105,8 +116,8 @@
   height:32px;
   text-indent:10px;
 
-
 }
+/* }
 .LoginForm .Loginbody .LoginForm-row .Login-signup-btn1 {
     width: 25%;
     border: none;
@@ -115,13 +126,13 @@
     text-transform: uppercase;
     color: #fcfcfc;
     /* font-size: 16px; */
-    cursor: pointer;
+    /* cursor: pointer;
     border-radius: 20px;
     background: orange;
     position: relative;
     left: 15%;
     margin: 30px 30px 0 10px;
-}
+}  */
 
 .LoginForm .Loginbody .LoginForm-span{
   text-align:center;

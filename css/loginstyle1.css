@@ -115,9 +115,9 @@
   border:none;
   outline:none;
   height:45px;
-  background:orange;
+  /* background:orange; */
   text-transform:uppercase;
-  color:#fcfcfc;
+  /* color:#fcfcfc; */
   font-size:16px;
   cursor:pointer;
   position: absolute;
@@ -131,13 +131,13 @@
   text-decoration:none;
   border:none;
   outline:none;
-  color:#FFF;
   padding:4px;
   margin-left: 10%;
   position: absolute;
   top:60%;
-  left:28%;
+  left:30%;
   right:0;
+  color:#FFF;
 }
 
 .LoginForm .Loginbody .LoginForm-span{
@@ -192,5 +192,15 @@
     text-decoration:none;
     color:#FFF;
 } */
-
-
+.LoginForm-row .LoginBtnCenter{
+  position: relative;
+}
+.LoginBtnCenter{
+  position: absolute;
+  top:0;
+  left:38%;
+  right:0;
+}
+.LoginP{
+  color:#FFF;
+}

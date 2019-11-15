@@ -60,7 +60,7 @@
 }
 .LoginForm-body .login .LoginForm-row {
     margin:0 auto;
-    padding: 5% 10%;
+    padding: 10% 10%;
     
 }
 .LoginForm-body > div.Login-signup {
@@ -93,21 +93,23 @@
   text-indent:10px;
   /* font-size:14px; */
 }
-.LoginForm .Login-signup-btn1 {
+
+
+/* .LoginForm .Login-signup-btn1 {
   width: 25%;
   border: none;
   outline: none;
   height: 40px;
   text-transform: uppercase;
   color: #fcfcfc;
-  /* font-size: 16px; */
+  font-size: 16px;
   cursor: pointer;
   border-radius: 20px;
-  background: orange;
+   background: orange;
   position: relative;
   left: 15%;
   margin: 0px 45px 0 5px;
-}
+} */
 /* .LoginForm-body .login .LoginForm-signup-btn1,.LoginForm-signup-btn2 {
   width:33%;
   border:none;
@@ -187,4 +189,18 @@
   right:0; 
  
 } 
+.LoginFormTwoBtn {
+  position: relative;
+}
+.LoginFormTwoBtn .LoginBtn1{
+  position: absolute;
+  top:0;
+  left:20%;
 
+}
+.LoginFormTwoBtn .LoginBtn2{
+  position: absolute;
+  top:0;
+  right:25%;
+
+}
