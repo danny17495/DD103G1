@@ -85,7 +85,7 @@ var y = canvas.height = 1875;
 // alert(canvas.height);
 
 var img = new Image();
-img.src = "../images/competition/star.png";
+img.src = "./images/competition/star.png";
 var num = 500;
 var arrStar = [];
 
