@@ -4486,10 +4486,10 @@ section.postcardMain .aapostLeft .postStepYellow4:after{
 /*2-2-2(二).操作畫面.postRight設定*/
 /*===============================================================*/
 /*2-2-2(二).操作畫面.postRight切換步驟css + postcard.js*/
-.postRight_1{display: none}
 .postRight_2{display: none}
 .postRight_3{display: none}
 .postRight_4{display: none}
+.postRight_5{display: none}
 
 /*2-2-2(二).操作畫面.postRight排版*/
 section.postcardMain .aapostRight h3{

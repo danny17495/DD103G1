@@ -15,15 +15,15 @@
     <script src="js/odometer.js" async></script>
     <script src="js/postcard.js" defer></script>
     <style>
-        #form1{
-            display: none;
-        }
-        #form2{
+        #form1, #form2, #form3{
             display: none;
         }
         #postcardCanvasSecret{
             display: none;
             /*background-color: red;*/
+        }
+        #postDIYBtn_8_Back{
+            visibility: hidden;
         }
     </style>
 </head>
@@ -155,27 +155,27 @@
                 <!-- (1)<768的步驟圈圈在上方 -->
                 <div class="postLeftStepBox postLeftStepBoxSmall">
                     <span class="postStepYellow postStepYellow1 postStepYellowHere" id="postStepYellow1">
-                        <div class="aapostStep aapostStep1" id="aapostStepS1">
+                        <div class="aapostStep aapostStep1" id="aapostStepS1" onclick="toPR1()">
                             <p>選背景</p>
                         </div>
                     </span>
                     <span class="postStepYellow postStepYellow2" id="postStepYellow2">
-                        <div class="aapostStep aapostStep2" id="aapostStepS2">
+                        <div class="aapostStep aapostStep2" id="aapostStepS2" onclick="toPR2()">
                             <p>選貼圖</p>
                         </div>
                     </span>
                     <span class="postStepYellow postStepYellow3" id="postStepYellow3">
-                        <div class="aapostStep aapostStep3" id="aapostStepS3">
+                        <div class="aapostStep aapostStep3" id="aapostStepS3" onclick="toPR3()">
                             <p>寫文字</p>
                         </div>
                     </span>
                     <span class="postStepYellow postStepYellow4" id="postStepYellow4">
-                        <div class="aapostStep aapostStep4" id="aapostStepS4">
+                        <div class="aapostStep aapostStep4" id="aapostStepS4" onclick="toPR4()">
                             <p>選郵戳</p>
                         </div>
                     </span>
                     <span class="postStepYellow postStepYellow5" id="postStepYellow5">
-                        <div class="aapostStep aapostStep5" id="aapostStepS5">
+                        <div class="aapostStep aapostStep5" id="aapostStepS5" onclick="toPR5()">
                             <p>完成</p>
                         </div>
                     </span>
@@ -192,27 +192,27 @@
                 <!-- (3)>=768的步驟圈圈在下方 -->
                 <div class="postLeftStepBox postLeftStepBoxBig">
                     <span class="postStepYellow postStepYellow1 postStepYellowHere"  id="postStepYellowBig1">
-                        <div class="aapostStep aapostStep1" id="aapostStepB1">
+                        <div class="aapostStep aapostStep1" id="aapostStepB1" onclick="toPR1()">
                             <p>選背景</p>
                         </div>
                     </span>
                     <span class="postStepYellow postStepYellow2"  id="postStepYellowBig2">
-                        <div class="aapostStep aapostStep2" id="aapostStepB2">
+                        <div class="aapostStep aapostStep2" id="aapostStepB2" onclick="toPR2()">
                             <p>選貼圖</p>
                         </div>
                     </span>
                     <span class="postStepYellow postStepYellow3"  id="postStepYellowBig3">
-                        <div class="aapostStep aapostStep3" id="aapostStepB3">
+                        <div class="aapostStep aapostStep3" id="aapostStepB3" onclick="toPR3()">
                             <p>寫文字</p>
                         </div>
                     </span>
                     <span class="postStepYellow postStepYellow4"  id="postStepYellowBig4">
-                        <div class="aapostStep aapostStep4" id="aapostStepB4">
+                        <div class="aapostStep aapostStep4" id="aapostStepB4" onclick="toPR4()">
                             <p>選郵戳</p>
                         </div>
                     </span>
                     <span class="postStepYellow postStepYellow5"  id="postStepYellowBig5">
-                        <div class="aapostStep aapostStep5" id="aapostStepB5">
+                        <div class="aapostStep aapostStep5" id="aapostStepB5" onclick="toPR5()">
                             <p>完成</p>
                         </div>
                     </span>
@@ -411,11 +411,18 @@
                 </div><!-- .postRightDIY結束div -->
                 <div class="postDIYBtn_Wrap">
                     <div class="whiteButton postDIYBtn_6_Back postDIYBtn" id="postDIYBtn_6_Back">上一步</div>
+                    <!-- #form1,#form2用於處理客製明信片圖片存取進Server -->
+                    <!-- #form3用於處理客製明信片資料存取進資料庫 -->
                     <form method="post" accept-charset="utf-8" id="form1">
                         <input name="hidden_data" id='hidden_data' type="hidden"/>
                     </form>
                     <form method="post" accept-charset="utf-8" id="form2">
                         <input name="hidden_data2" id='hidden_data2' type="hidden"/>
+                    </form>
+                    <form method="post" accept-charset="utf-8" id="form3">
+                        <input name="hidden_data3" id='hidden_data3' type="text"/>
+                        <input name="hidden_data4" id='hidden_data4' type="text"/>
+                        <input name="hidden_data5" id='hidden_data5' type="text"/>
                     </form>
                     <div class="whiteButton postDIYBtn_7_Next postDIYBtn" id="postDIYBtn_7_Next">&nbsp;儲存&nbsp;</div>
                 </div>
@@ -456,7 +463,7 @@
                             </tr>
                             <tr class="finishBox">
                                 <th>
-                                    <div class="leafButton postFinishBtn">購買</div>
+                                    <div class="leafButton postFinishBtn" id="buyPostcardBtn">購買</div>
                                 </th>
                                 <td>
                                     <p class="postcardFinishTextS">印實體明信片</p>
