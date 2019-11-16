@@ -387,11 +387,22 @@
     width: 230px;
     margin: 0 auto
 }
+
 .indexReContent .tree{
     position: absolute;
     width: 60px;
-    top: -88px;
+    top: -85px;
     right: -10px;
+    transform-origin: bottom center;
+    transform: scale(0);
+}
+.indexReContent .tree.treeGrow{
+     animation:treeGrow 1s forwards;
+}
+@keyframes treeGrow{  
+    0%{transform: scale(0.1) translateY(3%)} 
+    45%{transform: translateY(3%)}
+    100%{transform: scale(1)}
 }
 .indexReContent .tree img{
    width: 100%;
@@ -4082,6 +4093,7 @@
 .indexBanner .slideTextWrap {
     position: absolute;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -4099,7 +4111,8 @@
 	font-family: '華康秀風體'; 
 }
 .indexBanner .slideText:first-child {
-	font-size: 72px;
+    font-size: 72px;
+    margin-bottom: 35px;
 }
 .indexBanner .slideText:last-child {
 	font-size: 30px;
@@ -5318,4 +5331,6 @@ body.postcardBody .forWallDeco{
     }
 
 }
+
+
 
