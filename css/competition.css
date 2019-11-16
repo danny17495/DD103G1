@@ -1,6 +1,6 @@
-/* *{
+*{
     outline:1px solid #f00;
-} */
+}
 body{
     background-image: url(../images/competition/comptitionbackground.png);
 }
@@ -188,6 +188,7 @@ body{
 }
 #can{
     width: 100%;
+    max-width: -1200px;
     height:100%;
     top: 0;
     left: 0;
@@ -338,17 +339,14 @@ body{
 }
 
 .competitionText{
-    display: flex;
-    flex-flow: column nowrap;
-    padding-top: 20px;
-    padding-left: 28px;
+    display: inline-block;
+    margin-top: 20px;
+
 }
 
 .messageNo2 .competitionText{
-    display: flex;
-    flex-flow: column nowrap;
-    padding-top: 20px;
-    padding-left: 18px;
+    display: inline-block;
+    margin-top: 20px;
 }
 
 .messageNo1 .textContent{
@@ -420,7 +418,7 @@ body{
 .skylightBanner #skylight4,.skylightBanner #skylight5{
     float: left;
     margin-left: 35%;
-    margin-top: -2%;
+    margin-top: -4%;
 }
 
 .chooseButton{
@@ -605,8 +603,8 @@ body{
 
 .competitionGo .Bus{
 
-    width: 100%;
-    margin-left: 60px;
+    width: 60%;
+    margin-left: 100px;
     /* height: 100%; */
     position: relative;
     animation: Bus 10s ease-out infinite;
@@ -695,8 +693,23 @@ body{
       right: 0px;
       bottom: -10px; } }
 
-      
-/* 
+
+
+      @media all and (max-width:1024px){
+
+        #skylight1,#skylight2,#skylight3{
+            display: none;
+        }
+       
+        
+        
+
+
+
+      }
+
+/*       
+
 @media all and (max-width: 1024px) {
 
     .messageBoard img{
