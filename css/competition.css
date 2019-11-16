@@ -609,7 +609,7 @@ body{
     margin-left: 60px;
     /* height: 100%; */
     position: relative;
-    animation: Bus 10s ease-out infinite;
+    animation: Bus 12s ease-out infinite;
     z-index: 1;
 }
 
