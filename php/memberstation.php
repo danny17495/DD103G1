@@ -1,3 +1,38 @@
+<?php 
+$errMsg = "";
+session_start();
+
+try {
+  require_once('php/connect.php');
+
+  //找會員
+  $member=$pdo->prepare('SELECT * FROM `member` where memberNo = :memberNo');
+  $member->bindValue(':memberNo',@$_SESSION['memberNo']);
+  $member->execute();
+
+  //找明信片
+  $postcardform=$pdo->prepare('SELECT * FROM `postcard` where postcardNo = :postcardNo');
+  $postcardform->bindValue(':postcardNo',@$_SESSION['postcardNo']);
+  $postcards->execute();
+
+  //找優惠劵
+  $holdingcoupon=$pdo->prepare('SELECT * FROM `holdingcoupon` where couponNo = :couponNo');
+  $holdingcoupon->bindValue(':couponNo',@$_SESSION['couponNo']);
+  $holdingcoupon->execute();
+
+  //找訂單
+  $orderform=$pdo->prepare('SELECT * FROM `orderform` where orderNo = :orderNo');
+  $orderform->bindValue(':orderNo',@$_SESSION['orderNo']);
+  $orderform->execute();
+
+  //找預約
+  $reserve=$pdo->prepare('SELECT * FROM `reserve` where reserveNo = :reserveNo');
+  $reserve->bindValue(':reserveNo',@$_SESSION['reserveNo']);
+  $reserve->execute();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -107,8 +142,10 @@
                     </div>
                     <!-- 表身 -->
                     <ul class="memberTab-content">
-                        <!-- 第一頁-基本資料 -->
+<!----------------- 第一頁-基本資料 -->
+                    <!-- profile -->
                         <span id="memberTab1">
+                            <php ?>
                             <div class="top_part">
                                 <div class="membertitle">
                                     <h2>基本資料</h2>
@@ -172,6 +209,7 @@
                             </div>
                         </span>
 <!------------ 第二頁-明信片 -->
+                        <!-- postcard -->
                         <span id="memberTab2">
                             <ul id="memberPostcard" class="memberul">
                                 <div class="memberBigBoxdiv">
@@ -199,6 +237,7 @@
                             </ul>
                         </span>
 <!------------ 第三頁-優惠劵 -->
+                        <!-- coupon -->
                         <span id="memberTab3">
                             <ul id="memberCoupon" class="memberul" >
                                 <div class="memberboxdivwrap1">
@@ -224,6 +263,7 @@
                             </ul>
                         </span>
 <!---------- 第四頁-訂單查詢 -->
+                        <!-- order -->
                         <span id="memberTab4">
                             <ul id="memberOrder" class="memberul">
                                 <li class="memberthead">
@@ -277,6 +317,7 @@
                             </ul>
                         </span>
 <!---------- 第五頁-預約行程 -->
+                        <!-- reserve -->
                         <span id="memberTab5">
                             <li id="memberReserve" class="memberthead">
                                 <ol class="memberol">
