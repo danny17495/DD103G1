@@ -103,32 +103,62 @@
 <div class="spotOuter">
     <section class="indexSpot">
       <div class="container spotContainer">
-            <div class="indexSpotIntro">
+            <div class="indexSpotIntro" id="indexSpot_01">
                 <h1>行程介紹</h1>
                 <h2>尋幽訪古之旅</h2>
                 <p>如果您喜歡充滿歷史氣息的旅行，那麼您一定不能錯過這條路線！景點包括九份老街、黃金博物館、黃金瀑布，過去因採礦業相當繁榮的地方，隨著礦業的衰退跟著沒落，卻留下不可彌滅的歷史痕跡。</p>
                 <div class="more">more</div>
             </div>
-            <div class="indexSpotPic">
+            <div class="indexSpotPic" id="indexSpot_pic01">
                 <div class="indexSpotPic_OOuter">
                     <div class="indexSpotPic_outer">
                     <img src="images/indexSpot/pic.jpg" alt="">
                 </div>
                 </div>
             </div>
+            <div class="indexSpotIntro" id="indexSpot_02">
+                <h1>行程介紹</h1>
+                <h2>漫遊山城之旅</h2>
+                <p>九份金礦博物館位在九份老街旁，館中展示許多九份採礦的資料與圖片，介紹九份的採金歷史。金礦博物館中還有一座九番坑小礦坑，猶如是一座小型的礦場。上午步行漫遊琉榔路觀光步道，接著參觀金礦博物館，最後再至九份老街品茗、吃美食，結束豐富知性的九份之旅。</p>
+                <div class="more">more</div>
+            </div>
+            <div class="indexSpotPic" id="indexSpot_pic02">
+                <div class="indexSpotPic_OOuter_2">
+                    <div class="indexSpotPic_outer">
+                    <img src="images/indexSpot/pic_02.jpg" alt="">
+                </div>
+                </div>
+            </div>
+            <div class="indexSpotIntro" id="indexSpot_03">
+                <h1>行程介紹</h1>
+                <h2>船遊秘境之旅</h2>
+                <p>您聽過「台灣天空之城」嗎？水湳洞選煉廠遺址原身為日治時期挖礦留下的建築，在2019年由台電推出「點亮十三層」公共藝術重新回到大眾面前。參加深澳小旅行可以搭船出海賞景，太陽下山後迎來十三層點燈，最後彎進九份老街尋覓山城美食、好茶。</p>
+                <div class="more">more</div>
+            </div>
+            <div class="indexSpotPic" id="indexSpot_pic03">
+                <div class="indexSpotPic_OOuter_3">
+                    <div class="indexSpotPic_outer">
+                    <img src="images/indexSpot/pic_03.jpg" alt="">
+                </div>
+                </div>
+            </div>
             <div class="indexSpotBtns">
-                <div class="indexSpotBtn1 leafButton">
+                <div class="indexSpotBtn1 leafButton" id="indexSpotBtn1">
                     尋幽訪古之旅
                 </div>
-                <div class="indexSpotBtn2 leafButton">
+                <div class="indexSpotBtn2 leafButton" id="indexSpotBtn2">
                     漫遊山城之旅
                 </div>
-                <div class="indexSpotBtn1 leafButton">
+                <div class="indexSpotBtn1 leafButton" id="indexSpotBtn3">
                     船遊秘境之旅
                 </div>
             </div>
       </div>
     </section>
+    <script>
+            // console.log("hi");
+
+    </script>
 
             <!----- indexSpot  首頁預約行程 ------>
         <section class="indexReserve">
@@ -295,20 +325,25 @@
                     </div>
                     <div class="postBack">
                         <!-- .postBack明信片白底陰影 -->
-                        <img src="images/image_abby/postBlack.jpg" alt="postCard">
+                        <img src="images/image_abby/postBlack.jpg" alt="postCard" id="indexPostBG0">
+                        <img src="images/image_abby/postBGC_1_BIG.jpg" alt="postCard" id="indexPostBG1">
+                        <img src="images/image_abby/postBGC_2_BIG.jpg" alt="postCard" id="indexPostBG2">
+                        <img src="images/image_abby/postBGC_3_BIG.jpg" alt="postCard" id="indexPostBG3">
                     </div>
                     <div class="postStepBox postStepBoxBig">
                         <div class="postStep postStep1">
                             <p>選背景</p>
                         </div>
-                        <div class="postStep postStep2">
-                            <p>選貼圖</p>
+                        <div class="postStep postStep2"><a href="postcard.html">
+                            <p>選貼圖</p></a>
                         </div>
                         <div class="postStep postStep3">
-                            <p>寫文字</p>
+                            <a href="postcard.html">
+                            <p>寫文字</p></a>
                         </div>
                         <div class="postStep postStep4">
-                            <p>選郵戳</p>
+                            <a href="postcard.html">
+                            <p>選郵戳</p></a>
                         </div>
                     </div>
                 </div><!-- .postLeft結束div -->
@@ -317,22 +352,25 @@
                     <div class="postDIY">
                         <h3>選個喜歡的背景吧</h3>
                         <div class="postBGC postBGC_1">
-                            <img src="images/image_abby/postBGC_1.jpg" alt="postBGC">
+                            <img src="images/image_abby/postBGC_1.jpg" alt="postBGC"
+                            id="indexPostOption01">
                         </div>
                         <div class="postBGC postBGC_2">
-                            <img src="images/image_abby/postBGC_2.jpg" alt="postBGC">
+                            <img src="images/image_abby/postBGC_2.jpg" alt="postBGC" id="indexPostOption02">
                         </div>
                         <div class="postBGC postBGC_3">
-                            <img src="images/image_abby/postBGC_3.jpg" alt="postBGC">
+                            <img src="images/image_abby/postBGC_3.jpg" alt="postBGC" id="indexPostOption03">
                         </div>
-                        <div class="uploadBGC">
+                        <!-- <div class="uploadBGC">
                             <p>上傳圖片</p>
                             <div>
                                 <img src="images/image_abby/uploadPlus.png" alt="upload">
                             </div>
-                        </div>
+                        </div> -->
                     </div>
-                    <div class="whiteButton postGameButton">下一步</div>
+                    <a href="postcard.html">
+                        <div class="whiteButton postGameButton">下一步</div>
+                    </a>
                 </div><!-- .postRight結束div -->
                 <div class="clearfix"></div>
             </section>
@@ -533,7 +571,9 @@
         <div class="container  indexGameContainer">
             <h1>玩遊戲</h1>
             <div class="indexGameOuter">
-                <img src="images/indexGame/game.png" alt="">
+                <!-- <img src="images/indexGame/game.png" alt=""> -->
+                <video src="images/indexGame/GameRecord_Mobile.mp4" controls loop muted autoplay id="indexGameVideoSmall"></video>
+                <video src="images/indexGame/GameRecord.mp4" controls loop muted autoplay id="indexGameVideo"></video>
             </div>
             <div class="indexGameBtn whiteButton">玩遊戲拿優惠券
             </div>

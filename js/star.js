@@ -36,7 +36,7 @@ function liuxing() {
         rnd = Math.ceil(Math.random() * stars.length)
         liuxing();
     }, time);
-    console.log(time)
+    // console.log(time)
 }
 
 function mouseMove(e) {
