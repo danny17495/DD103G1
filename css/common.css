@@ -44,7 +44,6 @@ a {
 }
 
 body {
-  font-family: Microsoft JhengHei;
   line-height: 1.6em;
   font-family: 'Noto Serif TC', serif;
 }
@@ -357,6 +356,10 @@ a {
           transform: rotate(10deg);
 }
 
+.leafButton.active::before {
+  opacity: 1;
+}
+
 @media all and (min-width: 768px) {
   .leafButton {
     border: 2px solid #f39700;
@@ -397,6 +400,10 @@ header.clearHeaderStyle {
           box-shadow: none;
 }
 
+header.white {
+  background-color: #fff;
+}
+
 .headerStyle {
   position: relative;
   display: -webkit-box;
@@ -408,11 +415,11 @@ header.clearHeaderStyle {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 100px;
+  height: 85px;
 }
 
 .headerStyle > a {
-  width: 90px;
+  width: 75px;
   display: block;
   margin: 0 auto;
 }

@@ -1,3 +1,26 @@
+<!-- 先建立PHP連線資料 -->
+<?php
+$errMsg = "";
+//設定連線資料 try{}
+try{
+	$dsn = "mysql:host=localhost;port=3306;dbname=dd103g1;charset=utf8";
+    $user = "root";
+    $password = "da0919294452";
+	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION, PDO::ATTR_CASE=>PDO::CASE_NATURAL);
+	$pdo = new PDO($dsn, $user, $password, $options);
+    $sql = "select * from `competition` where competNo=1";
+    //使用PREPARE 抓取 需要事先編譯sql指令
+    $competition = $pdo->prepare($sql);
+    $competition ->execute();
+
+}catch(PDOException $e){
+    $errMsg .= "錯誤原因:".$e -> getMessage(). "<br>";
+    $errMsg .= "錯誤行號:".$e -> getLine(). "<br>";
+
+}
+$prodRow = $competition->fetch(PDO::FETCH_ASSOC);
+
+?>
  <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -153,11 +176,11 @@
                 <div class="messageBoard">
                     <div class="competitionVoteTitle">
                         <input type="hidden"  name="work_no">
-                        <span>第一名<span id="memId">淡水豪豪</span></span>
-                        <span>得票數<span id="vote0">999票</span></span>
+                        <span>第一名<span id="memId"><?php echo $prodRow["memId"];?></span></span>
+                        <span>得票數<span id="vote0"><?php echo $prodRow["vote"];?>票</span></span>
                     </div>
                     <div class="competitionPost">
-                        <img src="images/competition/card01.png" alt="">
+                        <img src="<?php echo $prodRow["postcardPic"];?>" alt="">
                     </div>
                     <div class="competitionText">
                         <div class="textContent">123</div>

@@ -46,9 +46,8 @@ a{
 }
 
 body{
-    font-family: $fontFamily;
     line-height: 1.6em;
-     font-family: 'Noto Serif TC', serif;
+    font-family: 'Noto Serif TC', serif;
 }
 
 @font-face {
@@ -167,6 +166,10 @@ h1, h2, h3, h4, p, a, li, span, button, input {
         transform: rotate(10deg);
      }
 }
+.leafButton.active::before{
+        opacity: 1;
+
+}
   @include respondMedium(){
       .leafButton{
            border:2px solid #f39700;
@@ -199,15 +202,18 @@ header.clearHeaderStyle{
     background-color: transparent;
     box-shadow: none;
 }
+header.white{
+   background-color: #fff;
+}
 .headerStyle{
    position: relative;
    display: flex;
    justify-content: space-between;
    align-items: center;
-   height: 100px;
+   height: 85px;
   
    >a{
-        width: 90px;
+        width: 75px;
         display: block;
         margin: 0 auto;
       }

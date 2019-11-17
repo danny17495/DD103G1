@@ -1,4 +1,55 @@
-/*第一支程式: 切換步驟窗格--點擊時需要(1)切換postRight  (2)切換步驟的黃底postStepYellow
+/*第一支程式: 明信片數量計數器+ odometer.js*/
+const postcardOdometer = document.querySelector(".postcardOdometer");        
+
+function init1(){
+	const odometer = new Odometer({
+		el: postcardOdometer,
+		// animation: 'count',
+		duration: 10000,
+	})
+	//console.log("hi5");
+
+	odometer.update(13261);
+	setTimeout(function(){odometer.update(13262);}, 1000);
+	setTimeout(function(){odometer.update(13263);}, 3000);
+	setTimeout(function(){odometer.update(13264);}, 5000);
+	setTimeout(function(){odometer.update(13265);}, 7000);
+	setTimeout(function(){odometer.update(13266);}, 11000);
+	setTimeout(function(){odometer.update(13268);}, 14000);
+	setTimeout(function(){odometer.update(13269);}, 16000);
+	setTimeout(function(){odometer.update(13270);}, 22000);
+	setTimeout(function(){odometer.update(13272);}, 27000);
+	setTimeout(function(){odometer.update(13273);}, 29000);
+	setTimeout(function(){odometer.update(13274);}, 34000);
+	setTimeout(function(){odometer.update(13275);}, 37000);
+	setTimeout(function(){odometer.update(13276);}, 39000);
+	setTimeout(function(){odometer.update(13277);}, 50000);
+	setTimeout(function(){odometer.update(13279);}, 57000);
+	setTimeout(function(){odometer.update(13280);}, 66000);
+	setTimeout(function(){odometer.update(13283);}, 72000);
+	setTimeout(function(){odometer.update(13284);}, 76000);
+	setTimeout(function(){odometer.update(13285);}, 80000);
+
+	//for太快了
+	// var j=1
+	// setTimeout(function(){
+	//     for(var i=19969; i<300000; i++){
+	//         var time = 19000+ 3000*j;
+	//         console.log(time)
+	//         setTimeout(function(){odometer.update(i);}, time);
+	//         j++
+	//     }
+	// }, 18000);
+
+}
+
+window.addEventListener("load", init1, false);
+
+
+
+
+/*======================================================================*/
+/*第二支程式: 切換步驟窗格--點擊時需要(1)切換postRight  (2)切換步驟的黃底postStepYellow
 	1.postRight操作畫面裡的上一步和下一步按鈕, 10個窗格總共8顆
 	2.左下角標示狀態也要註冊*/
 
@@ -142,6 +193,38 @@ function toPR5(){
 	postStepYellowB3.classList.remove("postStepYellowHere");
 	postStepYellowB4.classList.remove("postStepYellowHere");
 	postStepYellowB5.classList.add("postStepYellowHere");
+
+	saveImageStep1();
+	btnNoFuntion();
+
+}
+
+function btnNoFuntion(){
+	//左側.postLeft步驟拔掉返回修改的功能
+	//這些不能寫在toPR5()裡, 會影響到圖片存入server功能
+	$('#aapostStepB1').attr({onclick: "",});
+	$('#aapostStepB2').attr({onclick: "",});
+	$('#aapostStepB3').attr({onclick: "",});
+	$('#aapostStepB4').attr({onclick: "",});
+	$('#aapostStepB5').attr({onclick: "",});
+
+	$('#aapostStepS1').attr({onclick: "",});
+	$('#aapostStepS2').attr({onclick: "",});
+	$('#aapostStepS3').attr({onclick: "",});
+	$('#aapostStepS4').attr({onclick: "",});
+	$('#aapostStepS5').attr({onclick: "",});
+
+	aapostStepB1.style.cursor = "auto";			
+	aapostStepB2.style.cursor = "auto";			
+	aapostStepB3.style.cursor = "auto";			
+	aapostStepB4.style.cursor = "auto";			
+	aapostStepB5.style.cursor = "auto";
+
+	aapostStepS1.style.cursor = "auto";			
+	aapostStepS2.style.cursor = "auto";			
+	aapostStepS3.style.cursor = "auto";			
+	aapostStepS4.style.cursor = "auto";			
+	aapostStepS5.style.cursor = "auto";	
 }
 
 function postcardInit(){
@@ -157,46 +240,54 @@ function postcardInit(){
 	pDIYBtn6.addEventListener("click", toPR3, false);	//at postRight_4
 	pDIYBtn7.addEventListener("click", toPR5, false);	//at postRight_4
 
-	pDIYBtn8.addEventListener("click", toPR4, false);	//at postRight_5
+	// pDIYBtn8.addEventListener("click", toPR4, false);	//at postRight_5
 
-	//左側.postLeft步驟
-	aapostStepS1.addEventListener("click", toPR1, false);	//to postRight_1
-	aapostStepB1.addEventListener("click", toPR1, false);	//to postRight_1
-
-	aapostStepS2.addEventListener("click", toPR2, false);	//to postRight_2
-	aapostStepB2.addEventListener("click", toPR2, false);	//to postRight_2
-
-	aapostStepS3.addEventListener("click", toPR3, false);	//to postRight_3
-	aapostStepB3.addEventListener("click", toPR3, false);	//to postRight_3
-
-	aapostStepS4.addEventListener("click", toPR4, false);	//to postRight_4
-	aapostStepB4.addEventListener("click", toPR4, false);	//to postRight_4
-
-	aapostStepS5.addEventListener("click", toPR5, false);	//to postRight_5
-	aapostStepB5.addEventListener("click", toPR5, false);	//to postRight_5
-
+	//11月17日左側.postLeft步驟註冊在html, 因為點到最後一步驟要處理拔掉返回修改的功能
+	// aapostStepS1.addEventListener("click", toPR1, false);	//to postRight_1
+	// aapostStepB1.addEventListener("click", toPR1, false);	//to postRight_1
+	// aapostStepS2.addEventListener("click", toPR2, false);	//to postRight_2
+	// aapostStepB2.addEventListener("click", toPR2, false);	//to postRight_2
+	// aapostStepS3.addEventListener("click", toPR3, false);	//to postRight_3
+	// aapostStepB3.addEventListener("click", toPR3, false);	//to postRight_3
+	// aapostStepS4.addEventListener("click", toPR4, false);	//to postRight_4
+	// aapostStepB4.addEventListener("click", toPR4, false);	//to postRight_4
+	// aapostStepS5.addEventListener("click", toPR5, false);	//to postRight_5
+	// aapostStepB5.addEventListener("click", toPR5, false);	//to postRight_5
 }
 
 window.addEventListener("load", postcardInit, false);
 
 
 
-/*======================================================================*/
-/*第二支程式: 操作畫面步驟一(換背景)*/
 
+
+
+
+
+/*======================================================================*/
+/*第三支程式: 操作畫面步驟一(換背景)
+  (1)換背景 (2)加框框標示*/
 //建立html連結:背景圖
 let aapostBGC_1 = document.getElementById("aapostBGC_1");
 let aapostBGC_2 = document.getElementById("aapostBGC_2");
 let aapostBGC_3 = document.getElementById("aapostBGC_3");
 let aauploadBGC = document.getElementById("aauploadBGC");
-// console.log(aapostBGC_1);
+
+//建立html連結:demo畫面, 第四支程式裡另外用postcardCanvas抓一個套件Fabric.js的畫布, 怕打架
+var canvas2 = document.getElementById("postcardCanvas");
+
+//抓父層RWD之後的大小去設定畫布大小
+var postFather = document.getElementById("postWhiteBack");
+var canvas2W = postFather.offsetWidth - 20;
+var canvas2H = (postFather.offsetWidth - 20) * 350 / 530;
+console.log(canvas2W);
+console.log(canvas2H);
 
 
-//建立html連結:demo畫面, 第三支程式裡有用postcardCanvas抓一個Fabric.js的畫布
-let canvas2 = document.getElementById("postcardCanvas");
-
+/*==三-1.只要點擊更換背景,無條件先畫一次*/
 //背景1
 function aaPostcardChangeBGI_1(){
+	//用這個方法不能一起存取在客製明信片照片
 	canvas2.style.backgroundImage = "url(images/postcard/pBgiPic_1.jpg)";
 
 	aapostBGC_1.classList.add("aapostBGC_1_Selected");
@@ -227,7 +318,7 @@ function aaPostcardChangeBGI_3(){
 
 //上傳窗格
 function aaPostcardChangeuploadBGI(){
-	// canvas2.style.backgroundImage = "url(images/postcard/pBgiPic_1.jpg)";
+	canvas2.style.backgroundImage = "url(images/postcard/pBgiPic_3.jpg)";
 
 	aapostBGC_1.classList.remove("aapostBGC_1_Selected");
 	aapostBGC_2.classList.remove("aapostBGC_2_Selected");
@@ -247,21 +338,26 @@ window.addEventListener("load", postcardInit2, false);
 
 
 
+
+
+
+
+
+
+
 /*======================================================================*/
-/*第三支程式: canvas--客製主畫面+ Fabric.js*/
+/*第四支程式: canvas--客製主畫面+ Fabric.js*/
 /*======三-1.基礎:html建立連結======*/
 //html建立連結抓canvas
 let postcardCanvas = new fabric.Canvas('postcardCanvas',{
-
-	isDrawingMode: false, // 設置成 true 一秒變身小畫家
 	hoverCursor: 'progress', // 移動時鼠標顯示
 	freeDrawingCursor: 'all-scroll', // 畫畫模式時鼠標模式
 
 });
 
 
-/*======三-2.使canvas畫布可以跟隨RWD======*/
-/*==三-2-(1).無條件先做一次==*/
+/*======四-2.使canvas畫布可以跟隨RWD======*/
+/*==四-2-(1).無條件先做一次==*/
 console.log("hi^_^2");
 //抓父層RWD之後的大小去設定畫布大小
 var postFather = document.getElementById("postWhiteBack");
@@ -274,11 +370,9 @@ postcardCanvas.setWidth( postcardCanvasW );
 postcardCanvas.setHeight( postcardCanvasH );
 // postcardCanvas.calcOffset();  //三小??
 
-postcardCanvas.setHeight( postcardCanvasH );
 
 
-
-/*==三-2-(2).視窗risize時就重新偵測==*/
+/*==四-2-(2).視窗risize時就重新偵測==*/
 function postcardInit3(){
 	console.log("hi^_^1");
 	var postFather = document.getElementById("postWhiteBack");
@@ -293,7 +387,7 @@ function postcardInit3(){
 window.addEventListener("resize", postcardInit3, false);
 
 
-/*======三-3.插入貼圖(步驟二跟四)======*/
+/*======四-3.插入貼圖(步驟二跟四)======*/
 /*設定全部物件控制的樣式*/
 fabric.Object.prototype.set({
 	  transparentCorners: false,
@@ -317,6 +411,7 @@ let postDecoMark_2 = document.getElementById("postDecoMark_2");
 
 
 function newFood_1(){
+
 	fabric.Image.fromURL('images/postcard/postDeco-1.png', (img) => {
 	  	const oImg = img.set({
 		      left: 20,
@@ -325,7 +420,7 @@ function newFood_1(){
 		      height: 142,
 	  	})
 	  	postcardCanvas.add(oImg) // 加進canvas
-	})
+	})	
 }
 
 
@@ -339,8 +434,6 @@ function newFood_2(){
 	  })
 	  postcardCanvas.add(oImg) // 加進canvas
 	})
-
-
 }
 
 function newFood_3(){
@@ -415,8 +508,8 @@ postcardCanvas.on('mouse:dblclick', e => {
 
 
 
-/*======三-4.寫文字(步驟三)======*/
-/*三-4-1.點擊顏色更換*/
+/*======四-4.寫文字(步驟三)======*/
+/*四-4-1.點擊顏色更換*/
 //建立html連結:註冊顏色按鈕
 var postcardTextColor1 = document.getElementById("postcardTextColor1");
 var postcardTextColor2 = document.getElementById("postcardTextColor2");
@@ -464,7 +557,33 @@ function postcardTextColorChoose_4(){
 
 
 
-/*三-4-2.按下按鈕會生字*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*四-4-2.按下按鈕會生字*/
 //建立html連結:按鈕
 var newTextBtn = document.getElementById("newTextBtn");
 
@@ -584,6 +703,279 @@ window.addEventListener("load", postcardInit5, false);
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*======================================================================*/
+/*第bb支程式: #postcardCanvasSecret用於融合背景+上面畫畫的地方,
+   主要用來處理背景,等待主畫面畫完把套件畫的圖貼到這上面,再存進去server
+   (1)畫背景 (2)RWD必須要一直重畫背景 (3)把套件畫的圖貼到這上面
+   (3)的部分放到第五支程式處理*/
+
+
+/*==bb-1.只要點擊更換背景,無條件先畫一次*/
+//抓父層RWD之後的大小去設定畫布大小
+var postFather = document.getElementById("postWhiteBack");
+var postcardCanvasSecretW  = postFather.offsetWidth - 20;
+var postcardCanvasSecretH = (postFather.offsetWidth - 20) * 350 / 530;
+
+$('#postcardCanvasSecret').attr({
+	width: postcardCanvasSecretW,
+	height: postcardCanvasSecretH,
+});
+
+
+/*==bb-1.只要點擊更換背景,無條件先畫一次*/
+//背景1
+var postcardCanvasSecret = document.getElementById("postcardCanvasSecret");
+var ctxPostcardCanvasSecret = postcardCanvasSecret.getContext("2d");
+
+function aaPostcardSecretChangeBGI_1(){
+	//用這個方法不能一起存取在客製明信片照片
+	//postcardCanvasSecret.style.backgroundImage = "url(images/postcard/pBgiPic_1.jpg)";
+
+	var img = new Image();
+	img.onload = function(){
+	    ctxPostcardCanvasSecret.drawImage(img,0,0,postcardCanvasSecretW ,postcardCanvasSecretH); //drawImage(img,x,y,width,height)
+	}
+	img.src = 'images/postcard/pBgiPic_1.jpg';
+
+}
+
+//背景2
+function aaPostcardSecretChangeBGI_2(){
+	var img = new Image();
+	img.onload = function(){
+	    ctxPostcardCanvasSecret.drawImage(img,0,0,postcardCanvasSecretW ,postcardCanvasSecretH); //drawImage(img,x,y,width,height)
+	}
+	img.src = 'images/postcard/pBgiPic_2.jpg';
+
+}
+
+//背景3
+function aaPostcardSecretChangeBGI_3(){
+	var img = new Image();
+	img.onload = function(){
+	    ctxPostcardCanvasSecret.drawImage(img,0,0,postcardCanvasSecretW ,postcardCanvasSecretH); //drawImage(img,x,y,width,height)
+	}
+	img.src = 'images/postcard/pBgiPic_3.jpg';
+}
+
+//上傳窗格
+function aaPostcardSecretChangeuploadBGI(){
+	var img = new Image();
+	img.onload = function(){
+	    ctxPostcardCanvasSecret.drawImage(img,0,0,postcardCanvasSecretW ,postcardCanvasSecretH); //drawImage(img,x,y,width,height)
+	}
+	img.src = 'images/postcard/pBgiPic_3.jpg';
+}
+
+function postcardInitbb(){
+	aapostBGC_1.addEventListener("click", aaPostcardSecretChangeBGI_1, false);
+	aapostBGC_2.addEventListener("click", aaPostcardSecretChangeBGI_2, false);
+	aapostBGC_3.addEventListener("click", aaPostcardSecretChangeBGI_3, false);
+	aauploadBGC.addEventListener("click", aaPostcardSecretChangeuploadBGI, false);
+}
+
+window.addEventListener("load", postcardInitbb, false);
+
+
+
+
+
+/*==bb-2.視窗risize時就重新偵測==*/
+function postcardInit8(){
+	console.log("postcardInit8");
+	//重新偵測
+	var postFather = document.getElementById("postWhiteBack");
+	var postcardCanvasSecretW = postFather.offsetWidth - 20;
+	var postcardCanvasSecretH = (postFather.offsetWidth - 20) * 350 / 530;
+	console.log(`hi^_^8,實際畫布寬${postcardCanvasSecretW},背景生成也要按照視窗risize重新繪畫`);
+	console.log(`hi^_^8,實際畫布高${postcardCanvasSecretH},背景生成也要按照視窗risize重新繪畫`);
+
+
+	$('#postcardCanvasSecret').attr({
+		width: postcardCanvasSecretW,
+		height: postcardCanvasSecretH,
+	});
+
+
+	//現在選中誰
+	var aapostBGC_1Choose = $("#aapostBGC_1").hasClass("aapostBGC_1_Selected");
+	var aapostBGC_2Choose = $("#aapostBGC_2").hasClass("aapostBGC_2_Selected");
+	var aapostBGC_3Choose = $("#aapostBGC_3").hasClass("aapostBGC_3_Selected");
+	var aauploadBGCChoose = $("#aauploadBGC").hasClass("aauploadBGC_Selected");
+
+	//重畫
+	if(aapostBGC_1Choose){
+		var img = new Image();
+		img.onload = function(){
+		    ctxPostcardCanvasSecret.drawImage(img,0,0,postcardCanvasSecretW,postcardCanvasSecretH); //drawImage(img,x,y,width,height)
+		}
+		img.src = 'images/postcard/pBgiPic_1.jpg';			
+	}else if(aapostBGC_2Choose){
+		var img = new Image();
+		img.onload = function(){
+		    ctxPostcardCanvasSecret.drawImage(img,0,0,postcardCanvasSecretW,postcardCanvasSecretH); //drawImage(img,x,y,width,height)
+		}
+		img.src = 'images/postcard/pBgiPic_2.jpg';			
+	}else if(aapostBGC_3Choose){
+		var img = new Image();
+		img.onload = function(){
+		    ctxPostcardCanvasSecret.drawImage(img,0,0,postcardCanvasSecretW,postcardCanvasSecretH); //drawImage(img,x,y,width,height)
+		}
+		img.src = 'images/postcard/pBgiPic_3.jpg';			
+	}else if(aauploadBGCChoose){
+		var img = new Image();
+		img.onload = function(){
+		    ctxPostcardCanvasSecret.drawImage(img,0,0,postcardCanvasSecretW,postcardCanvasSecretH); //drawImage(img,x,y,width,height)
+		}
+		img.src = 'images/postcard/pBgiPic_3.jpg';			
+	}
+}
+
+window.addEventListener("resize", postcardInit8, false);
+
+
+
+
+
+/*======================================================================*/
+/*第五支程式: 儲存canvas上的畫面進Server資料夾*/
+//建立html連結:demo畫面, 第三支程式裡已宣告過canvas2 = document.getElementById("postcardCanvas");
+//註冊在function toPR5()裡
+function saveImageStep1() {
+	//五-1.抓第一張canvas上的圖
+	console.log("hi第五支程式:saveImage");
+	var canvas2 = document.getElementById("postcardCanvas");
+	var dataURL = canvas2.toDataURL("image/png");
+	document.getElementById('hidden_data').value = dataURL;
+
+	//測試code
+	var ee = document.getElementById('hidden_data').value;
+	console.log("dataURL1:", ee);
+
+	//五-2.將套件畫的圖貼到#postcardCanvasSecret關鍵
+	var img = new Image();
+	img.onload = function(){
+	    ctxPostcardCanvasSecret.drawImage(img,0,0,postcardCanvasSecretW ,postcardCanvasSecretH); //drawImage(img,x,y,width,height)
+	}
+	img.src = dataURL;
+
+	//五-3.抓第二張#postcardCanvasSecret上的圖
+	var postcardCanvasSecret = document.getElementById("postcardCanvasSecret");
+	var ctxPostcardCanvasSecret = postcardCanvasSecret.getContext("2d");
+	var dataURLSecret = postcardCanvasSecret.toDataURL("image/png");
+	// console.log("dataURL2:", dataURLSecret);	
+	document.getElementById('hidden_data2').value = dataURLSecret;
+	// console.log("dataURL2:", dataURLSecret);
+
+	//處理有時間差, 所以讓他漫一點在執行一次一樣function, 才能成功等待兩層東西真正合成再存進去
+	setTimeout(saveImageStep2,1000);
+}
+
+function saveImageStep2(){
+	//五-4.再抓一次第二張#postcardCanvasSecret上的圖
+	var postcardCanvasSecret = document.getElementById("postcardCanvasSecret");
+	var ctxPostcardCanvasSecret = postcardCanvasSecret.getContext("2d");
+	var dataURLSecret = postcardCanvasSecret.toDataURL("image/png");
+	document.getElementById('hidden_data2').value = dataURLSecret;
+
+	setTimeout(saveImageStep3,100);
+}
+
+//五-5.AJAX將資料包裝傳入server請求postcardSaveCanvas.php處理
+function saveImageStep3() {
+	var formData = new FormData(document.getElementById("form2"));
+
+	var xhr = new XMLHttpRequest();
+	xhr.onload = function(){
+	  if( xhr.status == 200){
+		if(xhr.responseText == "error"){
+		  alert("Error");
+		}else{
+		  alert('儲存成功！');  
+		  console.log(xhr.responseText);		  
+		}
+	  }else{
+		alert(xhr.status)
+	  }
+	}
+
+	xhr.open('POST', 'postcardSaveCanvas.php', true);
+	// xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xhr.send(formData);
+
+	postcardToDb();
+}
+
+/*======================================================================*/
+/*第六支程式: 儲存客製明信片時同時需要紀錄客製明信片資料進入資料庫*/
+//註冊在function saveImageStep3()裡
+function postcardToDb(){
+	document.getElementById('hidden_data3').value = 3;  //postcardNo
+	document.getElementById('hidden_data4').value = 1;  //memNo
+	document.getElementById('hidden_data5').value = 'm001p03';  //postcardPic
+	postcardToDb2();
+
+}
+
+function postcardToDb2(){
+	var formData3 = new FormData(document.getElementById("form3"));
+
+	var xhr = new XMLHttpRequest();
+	xhr.onload = function(){
+	  if( xhr.status == 200){
+		if(xhr.responseText == "error"){
+		  alert("Error");
+		}else{
+		  console.log(xhr.responseText);
+		}
+	  }else{
+		alert(xhr.status)
+	  }
+	}
+
+	xhr.open('POST', 'postcardToDb.php', true);
+	// xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xhr.send(formData3);	
+}
+
+
+/*======================================================================*/
+/*第七支程式: 按下購買時->放入購物車->記錄進去localStorage*/
+var buyPostcardBtn = document.getElementById("buyPostcardBtn")
+function postcardToCart(){
+	alert("加入購物車成功！");	
+}
+
+function postcardInit10(){
+	localStorage.setItem(`buyPostcard: 001`,`postcardNo: 1`);
+	buyPostcardBtn.addEventListener("click", postcardToCart, false);
+}
+
+window.addEventListener("load", postcardInit10, false);
 
 
 

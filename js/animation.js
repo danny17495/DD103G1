@@ -85,8 +85,8 @@ var y = canvas.height = 1875;
 // alert(canvas.height);
 
 var img = new Image();
-img.src = "../images/competition/star.png";
-var num = 100;
+img.src = "./images/competition/star.png";
+var num = 500;
 var arrStar = [];
 
 
@@ -142,7 +142,7 @@ function draw(){
 }
 
 function drawRect(){
-    ctx.fillStyle = "#385BA7";
+    ctx.fillStyle = "rgba(55, 88, 162,.5)"
     ctx.fillRect(0,0,x,y);
     
 }
@@ -175,85 +175,3 @@ $('.messageBtn').click(function(){
 $('.closeBtn').click(function(){
     $('.message').hide();
 });
-
-new Vue({
-    el: '#vote1',
-    data: {
-        message:'桃園阿玫',
-        num: 0,
-    }
-
-})
-
-new Vue({
-    el: '#vote2',
-    data: {
-        message:'台北亭亭',
-        num: 0,
-    }
-
-})
-
-new Vue({
-    el: '#vote3',
-    data: {
-        message:'雲林靜靜',
-        num: 0,
-    }
-
-})
-
-new Vue({
-    el: '#vote4',
-    data: {
-        message:'新竹愷愷',
-        num: 0,
-    }
-
-})
-
-new Vue({
-    el: '#vote5',
-    data: {
-        message:'淡水豪豪',
-        num: 0,
-    }
-
-})
-
-new Vue({
-    el: '#vote6',
-    data: {
-        message:'台南喬喬',
-        num: 0,
-    }
-
-})
-
-new Vue({
-    el: '#vote7',
-    data: {
-        message:'BIG大',
-        num: 0,
-    }
-
-})
-
-new Vue({
-    el: '#vote8',
-    data: {
-        message:'怪怪齊齊',
-        num: 0,
-    }
-
-})
-
-new Vue({
-    el: '#vote9',
-    data: {
-        message:'中金城武',
-        num: 0,
-    }
-
-})
-//會員名字大於4個字會爆掉 求解
