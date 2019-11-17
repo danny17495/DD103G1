@@ -1,0 +1,803 @@
+/*------------------------------
+*{
+	outline: 1px solid red;
+}
+---*/
+.shopBody{
+	background-color: #ffe6c1;
+	position: relative;
+	z-index: 0;
+}
+
+/*--------最外框paading---------*/
+.shopBlock1{
+	padding: 0 20px;
+}
+
+.shopSelelctBig{
+	padding: 0 20px;
+}
+
+
+/*------padding-End---------*/
+
+.shopTitle span{
+	margin-top: 150px;
+}
+
+.shopStep1 h1{
+	text-align: center;
+	margin-bottom: 85px;
+	padding-top: 150px;
+
+}
+
+.shopSelectProduct{
+	font-family: "華康仿宋體W2";
+	font-size: 56px;
+	color:#110452;
+	text-align: center;	
+	position: relative;
+    margin:200px 0;
+
+    
+}
+
+
+.shopItemPrice1 p,.shopItemPrice2 p,.shopItemPrice3 p,
+.shopItemPrice4 p,.shopItemPrice5 p,.shopItemPrice6 p{
+	font-size: 30px;
+	font-family: "華康仿宋體W2";
+	margin-top: 24%;
+}
+
+
+#shopBird1{
+	width: 100%;
+	max-width: 100px;
+	float: right;
+}
+
+#shopBird2{
+	width: 100%;
+	max-width: 100px;
+	float: left;
+}
+
+
+/*-------------手機板*/
+
+@media all and (max-width: 767px) {
+	.shopBigCup img,.shopBigTshirt img{
+		width: 30%;
+		height: 30%;
+	}
+		
+	.shopSelectProduct{
+	font-family: "華康仿宋體W2";
+	font-size: 26px;
+	color:#110452;
+	text-align: center;	
+    margin-top: 70%;
+	}
+
+	.shopBigTshirt img{
+	width: 1200%;	
+	height: auto;	
+	position: relative;
+	right: 30px;
+	margin:8px 0;
+
+}
+
+	.shopItemPrice1 p,.shopItemPrice2 p,.shopItemPrice3 p,
+	.shopItemPrice4 p,.shopItemPrice5 p,.shopItemPrice6 p{
+	font-size: 26px;
+	font-family: "華康仿宋體W2";
+	margin-top: 30%;
+}
+
+
+
+}
+
+
+/*---------選擇產品按鈕------------------*/
+.shopMain {width:400px; margin:0 auto;}
+
+#shopTitle {height:30px; line-height:30px;}
+
+#shopTitle span {
+float:left;
+margin: 0px 20px;
+text-align:center;
+cursor:pointer; 
+
+}
+
+#shopCon { height:200px;}
+#shopCon ul {display:none; padding:10px;}
+#shopCon ul.shopOn {display:block;}
+
+#shopOn ul li {height:24px; line-height:24px; text-indent:10px;}
+
+.shopBigCup img{
+	width: 1200%;	
+	height: auto;	
+	position: relative;
+	/*right: -40px;*/
+	margin:31px -420%;
+}
+
+.shopBigTshirt img{
+	width: 1200%;	
+	height: auto;	
+	position: relative;
+	/*right: -40px;*/
+	margin:8px -535%;
+
+}
+
+.shopBigTshirt img{
+	width: 1200%;	
+	height: auto;	
+	position: relative;
+	/*right: -40px;*/
+	
+}
+
+.shopAllCup,.shopAllTshirt{
+	margin:-50px 90px;
+	margin-top: 350px;
+}
+
+
+
+.shopWhiteBtn{
+	height: 30px;	
+	width: 30px;	
+	background-color: #ffff;
+	margin:5px 10px;
+	border-radius: 100%;
+	position: relative;
+	display: inline-block;
+	top: 350px;
+	
+
+		
+}
+
+.shopRedBtn{
+	height: 30px;	
+	width: 30px;
+	background-color: #a83d15;
+	margin:5px 10px;
+	border-radius: 100%;
+	position: relative;
+	display: inline-block;
+	top: 350px;
+	
+	
+}
+
+.shopBlueBtn{
+	height: 30px;	
+	width: 30px;
+	background-color: #283562;
+	margin:5px 10px;
+	border-radius: 100%;
+	position: relative;
+	display: inline-block;
+	top: 350px;
+
+}	
+
+/*----------選擇圖案區塊-----桌機---------------*/
+.shopCustomerProduct{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+}
+.shopCustomerProduct img#BIG{
+	margin-top: -200%;
+	margin-left: 0%;
+	cursor:default;
+	z-index:2;
+	max-width: 400px;
+	width: 35%;
+	height: auto;
+}
+
+.shopSrc img{
+	width: 60%;
+}
+
+
+
+.checkbutton{
+	float: right;
+	position: relative;
+	top: 500px;
+	font-family: "華康秀風體W3";
+	margin-bottom: 700px;
+}
+
+
+#white{
+		margin: 0 10px;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		border:none;
+		background-color: #fff;
+	}
+	#red{
+		margin: 0 10px;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		border:none;
+		background-color: #a83d15;
+	}
+	#blue{
+		margin: 0 10px;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		border:none;
+		background-color: #283562;
+	}
+
+
+/*-----選擇圖案-------手機板----*/
+@media all and (max-width: 767px) {
+	.shopSelectRow{
+		width: 350px;
+		height: 200px;
+		background-color: #FFF;
+		border-radius: 50px;
+		margin-left: 20px;
+		border: 1px solid red;
+}
+
+	.shopImgGroup img{
+		display: inline-block;
+		border: 1px solid red;
+	}
+	
+
+	.shopCustomerProduct img#BIG{
+    	margin-top: 10%;
+    	position: relative;
+    	top: -400px;
+    	margin-left: -3%;
+   	 	cursor: default;
+    	z-index: 2;
+    	width: 23%;
+    	max-width: 250px;
+    	height: auto;
+	}
+
+}
+
+/*---手機板 橫列----*/
+@media all and (max-width: 767px){
+.shopSelectBig{
+	display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+
+.shopSelRow1-1{
+	width: 150px;
+	height: 40px;
+	background-color: #f39800;
+	border-radius: 30px;
+	margin-bottom: 50px;
+	display:flex;
+    align-items:center;
+    justify-content:center;
+
+}
+.shopSelRow1-1 h3{
+	font-family: "華康秀風體W3";
+	font-size: 28px;
+	display: inline-block;
+	color: #fff;
+}
+
+.shopMadeButton{
+	font-family: "華康仿宋體W2";
+	margin: 1% 0 50px;
+
+}
+
+}
+
+
+
+@media all and (min-width: 767px){
+	.shopSelRow1-1{
+		display: none;
+	}
+
+}
+
+
+
+
+/*------顏色選擇按鈕-------手機板----*/
+
+@media all and (max-width: 767px){
+
+	.shopWhiteBtn{
+	height: 30px;	
+	width: 30px;	
+	background-color: #ffff;
+	margin:0px 10px;
+	border-radius: 100%;
+	position: relative;
+	display: inline-block;
+	top: 365px;
+	
+
+		
+	}
+
+	.shopRedBtn{
+	height: 30px;	
+	width: 30px;
+	background-color: #a83d15;
+	margin:0px 10px;
+	border-radius: 100%;
+	position: relative;
+	display: inline-block;
+	top: 365px;
+	
+	
+	}
+
+.shopBlueBtn{
+	height: 30px;	
+	width: 30px;
+	background-color: #283562;
+	margin:0 10px;
+	border-radius: 100%;
+	position: relative;
+	display: inline-block;
+	
+	top: 365px;
+	}
+
+
+}
+
+
+
+
+
+/*產品區*/
+.shopProductList .shopContent>div{
+    display: flex;
+    flex-wrap: wrap;
+}
+.shopProductList .shopProduct{
+    background-color: #fff;
+    margin: 0 auto 30px;
+    border-radius:30px;
+    box-shadow: 1.5px 1.5px 5px rgb(34, 33, 33);
+    text-align: center;
+    padding: 20px;
+    max-width: 300px;
+}
+
+.shopProduct p,
+.whiteButton p{
+font-family: "華康仿宋體W2";
+}
+
+
+
+
+
+
+/*----mountain-----*/
+
+
+.shopMountain{
+	width: 100%;
+	z-index:-10; 
+
+	/*background-image:url(../img/mountain.png);*/
+	/*background-size: cover:  */
+}
+
+.shopMountain img{
+		margin-top: -350px;
+		
+	}
+
+.order3,
+.order2,
+.order4{
+	z-index:1; 	
+}
+
+/*====================首頁商城開始<768====================*/
+.wrapperShopA{
+    background: rgb(255, 230, 193);
+    position: relative;
+
+}
+
+/*=============01-1標題+兩個裝飾圖片用position綁在標題區=============*/
+.shopMountain{
+        background: url(../images/image_abby/mountain_01.png) no-repeat left top;
+        width: 100%;
+        height: 682px;
+        z-index: 0;
+        position: absolute;
+        bottom: 0;
+}
+
+/*=============01-2商城主要Block=============*/
+.containerShop{
+	padding: 0 20px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.shopLeftSide{
+	display: none;
+}
+
+.shopRightSide{
+	width: 100%;
+}
+
+/*=============02商城圖案選擇區=============*/
+.shopDesignSmall{
+	width: 90%;
+	margin: 10px auto 30px;
+	background-color: rgba(255, 255, 255, .3);
+	border-radius: 30px;
+	padding: 10px 0;	
+}
+
+.shopOneSlider{
+	width: 80%;
+	box-sizing: border-box;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.shopOneSlider >div{
+	width: 100%;
+}
+
+.shopOneSlider >div >div{    /*不是div.postDemoS, slick自己會產生其他結構*/
+	width: 100%;
+	height: 0;
+	padding-bottom: 70%;
+}
+
+.shopOneSlider div.shopShows{
+	margin: 5px;
+}
+
+.shopOneSlider img{
+	display: block;
+	width: 100%;
+}
+
+.shopDesignSmall p{
+	font-size: 14px;
+	font-family: "華康仿宋體W2";
+}
+
+/*左右箭頭*/
+.slick-slide {        /*調整與左右箭頭的位置*/
+	margin: 0px 20px;
+}
+
+.slick-prev,
+.slick-next {
+	transform: translate( -4px, -140%);   /*調整與左右箭頭的位置*/
+}
+
+.slick-prev:before,
+.slick-next:before {
+	color: transparent;
+	font-size: 27px;     /*箭頭大小-1*/
+}
+
+.slick-prev:before{    
+	background-image: url('../images/image_abby/shopArrowL.png');        
+}
+
+.slick-next:before {    
+	background-image: url('../images/image_abby/shopArrowR.png');        
+}
+
+
+/*=============03商城杯子展示區=============*/
+.shopRightSide .shopCupShow{
+	width: 100%;
+	margin: 0px auto 20px;  /*水平width+margin=100%*/
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.shopRightSide .shopCupShow div{
+	width: 100%;
+	max-width: 400px;
+	margin: 20px auto;
+	
+}
+
+
+.shopRightSide .shopCupShow > div > img{
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 767px;
+}
+
+/*選擇顏色*/
+.shopColorChoose{
+	/*margin-left: 12%;*/
+	 /* margin: 40px auto;*/
+	 margin-top: 5%;
+	 
+}
+
+.shopColorChoose span.cupColor{
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	margin: 0 10px;
+	position: relative;	
+}
+
+.shopColorChoose span.cupColor1{
+	background-color: #fff;
+}
+
+.shopColorChoose span.cupColor2{
+	background-color: rgb(194, 57, 6);
+}
+
+.shopColorChoose span.cupColor2:after{
+	content: "";
+	display: block;
+	width: 35px;
+	height: 35px;
+	border: 1px solid rgb(194, 57, 6);
+	border-radius: 50%;
+	box-sizing: border-box;
+	position: absolute;
+	top: -5px;
+	left: -5px;
+}
+
+/*---價錢----*/
+.shopPrice{
+	margin-bottom: 2%;
+	margin-top: 12%;
+}
+
+.shopPrice span{
+	font-family: "華康仿宋體W2";
+	font-size: 22px;
+}
+
+
+/*按鈕*/
+.shopMadeButton{
+	font-family: "華康仿宋體W2";
+	margin: 125px 0 50px;
+	
+}
+
+
+/*====================商城開始====================*/
+
+/*-------選擇圖案區塊 輪播圖--桌機(隱藏)---------*/
+@media all and (min-width: 767px){
+	.shopLeftSmallA{
+		display: none;
+	}
+
+
+
+
+}
+
+/*-------選擇圖案區塊 直立圖 --手機(隱藏)---------*/
+@media all and (max-width: 767px){
+	#shopLeftSide{
+		display: none;
+	}
+	
+	.shopTitleSmall p{		/*文字:選擇圖案*/
+		font-size: 20px;
+		font-family: "華康仿宋體W2";
+		margin-bottom: 30px;
+	}
+
+	.shopImg{
+		position: absolute;
+		width: 100%;	
+		max-width: 1200px;
+		margin: 0 auto;	
+	}	
+	#shopCupShow img{
+		margin-top: 10%;
+		margin-left: 0%;
+   		width: 100%;
+    	max-width: 250px;
+
+	}
+
+
+	.shopColorChoose{
+		display: flex;
+		justify-content: center;
+		align-content: center;
+		width: 80%;
+		margin:0 auto;
+		margin-top: 10%;
+	}
+
+
+	.shopMadeButton{
+
+		margin: 120px 25px 0;
+	
+	}
+
+	#shopRightSide{
+		width: 100%;	
+		margin: 0 auto;	
+	}
+	.shopPrice{
+	margin-bottom: 6%;
+	margin-top: 24%;
+	}
+
+	.shopAllBtn{
+		position: relative;
+		top: -90px;
+	}
+
+	.shopAllBtn1{
+		position: relative;
+		top: -90px;
+	}
+
+
+
+	}
+
+	/*=============01-2商城主要Block=============*/
+	.containerShop{
+		padding: 0 20px 100px;
+	}
+
+	.shopLeftSide{
+		display: block;
+		width: 30%;
+		margin-bottom: 80px;
+	}
+
+	.shopRightSide{
+		width: 70%;
+		/*background-color: green;*/
+	}
+
+	.shopLeftSide, .shopRightSide{
+		float: left;
+	}
+
+	/*=============02商城圖案選擇區=============*/
+	/*排版*/
+	.shopDesign{
+		background-color: #fff;
+		border-radius: 30px;
+		text-align: center;
+		padding: 20px 0;
+		margin-top: 10px;
+	}
+
+	.shopDesign > ul{
+		width: 50%;
+		margin: 20px auto 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 450px;	
+	}
+
+	.shopDesign li{
+		width: 100%;
+	}
+
+	.shopDesign .shopPic img{
+		display: block;
+		width: 100%;
+		height: auto;
+		padding: 0px;
+	}
+
+	/*文字*/
+	.shopLeftSide > p{		/*文字:選擇圖案*/
+		font-size: 20px;
+		font-family: "華康仿宋體W2";
+	}
+
+
+
+	.shopDesign p{			/*文字:10月比賽優勝者*/
+		font-size: 16px;
+		font-family: "華康仿宋體W2";
+	}
+
+	.shopDesign span{			/*文字:10月比賽優勝者*/
+		font-size: 16px;
+		font-family: "華康仿宋體W2";
+	}
+	.shopDesignSmall span{
+		font-size: 16px;
+		font-family: "華康仿宋體W2";
+	}
+
+
+	/*=============03商城杯子展示區=============*/
+	.shopRightSide .shopImg{
+		width: 80%;
+		margin: 33px auto 30px;  /*水平width+margin=100%*/
+	}
+
+	.shopRightSide .shopImg > div{
+		max-width: 400px;
+		margin: 0 auto;
+	}
+
+	/*按鈕*/
+
+    /*=============05新增=============*/
+ 
+    .wrapperShopA2 {
+        background: url(../images/image_abby/rail-3.png) no-repeat bottom center / contain;
+        height: 0;
+        padding-bottom: 8%;
+        position: absolute;
+    }
+	.shopProductList .shopContent{
+		padding: 0 20px;
+	}
+	
+
+/*顏色數量按鈕*/
+
+	.shopAllBtn{
+		position: relative;
+		top: -90px;
+	}
+
+	.shopAllBtn1{
+		position: relative;
+		top: -90px;
+	}
+
+
+
+
+
+
