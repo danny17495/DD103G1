@@ -35,15 +35,7 @@
   border-radius: 20px 20px 0 0;
  
 }
-/* .Loginhead.signup不可以分開 */
-/* .LoginForm .Loginhead.signup > div:nth-child(1),.LoginForm .Loginhead > div:nth-child(2) {
-  background:#eee;
-  border-radius: 20px 20px 0 0;
-}
-.LoginForm .Loginhead.signup > div:nth-child(2) {
-  background-color: #bec5e9;
- 
-} */
+
 
 
 .LoginForm .Loginbody {
@@ -77,10 +69,7 @@
 .LoginForm .Loginbody > div.Login-signup {
   left:100%;
 }
-/* .Loginbody.active不可以分開 */
-/* .LoginForm .Loginbody.active > div.Login-login{
-  left:-100%;
-} */
+
 .LoginForm .Loginbody.active > div.Login-signup {
   left:0%;
 }
@@ -92,7 +81,6 @@
 .LoginForm .Loginbody .LoginForm-row .LoginLabel {
   display:block;
   padding:2px 12px 10px 0px;
-  /* font-size:12px; */
   font-weight:600;
   text-transform:uppercase;
 }
@@ -115,9 +103,7 @@
   border:none;
   outline:none;
   height:45px;
-  /* background:orange; */
   text-transform:uppercase;
-  /* color:#fcfcfc; */
   font-size:16px;
   cursor:pointer;
   position: absolute;
@@ -125,7 +111,6 @@
   right:33%;
   top:48%;
   border-radius: 20px;
-  
 }
 .LoginForm .LoginForm-signup-now{
   text-decoration:none;
@@ -142,7 +127,6 @@
 
 .LoginForm .Loginbody .LoginForm-span{
   text-align:center;
-
   /* border-top:1px dashed #CCC; */
   width: 70%;
   margin: 0 auto;
@@ -188,10 +172,7 @@
   left:87.5%;
   right:0;
 } 
-/* .LoginForm .start-to-signup{
-    text-decoration:none;
-    color:#FFF;
-} */
+
 .LoginForm-row .LoginBtnCenter{
   position: relative;
 }

@@ -180,13 +180,11 @@ try {
 
 
 <!--------------------------------右側商品欄----------------------------------------->
-
 <div class="shopRightSide" id="shopRightSide">
     <div class="shopCupShow" id="shopCupShow">
         <div class="shopImg" id="shopCon">
                    <ul class="shopOn">
             <div id="app"> 
-
 
         <p>
             <keep-alive>
@@ -244,7 +242,6 @@ try {
                     
                     <ul>
                         <div id="app1"> 
-
                             <p>
                                 <keep-alive>
                                     <component :is="content"></component>

@@ -1,3 +1,44 @@
+<!-- 先建立PHP連線資料 -->
+<?php
+$errMsg = "";
+// 設定連線資料 try{}
+try{
+	$dsn = "mysql:host=localhost;port=3306;dbname=dd103g1;charset=utf8";
+    $user = "root";
+    $password = "da0919294452";
+	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION, PDO::ATTR_CASE=>PDO::CASE_NATURAL);
+    $pdo = new PDO($dsn, $user, $password, $options);
+    
+    //留言板抓資料
+    //選取message跟member 的 msgContent,msgDate;member 的memName 指定條件 memNo相同
+    $sql_msg_member = 
+    "select message.msgContent,message.msgDate,member.memId
+    from `message`,`member`
+    where message.memNo=member.memNo";
+    //使用PREPARE 抓取 需要事先編譯sql指令
+    $msgMember = $pdo->prepare($sql_msg_member);
+    $msgMember ->execute();
+
+    //投票資料
+    //選取member跟competition
+    $sql_member_vote = 
+    "select member.memId,member.postcardPic,competition.vote,competition.memId,postcard.postcardPic
+    from `member`, `competition`, `postcard`
+    where member.memId=competition.memId and YEAR(startDate) = 2019 
+    order by competition.vote desc";
+    //根據票數從大到小排列
+    $member_vote = $pdo->prepare($sql_member_vote);
+    $member_vote ->execute();
+
+
+
+} catch (PDOException $e) {
+    $errMsg = $errMsg . "錯誤訊息: " . $e->getMessage() . "<br>";
+    $errMsg .= "錯誤行號: " . $e->getLine() . "<br>";
+}
+?>
+
+
  <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +54,12 @@
     <title>Competition</title>
 </head>
 <body>
+<?php
+    if( $errMsg != ""){
+        echo "<center>$errMsg</center>";
+        exit();
+    }
+?>
     <header>
         <div class="container headerStyle">
             <a href="index.html">
@@ -91,6 +138,12 @@
             <!-- 留言區 -->
 
             <div id="messageContent" class="messageContent">
+
+                <!-- PHP 抓取資料 -->
+                <?php
+                    while($msgMemberRow = $msgMember -> fetch(PDO::FETCH_ASSOC)){
+                ?>
+
                 <div class="messageWrap" id="messageWrap">
 
                     <!-- 會員圖片 -->
@@ -102,12 +155,16 @@
 
                     <div id="memText" class="memText">
                         <div class="megsageMemName">
-                            <p id="messageMemId"></p>
-                            <p class="messageDate" id="messageDate"></p> 
+                            <p id="messageMemId">
+                                <?=$msgMemberRow["memId"]?>
+                            </p>
+                            <p class="messageDate" id="messageDate">
+                                <?=$msgMemberRow["msgDate"]?>
+                            </p> 
                         </div>
                         <div class="messageBox">
                             <p class="messageText" id="messageText">
-                            
+                                <?=$msgMemberRow["msgContent"]?>
                             </p>  
                         </div> 
 
@@ -117,12 +174,15 @@
                             <span class="btnCloudb">檢舉</span>
                         </div>
                     </div>
-                </div> 
+                </div>
+                <?php
+                    }
+                ?>  
             </div>
 
             <!-- 留言輸入區塊 -->
 
-            <form class="messageWrapInput">
+            <form class="messageWrapInput" method="POST" action="memComprtitionMessage.php">
                 <input type="hidden" id="msgBtnNo">
                 <input type="text" id="inputText" name="msg" placeholder="最多輸入10字數" maxlength="10">
                 <div class="messageInputBtn">
@@ -152,12 +212,12 @@
             <div class="messageNo1">
                 <div class="messageBoard">
                     <div class="competitionVoteTitle">
-                        <input type="hidden"  name="competNo">
-                        <span>第一名<span id="memId">淡水豪豪</span></span>
-                        <span>得票數<span id="vote0">999票</span></span>
+                        <input type="hidden"  name="work_no">
+                        <span>第一名<span id="memId"></span></span>
+                        <span>得票數<span id="vote0">票</span></span>
                     </div>
                     <div class="competitionPost">
-                        <img src="images/competition/card01.png" alt="">
+                        <img src="" alt="">
                     </div>
                     <div class="competitionText">
                         <div class="textContent">123</div>
@@ -167,12 +227,12 @@
                         <span href="#"  class="whiteButton voteBtn">
                             <img src="images/indexSpot/voteIcon.png" alt="">
                             投票
-                            <input type="hidden" name="competNo2" value="25">
+                            <input type="hidden" name="work_no2" value="25">
                         </span>
                         <span href="#"  class="whiteButton messageBtn">
                             <img src="images/indexSpot/messIcon.png" alt="">
                             留言
-                            <input type="hidden" name="competNo3" value="25">
+                            <input type="hidden" name="work_no3" value="25">
                         </span>
                     </div>
                 </div>
@@ -185,7 +245,7 @@
             <div class="messageNo2 row">
                 <div class="messageBoard">
                     <div class="competitionVoteTitle">
-                        <input type="hidden"  name="competNo">
+                        <input type="hidden"  name="work_no">
                         <span>第二名<span id="memId">台南喬喬</span></span>
                         <span>得票數<span id="vote0">666票</span></span>
                     </div>
@@ -200,19 +260,19 @@
                         <span href="#"  class="whiteButton voteBtn">
                             <img src="images/indexSpot/voteIcon.png" alt="">
                             投票
-                            <input type="hidden" name="competNo2" value="25">
+                            <input type="hidden" name="work_no2" value="25">
                         </span>
                         <span href="#"  class="whiteButton messageBtn">
                             <img src="images/indexSpot/messIcon.png" alt="">
                             留言
-                            <input type="hidden" name="competNo3" value="25">
+                            <input type="hidden" name="work_no3" value="25">
                         </span>
                     </div>
                 </div>
 
                 <div class="messageBoard" id="under">
                     <div class="competitionVoteTitle">
-                        <input type="hidden"  name="competNo">
+                        <input type="hidden"  name="work_no">
                         <span>第三名<span id="memId">台北亭亭</span></span>
                         <span>得票數<span id="vote0">333票</span></span>
                     </div>
@@ -227,12 +287,12 @@
                         <span href="#"  class="whiteButton voteBtn">
                             <img src="images/indexSpot/voteIcon.png" alt="">
                             投票
-                            <input type="hidden" name="competNo2" value="25">
+                            <input type="hidden" name="work_no2" value="25">
                         </span>
                         <span href="#"  class="whiteButton messageBtn">
                             <img src="images/indexSpot/messIcon.png" alt="">
                             留言
-                            <input type="hidden" name="competNo3" value="25">
+                            <input type="hidden" name="work_no3" value="25">
                         </span>
                     </div>
                 </div>
@@ -278,7 +338,7 @@
                         <img src="images/competition/card01.png" alt="">
                         <div class="smallMessageButton">                       
                             <div class="competitionVoteTitle">
-                                <input type="hidden"  name="competNo">
+                                <input type="hidden"  name="work_no">
                                 <span><span id="memId">中壢大大</span></span>
                                 <span><span id="vote0">50票</span></span>
                             </div>
@@ -287,12 +347,12 @@
                                 <span href="#"  class="whiteButton voteBtn">
                                     <img src="images/indexSpot/voteIcon.png" alt="">
                                     投票
-                                    <input type="hidden" name="competNo2" value="25">
+                                    <input type="hidden" name="work_no2" value="25">
                                 </span>
                                 <span href="#"  class="whiteButton messageBtn">
                                     <img src="images/indexSpot/messIcon.png" alt="">
                                     留言
-                                    <input type="hidden" name="competNo3" value="25">
+                                    <input type="hidden" name="work_no3" value="25">
                                 </span>
                             </div>
                         </div>
@@ -301,7 +361,7 @@
                         <img src="images/competition/card02.png" alt="">
                         <div class="smallMessageButton">                       
                             <div class="competitionVoteTitle">
-                                <input type="hidden"  name="competNo">
+                                <input type="hidden"  name="work_no">
                                 <span><span id="memId">彰化齊齊</span></span>
                                 <span><span id="vote0">40票</span></span>
                             </div>
@@ -309,12 +369,12 @@
                                     <span href="#"  class="whiteButton voteBtn">
                                         <img src="images/indexSpot/voteIcon.png" alt="">
                                         投票
-                                        <input type="hidden" name="competNo2" value="25">
+                                        <input type="hidden" name="work_no2" value="25">
                                     </span>
                                     <span href="#"  class="whiteButton messageBtn">
                                         <img src="images/indexSpot/messIcon.png" alt="">
                                         留言
-                                        <input type="hidden" name="competNo3" value="25">
+                                        <input type="hidden" name="work_no3" value="25">
                                     </span>
                                 </div>
                         </div>
@@ -323,7 +383,7 @@
                         <img src="images/competition/card03.png" alt="">
                         <div class="smallMessageButton">                       
                             <div class="competitionVoteTitle">
-                                <input type="hidden"  name="competNo">
+                                <input type="hidden"  name="work_no">
                                 <span><span id="memId">雲林靜靜</span></span>
                                 <span><span id="vote0">39票</span></span>
                             </div>
@@ -331,12 +391,12 @@
                                     <span href="#"  class="whiteButton voteBtn">
                                         <img src="images/indexSpot/voteIcon.png" alt="">
                                         投票
-                                        <input type="hidden" name="competNo2" value="25">
+                                        <input type="hidden" name="work_no2" value="25">
                                     </span>
                                     <span href="#"  class="whiteButton messageBtn">
                                         <img src="images/indexSpot/messIcon.png" alt="">
                                         留言
-                                        <input type="hidden" name="competNo3" value="25">
+                                        <input type="hidden" name="work_no3" value="25">
                                     </span>
                                 </div>
                         </div>
@@ -345,7 +405,7 @@
                         <img src="images/competition/card01.png" alt="">
                         <div class="smallMessageButton">                       
                             <div class="competitionVoteTitle">
-                                <input type="hidden"  name="competNo">
+                                <input type="hidden"  name="work_no">
                                 <span><span id="memId">大溪阿玫</span></span>
                                 <span><span id="vote0">30票</span></span>
                             </div>
@@ -353,12 +413,12 @@
                                     <span href="#"  class="whiteButton voteBtn">
                                         <img src="images/indexSpot/voteIcon.png" alt="">
                                         投票
-                                        <input type="hidden" name="competNo2" value="25">
+                                        <input type="hidden" name="work_no2" value="25">
                                     </span>
                                     <span href="#"  class="whiteButton messageBtn">
                                         <img src="images/indexSpot/messIcon.png" alt="">
                                         留言
-                                        <input type="hidden" name="competNo3" value="25">
+                                        <input type="hidden" name="work_no3" value="25">
                                     </span>
                                 </div>
                         </div>
@@ -367,7 +427,7 @@
                         <img src="images/competition/card02.png" alt="">
                         <div class="smallMessageButton">                       
                             <div class="competitionVoteTitle">
-                                <input type="hidden"  name="competNo">
+                                <input type="hidden"  name="work_no">
                                 <span><span id="memId">SEXFAT</span></span>
                                 <span><span id="vote0">10票</span></span>
                             </div>
@@ -375,12 +435,12 @@
                                     <span href="#"  class="whiteButton voteBtn">
                                         <img src="images/indexSpot/voteIcon.png" alt="">
                                         投票
-                                        <input type="hidden" name="competNo2" value="25">
+                                        <input type="hidden" name="work_no2" value="25">
                                     </span>
                                     <span href="#"  class="whiteButton messageBtn">
                                         <img src="images/indexSpot/messIcon.png" alt="">
                                         留言
-                                        <input type="hidden" name="competNo3" value="25">
+                                        <input type="hidden" name="work_no3" value="25">
                                     </span>
                                 </div>
                         </div>
@@ -389,7 +449,7 @@
                         <img src="images/competition/card03.png" alt="">
                         <div class="smallMessageButton">                       
                             <div class="competitionVoteTitle">
-                                <input type="hidden"  name="competNo">
+                                <input type="hidden"  name="work_no">
                                 <span><span id="memId">新竹愷愷</span></span>
                                 <span><span id="vote0">2票</span></span>
                             </div>
@@ -397,12 +457,12 @@
                                 <span href="#"  class="whiteButton voteBtn">
                                     <img src="images/indexSpot/voteIcon.png" alt="">
                                     投票
-                                    <input type="hidden" name="competNo2" value="25">
+                                    <input type="hidden" name="work_no2" value="25">
                                 </span>
                                 <span href="#"  class="whiteButton messageBtn">
                                     <img src="images/indexSpot/messIcon.png" alt="">
                                     留言
-                                    <input type="hidden" name="competNo3" value="25">
+                                    <input type="hidden" name="work_no3" value="25">
                                 </span>
                             </div>
                         </div>

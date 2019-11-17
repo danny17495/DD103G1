@@ -5,22 +5,21 @@ $(document).ready(function () {
     const distOfLetGo = winWidth * 0.2;
     let curSlide = 1;
     let animation = false;
-    //let autoScrollVar = true;
     let diff = 0;
-
+    let ifwheel=false;
+    let dir='right';
+    let passScrollTop=0;
     // Generating slides
     let arrCities = [
-        { ch: '九份', en: 'JiuFen' },
-        { ch: '深澳峽角', en: 'ShenAo' },
-        { ch: '不厭亭', en: 'Buyan' }
+      { ch: "九份", en: "JiuFen" },
+      { ch: "深澳峽角", en: "ShenAo" },
+      { ch: "不厭亭", en: "Buyan" },
     ];
     let numOfCities = arrCities.length;
 
     let generateSlide = function (cityindex) {
         let frag1 = $(document.createDocumentFragment());
-        // let frag2 = $(document.createDocumentFragment());
-        const numSlide = arrCities.indexOf(arrCities[cityindex]) + 1;//slide從一開始
-        // const firstLetter = arrCitiesDivided[city][0].charAt(0);
+        const numSlide = arrCities.indexOf(arrCities[cityindex])+1 ;//slide從一開始
 
         const $slide =
             $(`<div data-target="${numSlide}" class="slide slide${numSlide}">
@@ -33,7 +32,10 @@ $(document).ready(function () {
                 </div>
                 <div class="slideText">
                 ${arrCities[cityindex].en}
+                </div>
+                <div class="tripper_01">
                 </div>`);
+
         frag1.append(text);
 
 
@@ -46,10 +48,13 @@ $(document).ready(function () {
         generateSlide(i);
     }
 
-    function timeout() {
+    function timeout(e) {
         animation = false;
+        if (curSlide == 3 && dir=='right') {
+            ifwheel=true;
+        }
     }
-
+    
     function pagination(direction) {
         animation = true;
         diff = 0;
@@ -68,23 +73,26 @@ $(document).ready(function () {
         });
     }
 
-    function navigateRight() {
+    function navigateRight(e) {
         //if (!autoScrollVar) return;
         if (curSlide >= numOfCities) return;
         pagination(0);
-        setTimeout(timeout, animSpd);
         curSlide++;
+       
+        setTimeout(timeout, animSpd);
+
     }
 
     function navigateLeft() {
         if (curSlide <= 1) return;
         pagination(2);
-        setTimeout(timeout, animSpd);
         curSlide--;
+        setTimeout(timeout, animSpd);
     }
 
     function toDefault() {
         pagination(1);
+        passSecond = animSpd;
         setTimeout(timeout, animSpd);
     }
 
@@ -142,17 +150,30 @@ $(document).ready(function () {
     });
 
     $('.indexBanner').on('mousewheel DOMMouseScroll', function (e) {
-        e.preventDefault();
-        if (animation) return;
         let delta = e.originalEvent.wheelDelta;
 
-        if (delta > 0 || e.originalEvent.detail < 0) {
-            navigateLeft();
+        //console.log('ya');
+        if ($(window).scrollTop() == 0) {
+            if (!ifwheel && passScrollTop == 0){
+                    e.preventDefault();/*不會滑動 */
+                }else{
+                    ifwheel=false;
+                    passScrollTop = 0;
+                }
+                     if (animation) return;
+                     if (delta > 0 || e.originalEvent.detail < 0) {
+                        dir='left';
+                       navigateLeft();
+                         //console.log(`目前頁數:${curSlide}`);
+                     }
+                     if (delta < 0 || e.originalEvent.detail > 0) {
+                         dir='right';
+                         navigateRight();
+                     }
             
-        };
-        if (delta < 0 || e.originalEvent.detail > 0) {
-            navigateRight();
-
-        }
+            }else{
+                passScrollTop = $(window).scrollTop();
+            //console.log(passScrollTop);
+            }
     });
 });

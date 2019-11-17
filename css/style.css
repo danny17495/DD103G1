@@ -5,7 +5,7 @@
 }
 *{
     list-style: none;
-	/*outline:solid 1px red;*/
+	/* outline:solid 1px red; */
 }
 /*----------------index Banner(手機板)-----------------*/
 
@@ -156,9 +156,33 @@
     width: 100%; 
     margin:20px auto;
 }
+#indexSpot_02,
+#indexSpot_03,
+#indexSpot_pic02,
+#indexSpot_pic03{
+    display: none;
+}
 .indexSpotPic .indexSpotPic_OOuter{
     padding: 10px;
     background-image: url(../images/indexSpot/pic_bg.jpg);
+    background-repeat: no-repeat;
+    width: 100%;
+    border-radius: 30% 38% 22% 38%/ 51% 47% 42% 42%;
+    animation: 
+    transform2 8s linear infinite alternate-reverse;
+}
+.indexSpotPic .indexSpotPic_OOuter_2{
+    padding: 10px;
+    background-image: url(../images/indexSpot/pic_bg_02.jpg);
+    background-repeat: no-repeat;
+    width: 100%;
+    border-radius: 30% 38% 22% 38%/ 51% 47% 42% 42%;
+    animation: 
+    transform2 8s linear infinite alternate-reverse;
+}
+.indexSpotPic .indexSpotPic_OOuter_3{
+    padding: 10px;
+    background-image: url(../images/indexSpot/pic_bg_03.jpg);
     background-repeat: no-repeat;
     width: 100%;
     border-radius: 30% 38% 22% 38%/ 51% 47% 42% 42%;
@@ -203,7 +227,9 @@
   0%, 100% { background-position: 0% 50%; }
        50% { background-position: 100% 50%; }
 }
-.indexSpotPic .indexSpotPic_OOuter:after{
+.indexSpotPic .indexSpotPic_OOuter:after,
+.indexSpotPic .indexSpotPic_OOuter_2:after,
+.indexSpotPic .indexSpotPic_OOuter_3:after{
     content: '';
     display: block;
     background-image: url(../images/indexSpot/tree_mobile.png);
@@ -291,7 +317,9 @@
     .indexSpot .indexSpotPic{
         margin-top: 50px;
     }
-    .indexSpotPic .indexSpotPic_OOuter:after{
+    .indexSpotPic .indexSpotPic_OOuter:after,
+     .indexSpotPic .indexSpotPic_OOuter_2:after,
+     .indexSpotPic .indexSpotPic_OOuter_3:after{
         content: '';
         display: block;
         background-image: url(../images/indexSpot/tree.png);
@@ -319,7 +347,9 @@
         display: inline-block;
         text-align: center;
     }   
-    .indexSpotPic .indexSpotPic_OOuter{
+    .indexSpotPic .indexSpotPic_OOuter,
+    .indexSpotPic .indexSpotPic_OOuter_2,
+    .indexSpotPic .indexSpotPic_OOuter_3{
         padding: 18px;
     }
     
@@ -387,11 +417,22 @@
     width: 230px;
     margin: 0 auto
 }
+
 .indexReContent .tree{
     position: absolute;
     width: 60px;
-    top: -88px;
+    top: -85px;
     right: -10px;
+    transform-origin: bottom center;
+    transform: scale(0);
+}
+.indexReContent .tree.treeGrow{
+     animation:treeGrow 1s forwards;
+}
+@keyframes treeGrow{  
+    0%{transform: scale(0.1) translateY(3%)} 
+    45%{transform: translateY(3%)}
+    100%{transform: scale(1)}
 }
 .indexReContent .tree img{
    width: 100%;
@@ -663,6 +704,12 @@
 	display: block;
 	width: 100%;
 	height: auto;
+    vertical-align: middle;
+}
+#indexPostBG1,
+#indexPostBG2,
+#indexPostBG3{
+    display: none;
 }
 
 /*步驟*/
@@ -702,6 +749,7 @@
 	position: absolute;
 	top: 50%;
 	transform: translate( 0, -50%);/*減掉自己本身的*/
+    color: pointer;
 }
 
 /*步驟黃色圓底*/
@@ -767,6 +815,7 @@
 	top: 20%;
 	left: 18%;
 	z-index: 5;
+    cursor: pointer;
 }
 
 .postBGC_2{
@@ -774,13 +823,20 @@
 	top: 35%;
 	left: 55%;
 	z-index: 4;
+    cursor: pointer;
 }
 
 .postBGC_3{
 	transform: rotateZ(-6deg);
-	top: 52%;
+	top: 62%;
 	left: 5%;
 	z-index: 3;
+    cursor: pointer;
+}
+.postBGC_1:hover,
+.postBGC_2:hover,
+.postBGC_3:hover{
+    border: 3px solid #e99313;
 }
 
 /*上傳窗格*/
@@ -1294,7 +1350,7 @@
 	}
 
 	.postBGC_2{
-		top: 40%;
+		top: 42%;
 		left: 45%;
 	}
 
@@ -1536,23 +1592,35 @@
     margin: 40px auto;
 }
 .indexGameOuter{
-    width: 90%;
+    width: 85%;
     margin: 0 auto;
     border-radius: 50px;
     overflow: hidden;
 }
+#indexGameVideo{
+    display: none;
+}
+#indexGameVideoSmall{
+    display: block;
+    width: 300px;
+    margin:0 auto;
+}
 .indexGameOuter img{
     width: 100%;
     max-width: 1000px;
-    display: block;
-    
+    display: block;    
 }
 .indexGame .indexGameBtn{
-    margin: 30px auto;
-    
+    margin: 30px auto;    
 }
 /* ---------indexSpot  首頁小遊戲(網頁板)------- */
 @media screen and (min-width: 768px){
+    #indexGameVideo{
+        display: block;
+    }
+    #indexGameVideoSmall{
+        display: none;
+    }
     .indexGame{
         padding: 50px 25px 120px;
     }
@@ -1560,7 +1628,10 @@
         margin: 60px auto;
     }
     .indexGameOuter{
-        width: 65%;
+        width: 700px;
+        margin: 0 auto;
+        border-radius: 80px;
+        overflow: hidden;
     }
 }
 
@@ -3256,7 +3327,6 @@
 	text-align: center;
 	font-family: '華康秀風體';
 	font-size: 18px;
-	background-color: #fff;
 	border-radius: 50px;
 }
 @media all and (min-width:768px) {
@@ -3353,6 +3423,7 @@
     background-image: url(../images/game/game1_bg_mobile.png);
     background-position: center center;
     background-repeat: no-repeat;
+    background-size: cover;
     border-radius: 10%;
     position: relative; 
     margin: auto;
@@ -3658,6 +3729,16 @@
     right: 34%;
     display: none;
 }
+@media all and (min-width: 430px) {
+    .game_coupon_wrap .couponNUM{
+    position: absolute;
+    top: 65%;
+    right: 20%;
+    margin: auto;
+    font-size: 16px;
+    font-family: '華康秀風體';
+    }
+}
 
 /*----------------小遊戲(網頁版)-------------------*/
 @media all and (min-width: 768px) {
@@ -3699,7 +3780,7 @@
         left: 0;
         margin: auto;
         display: inline-block;
-        padding-left: 80px;
+        padding-left: 20px;
         display: none;
     }
     .littleGame .suggestionBar img{
@@ -3726,13 +3807,13 @@
     }
     .littleGame .suggestionBar span{
         color: #fff;
-        font-size: 24px;
-        margin-left: 50px;
-        margin-right: 20px;
+        font-size: 18px;
+        margin-left: 25px;
+        margin-right: 10px;
         vertical-align:middle;
     }
     .littleGame .suggestionBar #taroText{
-        margin-left: 10%;
+        margin-left: 3%;
     }
     #game_suggestion{
         width: 82px;
@@ -3890,7 +3971,7 @@
     }
     .game_coupon_wrap .couponNUM{
         position: absolute;
-        bottom: 25%;
+        top: 68%;
         right: 20%;
         margin: auto;
         font-size: 22px;
@@ -3977,6 +4058,45 @@
         bottom: 60px;
         right: 43%;
         display: none;
+    }
+}
+/*----------------小遊戲(網頁版)-------------------*/
+@media all and (min-width: 992px) {
+    .littleGame .suggestionBar span{
+        color: #fff;
+        font-size: 24px;
+        margin-left: 50px;
+        margin-right: 20px;
+        vertical-align:middle;
+    }
+    .littleGame .suggestionBar{
+        width:100%;
+        background-color: #282832;
+        position: absolute;
+        top: 17px;
+        right: 0;
+        left: 0;
+        margin: auto;
+        display: inline-block;
+        padding-left: 80px;
+        display: none;
+    }
+    .littleGame .suggestionBar #taroText{
+        margin-left: 5%;
+    }
+    .littleGame .suggestionBar span{
+        color: #fff;
+        font-size: 18px;
+        margin-left: 50px;
+        margin-right: 10px;
+        vertical-align:middle;
+    }
+  
+}
+
+@media all and (min-width: 1200px) {
+  .littleGame .suggestionBar #taroText{
+        margin-left: 10%;
     }
 }
 
@@ -4068,6 +4188,7 @@
     height: 100%;
     overflow: hidden;
 }
+
 .indexBanner .slide1{
 	left: 0;
 }
@@ -4081,6 +4202,7 @@
 .indexBanner .slideTextWrap {
     position: absolute;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -4098,7 +4220,8 @@
 	font-family: '華康秀風體'; 
 }
 .indexBanner .slideText:first-child {
-	font-size: 72px;
+    font-size: 72px;
+    margin-bottom: 35px;
 }
 .indexBanner .slideText:last-child {
 	font-size: 30px;
@@ -4472,10 +4595,10 @@ section.postcardMain .aapostLeft .postStepYellow4:after{
 /*2-2-2(二).操作畫面.postRight設定*/
 /*===============================================================*/
 /*2-2-2(二).操作畫面.postRight切換步驟css + postcard.js*/
-.postRight_1{display: none}
 .postRight_2{display: none}
 .postRight_3{display: none}
 .postRight_4{display: none}
+.postRight_5{display: none}
 
 /*2-2-2(二).操作畫面.postRight排版*/
 section.postcardMain .aapostRight h3{
@@ -5317,4 +5440,6 @@ body.postcardBody .forWallDeco{
     }
 
 }
+
+
 

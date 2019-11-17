@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>購物商城</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link rel="stylesheet" type="text/css" href="css/shop.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+<link rel="stylesheet"  href="css/slick.css" />
+<link rel="stylesheet"  href="css/slick-theme.css" />
+<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="js/flycan.js"></script>
+<script src="js/slick.js"></script>
+<script src="js/oneSlide.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+
+</head>
+<style>
+
+    p{
+        text-align: center;
+    }
+    body{
+        background-color: #ccc;
+    }
+ 
+
+    button{
+        border-radius: 50%;
+        height: 30px; 
+        width: 30px;
+        position: relative;
+        bottom: -500px;
+        left: 600px;
+        margin:0 10px;
+        border:none;
+    }
+    
+  #white{
+        background-color: #FFF;
+    }
+
+    #red{
+        background-color: red;
+    }
+    
+  #blue{
+        background-color: blue;
+    }
+    
+
+
+ 
+</style>
+<body>
+    <div id="app"> 
+        <button @click="content='lessons'" id="white"></button>
+        <button @click="content='apply'" id="red"></button>
+        <button @click="content='temp'"id="blue"></button>
+
+
+
+
+      
+        <p>
+            <keep-alive>
+                <component :is="content"></component>
+            </keep-alive>
+        </p>        
+    </div>
+
+            
+
+
+<script>
+        Vue.component('apply',{  
+            template: `
+                    <div>
+                    <img src="images/shopImg/redcup.png" alt="">
+                           <p>Nt.450</p>
+                       </div>        
+          
+            `,
+        });
+        Vue.component('lessons',{  
+            template: `
+
+
+                    <div>
+                    <img src="images/shopImg/whitecup.png" alt="">
+                           <p>NT.550</p>
+                       </div> 
+            
+            `,
+        });
+        Vue.component('temp',{  
+            template: `
+
+                <div>
+                    <img src="images/shopImg/bluecup.png" alt="">
+                            <p>NT.650</p>
+                </div> 
+               
+            `,
+        });
+        new Vue({
+            el: '#app',
+            data: {
+                content: 'lessons',
+            },
+        });
+    </script>
+
+
+
+
+                    
+
+    
+
+<!---------------------------------- 產品選擇----------------------------- -->
+
+
+
+</body>
+
+
+
+
+<script type="text/javascript">
+window.onload=function () {
+    var oTitle = document.getElementById('shopTitle');
+    var aSpan = oTitle.getElementsByTagName('span');
+    var oCon = document.getElementById('shopCon');
+    var aUl = oCon.getElementsByTagName('ul');
+    var i = 0;
+    
+    for(i=0; i<aSpan.length; i++) {
+        var index = 0;
+        aSpan[i].index = aUl[i].index = i;
+        
+        aSpan[i].onclick = function () {
+            for(i=0; i<aSpan.length; i++) {
+                aSpan[i].className = '';
+                aUl[i].className = '';
+            }
+            
+            this.className = 'shopOn';
+            aUl[this.index].className = 'shopOn';
+        };
+    }
+};
+</script>
+
+
+<!-----控制顏色選擇按鈕的JS---------->
+
+<script>    
+function changeImage1(element) {
+document.getElementById('imageReplace1').src = element;
+}</script>
+
+<script>    
+function changeImage2(element) {
+document.getElementById('imageReplace2').src = element;
+}</script>
+
+</html>
+
+
+
