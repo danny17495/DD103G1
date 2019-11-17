@@ -1,13 +1,14 @@
-// $(document).ready(function () {
+$(document).ready(function () {
     const $slider = $('.slider');
     const winWidth = $(window).width();
     const animSpd = 750;
     const distOfLetGo = winWidth * 0.2;
     let curSlide = 1;
     let animation = false;
-    //let autoScrollVar = true;
     let diff = 0;
-
+    let ifwheel=false;
+    let dir='right';
+    let passScrollTop=0;
     // Generating slides
     let arrCities = [
       { ch: "九份", en: "JiuFen" },
@@ -18,9 +19,7 @@
 
     let generateSlide = function (cityindex) {
         let frag1 = $(document.createDocumentFragment());
-        // let frag2 = $(document.createDocumentFragment());
         const numSlide = arrCities.indexOf(arrCities[cityindex])+1 ;//slide從一開始
-        // const firstLetter = arrCitiesDivided[city][0].charAt(0);
 
         const $slide =
             $(`<div data-target="${numSlide}" class="slide slide${numSlide}">
@@ -33,7 +32,10 @@
                 </div>
                 <div class="slideText">
                 ${arrCities[cityindex].en}
+                </div>
+                <div class="tripper_01">
                 </div>`);
+
         frag1.append(text);
 
 
@@ -46,8 +48,11 @@
         generateSlide(i);
     }
 
-    function timeout() {
+    function timeout(e) {
         animation = false;
+        if (curSlide == 3 && dir=='right') {
+            ifwheel=true;
+        }
     }
     
     function pagination(direction) {
@@ -68,29 +73,27 @@
         });
     }
 
-    function navigateRight() {
+    function navigateRight(e) {
         //if (!autoScrollVar) return;
         if (curSlide >= numOfCities) return;
         pagination(0);
-        passSecond = animSpd;
-        setTimeout(timeout, animSpd);
-      //  setInterval(aa,1);
         curSlide++;
+       
+        setTimeout(timeout, animSpd);
+
     }
 
     function navigateLeft() {
         if (curSlide <= 1) return;
         pagination(2);
-        passSecond = animSpd;
-        setTimeout(timeout, animSpd);
         curSlide--;
+        setTimeout(timeout, animSpd);
     }
 
     function toDefault() {
         pagination(1);
         passSecond = animSpd;
         setTimeout(timeout, animSpd);
-        // setInterval(timepass, animSpd);
     }
 
     // Events
@@ -147,21 +150,30 @@
     });
 
     $('.indexBanner').on('mousewheel DOMMouseScroll', function (e) {
-          let delta = e.originalEvent.wheelDelta;
-     
-            if ($(window).scrollTop() == 0) {
-                  e.preventDefault();
-                     if (animation) return;
+        let delta = e.originalEvent.wheelDelta;
 
+        //console.log('ya');
+        if ($(window).scrollTop() == 0) {
+            if (!ifwheel && passScrollTop == 0){
+                    e.preventDefault();/*不會滑動 */
+                }else{
+                    ifwheel=false;
+                    passScrollTop = 0;
+                }
+                     if (animation) return;
                      if (delta > 0 || e.originalEvent.detail < 0) {
+                        dir='left';
                        navigateLeft();
+                         //console.log(`目前頁數:${curSlide}`);
                      }
                      if (delta < 0 || e.originalEvent.detail > 0) {
-                       navigateRight();
+                         dir='right';
+                         navigateRight();
                      }
-                     if(curSlide==3){
-                        
-                     }
+            
+            }else{
+                passScrollTop = $(window).scrollTop();
+            //console.log(passScrollTop);
             }
     });
-// });
+});

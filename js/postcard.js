@@ -195,6 +195,36 @@ function toPR5(){
 	postStepYellowB5.classList.add("postStepYellowHere");
 
 	saveImageStep1();
+	btnNoFuntion();
+
+}
+
+function btnNoFuntion(){
+	//左側.postLeft步驟拔掉返回修改的功能
+	//這些不能寫在toPR5()裡, 會影響到圖片存入server功能
+	$('#aapostStepB1').attr({onclick: "",});
+	$('#aapostStepB2').attr({onclick: "",});
+	$('#aapostStepB3').attr({onclick: "",});
+	$('#aapostStepB4').attr({onclick: "",});
+	$('#aapostStepB5').attr({onclick: "",});
+
+	$('#aapostStepS1').attr({onclick: "",});
+	$('#aapostStepS2').attr({onclick: "",});
+	$('#aapostStepS3').attr({onclick: "",});
+	$('#aapostStepS4').attr({onclick: "",});
+	$('#aapostStepS5').attr({onclick: "",});
+
+	aapostStepB1.style.cursor = "auto";			
+	aapostStepB2.style.cursor = "auto";			
+	aapostStepB3.style.cursor = "auto";			
+	aapostStepB4.style.cursor = "auto";			
+	aapostStepB5.style.cursor = "auto";
+
+	aapostStepS1.style.cursor = "auto";			
+	aapostStepS2.style.cursor = "auto";			
+	aapostStepS3.style.cursor = "auto";			
+	aapostStepS4.style.cursor = "auto";			
+	aapostStepS5.style.cursor = "auto";	
 }
 
 function postcardInit(){
@@ -210,48 +240,22 @@ function postcardInit(){
 	pDIYBtn6.addEventListener("click", toPR3, false);	//at postRight_4
 	pDIYBtn7.addEventListener("click", toPR5, false);	//at postRight_4
 
-	pDIYBtn8.addEventListener("click", toPR4, false);	//at postRight_5
+	// pDIYBtn8.addEventListener("click", toPR4, false);	//at postRight_5
 
-	//左側.postLeft步驟
-	aapostStepS1.addEventListener("click", toPR1, false);	//to postRight_1
-	aapostStepB1.addEventListener("click", toPR1, false);	//to postRight_1
-
-	aapostStepS2.addEventListener("click", toPR2, false);	//to postRight_2
-	aapostStepB2.addEventListener("click", toPR2, false);	//to postRight_2
-
-	aapostStepS3.addEventListener("click", toPR3, false);	//to postRight_3
-	aapostStepB3.addEventListener("click", toPR3, false);	//to postRight_3
-
-	aapostStepS4.addEventListener("click", toPR4, false);	//to postRight_4
-	aapostStepB4.addEventListener("click", toPR4, false);	//to postRight_4
-
-	aapostStepS5.addEventListener("click", toPR5, false);	//to postRight_5
-	aapostStepB5.addEventListener("click", toPR5, false);	//to postRight_5
-
+	//11月17日左側.postLeft步驟註冊在html, 因為點到最後一步驟要處理拔掉返回修改的功能
+	// aapostStepS1.addEventListener("click", toPR1, false);	//to postRight_1
+	// aapostStepB1.addEventListener("click", toPR1, false);	//to postRight_1
+	// aapostStepS2.addEventListener("click", toPR2, false);	//to postRight_2
+	// aapostStepB2.addEventListener("click", toPR2, false);	//to postRight_2
+	// aapostStepS3.addEventListener("click", toPR3, false);	//to postRight_3
+	// aapostStepB3.addEventListener("click", toPR3, false);	//to postRight_3
+	// aapostStepS4.addEventListener("click", toPR4, false);	//to postRight_4
+	// aapostStepB4.addEventListener("click", toPR4, false);	//to postRight_4
+	// aapostStepS5.addEventListener("click", toPR5, false);	//to postRight_5
+	// aapostStepB5.addEventListener("click", toPR5, false);	//to postRight_5
 }
 
-
-
-
 window.addEventListener("load", postcardInit, false);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -858,7 +862,7 @@ window.addEventListener("resize", postcardInit8, false);
 
 
 /*======================================================================*/
-/*第五支程式: 儲存canvas上的畫面*/
+/*第五支程式: 儲存canvas上的畫面進Server資料夾*/
 //建立html連結:demo畫面, 第三支程式裡已宣告過canvas2 = document.getElementById("postcardCanvas");
 //註冊在function toPR5()裡
 function saveImageStep1() {
@@ -904,7 +908,7 @@ function saveImageStep2(){
 //五-5.AJAX將資料包裝傳入server請求postcardSaveCanvas.php處理
 function saveImageStep3() {
 	var formData = new FormData(document.getElementById("form2"));
-	
+
 	var xhr = new XMLHttpRequest();
 	xhr.onload = function(){
 	  if( xhr.status == 200){
@@ -912,7 +916,7 @@ function saveImageStep3() {
 		  alert("Error");
 		}else{
 		  alert('儲存成功！');  
-		  console.log(xhr.responseText);
+		  console.log(xhr.responseText);		  
 		}
 	  }else{
 		alert(xhr.status)
@@ -920,7 +924,58 @@ function saveImageStep3() {
 	}
 
 	xhr.open('POST', 'postcardSaveCanvas.php', true);
+	// xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	xhr.send(formData);
+
+	postcardToDb();
 }
+
+/*======================================================================*/
+/*第六支程式: 儲存客製明信片時同時需要紀錄客製明信片資料進入資料庫*/
+//註冊在function saveImageStep3()裡
+function postcardToDb(){
+	document.getElementById('hidden_data3').value = 3;  //postcardNo
+	document.getElementById('hidden_data4').value = 1;  //memNo
+	document.getElementById('hidden_data5').value = 'm001p03';  //postcardPic
+	postcardToDb2();
+
+}
+
+function postcardToDb2(){
+	var formData3 = new FormData(document.getElementById("form3"));
+
+	var xhr = new XMLHttpRequest();
+	xhr.onload = function(){
+	  if( xhr.status == 200){
+		if(xhr.responseText == "error"){
+		  alert("Error");
+		}else{
+		  console.log(xhr.responseText);
+		}
+	  }else{
+		alert(xhr.status)
+	  }
+	}
+
+	xhr.open('POST', 'postcardToDb.php', true);
+	// xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+	xhr.send(formData3);	
+}
+
+
+/*======================================================================*/
+/*第七支程式: 按下購買時->放入購物車->記錄進去localStorage*/
+var buyPostcardBtn = document.getElementById("buyPostcardBtn")
+function postcardToCart(){
+	alert("加入購物車成功！");	
+}
+
+function postcardInit10(){
+	localStorage.setItem(`buyPostcard: 001`,`postcardNo: 1`);
+	buyPostcardBtn.addEventListener("click", postcardToCart, false);
+}
+
+window.addEventListener("load", postcardInit10, false);
+
 
 
