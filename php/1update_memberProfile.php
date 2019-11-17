@@ -2,8 +2,9 @@
 $errMsg = "";
 session_start();
 
+
 try {
-	require_once('connectBooks.php');
+	require_once('connect.php');
 	
 	$members=$pdo->prepare('update user set memberId=:memberId,memberPassword=:memberPassword,memberEmail=:memberEmail,memberPhone=:memberPhone,memberAddress=:memberAddress where memberId =:memberId');
 

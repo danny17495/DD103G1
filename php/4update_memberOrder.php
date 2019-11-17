@@ -3,7 +3,7 @@ $errMsg="";
 session_start();
 
 try {
-  require_once('connectBook.php');
+  require_once('connect.php');
 
   $orders=$pdo->prepare("select * from `orderform` WHERE `orderform`.`orderNo` = :orderNo AND `orderform`.`orderNo` = :orderNo");
   $orders->bindValue(':memNo',$_SESSION['memNo']);

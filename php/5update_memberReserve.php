@@ -3,7 +3,7 @@ $errMsg="";
 session_start();
 
 try {
-  require_once('connectBook.php');
+  require_once('connect.php');
 
 
   //找預約日期<目前日期
