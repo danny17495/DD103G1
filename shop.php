@@ -1,3 +1,20 @@
+<?php 
+$errMsg = "";
+try {
+    require_once('php/connectShop.php');
+    $prods  = $pdo->query("select * from productdeco where product_status=1");
+    $prodsRow=$prods->fetchAll(PDO::FETCH_ASSOC);
+    
+    $imgs  = $pdo->query("select cmp_img,amlbg_img from collections order by vote desc limit 3");
+    
+
+?>
+<?php
+} catch (PDOException $e) {
+    $errMsg = $errMsg . "錯誤訊息: " . $e->getMessage() . "</br>";
+    $errMsg .= "錯誤行號: " . $e->getLine() . "<br>";
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
