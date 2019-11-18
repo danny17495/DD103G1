@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="css/loginstyle2.css">
     <link rel="stylesheet" href="css/common.css">
+    <script src="js/Logincheck2.js"></script>
     <title>LoginForgetForm</title>
 </head>
 
@@ -28,15 +29,15 @@
         <div class="LoginForm-body">
             <div class="login">
                 <div class="LoginForm-row">
-                    <label class="LoginLabel" for="">email</label>
-                    <input class="Logininput" type="email" placeholder="email">
+                    <label class="LoginLabel" name="email">email</label>
+                    <input class="Logininput Loginemail" type="email" placeholder="email">
                     <p style="color:aliceblue">*請送出表單後,到信箱查看並重設密碼*</p>
                 </div>
                 <div class="LoginForm-row">
                     <div class="LoginFormTwoBtn">
                         <div class="LoginBtn1">
                             <div class="whiteButton">
-                                <a href="#">
+                                <a href="#"  onClick="validateForm(this.form)" value="送出">
                                     送出
                                 </a>
                             </div>
@@ -57,6 +58,8 @@
                 window.history.go(-1);
             }
         </script>
+        
+                
 </body>
 
 </html>
