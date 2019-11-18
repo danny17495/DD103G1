@@ -4,7 +4,7 @@ var canvasBoxWH=document.defaultView.getComputedStyle(canvasBox, null);
 // var WINDOW_HEIGHT = document.body.offsetHeight;
 var WINDOW_WIDTH = parseInt(canvasBoxWH.width);
 var WINDOW_HEIGHT = parseInt(canvasBoxWH.height);
-//console.log(WINDOW_HEIGHT);
+console.log(WINDOW_HEIGHT);
 // var WINDOW_HEIGHT = canvasBoxWH.height;
 var canvas, context;
 var num = 200;
@@ -18,7 +18,7 @@ window.onload = function () {
 
     canvas.width = WINDOW_WIDTH;
     canvas.height = WINDOW_HEIGHT ;
-    //console.log(canvas.height);
+    console.log(canvas.height);
 
     context = canvas.getContext('2d');
 
@@ -36,7 +36,7 @@ function liuxing() {
         rnd = Math.ceil(Math.random() * stars.length)
         liuxing();
     }, time);
-    //console.log(time)
+    // console.log(time)
 }
 
 function mouseMove(e) {
@@ -114,5 +114,5 @@ function addStar() {
         }
         stars.push(aStar);
     }
-    //console.log(stars);
+    console.log(stars);
 }

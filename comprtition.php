@@ -1,26 +1,44 @@
 <!-- 先建立PHP連線資料 -->
 <?php
 $errMsg = "";
-//設定連線資料 try{}
+// 設定連線資料 try{}
 try{
 	$dsn = "mysql:host=localhost;port=3306;dbname=dd103g1;charset=utf8";
     $user = "root";
     $password = "da0919294452";
 	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION, PDO::ATTR_CASE=>PDO::CASE_NATURAL);
-	$pdo = new PDO($dsn, $user, $password, $options);
-    $sql = "select * from `competition` where competNo=1";
+    $pdo = new PDO($dsn, $user, $password, $options);
+    
+    //留言板抓資料
+    //選取message跟member 的 msgContent,msgDate;member 的memName 指定條件 memNo相同
+    $sql_msg_member = 
+    "select message.msgContent,message.msgDate,member.memId
+    from `message`,`member`
+    where message.memNo=member.memNo";
     //使用PREPARE 抓取 需要事先編譯sql指令
-    $competition = $pdo->prepare($sql);
-    $competition ->execute();
+    $msgMember = $pdo->prepare($sql_msg_member);
+    $msgMember ->execute();
 
-}catch(PDOException $e){
-    $errMsg .= "錯誤原因:".$e -> getMessage(). "<br>";
-    $errMsg .= "錯誤行號:".$e -> getLine(). "<br>";
+    //投票資料
+    //選取member跟competition
+    $sql_member_vote = 
+    "select member.memId,member.postcardPic,competition.vote,competition.memId,postcard.postcardPic
+    from `member`, `competition`, `postcard`
+    where member.memId=competition.memId and YEAR(startDate) = 2019 
+    order by competition.vote desc";
+    //根據票數從大到小排列
+    $member_vote = $pdo->prepare($sql_member_vote);
+    $member_vote ->execute();
 
+
+
+} catch (PDOException $e) {
+    $errMsg = $errMsg . "錯誤訊息: " . $e->getMessage() . "<br>";
+    $errMsg .= "錯誤行號: " . $e->getLine() . "<br>";
 }
-$prodRow = $competition->fetch(PDO::FETCH_ASSOC);
-
 ?>
+
+
  <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,6 +54,14 @@ $prodRow = $competition->fetch(PDO::FETCH_ASSOC);
     <title>Competition</title>
 </head>
 <body>
+
+<?php
+    if( $errMsg != ""){
+        echo "<center>$errMsg</center>";
+        exit();
+    }
+?>
+
     <header>
         <div class="container headerStyle">
             <a href="index.html">
@@ -108,12 +134,20 @@ $prodRow = $competition->fetch(PDO::FETCH_ASSOC);
 
             <div class="messageTitle">
                 <h3>留言板</h3> 
-                <img src="images/competition/X.png" alt="close" class="closeBtn">
+                <i class="fa fa-times-circle Trip2_lightBoxBTN closeBtn" aria-hidden="true"></i>
+                <!-- <img src="images/competition/X.png" alt="close" class="closeBtn"> -->
             </div>
             
             <!-- 留言區 -->
 
             <div id="messageContent" class="messageContent">
+
+                <!-- PHP 抓取資料 -->
+
+                <?php
+                    while($msgMemberRow = $msgMember -> fetch(PDO::FETCH_ASSOC)){
+                ?>
+
                 <div class="messageWrap" id="messageWrap">
 
                     <!-- 會員圖片 -->
@@ -125,12 +159,16 @@ $prodRow = $competition->fetch(PDO::FETCH_ASSOC);
 
                     <div id="memText" class="memText">
                         <div class="megsageMemName">
-                            <p id="messageMemId">董董</p>
-                            <p class="messageDate" id="messageDate">2019-11-10</p> 
+                            <p id="messageMemId">
+                                <?=$msgMemberRow["memId"]?>
+                            </p>
+                            <p class="messageDate" id="messageDate">
+                                <?=$msgMemberRow["msgDate"]?>
+                            </p> 
                         </div>
                         <div class="messageBox">
                             <p class="messageText" id="messageText">
-                                我覺得好棒棒喔
+                                <?=$msgMemberRow["msgContent"]?>
                             </p>  
                         </div> 
 
@@ -140,7 +178,12 @@ $prodRow = $competition->fetch(PDO::FETCH_ASSOC);
                             <span class="btnCloudb">檢舉</span>
                         </div>
                     </div>
-                </div> 
+                </div>
+
+                <?php
+                    }
+                ?>  
+
             </div>
 
             <!-- 留言輸入區塊 -->
@@ -176,11 +219,11 @@ $prodRow = $competition->fetch(PDO::FETCH_ASSOC);
                 <div class="messageBoard">
                     <div class="competitionVoteTitle">
                         <input type="hidden"  name="work_no">
-                        <span>第一名<span id="memId"><?php echo $prodRow["memId"];?></span></span>
-                        <span>得票數<span id="vote0"><?php echo $prodRow["vote"];?>票</span></span>
+                        <span>第一名<span id="memId"></span></span>
+                        <span>得票數<span id="vote0">票</span></span>
                     </div>
                     <div class="competitionPost">
-                        <img src="<?php echo $prodRow["postcardPic"];?>" alt="">
+                        <img src="" alt="">
                     </div>
                     <div class="competitionText">
                         <div class="textContent">123</div>

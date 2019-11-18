@@ -2,10 +2,6 @@
 *{
 	outline: 1px solid red;
 }
-
-
-
-
 ---*/
 .shopBody{
 	background-color: #ffe6c1;
@@ -42,24 +38,39 @@
 	color:#110452;
 	text-align: center;	
 	position: relative;
-    margin:195px 0;
-    margin-left: 3%;
+    margin:200px 0;
 
     
 }
 
 
+.shopItemPrice1 p,.shopItemPrice2 p,.shopItemPrice3 p,
+.shopItemPrice4 p,.shopItemPrice5 p,.shopItemPrice6 p{
+	font-size: 30px;
+	font-family: "華康仿宋體W2";
+	margin-top: 24%;
+}
+
+
+#shopBird1{
+	width: 100%;
+	max-width: 100px;
+	float: right;
+}
+
+#shopBird2{
+	width: 100%;
+	max-width: 100px;
+	float: left;
+}
+
 
 /*-------------手機板*/
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 767px) {
 	.shopBigCup img,.shopBigTshirt img{
 		width: 30%;
 		height: 30%;
-	}
-
-	.shopBigTshirt img{
-
 	}
 		
 	.shopSelectProduct{
@@ -68,9 +79,6 @@
 	color:#110452;
 	text-align: center;	
     margin-top: 70%;
-    position: relative;
-    top: -125%;
-    margin-left: 3%;
 	}
 
 	.shopBigTshirt img{
@@ -82,13 +90,16 @@
 
 }
 
-
-
+	.shopItemPrice1 p,.shopItemPrice2 p,.shopItemPrice3 p,
+	.shopItemPrice4 p,.shopItemPrice5 p,.shopItemPrice6 p{
+	font-size: 26px;
+	font-family: "華康仿宋體W2";
+	margin-top: 30%;
 }
 
 
 
-
+}
 
 
 /*---------選擇產品按鈕------------------*/
@@ -105,16 +116,10 @@ cursor:pointer;
 }
 
 #shopCon { height:200px;}
-#shopCon ul {
-	display:none;
-	margin-right: 0%;
-}
-#shopCon ul.shopOn {
-	display:block;
-	margin-left: 0%;
+#shopCon ul {display:none; padding:10px;}
+#shopCon ul.shopOn {display:block;}
 
-}
-
+#shopOn ul li {height:24px; line-height:24px; text-indent:10px;}
 
 .shopBigCup img{
 	width: 1200%;	
@@ -156,7 +161,7 @@ cursor:pointer;
 	border-radius: 100%;
 	position: relative;
 	display: inline-block;
-	top: 460px;
+	top: 350px;
 	
 
 		
@@ -170,7 +175,7 @@ cursor:pointer;
 	border-radius: 100%;
 	position: relative;
 	display: inline-block;
-	top: 460px;
+	top: 350px;
 	
 	
 }
@@ -183,34 +188,9 @@ cursor:pointer;
 	border-radius: 100%;
 	position: relative;
 	display: inline-block;
-	
-	top: 460px;
+	top: 350px;
 
 }	
-	/*顏色按鈕*/
-	.shopAllBtn{
-		position: relative;
-		top: 480px;
-		text-align: center;
-		margin-left: -9%;
-		
-	}
-	.shopAllBtn1{
-		position: relative;
-		top: 480px;
-		text-align: center;
-		left: -4%;
-		
-
-	}
-
-	/*購物車按鈕*/
-.shopMadeButton{
-	font-family: "華康仿宋體W2";
-	margin: 130px 0px ;
-	text-align: center;
-	
-}
 
 /*----------選擇圖案區塊-----桌機---------------*/
 .shopCustomerProduct{
@@ -220,11 +200,12 @@ cursor:pointer;
 
 }
 .shopCustomerProduct img#BIG{
-	margin-top: -700%;
-	margin-left: 950%;
+	margin-top: -200%;
+	margin-left: 0%;
 	cursor:default;
 	z-index:2;
-	width: 200%;
+	max-width: 400px;
+	width: 35%;
 	height: auto;
 }
 
@@ -243,15 +224,41 @@ cursor:pointer;
 }
 
 
+#white{
+		margin: 0 10px;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		border:none;
+		background-color: #fff;
+	}
+	#red{
+		margin: 0 10px;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		border:none;
+		background-color: #a83d15;
+	}
+	#blue{
+		margin: 0 10px;
+		width: 30px;
+		height: 30px;
+		border-radius: 50%;
+		border:none;
+		background-color: #283562;
+	}
+
+
 /*-----選擇圖案-------手機板----*/
-@media all and (max-width: 768px) {
+@media all and (max-width: 767px) {
 	.shopSelectRow{
-	width: 350px;
-	height: 200px;
-	background-color: #FFF;
-	border-radius: 50px;
-	margin-left: 20px;
-	border: 1px solid red;
+		width: 350px;
+		height: 200px;
+		background-color: #FFF;
+		border-radius: 50px;
+		margin-left: 20px;
+		border: 1px solid red;
 }
 
 	.shopImgGroup img{
@@ -261,95 +268,21 @@ cursor:pointer;
 	
 
 	.shopCustomerProduct img#BIG{
-    	margin-top: -1170%;
-    	margin-left: 865%;
-    	cursor: default;
+    	margin-top: 10%;
+    	position: relative;
+    	top: -400px;
+    	margin-left: -3%;
+   	 	cursor: default;
     	z-index: 2;
-    	width: 325%;
+    	width: 23%;
+    	max-width: 250px;
     	height: auto;
 	}
 
-	#shopCon ul {
-	display:none;
-	margin-right: 55%;
-}
-	#shopCon ul.shopOn {
-	display:block;
-	margin-left: -55%;
-
 }
 
-	#shopCon {
-    margin-top: 1%;
-}
-
-
-
-}
-
-
-/*-----篩選器--------桌機板----*/
-
-.shopCatelog1{
-	width:70%;
-	height: 80px;
-	background-color: #f39800;
-	border-radius: 30px 30px 0 0;
-	padding: 0 20px;
-	text-align: center;
-	float: left;
-	margin: 0 auto;
-	
-}
-.shopCatelog1 h3{
-	color: #fff;
-	margin-top: 30px;
-	font-size: 28px;
-	font-family: "華康秀風體W3";
-	text-align: center;
-}
-
-
-.shopCatelog1-1{
-	clear: both;
-	width:70%;
-	height: 60%;
-	background-color: #fff;
-	border-radius: 0 0 30px 30px;
-	padding: 0 20px;
-	text-align: center;
-	float: left;
-}
-
-
-.shopCatelog1-1 h4{
-	font-family: "華康仿宋體W2";
-	font-size: 18px;
-	margin: 45px 0 ;
-
-}
-
-.shopCatelog2-1{
-	clear: both;
-	width:70%;
-	height: 60%;
-	background-color: #fff;
-	border-radius: 0 0 30px 30px;
-	padding: 0 20px;
-	text-align: center;
-	float: left;
-}
-
-.shopCatelog2-1 h4{
-	font-family: "華康仿宋體W2";
-	font-size: 18px;
-	margin: 25px 0 ;
-}
-
-
-
-/*---篩選器手機板 橫列----*/
-@media all and (max-width: 768px){
+/*---手機板 橫列----*/
+@media all and (max-width: 767px){
 .shopSelectBig{
 	display:flex;
     align-items:center;
@@ -377,32 +310,15 @@ cursor:pointer;
 
 .shopMadeButton{
 	font-family: "華康仿宋體W2";
-	margin: 65px 0 50px;
-	text-align: center;
+	margin: 1% 0 50px;
 
 }
-
-	.shopAllBtn{
-		
-		position: relative;
-		top: 345px;
-		text-align: center;	
-	}
-
-	.shopAllBtn1{
-		
-		position: relative;
-		top: 345px;
-		text-align: center;
-		left: 0%;
-	}
-
 
 }
 
 
 
-@media all and (min-width: 768px){
+@media all and (min-width: 767px){
 	.shopSelRow1-1{
 		display: none;
 	}
@@ -414,7 +330,7 @@ cursor:pointer;
 
 /*------顏色選擇按鈕-------手機板----*/
 
-@media all and (max-width: 768px){
+@media all and (max-width: 767px){
 
 	.shopWhiteBtn{
 	height: 30px;	
@@ -456,8 +372,6 @@ cursor:pointer;
 	}
 
 
-
-
 }
 
 
@@ -485,71 +399,13 @@ font-family: "華康仿宋體W2";
 }
 
 
-/*----QQ----*/
-/*
-	.choseNumber {
-    width: 146px;
-    height: 38px;
-    border-radius: 5px;
-    border: 1px solid #bfbfbf;
-    text-align: center;
-    line-height: 38px;
-    margin-bottom: 20px;
-	}
-	.choseNumber>span {
-    float: left;
-    display: block;
-    width: 48px;
-    height: 100%;
-    border-right: 1px solid #bfbfbf;
-    background-color: #eee9ab;
-	}
-	.choseNumber>span:nth-child(2) {
-    background-color: #fff;
-	}
-
-/*選擇數量按鈕*/
 
 
-.shopJia,.shopJian{
-        width: 35px;
-        height: 25px;
-        text-align: center;
-        margin: 0;
-        background-color: #fff;
- }
 
- .shopNum{
- 	    width: 45px;
-        height: 25px;
-        text-align: center;
-        margin: 0;
-        margin-bottom: 10px;
-        border: 1px solid #ccc;
 
- }
+/*----mountain-----*/
 
- .shopJia{
- 	border-radius: 0px 30px 30px 0px;
-    position: relative;
-    left: -5px;
-    border: 1px solid #ccc;
 
- }
-
-  .shopJian{
- 	border-radius: 30px 0px 0px 30px;
- 	border-radius: 30px 0px 0px 30px;
-    position: relative;
-    left: 5px;
-    border: 1px solid #ccc;
- }
-
-/*----test-----*/
-
-.shopProduct{
-
-}
 .shopMountain{
 	width: 100%;
 	z-index:-10; 
@@ -589,6 +445,7 @@ font-family: "華康仿宋體W2";
 /*=============01-2商城主要Block=============*/
 .containerShop{
 	padding: 0 20px;
+    text-align: center;
     position: relative;
     z-index: 2;
 }
@@ -669,23 +526,27 @@ font-family: "華康仿宋體W2";
 /*=============03商城杯子展示區=============*/
 .shopRightSide .shopCupShow{
 	width: 100%;
-	margin: -70px auto 20px;  /*水平width+margin=100%*/
+	margin: 0px auto 20px;  /*水平width+margin=100%*/
 	position: relative;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
 
+.shopRightSide .shopCupShow div{
+	width: 100%;
+	max-width: 400px;
+	margin: 20px auto;
+	
+}
 
 
 .shopRightSide .shopCupShow > div > img{
     display: block;
     width: 100%;
     height: auto;
-    max-width: 768px;
+    max-width: 767px;
 }
-
-
 
 /*選擇顏色*/
 .shopColorChoose{
@@ -726,48 +587,29 @@ font-family: "華康仿宋體W2";
 }
 
 /*---價錢----*/
-.shopItemPrice1 p,.shopItemPrice2 p,.shopItemPrice3 p
-{
-	font-size: 30px;
+.shopPrice{
+	margin-bottom: 2%;
+	margin-top: 12%;
+}
+
+.shopPrice span{
 	font-family: "華康仿宋體W2";
-	position: relative;
-	top: 90px;
-	text-align: center;
-	margin-left: -10%;
+	font-size: 22px;
 }
 
-.shopItemPrice4 p,.shopItemPrice5 p,.shopItemPrice6 p{
-    font-size: 30px;
+
+/*按鈕*/
+.shopMadeButton{
 	font-family: "華康仿宋體W2";
-	position: relative;
-	top: 90px;
-	text-align: center;
-	margin-left: -9%;
+	margin: 125px 0 50px;
+	
 }
 
-
-
-
-
-
-#app{
-	max-width: 400px;
-	width: 100%;
-	height: auto;
-	margin-left: 23%;
-}
-
-#app1{
-	max-width: 400px;
-	width: 100%;
-	height: auto;
-	margin-left: 22.75%;
-}
 
 /*====================商城開始====================*/
 
 /*-------選擇圖案區塊 輪播圖--桌機(隱藏)---------*/
-@media all and (min-width: 768px){
+@media all and (min-width: 767px){
 	.shopLeftSmallA{
 		display: none;
 	}
@@ -778,7 +620,7 @@ font-family: "華康仿宋體W2";
 }
 
 /*-------選擇圖案區塊 直立圖 --手機(隱藏)---------*/
-@media all and (max-width: 768px){
+@media all and (max-width: 767px){
 	#shopLeftSide{
 		display: none;
 	}
@@ -792,15 +634,14 @@ font-family: "華康仿宋體W2";
 	.shopImg{
 		position: absolute;
 		width: 100%;	
+		max-width: 1200px;
 		margin: 0 auto;	
 	}	
-
 	#shopCupShow img{
-		max-width: 250px;
-		width: 125%;
-		height: auto;
-
-
+		margin-top: 10%;
+		margin-left: 0%;
+   		width: 100%;
+    	max-width: 250px;
 
 	}
 
@@ -815,68 +656,38 @@ font-family: "華康仿宋體W2";
 	}
 
 
+	.shopMadeButton{
 
+		margin: 120px 25px 0;
+	
+	}
 
 	#shopRightSide{
 		width: 100%;	
 		margin: 0 auto;	
 	}
-
-	.shopRightSide .shopCupShow{
-	width: 100%;
-	margin: 20px auto 20px;  /*水平width+margin=100%*/
-	position: relative;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	.shopPrice{
+	margin-bottom: 6%;
+	margin-top: 24%;
 	}
 
-	.shopImg #app{
-	width: 350px;
-	height: auto;
-	margin-left: 40%;
-	
+	.shopAllBtn{
+		position: relative;
+		top: -90px;
 	}
 
-	#app1{
-	width: 100%;
-	height: auto;
-	margin-left: 55%;
+	.shopAllBtn1{
+		position: relative;
+		top: -90px;
 	}
 
 
 
-	.shopItemPrice1 p, .shopItemPrice2 p, .shopItemPrice3 p{
-	
-		 font-size: 22px;
-   		 font-family: "華康仿宋體W2";
-  		 position: relative;
-    	 top: 95px;
-    	 text-align: center;
-    	 margin-left: 0%;
 	}
-
-	.shopItemPrice4 p, .shopItemPrice5 p, .shopItemPrice6 p{
-		font-size: 22px;
-   		 font-family: "華康仿宋體W2";
-  		 position: relative;
-    	 top: 95px;
-    	 text-align: center;
-    	 margin-left: 0.5%;
-
-	}
-
-
-	}
-
-
-
-
 
 	/*=============01-2商城主要Block=============*/
 	.containerShop{
 		padding: 0 20px 100px;
-		text-align: center;
 	}
 
 	.shopLeftSide{
@@ -953,51 +764,12 @@ font-family: "華康仿宋體W2";
 		margin: 33px auto 30px;  /*水平width+margin=100%*/
 	}
 
-	.shopRightSide .shopImg img{
-		width: 120%;
-		height:auto;
+	.shopRightSide .shopImg > div{
 		max-width: 400px;
 		margin: 0 auto;
-		
 	}
 
-	.shopCustomerProduct{
-		width: 10%;
-	}
-
-
-
-
-
-
-
-	#white{
-		margin: 0 10px;
-		width: 30px;
-		height: 30px;
-		border-radius: 50%;
-		border:none;
-		background-color: #fff;
-	}
-	#red{
-		margin: 0 10px;
-		width: 30px;
-		height: 30px;
-		border-radius: 50%;
-		border:none;
-		background-color: #a83d15;
-	}
-	#blue{
-		margin: 0 10px;
-		width: 30px;
-		height: 30px;
-		border-radius: 50%;
-		border:none;
-		background-color: #283562;
-	}
-
-
-
+	/*按鈕*/
 
     /*=============05新增=============*/
  
@@ -1010,16 +782,19 @@ font-family: "華康仿宋體W2";
 	.shopProductList .shopContent{
 		padding: 0 20px;
 	}
+	
 
-}
+/*顏色數量按鈕*/
 
+	.shopAllBtn{
+		position: relative;
+		top: -90px;
+	}
 
-
-
-
-
-
-
+	.shopAllBtn1{
+		position: relative;
+		top: -90px;
+	}
 
 
 

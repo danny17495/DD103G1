@@ -5,7 +5,7 @@
 }
 *{
     list-style: none;
-	/*outline:solid 1px red;*/
+	/* outline:solid 1px red; */
 }
 /*----------------index Banner(手機板)-----------------*/
 
@@ -156,6 +156,12 @@
     width: 100%; 
     margin:20px auto;
 }
+#indexSpot_02,
+#indexSpot_03,
+#indexSpot_pic02,
+#indexSpot_pic03{
+    display: none;
+}
 .indexSpotPic .indexSpotPic_OOuter{
     padding: 10px;
     background-image: url(../images/indexSpot/pic_bg.jpg);
@@ -163,13 +169,31 @@
     width: 100%;
     border-radius: 30% 38% 22% 38%/ 51% 47% 42% 42%;
     animation: 
-    transform2 8s linear infinite alternate-reverse;
+    transform2 5s linear infinite alternate-reverse;
+}
+.indexSpotPic .indexSpotPic_OOuter_2{
+    padding: 10px;
+    background-image: url(../images/indexSpot/pic_bg_02.jpg);
+    background-repeat: no-repeat;
+    width: 100%;
+    border-radius: 30% 38% 22% 38%/ 51% 47% 42% 42%;
+    animation: 
+    transform2 5s linear infinite alternate-reverse;
+}
+.indexSpotPic .indexSpotPic_OOuter_3{
+    padding: 10px;
+    background-image: url(../images/indexSpot/pic_bg_03.jpg);
+    background-repeat: no-repeat;
+    width: 100%;
+    border-radius: 30% 38% 22% 38%/ 51% 47% 42% 42%;
+    animation: 
+    transform2 5s linear infinite alternate-reverse;
 }
 .indexSpotPic .indexSpotPic_outer{
     height: 100%;
     border-radius: 30% 38% 22% 38%/ 51% 47% 42% 42%;
     animation: 
-    transform 10s linear infinite alternate-reverse,
+    transform 8s linear infinite alternate-reverse,
     shade 60s linear infinite alternate-reverse;
     overflow: hidden;
     position: relative;
@@ -203,16 +227,21 @@
   0%, 100% { background-position: 0% 50%; }
        50% { background-position: 100% 50%; }
 }
-.indexSpotPic .indexSpotPic_OOuter:after{
-    content: '';
-    display: block;
-    background-image: url(../images/indexSpot/tree_mobile.png);
-    width: 50px;
-    height: 80px;
-    position: absolute;
-    bottom: 80px;
-    right: 30px;
+.indexSpotTree{
+        width: 40px;
+        height: 70px;
+        position: absolute;
+        bottom:80px;
+        right: 310px;
+        transform-origin: bottom center;
+        transform: scale(0);
+    }
+.indexSpotTree img{
+    width: 120%;
 }
+.indexSpotPic .indexSpotTree.treeGrow{
+        animation:treeGrow 1s forwards;
+    }
 /*   indexSpot  首頁行程介紹---下方按鈕  */
 .spotContainer .indexSpotBtns{
     padding-top: 10px;
@@ -290,16 +319,22 @@
     }
     .indexSpot .indexSpotPic{
         margin-top: 50px;
+        position: relative;
     }
-    .indexSpotPic .indexSpotPic_OOuter:after{
-        content: '';
-        display: block;
-        background-image: url(../images/indexSpot/tree.png);
+    .indexSpotTree{
         width: 60px;
         height: 102px;
         position: absolute;
-        top:250px;
+        bottom:0px;
         right: 40px;
+        transform-origin: bottom center;
+        transform: scale(0);
+    }
+    .indexSpotTree img{
+        width: 100%;
+    }
+    .indexSpotPic .indexSpotTree.treeGrow{
+        animation:treeGrow 1s forwards;
     }
     .indexSpotBtns .indexSpotBtn1,
     .indexSpotBtns .indexSpotBtn2,
@@ -319,7 +354,9 @@
         display: inline-block;
         text-align: center;
     }   
-    .indexSpotPic .indexSpotPic_OOuter{
+    .indexSpotPic .indexSpotPic_OOuter,
+    .indexSpotPic .indexSpotPic_OOuter_2,
+    .indexSpotPic .indexSpotPic_OOuter_3{
         padding: 18px;
     }
     
@@ -684,9 +721,15 @@
 }
 
 .postBack img{
-	display: block;
+	/* display: block; */
 	width: 100%;
 	height: auto;
+    vertical-align: middle;
+}
+#indexPostBG1,
+#indexPostBG2,
+#indexPostBG3{
+    display: none;
 }
 
 /*步驟*/
@@ -726,6 +769,7 @@
 	position: absolute;
 	top: 50%;
 	transform: translate( 0, -50%);/*減掉自己本身的*/
+    color: pointer;
 }
 
 /*步驟黃色圓底*/
@@ -791,6 +835,7 @@
 	top: 20%;
 	left: 18%;
 	z-index: 5;
+    cursor: pointer;
 }
 
 .postBGC_2{
@@ -798,13 +843,20 @@
 	top: 35%;
 	left: 55%;
 	z-index: 4;
+    cursor: pointer;
 }
 
 .postBGC_3{
 	transform: rotateZ(-6deg);
-	top: 52%;
+	top: 62%;
 	left: 5%;
 	z-index: 3;
+    cursor: pointer;
+}
+.postBGC_1:hover,
+.postBGC_2:hover,
+.postBGC_3:hover{
+    border: 3px solid #e99313;
 }
 
 /*上傳窗格*/
@@ -1333,7 +1385,7 @@
 	}
 
 	.postBGC_2{
-		top: 40%;
+		top: 42%;
 		left: 45%;
 	}
 
@@ -1581,23 +1633,35 @@
     margin: 40px auto;
 }
 .indexGameOuter{
-    width: 90%;
+    width: 100%;
     margin: 0 auto;
     border-radius: 50px;
     overflow: hidden;
 }
+#indexGameVideo{
+    display: none;
+}
+#indexGameVideoSmall{
+    display: block;
+    width: 100%;
+    margin:0 auto;
+}
 .indexGameOuter img{
     width: 100%;
     max-width: 1000px;
-    display: block;
-    
+    display: block;    
 }
 .indexGame .indexGameBtn{
-    margin: 30px auto;
-    
+    margin: 30px auto;    
 }
 /* ---------indexSpot  首頁小遊戲(網頁板)------- */
 @media screen and (min-width: 768px){
+    #indexGameVideo{
+        display: block;
+    }
+    #indexGameVideoSmall{
+        display: none;
+    }
     .indexGame{
         padding: 50px 25px 120px;
     }
@@ -1605,7 +1669,10 @@
         margin: 60px auto;
     }
     .indexGameOuter{
-        width: 65%;
+        width: 700px;
+        margin: 0 auto;
+        border-radius: 80px;
+        overflow: hidden;
     }
 }
 
@@ -2056,16 +2123,21 @@
 		left: 0;
 		margin: 0 auto;
 	}
-	.spotIntroBannerText:after{
-		content: '';
-		display: block;
-		background-image: url(../images/indexSpot/tree_mobile.png);
-		width: 50px;
-	    height: 80px;
-	    position: absolute;
-	    top: -16px;
-    	right: 7px;
-	}
+    .spotIntroTree{
+        width: 50px;
+        height: 80px;
+        position: absolute;
+        bottom: 156px;
+        right: 37px;
+        transform-origin: bottom center;
+        transform: scale(0);
+    }
+    .spotIntroTree img{ 
+        width: 100%;
+    }
+    .spotIntroBannerOuter .spotIntroTree.treeGrow{
+        animation:treeGrow 1s forwards;
+    }
 	.spotIntroBannerText h1{
 		font-size: 20px;
 		text-align: center;
@@ -2101,17 +2173,15 @@
 	}
 	.spotIntroBannerOuter{
 		height: 100vh;
+        position: relative;
 	}
-	.spotIntroBannerOuter:after{
-		content: '';
-		display: block;
-		background-image: url(../images/indexSpot/tree.png);
-		width: 60px;
+    .spotIntroTree{
+        width: 60px;
         height: 102px;
-	    position: absolute;
-	    bottom: -70px;
-   		right: 20px;
-	}
+        position: absolute;
+        bottom: -70px;
+        right: 20px;
+    }
 	.spotIntroBannerText{
 		padding:140px 30px ;
 		width: 24%;
@@ -2433,7 +2503,13 @@
 		position: absolute;
 		bottom: 0;
 		right: 0;
+        animation: spotIntroCloudMove 3s linear alternate infinite;
 	}
+
+    @keyframes spotIntroCloudMove{
+        0%{right:0;}
+        100%{right:180px; }
+    }
 	.spotIntroTrip1_SpotAouter{
 		width: 100%;
 		display: flex;
@@ -2450,7 +2526,7 @@
 		position: relative;
 		margin-left: 60px;
 		animation: 
-	    transform 5s linear infinite alternate-reverse;
+	    transform 4s linear infinite alternate-reverse;
 	}
 
 	.spotIntroTrip1_SpotA_mv{
@@ -2520,7 +2596,7 @@
 		border-radius: 39% 48% 38% 56%/ 52% 64% 58% 46%;
 		position: relative;
 		animation: 
-	    transform 5s linear infinite alternate-reverse;
+	    transform 4s linear infinite alternate-reverse;
 }
 
 .spotIntroTrip1_SpotBPic_outer{
@@ -2591,7 +2667,12 @@
 		position: absolute;
 		bottom: -15px;
 		left: -78px;
+        animation: spotIntroCloudMove2 2.5s linear alternate infinite;
 	}
+    @keyframes spotIntroCloudMove2{
+        0%{left: -78px;}
+        100%{left: 10px; }
+    }
 	.spotIntroTrip1_SpotBouter{
 		width: 100%;
 		display: flex;
@@ -2640,7 +2721,7 @@
 		margin-left: 30px;
 		margin-right: 55px;
 		animation: 
-	    transform 5s linear infinite alternate-reverse;
+	    transform 4s linear infinite alternate-reverse;
 	}
 	.spotIntroTrip1_SpotBPic_outer{
 		width: 92%;
@@ -2685,7 +2766,7 @@
 		border-radius: 39% 48% 38% 56%/ 52% 64% 58% 46%;
 		position: relative;
 		animation: 
-	    transform 5s linear infinite alternate-reverse;
+	    transform 4s linear infinite alternate-reverse;
 }
 .spotIntroTrip1_SpotCPic_outer{
 		width: 92%;
@@ -2764,7 +2845,7 @@
 		position: relative;
 		margin-left: 60px;
 		animation: 
-	    transform 5s linear infinite alternate-reverse;
+	    transform 4s linear infinite alternate-reverse;
 	}
 	.spotIntroTrip1_SpotCPic_outer{
 		width: 92%;
@@ -2847,7 +2928,7 @@
 		overflow: hidden;
 		position: relative;
 		animation: 
-	    transform3 20s linear infinite alternate-reverse;
+	    transform3 10s linear infinite alternate-reverse;
 }
 @keyframes transform3 {
 	  0%{border-radius: 42% 58% 60% 40% / 32% 54% 46% 68%}
@@ -3000,7 +3081,7 @@
 		overflow: hidden;
 		position: relative;
 		animation: 
-	    transform3 20s linear infinite alternate-reverse;
+	    transform3 10s linear infinite alternate-reverse;
 	}
 	.spotIntroTrip2_pic_Outer img{
 		display: block;
@@ -3314,7 +3395,6 @@
 	text-align: center;
 	font-family: '華康秀風體';
 	font-size: 18px;
-	background-color: #fff;
 	border-radius: 50px;
 }
 @media all and (min-width:768px) {
@@ -3411,6 +3491,7 @@
     background-image: url(../images/game/game1_bg_mobile.png);
     background-position: center center;
     background-repeat: no-repeat;
+    background-size: cover;
     border-radius: 10%;
     position: relative; 
     margin: auto;
@@ -3716,6 +3797,16 @@
     right: 34%;
     display: none;
 }
+@media all and (min-width: 430px) {
+    .game_coupon_wrap .couponNUM{
+    position: absolute;
+    top: 65%;
+    right: 20%;
+    margin: auto;
+    font-size: 16px;
+    font-family: '華康秀風體';
+    }
+}
 
 /*----------------小遊戲(網頁版)-------------------*/
 @media all and (min-width: 768px) {
@@ -3757,7 +3848,7 @@
         left: 0;
         margin: auto;
         display: inline-block;
-        padding-left: 80px;
+        padding-left: 20px;
         display: none;
     }
     .littleGame .suggestionBar img{
@@ -3784,13 +3875,13 @@
     }
     .littleGame .suggestionBar span{
         color: #fff;
-        font-size: 24px;
-        margin-left: 50px;
-        margin-right: 20px;
+        font-size: 18px;
+        margin-left: 25px;
+        margin-right: 10px;
         vertical-align:middle;
     }
     .littleGame .suggestionBar #taroText{
-        margin-left: 10%;
+        margin-left: 3%;
     }
     #game_suggestion{
         width: 82px;
@@ -3948,7 +4039,7 @@
     }
     .game_coupon_wrap .couponNUM{
         position: absolute;
-        bottom: 25%;
+        top: 68%;
         right: 20%;
         margin: auto;
         font-size: 22px;
@@ -4035,6 +4126,45 @@
         bottom: 60px;
         right: 43%;
         display: none;
+    }
+}
+/*----------------小遊戲(網頁版)-------------------*/
+@media all and (min-width: 992px) {
+    .littleGame .suggestionBar span{
+        color: #fff;
+        font-size: 24px;
+        margin-left: 50px;
+        margin-right: 20px;
+        vertical-align:middle;
+    }
+    .littleGame .suggestionBar{
+        width:100%;
+        background-color: #282832;
+        position: absolute;
+        top: 17px;
+        right: 0;
+        left: 0;
+        margin: auto;
+        display: inline-block;
+        padding-left: 80px;
+        display: none;
+    }
+    .littleGame .suggestionBar #taroText{
+        margin-left: 5%;
+    }
+    .littleGame .suggestionBar span{
+        color: #fff;
+        font-size: 18px;
+        margin-left: 50px;
+        margin-right: 10px;
+        vertical-align:middle;
+    }
+  
+}
+
+@media all and (min-width: 1200px) {
+  .littleGame .suggestionBar #taroText{
+        margin-left: 10%;
     }
 }
 
