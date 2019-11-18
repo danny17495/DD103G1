@@ -169,7 +169,7 @@
     width: 100%;
     border-radius: 30% 38% 22% 38%/ 51% 47% 42% 42%;
     animation: 
-    transform2 8s linear infinite alternate-reverse;
+    transform2 5s linear infinite alternate-reverse;
 }
 .indexSpotPic .indexSpotPic_OOuter_2{
     padding: 10px;
@@ -178,7 +178,7 @@
     width: 100%;
     border-radius: 30% 38% 22% 38%/ 51% 47% 42% 42%;
     animation: 
-    transform2 8s linear infinite alternate-reverse;
+    transform2 5s linear infinite alternate-reverse;
 }
 .indexSpotPic .indexSpotPic_OOuter_3{
     padding: 10px;
@@ -187,13 +187,13 @@
     width: 100%;
     border-radius: 30% 38% 22% 38%/ 51% 47% 42% 42%;
     animation: 
-    transform2 8s linear infinite alternate-reverse;
+    transform2 5s linear infinite alternate-reverse;
 }
 .indexSpotPic .indexSpotPic_outer{
     height: 100%;
     border-radius: 30% 38% 22% 38%/ 51% 47% 42% 42%;
     animation: 
-    transform 10s linear infinite alternate-reverse,
+    transform 8s linear infinite alternate-reverse,
     shade 60s linear infinite alternate-reverse;
     overflow: hidden;
     position: relative;
@@ -227,18 +227,21 @@
   0%, 100% { background-position: 0% 50%; }
        50% { background-position: 100% 50%; }
 }
-.indexSpotPic .indexSpotPic_OOuter:after,
-.indexSpotPic .indexSpotPic_OOuter_2:after,
-.indexSpotPic .indexSpotPic_OOuter_3:after{
-    content: '';
-    display: block;
-    background-image: url(../images/indexSpot/tree_mobile.png);
-    width: 50px;
-    height: 80px;
-    position: absolute;
-    bottom: 80px;
-    right: 30px;
+.indexSpotTree{
+        width: 40px;
+        height: 70px;
+        position: absolute;
+        bottom:80px;
+        right: 310px;
+        transform-origin: bottom center;
+        transform: scale(0);
+    }
+.indexSpotTree img{
+    width: 120%;
 }
+.indexSpotPic .indexSpotTree.treeGrow{
+        animation:treeGrow 1s forwards;
+    }
 /*   indexSpot  首頁行程介紹---下方按鈕  */
 .spotContainer .indexSpotBtns{
     padding-top: 10px;
@@ -316,18 +319,22 @@
     }
     .indexSpot .indexSpotPic{
         margin-top: 50px;
+        position: relative;
     }
-    .indexSpotPic .indexSpotPic_OOuter:after,
-     .indexSpotPic .indexSpotPic_OOuter_2:after,
-     .indexSpotPic .indexSpotPic_OOuter_3:after{
-        content: '';
-        display: block;
-        background-image: url(../images/indexSpot/tree.png);
+    .indexSpotTree{
         width: 60px;
         height: 102px;
         position: absolute;
-        top:250px;
+        bottom:0px;
         right: 40px;
+        transform-origin: bottom center;
+        transform: scale(0);
+    }
+    .indexSpotTree img{
+        width: 100%;
+    }
+    .indexSpotPic .indexSpotTree.treeGrow{
+        animation:treeGrow 1s forwards;
     }
     .indexSpotBtns .indexSpotBtn1,
     .indexSpotBtns .indexSpotBtn2,
@@ -701,7 +708,7 @@
 }
 
 .postBack img{
-	display: block;
+	/* display: block; */
 	width: 100%;
 	height: auto;
     vertical-align: middle;
@@ -1592,7 +1599,7 @@
     margin: 40px auto;
 }
 .indexGameOuter{
-    width: 85%;
+    width: 100%;
     margin: 0 auto;
     border-radius: 50px;
     overflow: hidden;
@@ -1602,7 +1609,7 @@
 }
 #indexGameVideoSmall{
     display: block;
-    width: 300px;
+    width: 100%;
     margin:0 auto;
 }
 .indexGameOuter img{
@@ -2069,16 +2076,21 @@
 		left: 0;
 		margin: 0 auto;
 	}
-	.spotIntroBannerText:after{
-		content: '';
-		display: block;
-		background-image: url(../images/indexSpot/tree_mobile.png);
-		width: 50px;
-	    height: 80px;
-	    position: absolute;
-	    top: -16px;
-    	right: 7px;
-	}
+    .spotIntroTree{
+        width: 50px;
+        height: 80px;
+        position: absolute;
+        bottom: 156px;
+        right: 37px;
+        transform-origin: bottom center;
+        transform: scale(0);
+    }
+    .spotIntroTree img{ 
+        width: 100%;
+    }
+    .spotIntroBannerOuter .spotIntroTree.treeGrow{
+        animation:treeGrow 1s forwards;
+    }
 	.spotIntroBannerText h1{
 		font-size: 20px;
 		text-align: center;
@@ -2114,17 +2126,15 @@
 	}
 	.spotIntroBannerOuter{
 		height: 100vh;
+        position: relative;
 	}
-	.spotIntroBannerOuter:after{
-		content: '';
-		display: block;
-		background-image: url(../images/indexSpot/tree.png);
-		width: 60px;
+    .spotIntroTree{
+        width: 60px;
         height: 102px;
-	    position: absolute;
-	    bottom: -70px;
-   		right: 20px;
-	}
+        position: absolute;
+        bottom: -70px;
+        right: 20px;
+    }
 	.spotIntroBannerText{
 		padding:140px 30px ;
 		width: 24%;
@@ -2446,7 +2456,13 @@
 		position: absolute;
 		bottom: 0;
 		right: 0;
+        animation: spotIntroCloudMove 3s linear alternate infinite;
 	}
+
+    @keyframes spotIntroCloudMove{
+        0%{right:0;}
+        100%{right:180px; }
+    }
 	.spotIntroTrip1_SpotAouter{
 		width: 100%;
 		display: flex;
@@ -2463,7 +2479,7 @@
 		position: relative;
 		margin-left: 60px;
 		animation: 
-	    transform 5s linear infinite alternate-reverse;
+	    transform 4s linear infinite alternate-reverse;
 	}
 
 	.spotIntroTrip1_SpotA_mv{
@@ -2533,7 +2549,7 @@
 		border-radius: 39% 48% 38% 56%/ 52% 64% 58% 46%;
 		position: relative;
 		animation: 
-	    transform 5s linear infinite alternate-reverse;
+	    transform 4s linear infinite alternate-reverse;
 }
 
 .spotIntroTrip1_SpotBPic_outer{
@@ -2604,7 +2620,12 @@
 		position: absolute;
 		bottom: -15px;
 		left: -78px;
+        animation: spotIntroCloudMove2 2.5s linear alternate infinite;
 	}
+    @keyframes spotIntroCloudMove2{
+        0%{left: -78px;}
+        100%{left: 10px; }
+    }
 	.spotIntroTrip1_SpotBouter{
 		width: 100%;
 		display: flex;
@@ -2653,7 +2674,7 @@
 		margin-left: 30px;
 		margin-right: 55px;
 		animation: 
-	    transform 5s linear infinite alternate-reverse;
+	    transform 4s linear infinite alternate-reverse;
 	}
 	.spotIntroTrip1_SpotBPic_outer{
 		width: 92%;
@@ -2698,7 +2719,7 @@
 		border-radius: 39% 48% 38% 56%/ 52% 64% 58% 46%;
 		position: relative;
 		animation: 
-	    transform 5s linear infinite alternate-reverse;
+	    transform 4s linear infinite alternate-reverse;
 }
 .spotIntroTrip1_SpotCPic_outer{
 		width: 92%;
@@ -2777,7 +2798,7 @@
 		position: relative;
 		margin-left: 60px;
 		animation: 
-	    transform 5s linear infinite alternate-reverse;
+	    transform 4s linear infinite alternate-reverse;
 	}
 	.spotIntroTrip1_SpotCPic_outer{
 		width: 92%;
@@ -2860,7 +2881,7 @@
 		overflow: hidden;
 		position: relative;
 		animation: 
-	    transform3 20s linear infinite alternate-reverse;
+	    transform3 10s linear infinite alternate-reverse;
 }
 @keyframes transform3 {
 	  0%{border-radius: 42% 58% 60% 40% / 32% 54% 46% 68%}
@@ -3013,7 +3034,7 @@
 		overflow: hidden;
 		position: relative;
 		animation: 
-	    transform3 20s linear infinite alternate-reverse;
+	    transform3 10s linear infinite alternate-reverse;
 	}
 	.spotIntroTrip2_pic_Outer img{
 		display: block;

@@ -20,4 +20,10 @@ window.addEventListener("load", function () {
         //triggerHook: 0
     }).setClassToggle('.tree', 'treeGrow').addIndicators().addTo(controller);
 
+    //首頁景點介紹圖的樹長出來
+    var scene3 = new ScrollMagic.Scene({
+        triggerElement: '.indexSpotTree_start',
+        //triggerHook: 0
+    }).setClassToggle('.indexSpotTree', 'treeGrow').addTo(controller);
+        
 });
