@@ -27,8 +27,8 @@ try{
     where member.memId=competition.memId and YEAR(startDate) = 2019 
     order by competition.vote desc";
     //根據票數從大到小排列
-    $member_vote = $pdo->prepare($sql_member_vote);
-    $member_vote ->execute();
+    $memberVote = $pdo->prepare($sql_member_vote);
+    $memberVote ->execute();
 
 
 
@@ -134,8 +134,8 @@ try{
 
             <div class="messageTitle">
                 <h3>留言板</h3> 
-                <i class="fa fa-times-circle Trip2_lightBoxBTN closeBtn" aria-hidden="true"></i>
-                <!-- <img src="images/competition/X.png" alt="close" class="closeBtn"> -->
+                <!-- <i class="fa fa-times-circle Trip2_lightBoxBTN closeBtn" aria-hidden="true"></i> -->
+                <img src="images/competition/X.png" alt="close" class="closeBtn">
             </div>
             
             <!-- 留言區 -->
@@ -214,16 +214,27 @@ try{
             <img src="images/competition/skyLight3.png" id="skylight3" alt="">
             <img src="images/competition/skyLight2.png" id="skylight2" alt="">
 
+            <?php
+                for($i=0;$i<1;$i++){
+              $memberVoteRow = $memberVote -> fetch(PDO::FETCH_ASSOC)
+            ?> 
+
             <!-- 第一名明信片 -->
             <div class="messageNo1">
                 <div class="messageBoard">
                     <div class="competitionVoteTitle">
                         <input type="hidden"  name="work_no">
-                        <span>第一名<span id="memId"></span></span>
-                        <span>得票數<span id="vote0">票</span></span>
+                        <span>第一名
+                            <span id="memId">
+                                <?=$memberVoteRow["memId"]?>
+                            </span>
+                        </span>
+                        <span>得票數</span>
+                        <span><?=$memberVoteRow["vote"]?>票</span>
+
                     </div>
                     <div class="competitionPost">
-                        <img src="" alt="">
+                        <img src="<?=$memberVoteRow["postcardPic"]?>" alt="">
                     </div>
                     <div class="competitionText">
                         <div class="textContent">123</div>
@@ -243,6 +254,14 @@ try{
                     </div>
                 </div>
             </div>
+            <?php
+                }
+            ?>
+
+            <?php
+                for($i=0;$i<1;$i++){  
+                $memberVoteRow = $memberVote -> fetch(PDO::FETCH_ASSOC)
+            ?> 
 
 
             <div class="clearfix"></div>
@@ -252,8 +271,13 @@ try{
                 <div class="messageBoard">
                     <div class="competitionVoteTitle">
                         <input type="hidden"  name="work_no">
-                        <span>第二名<span id="memId">台南喬喬</span></span>
-                        <span>得票數<span id="vote0">666票</span></span>
+                        <span>第二名
+                            <span id="memId">
+                                <?=$memberVoteRow["memId"]?>
+                            </span>
+                        </span>
+                        <span>得票數</span>
+                        <span><?=$memberVoteRow["vote"]?>票</span>
                     </div>
                     <div class="competitionPost">
                         <img src="images/competition/card02.png" alt="">
@@ -275,6 +299,9 @@ try{
                         </span>
                     </div>
                 </div>
+                <?php
+                }
+                ?>
 
                 <div class="messageBoard" id="under">
                     <div class="competitionVoteTitle">
