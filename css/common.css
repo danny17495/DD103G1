@@ -846,6 +846,11 @@ header.white {
   }
 }
 
+.navDarken a.nowpage:after {
+  -webkit-transform: translate(-50%, 0) scale(1);
+          transform: translate(-50%, 0) scale(1);
+}
+
 /*----------------- footer -----------------------*/
 footer {
   display: -webkit-box;

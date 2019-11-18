@@ -2,24 +2,7 @@ window.addEventListener("load", function () {
     createCode();
 });
 let produceCode = document.getElementById('produceCode');
-//alert 關閉
-function alertWrap(title) {
-    let alertWindow = document.querySelector('.alertWindow');
-    let alertContent = document.querySelector('.alertContent');
-    let alertClose = document.querySelector('.alertClose');
-    let yesButton = document.querySelector('.yesButton');
-    alertWindow.style.display = 'flex';
-    alertContent.innerHTML = title;
-    alertClose.addEventListener('click', function () {
-        alertWindow.style.display = "none";
-        return false;
-    });
-    yesButton.addEventListener('click', function () {
-        alertWindow.style.display = "none";
-        enterCode.value = '';
-        enterCode.focus();
-    });
-}
+
 //創驗證碼
 function createCode() {
     let randomNum = '';
@@ -39,6 +22,8 @@ function validateCode() {
 
     } else if (enterCode.value !== produceCode.innerText) {
         alertWrap("驗證碼輸入錯誤");
+        enterCode.value = '';
+        enterCode.focus();
     } else {
         alert('success');
     }

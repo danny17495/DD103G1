@@ -44,7 +44,7 @@
                             <a href="spotIntro.html">行程介紹</a>
                         </li>
                         <li>
-                            <a href="reserve.html">預約行程</a>
+                            <a href="reserve.html" class="nowpage">預約行程</a>
                         </li>
                         <li>
                             <a href="postcard.html">客製明信片</a>
@@ -158,7 +158,7 @@
         </section>
         <section class="timelyBus"> 
             <h1>及時公車資訊</h1>
-            <div class="container">
+            <div class="container" >
                 <div class="busContent">
                     <div class="chooseBusPlace">
                         <div class="leafButton route active" data-route="856(台灣好行-黃金福隆線)">尋幽訪古</div>
@@ -180,27 +180,27 @@
                     <img src="images/reserve/cat.png" alt="cat">
                 </div>
                 <div class="feetLeft">
-                    <div class="catFeet1">
+                    <div class="catFeet1 catFeet">
                         <img src="images/reserve/footl1.png" alt="footl">
                     </div>
-                    <div class="catFeet2">
+                    <div class="catFeet2 catFeet">
                         <img src="images/reserve/footl2.png" alt="footl">
                     </div>
-                    <div class="catFeet3">
+                    <div class="catFeet3 catFeet">
                         <img src="images/reserve/footl3.png" alt="footl">
                     </div>
-                    <div class="catFeet4">
+                    <div class="catFeet4 catFeet">
                         <img src="images/reserve/footl4.png" alt="footl">
                     </div>
                 </div>
                 <div class="feetRight">
-                    <div class="catFeetr1">
+                    <div class="catFeetr1 catFeet">
                         <img src="images/reserve/footr1.png" alt="footr">
                     </div>
-                    <div class="catFeetr2">
+                    <div class="catFeetr2 catFeet">
                         <img src="images/reserve/footr2.png" alt="footr">
                     </div>
-                    <div class="catFeetr3">
+                    <div class="catFeetr3 catFeet">
                         <img src="images/reserve/footr3.png" alt="footr">
                     </div>
                 </div>
@@ -250,12 +250,19 @@
                 <div class="cancelButton whiteButton">取消</div>
             </div>
             <div class="alertClose">
-                <span>x</span>
+                <i class="fa fa-times-circle Trip2_lightBoxBTN" aria-hidden="true" id="Trip2_lightBoxBTN02"></i>
             </div>
+        
         </div>
     </div>
+<!-- <script src="js/busAPI.js"></script> -->
+<!-- <script src="js/ScrollMagic.min.js"></script>
+<script src="js/animation.gsap.min.js"></script>
+<script src="js/debug.addIndicators.min.js"></script>
+<script src="js/TweenMax.min.js"></script> -->
+<script src="js/reserveMove.js"></script>
+<script src="js/alert.js"></script>
 <script src="js/reserveDate.js"></script>
 <script src="js/canlendar.js"></script>
-<script src="js/busAPI.js"></script>
 </body>
 </html>

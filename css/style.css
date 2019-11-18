@@ -337,8 +337,8 @@
 .indexReserve{
     margin-top: -23px;
     padding: 45px 10px;
-   /* background-color: #feeed4;*/
     overflow: hidden;
+    position: relative;
 }
 .indexReserve .indexReLeft{
     margin-bottom: 20px;
@@ -364,6 +364,7 @@
     border-radius: 13px;
     outline: none;
     border: 1px solid #f39700;
+    background-color: #fff;
 }
 .indexReContent{
     position: relative;
@@ -471,7 +472,6 @@
    cursor:pointer;
 }
 .indexReserve .bottomRoadBus{
-    position: relative;
     margin-top: 20px;
 }
 .bottomRoadBus .roadTree{
@@ -485,11 +485,16 @@
     display: none;
     position: absolute;
     width: 125px;
-    top: 34px;
-    left: 64%;
+    bottom: 306px;
     cursor: pointer;
+    animation: bus 10s infinite
 }
-
+@keyframes bus{  
+    0%{right:100%} 
+    50%{right:25%}
+    60%{right:30%}
+    100%{right:-100%}
+}
 .reserveCalendar .busStop{
     position: absolute;
     width: 50px;
@@ -505,14 +510,20 @@
     position: absolute;
     width: 30px;
     height: 30px;
-    right: -11px;
+    right: 10px;
     top: -18px;
     font-size: 30px;
     border-radius: 50%;
     background-color: #fff;
     color: #f39800;
     text-align: center;
-    font-weight: bold
+    font-weight: bold;
+    animation:busstop 2s infinite
+}
+@keyframes busstop{  
+    0%{top: -18px} 
+    50%{top: -26px}
+    100%{top: -18px}
 }
 @media all and (min-width: 576px) {
     .indexReLeft .indexReContent{
@@ -572,8 +583,7 @@
     }
     .bottomRoadBus .roadBus{
         width: 165px;
-        top: 83px;
-        left: 66%;
+        bottom:253px;
     }
     .indexReContent .tree{
         width: auto;
@@ -582,6 +592,9 @@
     }
     .bottomRoadBus .roadTree{
         background-size: 100% 100%;
+    }
+    .busStop .seeBus{
+        right: 17px;
     }
 }
 
@@ -933,7 +946,8 @@
 
 .shopOneSlider img{
 	display: block;
-	width: 100%;
+    width: 100%;
+    cursor: pointer;
 }
 
 .shopDIYSmall span{
@@ -970,11 +984,17 @@
 	width: 100%;
 	margin: 0 auto 20px;  /*水平width+margin=100%*/
 	/*background-color: blue;*/
-	position: relative;
+    position: relative;
+    top: -30px;
+    animation:cupmove 8s infinite;
 }
-
+@keyframes cupmove{  
+    0%{top: -25px} 
+    50%{top: 0px}
+    100%{top: -25px}
+}
 .shopRight .indexCupDemo div{
-	width: 90%;
+	width: 100%;
 	max-width: 384px;
 	margin: 0 auto;
 	/*background-color: green;*/
@@ -990,6 +1010,7 @@
 .cupColorChoose{
     width: 50%;
     margin: auto;
+    cursor: pointer
 }
 .cupColorChoose span.cupColor{
 	display: inline-block;
@@ -1001,26 +1022,32 @@
 }
 
 .cupColorChoose span.cupColor1{
-	background-color: #fff;
+	background-color: #287fa0;
 }
 
 .cupColorChoose span.cupColor2{
 	background-color: rgb(194, 57, 6);
 }
-
-.cupColorChoose span.cupColor2:after{
-	content: "";
+.cupColorChoose span.cupColor:after{
+    content: "";
 	display: block;
 	width: 35px;
 	height: 35px;
-	border: 1px solid rgb(194, 57, 6);
 	border-radius: 50%;
 	box-sizing: border-box;
 	position: absolute;
 	top: -5px;
-	left: -5px;
+    left: -5px;
 }
-
+.cupColorChoose span.cupColor1.active:after{
+    border: 1px solid #287fa0;
+}
+.cupColorChoose span.cupColor2.active:after{
+    border: 1px solid rgb(194, 57, 6);
+}
+.cupColorChoose span.cupColor3.active:after{
+    border: 1px solid #1b3263;
+}
 /*按鈕*/
 .shopGameButton{
 	margin: 20px 0 50px;
@@ -1138,7 +1165,7 @@
 	/*排版*/
     .cupColorChoose{
         width: 50%;
-        margin-left: 25%;
+        margin-left: 26%;
     }
 	.shopDIY{
 		background-color: #fff;
@@ -1159,7 +1186,8 @@
 	}
 
 	.shopDIY li{
-		width: 100%;
+        width: 100%;
+        cursor: pointer;
 	}
 
 	.shopDIY .shopPic img{
@@ -1192,7 +1220,7 @@
 
 	/*按鈕*/
 	.shopGameButton{
-		margin: 60px 0 0;
+		margin: 30px 0 0;
 	}
 
 	/*=============04商城裝飾鐵軌=============*/
@@ -1380,7 +1408,7 @@
 	/*=============02商城圖案選擇區=============*/
 	/*排版*/
     .cupColorChoose{
-        margin-left: 31%;
+        margin-left: 33%;
     }
 	.shopDIY > ul{
 		height: 470px;	
@@ -1389,7 +1417,7 @@
 	/*=============03商城杯子展示區=============*/
 	.shopRight .indexCupDemo{
 		width: 60%;
-		margin: 120px auto 30px;  /*水平width+margin=100%*/
+		margin: 95px auto 30px;  /*水平width+margin=100%*/
 	}
 
 	.shopRight .indexCupDemo div{
@@ -1397,15 +1425,11 @@
 		max-width: 384px;
 		margin: 0 auto;
 	}
-    .shopRight .indexCupDemo > div > img{
-        display: block;
-        width: 120%;
-        height: auto;
-    }
+
 
 	/*按鈕*/
 	.shopGameButton{
-		margin: 60px 0 0 12%;
+		margin: 30px 0 0 15%;
 	}
     /*=============新增=============*/
    
@@ -1467,10 +1491,20 @@
 }
 .indexVoBtn,.indexVoBtn .vote,.indexVoBtn .message{
     display: flex;
-    justify-content: space-evenly
+    justify-content: space-evenly;
+    align-items: center;
+}
+.indexVoBtn .messIcon,.indexVoBtn .voteIcon,.indexVoBtn p{
+    color: inherit
 }
 .indexVoBtn p{
     margin-left: 5px;
+}
+.indexVoBtn>div{
+    color:black;
+}
+.indexVoBtn>div:hover{
+    color:rgb(37, 70, 141)
 }
 .indexVoteGame .whiteButton{
     margin: 0 auto
@@ -1592,6 +1626,10 @@
     margin-top: 100px;
     background:linear-gradient(rgba(248,238,218,0.3) 0%, rgba(248,238,218,0.5) 30%, rgba(248,238,218,0.9) 80%);
 }
+.linearOrange.fix{
+    margin-top: 0;
+    background: none;
+}
 .linearOrange .indexReserve{
     padding: 75px 10px;
 }
@@ -1712,13 +1750,21 @@
 .linearOrange .waitingBus{
     overflow: hidden;
     margin-top: 100px;
-  
+    position: relative;
 }
 .linearOrange .busLeft{
     float: left;
     width: 141px;
-    position: relative;
-    left: -50px;
+    position: absolute;
+    animation: busBig 10s infinite;
+    z-index: 2;
+    top: 125px;
+}
+@keyframes busBig{  
+    0%{right:100%} 
+    50%{right:8%}
+    60%{right:12%}
+    100%{right:-100%}
 }
 .linearOrange .waitingBus img{
     width: 100%;
@@ -1743,6 +1789,9 @@
 .linearOrange .busStopRight .waitGirl{
     width: 165px;
 }
+.linearOrange  .waitGirl.disappear{
+    opacity: 0;
+}
 .linearOrange .cat,.linearOrange .feetLeft,.linearOrange .feetRight{
     display: none;
 }
@@ -1750,7 +1799,6 @@
 @media screen and (min-width: 576px){
     .linearOrange .busLeft{
         width: 220px;
-        left: -110px;
         top: 84px;
     }
     .linearOrange .busStopRight .busStop{
@@ -1767,7 +1815,6 @@
     }
     .linearOrange .busLeft {
         width: 268px;
-        left: -122px;
         top: 105px;
     }
     .linearOrange .busStopRight .busStop{
@@ -1935,6 +1982,7 @@
     }
     .linearOrange .feetLeft>div,.linearOrange .feetRight>div{
         position: absolute;
+        opacity: 0;
     }
     .linearOrange .catFeet1{
         top: -113px;
@@ -1971,7 +2019,6 @@
     }
     .linearOrange .busLeft {
         width: 278px;
-        left: -142px;
         top: 135px;
     }
     .linearOrange .busStopRight .busStop{
@@ -4032,19 +4079,10 @@
     display: none;
     margin-left: 15px;
 }
-.alertWindow .alertClose {
-    display: block;
-    border-radius: 50%;
-    background-color: #fff;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 10px;
-    right: 9px;
-    text-align: center;
-    font-family: Microsoft JhengHei;
-    font-weight: bold;
-    cursor: pointer;
+
+.alertWindow .Trip2_lightBoxBTN{
+    right: 11px;
+    top: 7px;
 }
 .reserveCalendar .disabledDate{
     color:gray;
@@ -4160,7 +4198,7 @@
     background: url(../images/BG_PIC3.png) no-repeat;
     width: 100%;
     height:863px;
-	background-position:  center center;
+	background-position: bottom center;
 	left: -100%;
 }
 
@@ -5331,6 +5369,33 @@ body.postcardBody .forWallDeco{
     }
 
 }
-
-
+/*=============03商城杯子展示區 新增 =============*/
+.shopRight #changeSrc{
+    position: absolute;
+    width: 96px;
+    right: 0;
+    top: 21%;
+    left: 0;
+    margin: auto;
+}
+.shopRight #changeSrc img{
+    width: 100%;
+}
+.shopRight .cupPrice{
+    font-size: 23px;
+    margin-top: 20px;
+    padding-left: 15px;
+}
+@media screen and (min-width: 992px){
+    .shopRight .cupPrice{
+          padding-left: 17%;
+    }
+    .shopRight .indexCupDemo > div > img{
+        width: 120%;
+    }
+    .shopRight #changeSrc{
+        width: 120px;
+        left: 21%;
+    }
+}
 
