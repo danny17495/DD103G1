@@ -22,21 +22,21 @@ try {
   if( $_FILES["upFile"]["error"] == UPLOAD_ERR_OK){
 
 		//先檢查images資料夾存不存在
-		$dir ="../../img/customize//";
+		$dir ="../../images/";
 
 		if(!file_exists($dir)){
 			mkdir($dir);
 		}
 		//將檔案copy到要放的路徑
-		$fileInfoArr = pathinfo($_FILES["upFile"]["name"]); //原本使用者放的路徑
+		// $fileInfoArr = pathinfo($_FILES["upFile"]["name"]); //原本使用者放的路徑
 		
-		$fileName = "member". $_SESSION['memNo'] . "_sticker" . "." . $fileInfoArr["extension"];  //use1_sticker.gif
+		// $fileName = "member". $_SESSION['memNo'] . "_sticker" . "." . $fileInfoArr["extension"];  //use1_sticker.gif
 		
-		$from = $_FILES["upFile"]["tmp_name"];//暫存檔的路徑名稱
+		// $from = $_FILES["upFile"]["tmp_name"];//暫存檔的路徑名稱
 	
-		$to = $dir . $fileName;
+		// $to = $dir . $fileName;
 		
-		copy( $from, $to);//從暫存檔的路徑名稱複製到images
+		// copy( $from, $to);//從暫存檔的路徑名稱複製到images
 
 	//將檔案名稱寫回資料庫
 	
