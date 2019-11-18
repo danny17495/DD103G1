@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
   <link rel="stylesheet" href="css/loginstyle3.css">
   <link rel="stylesheet" href="css/common.css">
-  <script src="js/Required.js"></script>
+  <script src="js/Logincheck3.js"></script>
 </head>
 
 <body>
@@ -40,10 +40,6 @@
               </div>
             </form>
 
-            <div class="LoginForm-row">
-              <label class="Loginlabal" for="">暱稱</label>
-              <input id="nickname" class="Logininput" name="nickName" type="text" method="post" placeholder="NickName">
-            </div>
             <div class="LoginForm-row">
               <label class="Loginlabal" style="color:aliceblue;" for="">密碼</label>
               <input id="password" class="Logininput" name="password" type="password" method="post"
@@ -85,17 +81,12 @@
   <script>
     function validateForm() {
       var name = document.getElementById('name').value;
-      var nickname = document.getElementById('nickname').value;
       var password = document.getElementById('password').value;
       var passwordcheck = document.getElementById('passwordcheck').value;
       var Email = document.getElementById('Email').value;
       index = email.indexOf('@', 0);
       if (name == null || name == "") {
         alert("姓名必須要寫");
-        return false;
-
-      } else if (nickname == null || nickname == "") {
-        alert("暱稱必須要寫");
         return false;
 
       } else if (password == null || password == "") {
@@ -116,6 +107,7 @@
     }
 
   </script>
+ 
 
 </body>
 
