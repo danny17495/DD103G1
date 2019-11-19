@@ -3783,7 +3783,8 @@
     top: 12px;
     right: 20px;
 }
-#game_getCoupon{
+#game_getCoupon,
+#game_getCoupon2{
     background-color: #fff;
     border-radius: 20px;
     border: none;
@@ -4113,7 +4114,8 @@
         top: 12px;
         right: 20px;
     }
-    #game_getCoupon{
+    #game_getCoupon,
+    #game_getCoupon2{
         background-color: #fff;
         border-radius: 20px;
         border:none;
