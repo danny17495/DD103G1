@@ -80,49 +80,27 @@
 
     <section class="message" id="message">
         <div class="messageContainer">
-
-               <!-- 留言板開頭 -->
-
             <div class="messageTitle">
                 <h3>留言板</h3> 
-                <!-- <i class="fa fa-times-circle Trip2_lightBoxBTN" aria-hidden="true" id="closeBtn"></i> -->
-                <img src="images/competition/X.png" alt="close" class="closeBtn">
+                    <img src="images/competition/X.png" alt="close" class="closeBtn">
             </div>
-            
-            <!-- 留言區 -->
-
             <div id="messageContent" class="messageContent">
                 <div class="messageWrap" id="messageWrap">
-
-                    <!-- 會員圖片 -->
-
-                     <figure class="mem_pic" id="bg_pic">
-                    </figure>
-
-                    <!-- 會員留言資料 -->
-
                     <div id="memText" class="memText">
                         <div class="megsageMemName">
                             <p id="messageMemId"></p>
                             <p class="messageDate" id="messageDate"></p> 
                         </div>
                         <div class="messageBox">
-                            <p class="messageText" id="messageText">
-                            
+                            <p class="messageText" id="messageText">    
                             </p>  
                         </div> 
-
-                    <!-- 會員檢舉 -->
-
                         <div class="messageBtn">
                             <span class="btnCloudb">檢舉</span>
                         </div>
                     </div>
                 </div> 
             </div>
-
-            <!-- 留言輸入區塊 -->
-
             <form class="messageWrapInput">
                 <input type="hidden" id="msgBtnNo">
                 <input type="text" id="inputText" name="msg" placeholder="最多輸入10字數" maxlength="10">
@@ -154,27 +132,38 @@
                 <div class="messageBoard">
                     <div class="competitionVoteTitle">
                         <input type="hidden"  name="competNo">
-                        <span>第一名<span id="memId">淡水豪豪</span></span>
-                        <span>得票數<span id="vote0">999票</span></span>
+                        <span>第一名<span id="memId"></span></span>
+                        <span>得票數<span id="vote0">票</span></span>
                     </div>
                     <div class="competitionPost">
                         <img src="images/competition/card01.png" alt="">
                     </div>
                     <div class="competitionText">
-                        <div class="textContent">123</div>
-                        <div class="textContent">123</div>
+                        <div class="textContent"></div>
+                        <div class="textContent"></div>
                     </div>
                     <div class="competitionButton">
-                        <span href="#"  class="whiteButton voteBtn">
+                        <div class="voteBtn">
+                            <span href="#" class="btn_cloudb">投票
+                                <input type="hidden" name="competNo3"></input>
+                            </span>
+                        </div>
+                        <div class="messageBtn">
+                            <span class="btn_cloudp" id="messageBtn">留言
+                                <input type="hidden" name="competNo2"></input>
+                            </span>
+                        </div>
+
+                        <!-- <span href="#"  class="whiteButton voteBtn">
                             <img src="images/indexSpot/voteIcon.png" alt="">
                             投票
                             <input type="hidden" name="competNo2" value="25">
                         </span>
-                        <span href="#"  class="whiteButton messageBtn">
+                        <span class="whiteButton messageBtn" id="messageBtn">
                             <img src="images/indexSpot/messIcon.png" alt="">
                             留言
                             <input type="hidden" name="competNo3" value="25">
-                        </span>
+                        </span> -->
                     </div>
                 </div>
             </div>
@@ -274,9 +263,14 @@
                 </div>
                 
 
-                <div class="messageOtherBoard" id="fly1">
-                    <div class="smallMessage">
-                        <img src="images/competition/card01.png" alt="">
+                <div class="messageOtherBoard" id="messageOtherBoard">
+                    <div class="smallMessage" id="smallMessage">
+                        <div class="competitionPostcard">
+                            <input type="hidden">
+                            <span id="postId">
+                                <img src="" alt="">
+                            </span>
+                        </div>
                         <div class="smallMessageButton">                       
                             <div class="competitionVoteTitle">
                                 <input type="hidden"  name="competNo">
@@ -445,8 +439,8 @@
                     <div class="whiteButton">
                         <span>我要客製明信片</span>
                     </div>
-                    <div class="whiteButton">
-                        <span>我要去購物商城</span>
+                    <div class="whiteButton" id="activity_join">
+                        <span>我要參加比賽</span>
                     </div>
                 </div>                
             </div>

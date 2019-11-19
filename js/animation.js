@@ -1,5 +1,119 @@
 console.log('start');
 
+window.addEventListener("load", init, false);
+function init(){
+      activity_button();     
+}
+function $id(e){
+return document.getElementById(e);
+}
+
+//PHP 導入-------------------------------------
+
+//瀏覽器判斷
+
+function competition(){
+    if(window.ActiveXObject){
+        xmlHttp= new ActiveXObject('Microsoft.XMLHTTP');
+    }else if(window.XMLHttpRequest) {
+        xmlHttp= new XMLHttpRequest();
+    }
+    return xmlHttp;
+}
+
+//留言
+function message_xml(){
+    message_item=competition();
+    message_item.open("GET","php/competition/message.php?competNo=1",true);
+    message_item.onreadystatechange = message_php;
+    message_item.send(null);
+}
+
+function message_php(){
+    if(message_item.readyState==4  && message_item.status==200){
+        let message_arr= JSON.parse(message_item.responseText);
+        message_btn(message_arr); 
+}}
+
+//按鈕類-----------------
+
+//留言板
+$('.messageBtn').click(function(){
+    let e =$(this).find("input")[0].value;
+    $('.messageWrapInput input:eq(0)').val(e).attr({name:'competNo',id:'msgBtnNo'})
+     message_xml(e)
+});
+//關留言板
+$('.closeBtn').click(function(){
+    $('.message').hide();
+    $('.message_itme').remove();
+    $(`#inputText`)[0].value="";
+});    
+
+//留言按鈕
+$('#msgBtn').click(function(){
+    msg_value(); 
+ })
+
+
+//按鈕函示-------------------
+ 
+function message_btn(e){
+    message_arr=e;
+    $('.messageBtn').addClass(function(){
+        $('.message').slideDown(50);
+    })
+    
+    
+  for (let i = 0; i < message_arr.length; i++) {
+  $("#messageContent").append($("#messageWrap").clone(true).attr({id:'message_itme'+i,class:'message_itme messageWrap'}));
+  $(`#message_itme${i}  .megsageMemName p:eq(0)`).text(message_arr[i]['memId']);
+  $(`#message_itme${i}  .megsageMemName p:eq(1)`).text(message_arr[i]['msgDate']);
+  $(`#message_itme${i}  .messageBox p:eq(0)`).text(message_arr[i]['msgContent']);
+  let $input=(`<input type="hidden" name="msgNo"></input>`)
+  $(`#message_itme${i}  .messageBtn span:eq(0)`).attr('id','messageBtn'+(i)).append($input);
+  $(`#message_itme${i}   input`)[0].value=message_arr[i]['msgNo']
+}}
+
+
+function msg_value() {
+//     if (!sessionStorage['memNo']) {
+   
+//      $id('login_gary').style.display = 'block';
+//      return ;
+// } 
+if ($(`#inputText`).val()==0)
+{  alert("請輸入文字");
+    return ;
+}
+
+// console.log( sessionStorage['memNo']);
+
+msg_xml=competition();
+msg_xml.onreadystatechange=
+function(){
+    if (msg_xml.readyState==4 && msg_xml.status==200){
+      console.log(msg_xml.responseText);
+    }
+}
+// console.log( sessionStorage['user_no']);
+    let msg_arr= $(`.messageWrapInput`).serializeArray();
+    msg_xml.open("GET","php/competition/msg.php?competNo="+msg_arr[0]["value"]+"&msg="+msg_arr[1]["value"]+"&user="+sessionStorage['memId'],true);
+    msg_xml.send();
+ $('.message_itme').remove();
+ setTimeout(() => {
+     msg_revalue()
+ }, 100);
+
+}
+
+function msg_revalue(){
+ let e =$(`#msgBtnNo`).val();
+message_xml(e);
+} 
+
+
+
 //天燈漂浮(TWEENMAX))
 var T1 = new TimelineMax({
     repeat: -1,
@@ -165,13 +279,3 @@ function resizeCanvas() {
 };
 
 resizeCanvas();
-
-// 控制留言板開關
-
-$('.messageBtn').click(function(){
-    $('.message').show();
-});
-
-$('#closeBtn').click(function(){
-    $('.message').hide();
-});

@@ -22,9 +22,9 @@ try{
     //投票資料
     //選取member跟competition
     $sql_member_vote = 
-    "select member.memId,member.postcardPic,competition.vote,competition.memId,postcard.postcardPic
-    from `member`, `competition`, `postcard`
-    where member.memId=competition.memId and YEAR(startDate) = 2019 
+    "select member.memId,member.postcardPic,competition.vote,competition.memId,postcard.postcardPic,message.msgContent
+    from `member`, `competition`, `postcard` ,`message`
+    where member.memId=competition.memId and member.postcardPic=postcard.postcardPic and YEAR(startDate) = 2019 
     order by competition.vote desc";
     //根據票數從大到小排列
     $memberVote = $pdo->prepare($sql_member_vote);
@@ -134,7 +134,6 @@ try{
 
             <div class="messageTitle">
                 <h3>留言板</h3> 
-                <!-- <i class="fa fa-times-circle Trip2_lightBoxBTN closeBtn" aria-hidden="true"></i> -->
                 <img src="images/competition/X.png" alt="close" class="closeBtn">
             </div>
             
@@ -223,33 +222,31 @@ try{
             <div class="messageNo1">
                 <div class="messageBoard">
                     <div class="competitionVoteTitle">
-                        <input type="hidden"  name="work_no">
+                        <input type="hidden"  name="competNo">
                         <span>第一名
                             <span id="memId">
                                 <?=$memberVoteRow["memId"]?>
                             </span>
                         </span>
-                        <span>得票數</span>
-                        <span><?=$memberVoteRow["vote"]?>票</span>
-
+                        <span>得票數:<span><?=$memberVoteRow["vote"]?>票</span></span>
                     </div>
                     <div class="competitionPost">
-                        <img src="<?=$memberVoteRow["postcardPic"]?>" alt="">
+                        <img src="images/postcard/<?=$memberVoteRow["postcardPic"]?>.jpg" alt="">
                     </div>
                     <div class="competitionText">
-                        <div class="textContent">123</div>
-                        <div class="textContent">123</div>
+                        <div class="textContent"><?=$memberVoteRow["msgContent"]?></div>
+                        <div class="textContent"><?=$memberVoteRow["msgContent"]?></div>
                     </div>
                     <div class="competitionButton">
                         <span href="#"  class="whiteButton voteBtn">
                             <img src="images/indexSpot/voteIcon.png" alt="">
                             投票
-                            <input type="hidden" name="work_no2" value="25">
+                            <input type="hidden" name="competNo2" value="25">
                         </span>
                         <span href="#"  class="whiteButton messageBtn">
                             <img src="images/indexSpot/messIcon.png" alt="">
                             留言
-                            <input type="hidden" name="work_no3" value="25">
+                            <input type="hidden" name="competNo3" value="25">
                         </span>
                     </div>
                 </div>
@@ -270,67 +267,78 @@ try{
             <div class="messageNo2 row">
                 <div class="messageBoard">
                     <div class="competitionVoteTitle">
-                        <input type="hidden"  name="work_no">
+                        <input type="hidden"  name="competNo">
                         <span>第二名
                             <span id="memId">
                                 <?=$memberVoteRow["memId"]?>
                             </span>
                         </span>
-                        <span>得票數</span>
-                        <span><?=$memberVoteRow["vote"]?>票</span>
+                        <span>得票數:<span><?=$memberVoteRow["vote"]?>票</span></span>
                     </div>
                     <div class="competitionPost">
-                        <img src="images/competition/card02.png" alt="">
+                        <img src="images/postcard/<?=$memberVoteRow["postcardPic"]?>.jpg" alt="">
                     </div>
                     <div class="competitionText">
-                        <div class="textContent">123</div>
-                        <div class="textContent">123</div>
+                        <div class="textContent"><?=$memberVoteRow["msgContent"]?></div>
+                        <div class="textContent"><?=$memberVoteRow["msgContent"]?></div>
                     </div>
                     <div class="competitionButton">
                         <span href="#"  class="whiteButton voteBtn">
                             <img src="images/indexSpot/voteIcon.png" alt="">
                             投票
-                            <input type="hidden" name="work_no2" value="25">
+                            <input type="hidden" name="competNo2" value="25">
                         </span>
                         <span href="#"  class="whiteButton messageBtn">
                             <img src="images/indexSpot/messIcon.png" alt="">
                             留言
-                            <input type="hidden" name="work_no3" value="25">
+                            <input type="hidden" name="competNo3" value="25">
                         </span>
                     </div>
                 </div>
                 <?php
                 }
                 ?>
+                <?php
+                for($i=0;$i<1;$i++){  
+                    $memberVoteRow = $memberVote -> fetch(PDO::FETCH_ASSOC)
+                ?> 
 
                 <div class="messageBoard" id="under">
                     <div class="competitionVoteTitle">
-                        <input type="hidden"  name="work_no">
-                        <span>第三名<span id="memId">台北亭亭</span></span>
-                        <span>得票數<span id="vote0">333票</span></span>
+                        <input type="hidden"  name="competNo">
+                        <span>第三名
+                            <span id="memId">
+                                <?=$memberVoteRow["memId"]?>
+                            </span>
+                        </span>
+                        <span>得票數:<span><?=$memberVoteRow["vote"]?>票</span></span>
+
                     </div>
                     <div class="competitionPost">
-                        <img src="images/competition/card03.png" alt="">
+                        <img src="images/postcard/<?=$memberVoteRow["postcardPic"]?>.jpg" alt="">
                     </div>
                     <div class="competitionText">
-                        <div class="textContent">123</div>
-                        <div class="textContent">123</div>
+                        <div class="textContent"><?=$memberVoteRow["msgContent"]?></div>
+                        <div class="textContent"><?=$memberVoteRow["msgContent"]?></div>
                     </div>
                     <div class="competitionButton">
                         <span href="#"  class="whiteButton voteBtn">
                             <img src="images/indexSpot/voteIcon.png" alt="">
                             投票
-                            <input type="hidden" name="work_no2" value="25">
+                            <input type="hidden" name="competNo2" value="25">
                         </span>
                         <span href="#"  class="whiteButton messageBtn">
                             <img src="images/indexSpot/messIcon.png" alt="">
                             留言
-                            <input type="hidden" name="work_no3" value="25">
+                            <input type="hidden" name="competNo3" value="25">
                         </span>
                     </div>
                 </div>
             </div>
         </div>
+        <?php
+            }
+        ?>
         <div class="clearfix"></div>
     </section>
 
@@ -371,7 +379,7 @@ try{
                         <img src="images/competition/card01.png" alt="">
                         <div class="smallMessageButton">                       
                             <div class="competitionVoteTitle">
-                                <input type="hidden"  name="work_no">
+                                <input type="hidden"  name="competNo">
                                 <span><span id="memId">中壢大大</span></span>
                                 <span><span id="vote0">50票</span></span>
                             </div>
@@ -380,12 +388,12 @@ try{
                                 <span href="#"  class="whiteButton voteBtn">
                                     <img src="images/indexSpot/voteIcon.png" alt="">
                                     投票
-                                    <input type="hidden" name="work_no2" value="25">
+                                    <input type="hidden" name="competNo2" value="25">
                                 </span>
                                 <span href="#"  class="whiteButton messageBtn">
                                     <img src="images/indexSpot/messIcon.png" alt="">
                                     留言
-                                    <input type="hidden" name="work_no3" value="25">
+                                    <input type="hidden" name="competNo3" value="25">
                                 </span>
                             </div>
                         </div>
@@ -394,7 +402,7 @@ try{
                         <img src="images/competition/card02.png" alt="">
                         <div class="smallMessageButton">                       
                             <div class="competitionVoteTitle">
-                                <input type="hidden"  name="work_no">
+                                <input type="hidden"  name="competNo">
                                 <span><span id="memId">彰化齊齊</span></span>
                                 <span><span id="vote0">40票</span></span>
                             </div>
@@ -402,12 +410,12 @@ try{
                                     <span href="#"  class="whiteButton voteBtn">
                                         <img src="images/indexSpot/voteIcon.png" alt="">
                                         投票
-                                        <input type="hidden" name="work_no2" value="25">
+                                        <input type="hidden" name="competNo2" value="25">
                                     </span>
                                     <span href="#"  class="whiteButton messageBtn">
                                         <img src="images/indexSpot/messIcon.png" alt="">
                                         留言
-                                        <input type="hidden" name="work_no3" value="25">
+                                        <input type="hidden" name="competNo3" value="25">
                                     </span>
                                 </div>
                         </div>
@@ -416,7 +424,7 @@ try{
                         <img src="images/competition/card03.png" alt="">
                         <div class="smallMessageButton">                       
                             <div class="competitionVoteTitle">
-                                <input type="hidden"  name="work_no">
+                                <input type="hidden"  name="competNo">
                                 <span><span id="memId">雲林靜靜</span></span>
                                 <span><span id="vote0">39票</span></span>
                             </div>
@@ -424,12 +432,12 @@ try{
                                     <span href="#"  class="whiteButton voteBtn">
                                         <img src="images/indexSpot/voteIcon.png" alt="">
                                         投票
-                                        <input type="hidden" name="work_no2" value="25">
+                                        <input type="hidden" name="competNo2" value="25">
                                     </span>
                                     <span href="#"  class="whiteButton messageBtn">
                                         <img src="images/indexSpot/messIcon.png" alt="">
                                         留言
-                                        <input type="hidden" name="work_no3" value="25">
+                                        <input type="hidden" name="competNo3" value="25">
                                     </span>
                                 </div>
                         </div>
@@ -438,7 +446,7 @@ try{
                         <img src="images/competition/card01.png" alt="">
                         <div class="smallMessageButton">                       
                             <div class="competitionVoteTitle">
-                                <input type="hidden"  name="work_no">
+                                <input type="hidden"  name="competNo">
                                 <span><span id="memId">大溪阿玫</span></span>
                                 <span><span id="vote0">30票</span></span>
                             </div>
@@ -446,12 +454,12 @@ try{
                                     <span href="#"  class="whiteButton voteBtn">
                                         <img src="images/indexSpot/voteIcon.png" alt="">
                                         投票
-                                        <input type="hidden" name="work_no2" value="25">
+                                        <input type="hidden" name="competNo2" value="25">
                                     </span>
                                     <span href="#"  class="whiteButton messageBtn">
                                         <img src="images/indexSpot/messIcon.png" alt="">
                                         留言
-                                        <input type="hidden" name="work_no3" value="25">
+                                        <input type="hidden" name="competNo3" value="25">
                                     </span>
                                 </div>
                         </div>
@@ -460,7 +468,7 @@ try{
                         <img src="images/competition/card02.png" alt="">
                         <div class="smallMessageButton">                       
                             <div class="competitionVoteTitle">
-                                <input type="hidden"  name="work_no">
+                                <input type="hidden"  name="competNo">
                                 <span><span id="memId">SEXFAT</span></span>
                                 <span><span id="vote0">10票</span></span>
                             </div>
@@ -468,12 +476,12 @@ try{
                                     <span href="#"  class="whiteButton voteBtn">
                                         <img src="images/indexSpot/voteIcon.png" alt="">
                                         投票
-                                        <input type="hidden" name="work_no2" value="25">
+                                        <input type="hidden" name="competNo2" value="25">
                                     </span>
                                     <span href="#"  class="whiteButton messageBtn">
                                         <img src="images/indexSpot/messIcon.png" alt="">
                                         留言
-                                        <input type="hidden" name="work_no3" value="25">
+                                        <input type="hidden" name="competNo3" value="25">
                                     </span>
                                 </div>
                         </div>
@@ -482,7 +490,7 @@ try{
                         <img src="images/competition/card03.png" alt="">
                         <div class="smallMessageButton">                       
                             <div class="competitionVoteTitle">
-                                <input type="hidden"  name="work_no">
+                                <input type="hidden"  name="competNo">
                                 <span><span id="memId">新竹愷愷</span></span>
                                 <span><span id="vote0">2票</span></span>
                             </div>
@@ -490,12 +498,12 @@ try{
                                 <span href="#"  class="whiteButton voteBtn">
                                     <img src="images/indexSpot/voteIcon.png" alt="">
                                     投票
-                                    <input type="hidden" name="work_no2" value="25">
+                                    <input type="hidden" name="competNo2" value="25">
                                 </span>
                                 <span href="#"  class="whiteButton messageBtn">
                                     <img src="images/indexSpot/messIcon.png" alt="">
                                     留言
-                                    <input type="hidden" name="work_no3" value="25">
+                                    <input type="hidden" name="competNo3" value="25">
                                 </span>
                             </div>
                         </div>
