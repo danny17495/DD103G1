@@ -84,6 +84,16 @@ section.cart .container .cartRow .cartRowTrash{
     padding-top: 2%;
 }
 
+/*商城商品列會更高*/
+section.cart .container .cartRowShop .cartRowDetailName,
+section.cart .container .cartRowShop .cartRowDetailPrice,
+section.cart .container .cartRowShop .cartRowDetailNum,
+section.cart .container .cartRowShop .cartRowDetailSubtotal,
+section.cart .container .cartRowShop .cartRowTrash{
+    padding-top: 3.5%;
+}
+
+
 /*圖片調整*/
 section.cart .container .cartRow .cartRowPic .cartPicShopItem,
 section.cart .container .cartRow .cartRowPic .cartPicPostcard{
