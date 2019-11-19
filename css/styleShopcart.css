@@ -191,11 +191,13 @@ section.cart .cartBtn{
     padding: 30px 0 100px;
 }
 
-section.cart .cartBtn div.whiteButton{
+section.cart .cartBtn .cartContinueBtn,
+section.cart .cartBtn .cartNextBtn{
     margin: 0 5px;
+    display: inline-block;    
 }
 
-section.cart .cartBtn div.cartNextBtn{
+section.cart .cartBtn .cartNextBtn .whiteButton{
     border: 2px solid rgba(243, 152, 0, .8);
 }
 
@@ -283,7 +285,8 @@ section.cart .cartBtn div.whiteButton:hover{
         padding: 50px 0 100px;
     }
 
-    section.cart .cartBtn div.whiteButton{
+    section.cart .cartBtn .cartContinueBtn,
+    section.cart .cartBtn .cartNextBtn{
         margin: 0 10px;
     }
 
