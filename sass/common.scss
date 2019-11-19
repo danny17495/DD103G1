@@ -438,6 +438,10 @@ header.white{
             margin-left:65px ;
         }
    }
+
+   .navDarken a.nowpage:after{
+      transform:translate(-50%, 0) scale(1);
+   }
    /*----------------- footer -----------------------*/
    footer{
       display: flex;

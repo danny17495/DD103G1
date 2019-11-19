@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>購物車</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/styleShopcart.css">
+    <script src="js/shopcart.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <div class="container headerStyle">
+            <a href="index.html">
+                <h1>
+                    <img src="images/logo.png" alt="logo">
+                </h1>
+            </a>
+            <input type="checkbox" id="headerCheck">
+            <label for="headerCheck" class="headerClick">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+                <nav class="navMenu">
+                    <div class="navDarken">
+                        <ul>
+                            <li>
+                                <a href="spotIntro.html">行程介紹</a>
+                            </li>
+                            <li>
+                                <a href="reserve.html">預約行程</a>
+                            </li>
+                            <li>
+                                <a href="postcard.html">客製明信片</a>
+                            </li>
+                            <li>
+                                <a href="shop.php">購物商城</a>
+                            </li>
+                            <li>
+                                <a href="competition.html">投票比賽</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            <div class="headerMemInfo">
+                <span id="headerMemName"></span>
+                <a href="javascript:;"></a>
+            </div>
+            <div class="headerIcon">
+                <a href="shopcart.html">
+                    <img src="images/icon_shopcar.png" alt="icon_shopcar">
+                </a>
+                <a href="member.php">
+                    <img src="images/icon_login.png" alt="icon_login">
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="forCloudAnimation"><!-- 最外層為了雲消失包的 -->
+        <!-- 11111111111111111111標題11111111111111111111 -->
+        <section class="pageTitle shopcartPageTitle wrapA">
+            <div class="container">
+                <h1>購物車</h1>
+                <div class="pageTitleCloud1">
+                    <img src="images/shopcart/cloud1-60.png" alt="cloud">
+                </div>
+                <div class="pageTitleCloud2">
+                    <img src="images/shopcart/cloud2-70.png" alt="cloud">
+                </div>           
+                <div class="pageTitleBird1">
+                    <img src="images/shopcart/bird1.png" alt="bird">
+                </div>
+                <div class="pageTitleBird2">
+                    <img src="images/shopcart/bird2.png" alt="bird">
+                </div>
+            </div>
+        </section><!-- section.pageTitle結束div -->
+    
+    
+        <!-- 222222222222222222購物車內容22222222222222222 -->
+        <section class="cart wrapA" id="app">
+            <div class="container">
+                <!-- (2-1)欄位名稱 -->
+                <div class="cartHeader">
+                    <h3>圖片</h3>
+                    <h3>名稱</h3>
+                    <!-- <h3>顏色</h3> -->
+                    <h3>單價</h3>
+                    <h3>數量</h3>
+                    <h3>小計</h3>
+                    <h3>刪除</h3>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="bornItemList" id="bornItemList1"></div>
+                <div class="bornItemList" id="bornItemList2"></div>
+
+
+
+
+                <!-- (2-2)商品列開始做動態生成 -->
+                <!-- (2-2)商品列1 -->
+                <!--
+                <div class="cartRow cartRow1">
+                    <div class="cartRowPic">
+                        <div class="cartPicShopItem">
+                            <img src="images/shopcart/shopCartItem_2.png" alt="">
+                        </div>
+                    </div>
+                    
+                    <div class="cartRowDetail">
+                        <div class="cartRowDetailName">
+                            <span class="cartRowSmallSizeApear">名稱：</span>
+                            <span>客製化馬克杯</span>
+                        </div>
+                        <div class="cartRowDetailPrice">
+                            <span class="cartRowSmallSizeApear">單價：</span>
+                            <span>NT$450</span>
+                        </div>                            
+
+                        <div class="cartRowDetailNum">
+                            <span class="cartRowSmallSizeApear">數量：</span>
+                            <span>
+                                <button>-</button>
+                                <input type="text" value="1">
+                                <button>+</button>
+                            </span>
+                        </div>
+                        <div class="cartRowDetailSubtotal">
+                            <span class="cartRowSmallSizeApear">小計：</span>
+                            <span>NT$450</span>
+                        </div>
+                    </div>
+                    <div class="cartRowTrash">
+                        <div class="cartRowTrashPic">
+                            <img src="images/shopcart/trash.png" alt="trash">
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div> -->
+    
+    
+                <!-- (2-2)商品列2 -->
+                <!-- <div class="cartRow cartRow2">
+                    <div class="cartRowPic">
+                        <div class="cartPicPostcard">
+                            <img src="images/postcardClient/20191115.png" alt="">
+                        </div>
+                    </div>
+                    
+                    <div class="cartRowDetail">
+                        <div class="cartRowDetailName">
+                            <span class="cartRowSmallSizeApear">名稱：</span>
+                            <span>客製化明信片</span>
+                        </div>
+                        <div class="cartRowDetailPrice">
+                            <span class="cartRowSmallSizeApear">單價：</span>
+                            <span>NT$60</span>
+                        </div>                            
+
+                        <div class="cartRowDetailNum">
+                            <span class="cartRowSmallSizeApear">數量：</span>
+                            <span>
+                                <button>-</button>
+                                <input type="text" value="1">
+                                <button>+</button>
+                            </span>
+                        </div>
+                        <div class="cartRowDetailSubtotal">
+                            <span class="cartRowSmallSizeApear">小計：</span>
+                            <span>NT$60</span>
+                        </div>
+                    </div>
+                    <div class="cartRowTrash">
+                        <div class="cartRowTrashPic">
+                            <img src="images/shopcart/trash.png" alt="trash">
+                        </div>
+                    </div>
+                     <div class="clearfix"></div>
+                </div> -->
+    
+    
+                <!-- (2-3)商品價格 -->
+                <div class="cartPrice">
+                    <table>
+                        <tr class="cartPriceBox">
+                            <td>小計：</td>
+                            <td id="cartPriceTotal1">NT$0</td>
+                        </tr>
+                        <tr class="cartPriceBox">
+                            <td>運費：</td>
+                            <td>NT$120</td>
+                        </tr>
+                        <tr class="cartPriceBox">
+                            <td>總計：</td>
+                            <td id="cartPriceTotal2">NT$0</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <!-- (2-4)按鈕 -->
+                <div class="cartBtn">
+                    <div class="whiteButton cartContinueBtn">繼續購物</div>
+                    <div class="whiteButton cartNextBtn">馬上結帳</div>
+                </div>
+    
+            </div><!-- .container結束div -->
+        </section>
+    </div>
+
+
+
+
+    <footer>
+        <div>
+            <a href="#">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="#">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="#">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+        </div>
+        <p>DD103 G1 copyright</p>
+    </footer>
+
+</body>
+</html>
