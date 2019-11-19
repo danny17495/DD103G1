@@ -1,5 +1,3 @@
-<!-- require_once 要求登入資料庫
-帳號密碼要改成自己的 -->
 <?php
   $dsn = "mysql:host=localhost;port=3306;dbname=dd103g1;charset=utf8";
   $user = "root";

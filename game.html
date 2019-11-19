@@ -126,9 +126,37 @@
                 <p class="coupon_wrap_text">恭喜您獲得優惠券!!</p>
                 <img src="images/game/coupon.jpg" alt="" id="game_coupon">
                 <p class="couponNUM">序號
-                <span id="coupon_number">000001</span></p>  
+                <span id="coupon_number"></span></p>  
                <i class="fa fa-times-circle Trip2_lightBoxBTN" aria-hidden="true" id="game_close"></i>
             </div>
+<script>
+    //顯示優惠券序號
+   
+    //從php抓優惠券資料
+    function getCouponNum(){
+        var xhr = new XMLHttpRequest();
+
+        xhr.onreadystatechange = function(){
+        if(xhr.readyState == 4){ //server端做完了
+        //處理的結果
+        if( xhr.status == 200){
+            // alert(xhr.responseText);
+            document.getElementById("coupon_number").innerText=xhr.responseText;
+          } else {
+            alert(xhr.status);
+        }
+        }
+        }
+            //設定好所要連結的程式
+      let url = "getCouponNum.php";
+      xhr.open("post", url, true);
+      let data_info = `couponNo=""`;
+      xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+      xhr.send(data_info);
+    }
+
+    window.addEventListener("load",getCouponNum,false);
+    </script>
             <div class="getGameSuggestion">
                 <div id="taro_suggestion">
                     <h2>芋圓</h2>
@@ -189,7 +217,10 @@
                     <i class="fa fa-times-circle" aria-hidden="true" id="meatball_suggestion_close"></i>
                 </div>
             </div>
-            <button id="game_getCoupon">領取優惠券</button>
+            <form action="game.php">
+                <button id="game_getCoupon">領取優惠券</button>
+            </form>
+            
         </div>
      </div>
    </section>
