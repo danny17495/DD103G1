@@ -5,7 +5,7 @@
 }
 *{
     list-style: none;
-	/* outline:solid 1px red; */
+	 /*outline:solid 1px red; */
 }
 /*----------------index Banner(手機板)-----------------*/
 
@@ -3053,18 +3053,31 @@
 @media all and (min-width: 992px) {
 	.spotIntroTrip2{
 		padding-top: 100PX;
-		/*position: relative;*/
+		position: relative;
 	}
-	.spotIntroTrip2:before{
-		content: '';
-		display: block;
-		background-image: url(../images/spotIntro/busStop.png);
-		width: 103px;
-		height: 268px;
-		position: absolute;
-		top: -136px;
-    	right: 50px;
-	}
+    .spotIntroTrip2 .introBus{
+        width: 70px;
+        position: absolute;
+        top: -80px;
+        right: 30px;
+    }
+    .spotIntroTrip2 .introBus img{
+        width: 100%;
+    }
+    .spotIntroTrip2 .seeBus{
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        top: -136px;
+        right: 50px;
+        font-size: 30px;
+        border-radius: 50%;
+        background-color: #fff;
+        color: #f39800;
+        text-align: center;
+        font-weight: bold;
+        animation:busstop 2s infinite
+    }
 	.spotIntroTrip2_Outer{
 		flex-direction: row;
 		justify-content: space-around;
