@@ -966,8 +966,8 @@ function postcardToDb2(){
 /*======================================================================*/
 /*第七支程式: 按下購買時->放入購物車->記錄進去localStorage*/
 var buyPostcardBtn = document.getElementById("buyPostcardBtn")
-function postcardToCart(){
 
+function postcardToCart(){
 	//value值為postcardNo
 	localStorage.setItem(`addPostcard:`,`1, 3, `);
 	

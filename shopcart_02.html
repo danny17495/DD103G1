@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>確認訂單</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/styleShopcart_02.css">
+    <script src="js/shopcart_02.js" defer></script>
+</head>
+<body>
+    <header>
+        <div class="container headerStyle">
+            <a href="index.html">
+                <h1>
+                    <img src="images/logo.png" alt="logo">
+                </h1>
+            </a>
+            <input type="checkbox" id="headerCheck">
+            <label for="headerCheck" class="headerClick">
+                <span></span>
+                <span></span>
+                <span></span>
+            </label>
+                <nav class="navMenu">
+                    <div class="navDarken">
+                        <ul>
+                            <li>
+                                <a href="spotIntro.html">行程介紹</a>
+                            </li>
+                            <li>
+                                <a href="reserve.html">預約行程</a>
+                            </li>
+                            <li>
+                                <a href="postcard.html">客製明信片</a>
+                            </li>
+                            <li>
+                                <a href="shop.php">購物商城</a>
+                            </li>
+                            <li>
+                                <a href="competition.html">投票比賽</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            <div class="headerMemInfo">
+                <span id="headerMemName"></span>
+                <a href="javascript:;"></a>
+            </div>
+            <div class="headerIcon">
+                <a href="shopcart.html">
+                    <img src="images/icon_shopcar.png" alt="icon_shopcar">
+                </a>
+                <a href="member.php">
+                    <img src="images/icon_login.png" alt="icon_login">
+                </a>
+            </div>
+        </div>
+    </header>
+
+
+
+    <div class="forCloudAnimation"><!-- 最外層為了雲消失包的 -->
+        <!-- 11111111111111111111標題11111111111111111111 -->
+        <section class="pageTitle shopcartPageTitle wrapA">
+            <div class="container">
+                <h1>訂單明細</h1>
+                <div class="pageTitleCloud1">
+                    <img src="images/shopcart/cloud1-60.png" alt="cloud">
+                </div>
+                <div class="pageTitleCloud2">
+                    <img src="images/shopcart/cloud2-70.png" alt="cloud">
+                </div>
+            </div>
+        </section><!-- section.pageTitle結束div -->
+    
+    
+        <!-- 222222222222222222購物車內容22222222222222222 -->
+        <section class="cartOrder wrapA">
+            <div class="container">
+                <!-- (2-1)欄位名稱 -->
+                <div class="cartOrderHeader">
+                    <h3>圖片</h3>
+                    <h3>名稱</h3>
+                    <!-- <h3>顏色</h3> -->
+                    <h3>單價</h3>
+                    <h3>數量</h3>
+                    <h3>小計</h3>
+                    <div class="clearfix"></div>
+                </div>
+    
+                <!-- (2-2)商品列1 -->
+                <div class="cartOrderRow cartOrderRow1"><!-- 商品列1 -->
+                    <div class="cartRowPic"><!-- (2-2-1)商品相片 -->
+                        <div>
+                            <img src="images/shopcart/shopCartItem_2.png" alt="">
+                        </div>
+                    </div>
+                    
+                    <div class="cartRowDetail"><!-- (2-2-2)商品資訊 -->
+                        <div class="cartRowDetailName">
+                            <span class="cartRowSmallSizeApear">名稱：</span>
+                            <span>客製化馬克杯</span>
+                        </div>
+                        <!-- <div class="cartRowDetailColor">
+                            <span></span>
+                        </div> -->
+                        <div class="cartRowDetailPrice">
+                            <span class="cartRowSmallSizeApear">單價：</span>
+                            <span>NT$450</span>
+                        </div>                            
+
+                        <div class="cartRowDetailNum">
+                            <span class="cartRowSmallSizeApear">數量：</span>
+                            <span>1</span>
+                        </div>
+                        <div class="cartRowDetailSubtotal">
+                            <span class="cartRowSmallSizeApear">小計：</span>
+                            <span>NT$450</span>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div><!-- .cartRow1商品列1結束div -->
+    
+    
+                <!-- (2-2)商品列2 -->
+                <div class="cartOrderRow cartOrderRow2"><!-- 商品列2 -->
+                    <div class="cartRowPic"><!-- (2-2-1)商品相片 -->
+                        <div>
+                            <img src="images/shopcart/shopCartItem_1.png" alt="">
+                        </div>
+                    </div>
+                    
+                    <div class="cartRowDetail"><!-- (2-2-2)商品資訊 -->
+                        <div class="cartRowDetailName">
+                            <span class="cartRowSmallSizeApear">名稱：</span>
+                            <span>客製化馬克杯</span>
+                        </div>
+                        <!-- <div class="cartRowDetailColor">
+                            <span></span>
+                        </div> -->
+                        <div class="cartRowDetailPrice">
+                            <span class="cartRowSmallSizeApear">單價：</span>
+                            <span>NT$450</span>
+                        </div>                            
+
+                        <div class="cartRowDetailNum">
+                            <span class="cartRowSmallSizeApear">數量：</span>
+                            <span>2</span>
+                        </div>
+                        <div class="cartRowDetailSubtotal">
+                            <span class="cartRowSmallSizeApear">小計：</span>
+                            <span>NT$900</span>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div><!-- .cartRow2商品列2結束div -->
+    
+                <!-- (2-3)商品取貨 -->
+                <div class="cartOrderShip">
+                    <div class="cartOrderShipHeader">
+                        <h3>填寫取貨資料</h3>
+                    </div>
+                    <div class="cartOrderShipBody">
+                        <div>
+                            <h3>取貨方式</h3>
+                            <input type="radio" name="shipWay" id="toHome" checked>
+                            <label for="toHome">送貨到府（運費NT$120）</label>
+                        </div>
+                        <div>
+                            <h3>收件資料</h3>
+                            <table>
+                                <tr>
+                                    <td>姓名：</td>
+                                    <td><input type="text"></td>
+                                </tr> 
+                                <tr>
+                                    <td>手機：</td>
+                                    <td><input type="text"></td>
+                                </tr>
+                                <tr>
+                                    <td>地址：</td>
+                                    <td><input type="text"></td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- (2-4)折扣 -->
+                <div class="cartOrderDiScount">
+                    <div class="cartOrderDiScountHeader">
+                        <h3>選擇折扣卷</h3>
+                    </div>
+                    <div class="cartOrderDiScountBody">
+                        <table>
+                            <tr>
+                                <td>持有折扣卷：</td>
+                                <td>
+                                    <select name="" id="">
+                                        <option value="">NT$100</option>
+                                        <option value="">NT$50</option>
+                                        <option value="">NT$10</option>
+                                    </select>  
+                                </td>
+                            </tr>
+                        </table> 
+                    </div>
+                </div>
+
+
+                <!-- (2-5)商品價格 -->
+                <div class="cartOrderPrice">
+                    <div class="cartOrderPriceHeader">
+                        <h3>訂單金額總計</h3>
+                    </div>
+                    <div class="cartOrderPriceBody">
+                        <table>
+                            <tr class="cartPriceBox">
+                                <td>小計：</td>
+                                <td>NT$1350</td>
+                            </tr>
+                            <tr class="cartPriceBox">
+                                <td>運費：</td>
+                                <td>+NT$120</td>
+                            </tr>
+                            <tr class="cartPriceBox">
+                                <td>折扣：</td>
+                                <td>-NT$100</td>
+                            </tr>
+                            <tr class="cartPriceBox">
+                                <td>總計：</td>
+                                <td>NT$1370</td>
+                            </tr>
+                        </table>                        
+                    </div>
+                </div>
+
+
+
+                <!-- (2-6)付款資料 -->
+                <div class="cartOrderPay">
+                    <div class="cartOrderPayHeader">
+                        <h3>填寫信用卡付款資訊</h3>
+                    </div>
+                    <div class="cartOrderPayBody">
+                        <table>
+                            <tr class="cartOrderPayItem">
+                                <td>帳號：</td>
+                                <td><input type="text" placeholder="xxxx-xxxx-xxxx-xxxx"></td>
+                            </tr>
+                            <tr class="cartOrderPayItem">
+                                <td>有效期限：</td>
+                                <td><input type="text"placeholder="MM/YY"></td>
+                            </tr>
+                            <tr class="cartOrderPayItem">
+                                <td>安全碼：</td>
+                                <td><input type="text" placeholder="xxx"></td>
+                            </tr>
+                        </table>  
+                    </div>
+                </div>
+
+                <!-- (2-7)按鈕 -->
+                <div class="cartOrderBtn">
+                    <a href="shopcart.html" class="cartContinueBtn"><div class="whiteButton">返回</div></a>
+                    <div class="whiteButton cartNextBtn">送出</div>
+                </div>
+            </div><!-- .container結束div -->
+        </section>
+    </div><!-- .forCloudAnimation結束div -->
+
+
+
+
+    <footer>
+        <div>
+            <a href="#">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="#">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="#">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+        </div>
+        <p>DD103 G1 copyright</p>
+    </footer>
+
+</body>
+</html>

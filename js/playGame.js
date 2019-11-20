@@ -85,15 +85,26 @@ function allfound(){
 	//隨機顯示面額
 	var coupArr=["./images/game/coupon_5.jpg","./images/game/coupon_10.jpg"];
 	var n=Math.floor((Math.random()*2));
-	console.log(n);
+	// console.log(n);
 
 	document.getElementById("game_coupon").src=coupArr[n];
+	if(n==0){
+                document.getElementById("game_form5").style.display="block";
+                document.getElementById("game_form10").style.display="none";
+                document.getElementById("game_getCoupon").style.display="block";
+                console.log("hi");
+             }else if(n==1){
+             	document.getElementById("game_form5").style.display="none";
+             	document.getElementById("game_form10").style.display="block";
+             	document.getElementById("game_getCoupon2").style.display="block";
+             }; 
 	document.getElementById("game_coupon_wrap").style.display="block";
 	document.getElementById("GameWrap").style.backgroundImage="url(./images/game/game1_bg.png)";
 	document.getElementById("suggestionBar").style.display="none";
-	document.getElementById("game_getCoupon").style.display="block";
 	document.getElementById("game1").style.display="none";
 	document.getElementById("game2").style.display="none";
+
+	  
 }
 //關閉遊戲優惠券
 function gameClose(){

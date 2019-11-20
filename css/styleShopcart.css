@@ -84,6 +84,16 @@ section.cart .container .cartRow .cartRowTrash{
     padding-top: 2%;
 }
 
+/*商城商品列會更高*/
+section.cart .container .cartRowShop .cartRowDetailName,
+section.cart .container .cartRowShop .cartRowDetailPrice,
+section.cart .container .cartRowShop .cartRowDetailNum,
+section.cart .container .cartRowShop .cartRowDetailSubtotal,
+section.cart .container .cartRowShop .cartRowTrash{
+    padding-top: 3.5%;
+}
+
+
 /*圖片調整*/
 section.cart .container .cartRow .cartRowPic .cartPicShopItem,
 section.cart .container .cartRow .cartRowPic .cartPicPostcard{
@@ -181,11 +191,13 @@ section.cart .cartBtn{
     padding: 30px 0 100px;
 }
 
-section.cart .cartBtn div.whiteButton{
+section.cart .cartBtn .cartContinueBtn,
+section.cart .cartBtn .cartNextBtn{
     margin: 0 5px;
+    display: inline-block;    
 }
 
-section.cart .cartBtn div.cartNextBtn{
+section.cart .cartBtn .cartNextBtn .whiteButton{
     border: 2px solid rgba(243, 152, 0, .8);
 }
 
@@ -273,7 +285,8 @@ section.cart .cartBtn div.whiteButton:hover{
         padding: 50px 0 100px;
     }
 
-    section.cart .cartBtn div.whiteButton{
+    section.cart .cartBtn .cartContinueBtn,
+    section.cart .cartBtn .cartNextBtn{
         margin: 0 10px;
     }
 

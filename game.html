@@ -143,7 +143,7 @@
             // alert(xhr.responseText);
             document.getElementById("coupon_number").innerText=xhr.responseText;
           } else {
-            alert(xhr.status);
+            // alert(xhr.status);
         }
         }
         }
@@ -217,10 +217,12 @@
                     <i class="fa fa-times-circle" aria-hidden="true" id="meatball_suggestion_close"></i>
                 </div>
             </div>
-            <form action="game.php">
+            <form action="game5.php" id="game_form5">
                 <button id="game_getCoupon">領取優惠券</button>
             </form>
-            
+            <form action="game10.php" id="game_form10">
+                <button id="game_getCoupon2">領取優惠券</button>
+            </form>
         </div>
      </div>
    </section>
