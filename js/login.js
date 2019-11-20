@@ -1,13 +1,21 @@
-// var userData;
+let memberInfoClick = false;
 function $id(id) {
     return document.getElementById(id);
 };
 function logout(){
-   alert('click');
     sessionStorage.clear();
     let xhr = new XMLHttpRequest();
     xhr.open("Get", "php/login/logout.php", true);
     xhr.send(null);
+    $id("headerMemName").innerHTML='';
+    $id('memberInfo').onclick = function (e) {
+        memberInfoClick = true;
+        e.preventDefault();
+        openLoginData();
+    }
+    if (window.location.href.indexOf("member.php") != -1) {
+        window.location.href = "index.html"
+    }
     return false;
 }
 function sendData(){
@@ -19,6 +27,7 @@ function sendData(){
         let xhr=new XMLHttpRequest();
         xhr.onload=function(){
             let loginResult=xhr.responseText;
+            console.log(loginResult);
             if (loginResult.indexOf('systemError')!=-1){
                 alertWrap("系統錯誤");
             } else if (loginResult.indexOf('loginError') != -1){
@@ -34,6 +43,10 @@ function sendData(){
                 $id("login").style.display = "none";
                 $id("headerMemName").innerHTML = `${userData.name}<a id="logout" href="javascript:;">登出</a>`;
                 $id("logout").onclick=logout;
+                if (memberInfoClick){ //判定原先有無按會員頁按鈕
+                    document.location.href = "member.php";
+                    memberInfoClick=false;
+                }
             }
             
         }
@@ -52,6 +65,8 @@ function openLoginData(){ //登入 註冊 盒子
     let LoginBtnL = document.querySelectorAll('.LoginBtnL');
     let LoginBtnCenter = document.querySelector('.LoginBtnCenter');
     login.style.display="block";
+    $id("user-id").value = '';
+    $id("user-psw").value = '';
     linkLoginForget.addEventListener("click",function(){
         login.style.display = "none";
         loginforget.style.display="block";
@@ -66,6 +81,8 @@ function openLoginData(){ //登入 註冊 盒子
             loginforget.style.display = "none";
             loginRegister.style.display="none";
             login.style.display = "block";
+            $id("user-id").value = '';
+            $id("user-psw").value = '';
         });
     });
     loginClose.forEach(function(dom) {
@@ -73,25 +90,30 @@ function openLoginData(){ //登入 註冊 盒子
             login.style.display="none";
             loginforget.style.display = "none";
             loginRegister.style.display = "none";
+            // $id("user-id").value = '';
+            // $id("user-psw").value = '';
         });
     });
     LoginBtnCenter.addEventListener('click',sendData);
 }
+
 function judgeLogin(){
-    fetch("php/login/loginJudge.php").then(loginJudge => loginJudge.text()).then(loginJudge => {
+    fetch("php/login/loginJudge.php").then(loginJudge => loginJudge.text().then(loginJudge => {
         if (loginJudge != "not login") {   //已登入
             $id("headerMemName").innerHTML = `${sessionStorage.name}<a id="logout" href="javascript:;">登出</a>`;
             $id("logout").onclick = logout;
         } else {
-            // $id("headerMemName").innerHTML='';    //尚未登入
-            $id('memberInfo').onclick = function () {
+           
+           // $id("headerMemName").innerHTML='';    //尚未登入
+                $id('memberInfo').onclick = function (e) {
+                memberInfoClick=true;
+                 e.preventDefault();
                 openLoginData();
-                return false;
+                // return false;
             }
         }
-    })
+    }));
 }
 window.addEventListener('load',function(){
     judgeLogin();
 });
-openLoginData();

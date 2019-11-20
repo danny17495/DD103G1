@@ -8,11 +8,15 @@ try{
             $user->bindValue(':user_id',$_POST['user_id']);
             $user->execute();
             $userRow=$user->fetchAll(PDO::FETCH_ASSOC);
+            if($user->rowCount() == 0){
+                echo 'loginError';
+                return;
+            }
             $passwd=$userRow[0]['password'];
-                
             if($_POST["user_psw"]===$passwd){
                 $_SESSION['memNo']=$userRow[0]['memNo'];
                 echo json_encode($userRow);
+                return;
             }else{
                 echo 'loginError';
             }
