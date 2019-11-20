@@ -29,7 +29,7 @@ function checkForm() {
 		&& checkPassword(form.password.value, "repassword")
 		&& checkRePassword(form.repassword.value, "confirmMsg")
 		&& checkEmail(form.email.value, "email")
-		&& checkEmail(form.email.value, "emailMsg"){
+		&& checkEmail(form.email.value, "emailMsg")
 
 		alert("恭喜,註冊成功!");
 		form.submit();
