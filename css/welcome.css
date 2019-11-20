@@ -17,6 +17,7 @@
     /* top:0;
     left:0;
     right:0; */
+    /* position: relative; */
 }
 
 /* 太陽 */
@@ -39,6 +40,21 @@
     width: 80%;
     align-items:flex-start; 
     margin-left: 10%;
+}
+/* 鳥 */
+.welcomebird #welcomebird1{
+    /* position: absolute;
+    top:35%; */
+    width: 100%;
+    max-width:100px;
+    float:right;
+}
+.welcomebird #welcomebird2{
+    /* position: absolute;
+    top:35%; */
+    width: 100%;
+    max-width:100px;
+    float:left;
 }
 
 /* 草地 */
