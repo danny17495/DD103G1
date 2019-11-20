@@ -1,6 +1,6 @@
 <?php
 $errMsg = "";
-$competNo="1";
+$competNo=$_GET["competNo"];
 try {
     require_once("../connect.php");
     session_start();

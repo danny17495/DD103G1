@@ -1,12 +1,17 @@
 console.log('start');
+//alert(0);
 
-window.addEventListener("load", init, false);
-function init(){
-      activity_button();     
-}
+// $(".messageNo1 .messageBoard img").attr("src","images/postcard/postDemo_1.jpg")
+
+
+
 function $id(e){
 return document.getElementById(e);
 }
+//--------------------------------------------
+
+
+
 
 //PHP 導入-------------------------------------
 
@@ -21,30 +26,40 @@ function competition(){
     return xmlHttp;
 }
 
+
+
 //留言
-function message_xml(){
+function message_xml(e){
+    //alert(1);
+    console.log(e);
     message_item=competition();
-    message_item.open("GET","php/competition/message.php?competNo=1",true);
+    message_item.open("GET","php/competition/message.php?competNo="+e,true);
     message_item.onreadystatechange = message_php;
     message_item.send(null);
 }
 
 function message_php(){
+    //alert(2);
     if(message_item.readyState==4  && message_item.status==200){
         let message_arr= JSON.parse(message_item.responseText);
         message_btn(message_arr); 
 }}
 
 //按鈕類-----------------
-
-//留言板
-$('.messageBtn').click(function(){
+// function activity_button(){
+    
+    $('.messageBtn').click(function(){
+        //alert(3);
     let e =$(this).find("input")[0].value;
+    console.log($(this).find("input")[0]); 
     $('.messageWrapInput input:eq(0)').val(e).attr({name:'competNo',id:'msgBtnNo'})
-     message_xml(e)
+    console.log(e); 
+    message_xml(e)
+     
 });
 //關留言板
 $('.closeBtn').click(function(){
+    //alert(4);
     $('.message').hide();
     $('.message_itme').remove();
     $(`#inputText`)[0].value="";
@@ -52,13 +67,20 @@ $('.closeBtn').click(function(){
 
 //留言按鈕
 $('#msgBtn').click(function(){
+    //alert(5);
+    console.log(); 
     msg_value(); 
  })
+
+// }
+
+
 
 
 //按鈕函示-------------------
  
 function message_btn(e){
+    //alert(6);
     message_arr=e;
     $('.messageBtn').addClass(function(){
         $('.message').slideDown(50);
@@ -77,13 +99,14 @@ function message_btn(e){
 
 
 function msg_value() {
+    //alert(7);
 //     if (!sessionStorage['memNo']) {
    
 //      $id('login_gary').style.display = 'block';
 //      return ;
 // } 
 if ($(`#inputText`).val()==0)
-{  alert("請輸入文字");
+{  //alert("請輸入文字");
     return ;
 }
 
@@ -92,12 +115,14 @@ if ($(`#inputText`).val()==0)
 msg_xml=competition();
 msg_xml.onreadystatechange=
 function(){
+    //alert(8);
     if (msg_xml.readyState==4 && msg_xml.status==200){
       console.log(msg_xml.responseText);
     }
-}
+};
 // console.log( sessionStorage['user_no']);
-    let msg_arr= $(`.messageWrapInput`).serializeArray();
+    let msg_arr= $('.messageWrapInput').serializeArray();
+    console.log(msg_arr);
     msg_xml.open("GET","php/competition/msg.php?competNo="+msg_arr[0]["value"]+"&msg="+msg_arr[1]["value"]+"&user="+sessionStorage['memId'],true);
     msg_xml.send();
  $('.message_itme').remove();
@@ -108,6 +133,7 @@ function(){
 }
 
 function msg_revalue(){
+    //alert(9);
  let e =$(`#msgBtnNo`).val();
 message_xml(e);
 } 
@@ -196,7 +222,7 @@ var ctx = canvas.getContext("2d");
 // 這樣寫如果進來的時候是小畫面，拉大時畫布會爆掉，所以一開始就給他最大畫面這樣縮放就不會壞掉。*要注意如果畫面寬大於1920還是會壞掉
 var x = canvas.width = 2560;
 var y = canvas.height = 1875;
-// alert(canvas.height);
+// //alert(canvas.height);
 
 var img = new Image();
 img.src = "./images/competition/star.png";

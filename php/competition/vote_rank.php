@@ -21,6 +21,6 @@ catch (PDOException $e) {
 //    $j++;
 // }
 // array_splice($user_ctnRow,$j,1);
-$msgMemberRow = $user_ctn -> fetchAll(PDO::FETCH_ASSOC);
-echo json_encode( $msgMemberRow );
+$memberVoteRow = $memberVote -> fetchAll(PDO::FETCH_ASSOC);
+echo json_encode( $memberVoteRow );
 ?>

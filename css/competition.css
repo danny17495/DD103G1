@@ -330,7 +330,7 @@ body{
 }
 
 .messageNo1 .competitionPost img {
-    width: 50%;
+    width: 40%;
 }
 
 .messageBoard img{
@@ -356,7 +356,7 @@ body{
     width: 200px;
     height: 80px;
     background-color: #ddd;
-    margin-bottom: 10px;
+    margin-bottom: -10px;
     border-radius: 20px;
     opacity: 0.5;
 }
@@ -366,7 +366,7 @@ body{
     width: 180px;
     height: 65px;
     background-color: #ddd;
-    margin-bottom: 10px;
+    margin-bottom: -10px;
     border-radius: 20px;
     opacity: 0.5;
 }
@@ -381,6 +381,7 @@ body{
 
 .competitionButton .whiteButton{
     box-shadow: none;
+    margin-top: 10px;
 }
 
 .comprtitionButton span{
