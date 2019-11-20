@@ -486,6 +486,28 @@ header.white {
   opacity: 1;
 }
 
+.headerMemInfo {
+  position: relative;
+  right: 91px;
+  top: -3px;
+}
+
+.headerMemInfo #headerMemName {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.headerMemInfo #headerMemName a {
+  margin-left: 10px;
+  cursor: pointer;
+  padding-bottom: 5px;
+}
+
+.headerMemInfo #headerMemName a:hover {
+  color: #f39700;
+}
+
 #headerCheck:checked ~ .navMenu {
   left: 0;
 }

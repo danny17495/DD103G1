@@ -273,6 +273,23 @@ header.white{
     }
 }
 
+.headerMemInfo{
+    position: relative;
+    right: 91px;
+    top: -3px;
+    #headerMemName{
+      display: flex;
+      a{
+          margin-left: 10px;
+          cursor: pointer;
+          padding-bottom:5px ;
+          &:hover{
+             color:#f39700
+          }
+      }
+  }
+}
+
 #headerCheck:checked ~ .navMenu{
       left:0;
 }
