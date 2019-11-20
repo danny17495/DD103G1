@@ -4,7 +4,8 @@ $errMsg="";
 try {
     session_start();
     require_once('connect.php');
-  $postcard=$pdo->prepare("UPDATE `coupon` SET `postcard_status` = '0' WHERE `postcard`.`postcardNo` = :postcardNo AND `postcard`.`postcardNo` = :postcardNo;");
+  $postcard=$pdo->prepare("UPDATE `postcard` SET `postcard_status` = '0' WHERE `postcard`.`postcardNo`
+   = :postcardNo AND `postcard`.`postcardNo` = :postcardNo;");
   $postcard->bindValue(':memNo',$_SESSION['memNo']);
   $postcard->bindValue(':postcardNo',$_POST['postcardNo']);
   $postcard->execute();

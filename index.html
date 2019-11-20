@@ -11,11 +11,12 @@
     <link rel="stylesheet" type="text/css" href="css/slick-theme.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/jquery-ui.min.js"></script>
     <script src="js/slick.js"></script>
     <script src="js/oneSlide.js"></script>
     <script src="js/cloudMove.js"></script>
+   
     
 </head>
 <body>
@@ -61,7 +62,7 @@
                         <a href="shopcart.html">
                             <img src="images/icon_shopcar.png" alt="icon_shopcar">
                         </a>
-                        <a href="member_html/member.html">
+                        <a href="login.html">
                             <img src="images/icon_login.png" alt="icon_login">
                         </a>
                     </div>
@@ -107,15 +108,18 @@
             <div class="indexSpotIntro" id="indexSpot_01">
                 <h1>行程介紹</h1>
                 <h2>尋幽訪古之旅</h2>
-                <p>如果您喜歡充滿歷史氣息的旅行，那麼您一定不能錯過這條路線！景點包括九份老街、黃金博物館、黃金瀑布，過去因採礦業相當繁榮的地方，隨著礦業的衰退跟著沒落，卻留下不可彌滅的歷史痕跡。</p>
+                <p class="indexSpotTree_start">如果您喜歡充滿歷史氣息的旅行，那麼您一定不能錯過這條路線！景點包括九份老街、黃金博物館、黃金瀑布，過去因採礦業相當繁榮的地方，隨著礦業的衰退跟著沒落，卻留下不可彌滅的歷史痕跡。</p>
                 <div class="more">more</div>
             </div>
             <div class="indexSpotPic" id="indexSpot_pic01">
                 <div class="indexSpotPic_OOuter">
                     <div class="indexSpotPic_outer">
                     <img src="images/indexSpot/pic.jpg" alt="">
+                    </div>
                 </div>
-                </div>
+                    <div class="indexSpotTree treeGrow">
+                        <img src="images/indexSpot/tree.png" alt="">
+                    </div>
             </div>
             <div class="indexSpotIntro" id="indexSpot_02">
                 <h1>行程介紹</h1>
@@ -202,7 +206,9 @@
                                         <img src="images/reserveTree.png" alt="tree">
                                     </div>
                                 </div>
-                                <div class="whiteButton">我要預約</div>
+                                <a href="reserve.html">
+                                    <div class="whiteButton">我要預約</div>
+                                </a>
                             </form>
                     </div>
                     <div class="col-12 col-md-5 indexReRight">
@@ -210,9 +216,9 @@
                             <div class="calendarBox">
                                 <div class="calendarTitle">
                                     <span class="caLeftArrow"></span>
-                                    <span id="calendarYear">2019</span>
+                                    <span id="calendarYear"></span>
                                     <span>/</span>
-                                    <span id="calendarMonth">10</span>
+                                    <span id="calendarMonth"></span>
                                     <span class="caRightArrow"></span>
                                 </div>
                                 <div class="calendarBody">
@@ -227,58 +233,14 @@
                                             <li>六</li>
                                         </ul>
                                     </div>
-                                    <div class="calendarBody">
-                                        <ul>
-                                            <li></li>
-                                            <li></li>
-                                            <li>1</li>
-                                            <li>2</li>
-                                            <li>3</li>
-                                            <li>4</li>
-                                            <li>5</li>
-                                        </ul>
-                                        <ul>
-                                            <li>6</li>
-                                            <li>7</li>
-                                            <li>8</li>
-                                            <li>9</li>
-                                            <li>10</li>
-                                            <li>11</li>
-                                            <li>12</li>
-                                        </ul>
-                                        <ul>
-                                            <li>13</li>
-                                            <li>14</li>
-                                            <li>15</li>
-                                            <li>16</li>
-                                            <li>17</li>
-                                            <li>18</li>
-                                            <li>19</li>
-                                        </ul>
-                                        <ul>
-                                            <li>20</li>
-                                            <li>21</li>
-                                            <li>22</li>
-                                            <li>23</li>
-                                            <li>24</li>
-                                            <li>25</li>
-                                            <li>26</li>
-                                        </ul>
-                                        <ul>
-                                            <li>27</li>
-                                            <li>28</li>
-                                            <li>29</li>
-                                            <li>30</li>
-                                            <li>31</li>
-                                            <li></li>
-                                            <li></li>
-                                        </ul>
-                                    </div>
+                                    <div class="calendarBody"></div>
                                 </div>
                             </div>
                             <div class="busStop">
-                                <img src="images/busStop.png" alt="busstop">
-                                <div class="seeBus">+</div>
+                                <a href="reserve.html#submit">
+                                    <img src="images/busStop.png" alt="busstop">
+                                    <div class="seeBus">+</div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -296,6 +258,17 @@
 
 <!-- 明信片開始 -->
 <div class="wrapper wrapperPost">
+    <!-- <div class="indexPost_trsOuter">
+        <div class="indexPost_trs1">
+        <img src="images/indexSpot/trs1.png" alt="">
+        </div>
+        <div class="indexPost_trs2">
+            <img src="images/indexSpot/trs2.png" alt="">
+        </div>
+        <div class="indexPost_trs3">
+            <img src="images/indexSpot/trs3.png" alt="">
+        </div>
+    </div> -->
     <div class="wrapper wrapperPostLine"></div><!-- 明信片裝飾斜線 -->
     <div class="wrapperPostPa">
             <section class="container containerTitle">
@@ -429,19 +402,19 @@
                 <span>10月比賽優勝者</span>
                 <ul>
                     <li>
-                        <div class="shopPic shopPic1">
+                        <div class="shopPic" id="shopPic1">
                             <img src="images/image_abby/postDemo_1.jpg" alt="postDemo">
                         </div>
                         <span>第一名</span>
                     </li>
                     <li>
-                        <div class="shopPic shopPic2">
+                        <div class="shopPic" id="shopPic2">
                             <img src="images/image_abby/postDemo_2.jpg" alt="postDemo">
                         </div>
                         <span>第二名</span>
                     </li>
                     <li>
-                        <div class="shopPic shopPic3">
+                        <div class="shopPic" id="shopPic3">
                             <img src="images/image_abby/postDemo_3.jpg" alt="postDemo">
                         </div>
                         <span>第三名</span>
@@ -454,16 +427,18 @@
         <div class="shopRight">
             <div class="indexCupDemo">
                 <div>
-                    <img src="images/image_abby/indexCupCloud2.png" alt="Cup">
+                    <img src="images/redcup.png" alt="cup" id="changeCupStyle">
+                    <div id="changeSrc"></div>
                 </div>
             </div>
             <div class="cupColorChoose">
                 <span class="cupColor cupColor1"></span>
-                <span class="cupColor cupColor2"></span>
+                <span class="cupColor cupColor2 active"></span>
                 <span class="cupColor cupColor3">
                     <img src="images/image_abby/color.png" alt="color">
                 </span>
             </div>
+            <div class="cupPrice">200元</div>
             <div class="whiteButton shopGameButton">製作我的馬克杯</div>
         </div><!-- .shopRight結束div -->
         <div class="clearfix"></div>
@@ -484,15 +459,6 @@
 <!-- 商城與投票比賽的漸層區塊,裝飾用div -->
 <div class="wrapper wrapperShop3"></div>
 
-
-
-
-
-
-
-
-
-
     <!----- indexVote  首頁投票比賽 ------>
     <section class="indexVoteGame">
         <div class="containerpa voteContent">
@@ -510,11 +476,11 @@
                         <p>680票</p>
                         <div class="indexVoBtn">
                             <div class="vote">
-                                <img src="images/indexSpot/voteIcon.png" alt="voteIcon">
+                                <i class="fa fa-hand-o-down fa-2x voteIcon" aria-hidden="true"></i>
                                 <p>投票</p>
                             </div>
                             <div class="message">
-                                <img src="images/indexSpot/messIcon.png" alt="messIcon">
+                                <i class="fa fa-commenting-o messIcon fa-2x" aria-hidden="true"></i>
                                 <p>留言</p>
                             </div>
                         </div>
@@ -530,11 +496,11 @@
                         <p>470票</p>
                         <div class="indexVoBtn">
                             <div class="vote">
-                                <img src="images/indexSpot/voteIcon.png" alt="voteIcon">
+                                <i class="fa fa-hand-o-down fa-2x voteIcon" aria-hidden="true"></i>
                                 <p>投票</p>
                             </div>
                             <div class="message">
-                                <img src="images/indexSpot/messIcon.png" alt="messIcon">
+                                <i class="fa fa-commenting-o messIcon fa-2x" aria-hidden="true"></i>
                                 <p>留言</p>
                             </div>
                         </div>
@@ -550,11 +516,11 @@
                         <p>325票</p>
                         <div class="indexVoBtn">
                             <div class="vote">
-                                <img src="images/indexSpot/voteIcon.png" alt="voteIcon">
+                                <i class="fa fa-hand-o-down fa-2x voteIcon" aria-hidden="true"></i>
                                 <p>投票</p>
                             </div>
                             <div class="message">
-                                <img src="images/indexSpot/messIcon.png" alt="messIcon">
+                                <i class="fa fa-commenting-o messIcon fa-2x" aria-hidden="true"></i>
                                 <p>留言</p>
                             </div>
                         </div>
@@ -594,16 +560,14 @@
         </div>
         <p>DD103 G1 copyright</p>
     </footer>
-<!-- <script src="js/header.js"></script> -->
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script> -->
+<script src="js/alert.js"></script>
+<script src="js/canlendar.js"></script>
 <script src="js/ScrollMagic.min.js"></script>
 <script src="js/animation.gsap.min.js"></script>
 <script src="js/debug.addIndicators.min.js"></script>
 <script src="js/TweenMax.min.js"></script>
 <script src="js/indexTweenmax.js"></script>
+<script src="js/changePic.js"></script>
 <script src="js/star.js"></script> 
 <script src="js/banner.js"></script>
 </body>

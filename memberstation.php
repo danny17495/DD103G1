@@ -1,34 +1,38 @@
 <?php 
 $errMsg = "";
 session_start();
+echo "<pre>_SESSION:"; print_r($_SESSION); echo "</pre>";
 
 try {
   require_once('php/connect.php');
 
   //找會員
   $member=$pdo->prepare('SELECT * FROM `member` where memberNo = :memberNo');
-  $member->bindValue(':memberNo',@$_SESSION['memberNo']);
+  $member->bindValue(':memNo',@$_SESSION['memNo']);
   $member->execute();
-
+  echo "<pre>member:"; print_r($member); echo "</pre>";
   //找明信片
-  $postcardform=$pdo->prepare('SELECT * FROM `postcard` where postcardNo = :postcardNo');
-  $postcardform->bindValue(':postcardNo',@$_SESSION['postcardNo']);
+  $postcardform=$pdo->prepare('SELECT * FROM `postcard` where memNo = :memNo');
+  $postcardform->bindValue(':memNo',@$_SESSION['memNo']);
   $postcards->execute();
+  echo "<pre>postcards:"; print_r($postcards); echo "</pre>";
 
   //找優惠劵
-  $holdingcoupon=$pdo->prepare('SELECT * FROM `holdingcoupon` where couponNo = :couponNo');
-  $holdingcoupon->bindValue(':couponNo',@$_SESSION['couponNo']);
+  $holdingcoupon=$pdo->prepare('SELECT * FROM `holdingcoupon` where memNo = :memNo');
+  $holdingcoupon->bindValue(':memNo',@$_SESSION['memNo']);
   $holdingcoupon->execute();
+  echo "<pre>holdingcoupon:"; print_r($holdingcoupon); echo "</pre>";
 
-  //找訂單
-  $orderform=$pdo->prepare('SELECT * FROM `orderform` where orderNo = :orderNo');
-  $orderform->bindValue(':orderNo',@$_SESSION['orderNo']);
-  $orderform->execute();
+//   找訂單
+//   $orderItems=$pdo->prepare('SELECT * FROM  order_item o join product pro on pro.product_no = o.product_no where o.order_no = :order_no ');
+//   $orderItems->execute();
+//   echo "<pre>orderform:"; print_r($orderform); echo "</pre>";
 
-  //找預約
-  $reserve=$pdo->prepare('SELECT * FROM `reserve` where reserveNo = :reserveNo');
-  $reserve->bindValue(':reserveNo',@$_SESSION['reserveNo']);
-  $reserve->execute();
+//   找預約
+//   $revs=$pdo->prepare('SELECT * FROM resv_order r join resv_session_capacity rc on r.session_no = rc.session_no where r.member_id = :member_id');
+//   $revs->bindValue(':memberId',@$_SESSION['memNo']);
+//   $revs->execute();
+//   echo "<pre>reserve:"; print_r($reserve); echo "</pre>";
 
 ?>
 
@@ -154,10 +158,7 @@ try {
                                     <label for="membername" class="label">姓名</label>
                                     <input id="memberinput" type="text" class="memberinput">
                                 </div>
-                                <div class="memberTabGroup">
-                                    <label for="nickname" class="label">暱稱</label>
-                                    <input id="memberinput" type="text" class="memberinput">
-                                </div>
+                             
                                 <div class="memberTabGroup">
                                     <label for="phone" class="label">電話</label>
                                     <input id="memberinput" type="text" class="memberinput">
@@ -182,6 +183,7 @@ try {
                                     <div id="memberwbtn" class="whiteButton" style="border:1px solid #ccc;">
                                         修改
                                     </div>
+                                    
                                 </div>
                             </div>
                             <div class="bottom_part">
@@ -283,14 +285,14 @@ try {
                                         <li class="memberli" data-title="訂單編號">10001</li>
                                         <li class="memberli" data-title="訂購日期">20191106</li>
                                         <div class="memberboxdiv2">
-                                            <li class="memberli2">馬克杯</li>
-                                            <li class="memberli2">Tshirt</li>
+                                            <li class="memberli2" data-title="商品名稱">馬克杯</li>
+                                            <li class="memberli2" data-title="商品名稱">Tshirt</li>
                                         </div>
                                         <li class="memberli" data-title="運費">NT.60</li>
                                         <li class="memberli" data-title="總金額">NT.250</li>
                                         <div class="memberboxdiv2">
-                                            <li class="memberli2">1</li>
-                                            <li class="memberli2">1</li>
+                                            <li class="memberli2" data-title="數量">1</li>
+                                            <li class="memberli2" data-title="數量">1</li>
                                         </div>
                                         <li class="memberli" data-title="訂單狀態">處理中</li>
                                         <li class="memberli" data-title="取消訂單"><a href="#">取消</a></li>
@@ -301,14 +303,14 @@ try {
                                         <li class="memberli" data-title="訂單編號">10001</li>
                                         <li class="memberli" data-title="訂購日期">20191106</li>
                                         <div class="memberboxdiv2">
-                                            <li class="memberli2">馬克杯</li>
-                                            <li class="memberli2">Tshirt</li>
+                                            <li class="memberli2" data-title="商品名稱">馬克杯</li>
+                                            <li class="memberli2" data-title="商品名稱">Tshirt</li>
                                         </div>
                                         <li class="memberli" data-title="運費">NT.60</li>
                                         <li class="memberli" data-title="總金額">NT.250</li>
                                         <div class="memberboxdiv2">
-                                            <li class="memberli2">1</li>
-                                            <li class="memberli2">1</li>
+                                            <li class="memberli2" data-title="數量">1</li>
+                                            <li class="memberli2" data-title="數量">1</li>
                                         </div>
                                         <li class="memberli" data-title="訂單狀態">處理中</li>
                                         <li class="memberli" data-title="取消訂單"><a href="#">取消</a></li>
@@ -321,7 +323,7 @@ try {
                         <span id="memberTab5">
                             <li id="memberReserve" class="memberthead">
                                 <ol class="memberol">
-                                    <li class="memberli">日期</li>
+                                    <li class="memberli">預約日期</li>
                                     <li class="memberli">行程</li>
                                     <li class="memberli">時間</li>
                                     <li class="memberli">人數</li>
@@ -399,33 +401,6 @@ try {
         </div>
         <p>DD103 G1 copyright</p>
     </footer>
-    <script>
-
-            function check()
-            
-            {
-            
-            with(document.all){
-            
-            if(input1.value!=input2.value)
-            
-            {
-            
-            alert("false")
-            
-            input1.value = "";
-            
-            input2.value = "";
-            
-            }
-            
-            else document.forms[0].submit();
-            
-            }
-            
-            }
-            
-            </script>
-</body>
+    </body>
 
 </html>

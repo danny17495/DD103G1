@@ -5,7 +5,7 @@
 }
 *{
     list-style: none;
-	/* outline:solid 1px red; */
+	 /*outline:solid 1px red; */
 }
 /*----------------index Banner(手機板)-----------------*/
 
@@ -169,7 +169,7 @@
     width: 100%;
     border-radius: 30% 38% 22% 38%/ 51% 47% 42% 42%;
     animation: 
-    transform2 8s linear infinite alternate-reverse;
+    transform2 5s linear infinite alternate-reverse;
 }
 .indexSpotPic .indexSpotPic_OOuter_2{
     padding: 10px;
@@ -178,7 +178,7 @@
     width: 100%;
     border-radius: 30% 38% 22% 38%/ 51% 47% 42% 42%;
     animation: 
-    transform2 8s linear infinite alternate-reverse;
+    transform2 5s linear infinite alternate-reverse;
 }
 .indexSpotPic .indexSpotPic_OOuter_3{
     padding: 10px;
@@ -187,13 +187,13 @@
     width: 100%;
     border-radius: 30% 38% 22% 38%/ 51% 47% 42% 42%;
     animation: 
-    transform2 8s linear infinite alternate-reverse;
+    transform2 5s linear infinite alternate-reverse;
 }
 .indexSpotPic .indexSpotPic_outer{
     height: 100%;
     border-radius: 30% 38% 22% 38%/ 51% 47% 42% 42%;
     animation: 
-    transform 10s linear infinite alternate-reverse,
+    transform 8s linear infinite alternate-reverse,
     shade 60s linear infinite alternate-reverse;
     overflow: hidden;
     position: relative;
@@ -227,18 +227,21 @@
   0%, 100% { background-position: 0% 50%; }
        50% { background-position: 100% 50%; }
 }
-.indexSpotPic .indexSpotPic_OOuter:after,
-.indexSpotPic .indexSpotPic_OOuter_2:after,
-.indexSpotPic .indexSpotPic_OOuter_3:after{
-    content: '';
-    display: block;
-    background-image: url(../images/indexSpot/tree_mobile.png);
-    width: 50px;
-    height: 80px;
-    position: absolute;
-    bottom: 80px;
-    right: 30px;
+.indexSpotTree{
+        width: 40px;
+        height: 70px;
+        position: absolute;
+        bottom:80px;
+        right: 310px;
+        transform-origin: bottom center;
+        transform: scale(0);
+    }
+.indexSpotTree img{
+    width: 120%;
 }
+.indexSpotPic .indexSpotTree.treeGrow{
+        animation:treeGrow 1s forwards;
+    }
 /*   indexSpot  首頁行程介紹---下方按鈕  */
 .spotContainer .indexSpotBtns{
     padding-top: 10px;
@@ -316,18 +319,22 @@
     }
     .indexSpot .indexSpotPic{
         margin-top: 50px;
+        position: relative;
     }
-    .indexSpotPic .indexSpotPic_OOuter:after,
-     .indexSpotPic .indexSpotPic_OOuter_2:after,
-     .indexSpotPic .indexSpotPic_OOuter_3:after{
-        content: '';
-        display: block;
-        background-image: url(../images/indexSpot/tree.png);
+    .indexSpotTree{
         width: 60px;
         height: 102px;
         position: absolute;
-        top:250px;
+        bottom:0px;
         right: 40px;
+        transform-origin: bottom center;
+        transform: scale(0);
+    }
+    .indexSpotTree img{
+        width: 100%;
+    }
+    .indexSpotPic .indexSpotTree.treeGrow{
+        animation:treeGrow 1s forwards;
     }
     .indexSpotBtns .indexSpotBtn1,
     .indexSpotBtns .indexSpotBtn2,
@@ -367,8 +374,8 @@
 .indexReserve{
     margin-top: -23px;
     padding: 45px 10px;
-   /* background-color: #feeed4;*/
     overflow: hidden;
+    position: relative;
 }
 .indexReserve .indexReLeft{
     margin-bottom: 20px;
@@ -394,6 +401,7 @@
     border-radius: 13px;
     outline: none;
     border: 1px solid #f39700;
+    background-color: #fff;
 }
 .indexReContent{
     position: relative;
@@ -501,7 +509,6 @@
    cursor:pointer;
 }
 .indexReserve .bottomRoadBus{
-    position: relative;
     margin-top: 20px;
 }
 .bottomRoadBus .roadTree{
@@ -515,11 +522,16 @@
     display: none;
     position: absolute;
     width: 125px;
-    top: 34px;
-    left: 64%;
+    bottom: 306px;
     cursor: pointer;
+    animation: bus 10s infinite
 }
-
+@keyframes bus{  
+    0%{right:100%} 
+    50%{right:25%}
+    60%{right:30%}
+    100%{right:-100%}
+}
 .reserveCalendar .busStop{
     position: absolute;
     width: 50px;
@@ -535,14 +547,20 @@
     position: absolute;
     width: 30px;
     height: 30px;
-    right: -11px;
+    right: 10px;
     top: -18px;
     font-size: 30px;
     border-radius: 50%;
     background-color: #fff;
     color: #f39800;
     text-align: center;
-    font-weight: bold
+    font-weight: bold;
+    animation:busstop 2s infinite
+}
+@keyframes busstop{  
+    0%{top: -18px} 
+    50%{top: -26px}
+    100%{top: -18px}
 }
 @media all and (min-width: 576px) {
     .indexReLeft .indexReContent{
@@ -602,8 +620,7 @@
     }
     .bottomRoadBus .roadBus{
         width: 165px;
-        top: 83px;
-        left: 66%;
+        bottom:253px;
     }
     .indexReContent .tree{
         width: auto;
@@ -612,6 +629,9 @@
     }
     .bottomRoadBus .roadTree{
         background-size: 100% 100%;
+    }
+    .busStop .seeBus{
+        right: 17px;
     }
 }
 
@@ -701,7 +721,7 @@
 }
 
 .postBack img{
-	display: block;
+	/* display: block; */
 	width: 100%;
 	height: auto;
     vertical-align: middle;
@@ -978,7 +998,8 @@
 
 .shopOneSlider img{
 	display: block;
-	width: 100%;
+    width: 100%;
+    cursor: pointer;
 }
 
 .shopDIYSmall span{
@@ -1015,11 +1036,17 @@
 	width: 100%;
 	margin: 0 auto 20px;  /*水平width+margin=100%*/
 	/*background-color: blue;*/
-	position: relative;
+    position: relative;
+    top: -30px;
+    animation:cupmove 8s infinite;
 }
-
+@keyframes cupmove{  
+    0%{top: -25px} 
+    50%{top: 0px}
+    100%{top: -25px}
+}
 .shopRight .indexCupDemo div{
-	width: 90%;
+	width: 100%;
 	max-width: 384px;
 	margin: 0 auto;
 	/*background-color: green;*/
@@ -1035,6 +1062,7 @@
 .cupColorChoose{
     width: 50%;
     margin: auto;
+    cursor: pointer
 }
 .cupColorChoose span.cupColor{
 	display: inline-block;
@@ -1046,26 +1074,32 @@
 }
 
 .cupColorChoose span.cupColor1{
-	background-color: #fff;
+	background-color: #287fa0;
 }
 
 .cupColorChoose span.cupColor2{
 	background-color: rgb(194, 57, 6);
 }
-
-.cupColorChoose span.cupColor2:after{
-	content: "";
+.cupColorChoose span.cupColor:after{
+    content: "";
 	display: block;
 	width: 35px;
 	height: 35px;
-	border: 1px solid rgb(194, 57, 6);
 	border-radius: 50%;
 	box-sizing: border-box;
 	position: absolute;
 	top: -5px;
-	left: -5px;
+    left: -5px;
 }
-
+.cupColorChoose span.cupColor1.active:after{
+    border: 1px solid #287fa0;
+}
+.cupColorChoose span.cupColor2.active:after{
+    border: 1px solid rgb(194, 57, 6);
+}
+.cupColorChoose span.cupColor3.active:after{
+    border: 1px solid #1b3263;
+}
 /*按鈕*/
 .shopGameButton{
 	margin: 20px 0 50px;
@@ -1183,7 +1217,7 @@
 	/*排版*/
     .cupColorChoose{
         width: 50%;
-        margin-left: 25%;
+        margin-left: 26%;
     }
 	.shopDIY{
 		background-color: #fff;
@@ -1204,7 +1238,8 @@
 	}
 
 	.shopDIY li{
-		width: 100%;
+        width: 100%;
+        cursor: pointer;
 	}
 
 	.shopDIY .shopPic img{
@@ -1237,7 +1272,7 @@
 
 	/*按鈕*/
 	.shopGameButton{
-		margin: 60px 0 0;
+		margin: 30px 0 0;
 	}
 
 	/*=============04商城裝飾鐵軌=============*/
@@ -1425,7 +1460,7 @@
 	/*=============02商城圖案選擇區=============*/
 	/*排版*/
     .cupColorChoose{
-        margin-left: 31%;
+        margin-left: 33%;
     }
 	.shopDIY > ul{
 		height: 470px;	
@@ -1434,7 +1469,7 @@
 	/*=============03商城杯子展示區=============*/
 	.shopRight .indexCupDemo{
 		width: 60%;
-		margin: 120px auto 30px;  /*水平width+margin=100%*/
+		margin: 95px auto 30px;  /*水平width+margin=100%*/
 	}
 
 	.shopRight .indexCupDemo div{
@@ -1442,15 +1477,11 @@
 		max-width: 384px;
 		margin: 0 auto;
 	}
-    .shopRight .indexCupDemo > div > img{
-        display: block;
-        width: 120%;
-        height: auto;
-    }
+
 
 	/*按鈕*/
 	.shopGameButton{
-		margin: 60px 0 0 12%;
+		margin: 30px 0 0 15%;
 	}
     /*=============新增=============*/
    
@@ -1512,10 +1543,20 @@
 }
 .indexVoBtn,.indexVoBtn .vote,.indexVoBtn .message{
     display: flex;
-    justify-content: space-evenly
+    justify-content: space-evenly;
+    align-items: center;
+}
+.indexVoBtn .messIcon,.indexVoBtn .voteIcon,.indexVoBtn p{
+    color: inherit
 }
 .indexVoBtn p{
     margin-left: 5px;
+}
+.indexVoBtn>div{
+    color:black;
+}
+.indexVoBtn>div:hover{
+    color:rgb(37, 70, 141)
 }
 .indexVoteGame .whiteButton{
     margin: 0 auto
@@ -1592,7 +1633,7 @@
     margin: 40px auto;
 }
 .indexGameOuter{
-    width: 85%;
+    width: 100%;
     margin: 0 auto;
     border-radius: 50px;
     overflow: hidden;
@@ -1602,7 +1643,7 @@
 }
 #indexGameVideoSmall{
     display: block;
-    width: 300px;
+    width: 100%;
     margin:0 auto;
 }
 .indexGameOuter img{
@@ -1651,6 +1692,10 @@
 .linearOrange{
     margin-top: 100px;
     background:linear-gradient(rgba(248,238,218,0.3) 0%, rgba(248,238,218,0.5) 30%, rgba(248,238,218,0.9) 80%);
+}
+.linearOrange.fix{
+    margin-top: 0;
+    background: none;
 }
 .linearOrange .indexReserve{
     padding: 75px 10px;
@@ -1772,13 +1817,21 @@
 .linearOrange .waitingBus{
     overflow: hidden;
     margin-top: 100px;
-  
+    position: relative;
 }
 .linearOrange .busLeft{
     float: left;
     width: 141px;
-    position: relative;
-    left: -50px;
+    position: absolute;
+    animation: busBig 10s infinite;
+    z-index: 2;
+    top: 125px;
+}
+@keyframes busBig{  
+    0%{right:100%} 
+    50%{right:8%}
+    60%{right:12%}
+    100%{right:-100%}
 }
 .linearOrange .waitingBus img{
     width: 100%;
@@ -1803,6 +1856,9 @@
 .linearOrange .busStopRight .waitGirl{
     width: 165px;
 }
+.linearOrange  .waitGirl.disappear{
+    opacity: 0;
+}
 .linearOrange .cat,.linearOrange .feetLeft,.linearOrange .feetRight{
     display: none;
 }
@@ -1810,7 +1866,6 @@
 @media screen and (min-width: 576px){
     .linearOrange .busLeft{
         width: 220px;
-        left: -110px;
         top: 84px;
     }
     .linearOrange .busStopRight .busStop{
@@ -1827,7 +1882,6 @@
     }
     .linearOrange .busLeft {
         width: 268px;
-        left: -122px;
         top: 105px;
     }
     .linearOrange .busStopRight .busStop{
@@ -1995,6 +2049,7 @@
     }
     .linearOrange .feetLeft>div,.linearOrange .feetRight>div{
         position: absolute;
+        opacity: 0;
     }
     .linearOrange .catFeet1{
         top: -113px;
@@ -2031,7 +2086,6 @@
     }
     .linearOrange .busLeft {
         width: 278px;
-        left: -142px;
         top: 135px;
     }
     .linearOrange .busStopRight .busStop{
@@ -2069,16 +2123,21 @@
 		left: 0;
 		margin: 0 auto;
 	}
-	.spotIntroBannerText:after{
-		content: '';
-		display: block;
-		background-image: url(../images/indexSpot/tree_mobile.png);
-		width: 50px;
-	    height: 80px;
-	    position: absolute;
-	    top: -16px;
-    	right: 7px;
-	}
+    .spotIntroTree{
+        width: 50px;
+        height: 80px;
+        position: absolute;
+        bottom: 156px;
+        right: 37px;
+        transform-origin: bottom center;
+        transform: scale(0);
+    }
+    .spotIntroTree img{ 
+        width: 100%;
+    }
+    .spotIntroBannerOuter .spotIntroTree.treeGrow{
+        animation:treeGrow 1s forwards;
+    }
 	.spotIntroBannerText h1{
 		font-size: 20px;
 		text-align: center;
@@ -2114,17 +2173,15 @@
 	}
 	.spotIntroBannerOuter{
 		height: 100vh;
+        position: relative;
 	}
-	.spotIntroBannerOuter:after{
-		content: '';
-		display: block;
-		background-image: url(../images/indexSpot/tree.png);
-		width: 60px;
+    .spotIntroTree{
+        width: 60px;
         height: 102px;
-	    position: absolute;
-	    bottom: -70px;
-   		right: 20px;
-	}
+        position: absolute;
+        bottom: -70px;
+        right: 20px;
+    }
 	.spotIntroBannerText{
 		padding:140px 30px ;
 		width: 24%;
@@ -2446,7 +2503,13 @@
 		position: absolute;
 		bottom: 0;
 		right: 0;
+        animation: spotIntroCloudMove 3s linear alternate infinite;
 	}
+
+    @keyframes spotIntroCloudMove{
+        0%{right:0;}
+        100%{right:180px; }
+    }
 	.spotIntroTrip1_SpotAouter{
 		width: 100%;
 		display: flex;
@@ -2463,7 +2526,7 @@
 		position: relative;
 		margin-left: 60px;
 		animation: 
-	    transform 5s linear infinite alternate-reverse;
+	    transform 4s linear infinite alternate-reverse;
 	}
 
 	.spotIntroTrip1_SpotA_mv{
@@ -2533,7 +2596,7 @@
 		border-radius: 39% 48% 38% 56%/ 52% 64% 58% 46%;
 		position: relative;
 		animation: 
-	    transform 5s linear infinite alternate-reverse;
+	    transform 4s linear infinite alternate-reverse;
 }
 
 .spotIntroTrip1_SpotBPic_outer{
@@ -2604,7 +2667,12 @@
 		position: absolute;
 		bottom: -15px;
 		left: -78px;
+        animation: spotIntroCloudMove2 2.5s linear alternate infinite;
 	}
+    @keyframes spotIntroCloudMove2{
+        0%{left: -78px;}
+        100%{left: 10px; }
+    }
 	.spotIntroTrip1_SpotBouter{
 		width: 100%;
 		display: flex;
@@ -2653,7 +2721,7 @@
 		margin-left: 30px;
 		margin-right: 55px;
 		animation: 
-	    transform 5s linear infinite alternate-reverse;
+	    transform 4s linear infinite alternate-reverse;
 	}
 	.spotIntroTrip1_SpotBPic_outer{
 		width: 92%;
@@ -2698,7 +2766,7 @@
 		border-radius: 39% 48% 38% 56%/ 52% 64% 58% 46%;
 		position: relative;
 		animation: 
-	    transform 5s linear infinite alternate-reverse;
+	    transform 4s linear infinite alternate-reverse;
 }
 .spotIntroTrip1_SpotCPic_outer{
 		width: 92%;
@@ -2777,7 +2845,7 @@
 		position: relative;
 		margin-left: 60px;
 		animation: 
-	    transform 5s linear infinite alternate-reverse;
+	    transform 4s linear infinite alternate-reverse;
 	}
 	.spotIntroTrip1_SpotCPic_outer{
 		width: 92%;
@@ -2860,7 +2928,7 @@
 		overflow: hidden;
 		position: relative;
 		animation: 
-	    transform3 20s linear infinite alternate-reverse;
+	    transform3 10s linear infinite alternate-reverse;
 }
 @keyframes transform3 {
 	  0%{border-radius: 42% 58% 60% 40% / 32% 54% 46% 68%}
@@ -2985,18 +3053,31 @@
 @media all and (min-width: 992px) {
 	.spotIntroTrip2{
 		padding-top: 100PX;
-		/*position: relative;*/
+		position: relative;
 	}
-	.spotIntroTrip2:before{
-		content: '';
-		display: block;
-		background-image: url(../images/spotIntro/busStop.png);
-		width: 103px;
-		height: 268px;
-		position: absolute;
-		top: -136px;
-    	right: 50px;
-	}
+    .spotIntroTrip2 .introBus{
+        width: 70px;
+        position: absolute;
+        top: -80px;
+        right: 30px;
+    }
+    .spotIntroTrip2 .introBus img{
+        width: 100%;
+    }
+    .spotIntroTrip2 .seeBus{
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        top: -136px;
+        right: 50px;
+        font-size: 30px;
+        border-radius: 50%;
+        background-color: #fff;
+        color: #f39800;
+        text-align: center;
+        font-weight: bold;
+        animation:busstop 2s infinite
+    }
 	.spotIntroTrip2_Outer{
 		flex-direction: row;
 		justify-content: space-around;
@@ -3013,7 +3094,7 @@
 		overflow: hidden;
 		position: relative;
 		animation: 
-	    transform3 20s linear infinite alternate-reverse;
+	    transform3 10s linear infinite alternate-reverse;
 	}
 	.spotIntroTrip2_pic_Outer img{
 		display: block;
@@ -3715,7 +3796,8 @@
     top: 12px;
     right: 20px;
 }
-#game_getCoupon{
+#game_getCoupon,
+#game_getCoupon2{
     background-color: #fff;
     border-radius: 20px;
     border: none;
@@ -4045,7 +4127,8 @@
         top: 12px;
         right: 20px;
     }
-    #game_getCoupon{
+    #game_getCoupon,
+    #game_getCoupon2{
         background-color: #fff;
         border-radius: 20px;
         border:none;
@@ -4110,7 +4193,7 @@
     text-align: center;
     position: fixed;
     top: 0;
-    z-index: 999;
+    z-index: 1000;
     display: none
 }
 .alertWindow .alert{
@@ -4141,19 +4224,10 @@
     display: none;
     margin-left: 15px;
 }
-.alertWindow .alertClose {
-    display: block;
-    border-radius: 50%;
-    background-color: #fff;
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    top: 10px;
-    right: 9px;
-    text-align: center;
-    font-family: Microsoft JhengHei;
-    font-weight: bold;
-    cursor: pointer;
+
+.alertWindow .Trip2_lightBoxBTN{
+    right: 11px;
+    top: 7px;
 }
 .reserveCalendar .disabledDate{
     color:gray;
@@ -4269,7 +4343,7 @@
     background: url(../images/BG_PIC3.png) no-repeat;
     width: 100%;
     height:863px;
-	background-position:  center center;
+	background-position: bottom center;
 	left: -100%;
 }
 
@@ -5440,6 +5514,305 @@ body.postcardBody .forWallDeco{
     }
 
 }
+/*=============03商城杯子展示區 新增 =============*/
+.shopRight #changeSrc{
+    position: absolute;
+    width: 96px;
+    right: 0;
+    top: 21%;
+    left: 0;
+    margin: auto;
+}
+.shopRight #changeSrc img{
+    width: 100%;
+}
+.shopRight .cupPrice{
+    font-size: 23px;
+    margin-top: 20px;
+    padding-left: 15px;
+}
+@media screen and (min-width: 992px){
+    .shopRight .cupPrice{
+          padding-left: 17%;
+    }
+    .shopRight .indexCupDemo > div > img{
+        width: 120%;
+    }
+    .shopRight #changeSrc{
+        width: 120px;
+        left: 21%;
+    }
+}
 
+/*------------------會員登入 註冊---------------------------*/
+
+.Loginwrap{
+    background-color: rgba(0,0,0,0.7);
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    z-index:100;
+    position: fixed;
+    display: none;
+}
+.LoginForm {
+  position:absolute;
+  top:45%;
+  left:50%;
+  transform:translate(-50%,-50%);
+  width:300px;
+  height:500px;
+}
+.LoginForm .Loginhead {
+  width:100%;
+  height:55px;
+  display:flex;
+ 
+}
+.LoginForm .Loginhead > div {
+  width:100%;
+  height:100%;
+  text-align:center;
+  line-height:55px;
+  cursor:pointer;
+  background:transparent;
+  text-transform:uppercase;
+  font-size:15px;
+  background-color: #bec5e9;
+  background-attachment: fixed;
+  border-radius: 20px 20px 0 0;
+}
+
+
+
+.LoginForm .Loginbody {
+  position:absolute;
+  overflow:hidden;
+  width:100%;
+  height:100%;
+  background-image: url(../images/login/LoginBg.jpg);
+  border-radius: 0 0 20px 20px;
+  display:inline-flex;
+  flex-wrap:wrap;
+}
+.LoginForm .Loginbody > div {
+  position:absolute;
+  width:100%;
+  height:100%;
+  padding: 20px;
+}
+.LoginForm .Loginbody > div.Login-login {
+  left:0%;
+  border-radius: 20px;
+  padding: 20px;
+}
+.LoginForm .Loginbody .Login-login .LoginForm-row {
+    margin:0 auto;
+    padding: 5% 10%;
+    
+}
+
+.LoginForm .Loginbody.active > div.Login-signup {
+  left:0%;
+}
+.LoginForm .Loginbody .Login-signup .LoginForm-row {
+    padding: 5px 10%;
+}
+.LoginForm .Loginbody .login .LoginForm-row{
+   padding: 20px 10%;
+}
+.LoginForm .Loginbody .LoginForm-row .LoginLabel {
+  display:block;
+  padding:2px 12px 10px 0px;
+  font-weight:600;
+  text-transform:uppercase;
+}
+.LoginForm .Loginbody .LoginForm-row .Logininput {
+  width:100%;
+  border:none;
+  outline:none;
+  height:32px;
+  text-indent:10px;
+  font-size:14px;
+}
+.LoginForm .Login-forget-password{
+  text-decoration:none;
+  color:#FFF;
+  padding:4px;
+  margin-left: 10%;
+}
+.LoginForm .Loginbody .Login-login .LoginForm-row .Login-signup-btn1 {
+  width:33%;
+  border:none;
+  outline:none;
+  height:45px;
+  text-transform:uppercase;
+  font-size:16px;
+  cursor:pointer;
+  position: absolute;
+  left: 33%;
+  right:33%;
+  top:48%;
+  border-radius: 20px;
+}
+.LoginForm .LoginForm-signup-now{
+  text-decoration:none;
+  border:none;
+  outline:none;
+  padding:4px;
+  margin-left: 10%;
+  position: absolute;
+  top:60%;
+  left:30%;
+  right:0;
+  color:#fff;
+}
+
+.LoginForm .Loginbody .LoginForm-span{
+  text-align:center;
+  width: 70%;
+  margin: 0 auto;
+}
+.LoginForm .Loginbody .row .LoginForm-span {
+  font-size:14px;
+  position:relative;
+  color:#fcfcfc;
+  top:5px;
+  font-weight:600;
+}
+
+.LoginForm .Loginbody .Loginfooter {
+  position:absolute;
+  bottom:50px;
+  width:100%;
+ 
+}
+.LoginForm .Loginbody .Loginfooter > div.social-form {
+  float:left;
+  padding-left:50px;
+  width:100%;
+  height:40px;
+  line-height:40px;
+  text-indent:2%;
+  color:#fcfcfc;
+  position:relative;
+  font-size:14px;
+  cursor:pointer;
+}
+
+.LoginForm .Logininput{
+    border-radius: 10px;
+}
+.Loginclose{
+  position: relative;
+}
+.Loginclose i{
+  font-size: 36px;
+  color: #FFF;
+  position: absolute;
+  top:15%;
+  left:82.5%;
+  right:0;
+} 
+
+.LoginForm-row .LoginBtnCenter{
+  position: relative;
+}
+.LoginBtnCenter{
+  position: absolute;
+  top:0;
+  left:38%;
+  right:0;
+}
+.LoginP{
+  color:#FFF;
+}
+
+/*註冊*/
+.LoginForm-row .LoginBtnR{
+  position: absolute;
+  bottom:51px;
+  left:24%;
+}
+.LoginForm-row .LoginBtnL{
+  position: absolute;
+  bottom:51px;
+  left:50%;
+}
+.LoginForm-row.fix .LoginBtnL,.LoginForm-row.fix .LoginBtnR{
+  bottom:125px;
+}
+
+.LoginForm .Loginbody .LoginForm-row {
+    margin:0 auto;
+    padding: 0% 10%;
+    
+}
+.LoginForm .Loginbody .LoginForm-row .Loginlabal {
+  display:block;
+  padding:10px 12px 10px 0px;
+  font-weight:600;
+  text-transform:uppercase;
+}
+
+
+.LoginForm .Loginbody .LoginForm-span{
+  text-align:center;
+  /* padding:8px 0px; */
+  border-top:1px dashed #CCC;
+  width: 70%;
+  margin: 0 auto;
+}
+.LoginForm .Loginbody .row .LoginForm-span {
+  /* font-size:14px; */
+  position:relative;
+  color:#fcfcfc;
+  top:5px;
+  font-weight:600;
+}
+.LoginForm .Loginbody .Loginfooter {
+  position:absolute;
+  bottom:50px;
+  width:100%;
+}
+
+.LoginForm .Login-forget-password{
+    text-decoration:none;
+    color:#FFF;
+    padding:4px;
+    margin-left: 10%;
+}
+.Loginclose{
+  position: relative;
+}
+
+
+.Loginbody .resetpsw{
+  color:#fff;
+  font-size: 12px;
+  text-align: center
+}
+.LoginForm .logintitle{
+  margin-top: 5%;
+  width: 100%;
+  height: 55px;
+  border-radius: 20px 20px 0 0;
+  background-color: #bec5e9;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 3em;
+}
+.LoginForm .LoginForm-body {
+  height: 350px;
+}
+.LoginForm .LoginForm-head {
+  width: 100%;
+  position: relative;
+}
+.LoginForm .LoginForm-head .login-head{
+  position: absolute;
+  top:0;
+  background-attachment: fixed;
+}
 
 

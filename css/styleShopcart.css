@@ -1,0 +1,294 @@
+/*----------------shopcart購物車頁面開始(<768)---------------*/
+/*----------------購物車, 客製化明信片頁面的共用----------------*/
+.wrapA{
+    width: 100%;
+}
+
+section.pageTitle .container{
+    text-align: center;
+    padding: 200px 0 50px;
+    position: relative;
+}
+
+/*----------------動態生成----------------*/
+.bornItemList{
+    width: 100%;
+}
+
+/*=============0.最外層為了雲消失包的=============*/
+.forCloudAnimation{
+    overflow: hidden;
+    min-height: 800px;
+    background: rgb(255, 230, 193) url(../images/shopcart/mountain_01_90.png) no-repeat center bottom / contain;
+}
+
+/*=============1.標題=============*/
+
+section.shopcartPageTitle div{
+    position: absolute;
+}
+
+section.shopcartPageTitle div.pageTitleCloud1{width: 20%; max-width: 200px; top: 70%; right: -5%;}
+section.shopcartPageTitle div.pageTitleCloud2{width: 10%; max-width: 120px; min-width: 70px; top: 60%; left: 40px;}
+section.shopcartPageTitle div.pageTitleBird1{display: none; width: 3%; max-width: 57px; min-width: 30px; top: 50%; right: 5%;}
+section.shopcartPageTitle div.pageTitleBird2{width: 4%; max-width: 57px; min-width: 30px; top: 65%; right: 15%;}
+
+section.shopcartPageTitle img{
+    display: block;
+    width: 100%;
+}
+
+/*=============2.購物車內容=============*/
+section.cart .container{
+    padding: 0px 20px;
+    max-width: 500px;
+    position: relative;
+    z-index: 3;
+}
+
+/*=============2-1.欄位名稱=============*/
+section.cart .container .cartHeader h3{
+    display: none;
+}
+
+/*=============2-2.商品列=============*/
+section.cart .container .cartRow{
+    background-color: rgb(255, 255, 255, .5);
+    border-bottom: 1px solid #ccc;
+    padding: 30px 0;
+    position: relative;
+}
+
+/*<768以下的表頭*/
+section.cart .container .cartRow1{
+    border-top: 20px solid rgba(243, 152, 0, .8);
+    border-radius: 20px 20px 0 0;
+}
+
+section.cart .container .cartRow .cartRowPic{
+    width: 40%;
+    float: left;
+}
+
+section.cart .container .cartRow .cartRowDetail{
+    width: 60%;
+    float: left;
+}
+
+/*去掉圖片, 其餘欄位做的垂直調整*/
+section.cart .container .cartRow .cartRowDetailName,
+section.cart .container .cartRow .cartRowDetailPrice,
+section.cart .container .cartRow .cartRowDetailNum,
+section.cart .container .cartRow .cartRowDetailSubtotal,
+section.cart .container .cartRow .cartRowTrash{
+    padding-top: 2%;
+}
+
+/*商城商品列會更高*/
+section.cart .container .cartRowShop .cartRowDetailName,
+section.cart .container .cartRowShop .cartRowDetailPrice,
+section.cart .container .cartRowShop .cartRowDetailNum,
+section.cart .container .cartRowShop .cartRowDetailSubtotal,
+section.cart .container .cartRowShop .cartRowTrash{
+    padding-top: 3.5%;
+}
+
+
+/*圖片調整*/
+section.cart .container .cartRow .cartRowPic .cartPicShopItem,
+section.cart .container .cartRow .cartRowPic .cartPicPostcard{
+    width: 70%;
+    max-width: 120px;
+    margin: 20px auto;
+}
+
+section.cart .container .cartRow .cartRowTrash div{
+    width: 20%;
+    max-width: 30px;
+    position: absolute;
+    bottom: 30px;
+    right: 20px;
+}
+
+section.cart .container .cartRow .cartRowPic img,
+section.cart .container .cartRow .cartRowTrash img{
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+section.cart .container .cartRow .cartRowTrash img{
+    cursor: pointer;
+}
+
+/*明信片白底陰影*/
+section.cart .cartPicPostcard{
+    height: auto;
+    box-sizing: border-box;
+    background-color: #fff;
+    box-shadow: 2px 2px 6px 0 #999;
+    padding: 2px;
+}
+
+/*數量排版*/
+section.cart .container .cartRow .cartRowDetailNum span{
+    display: inline-block;
+    margin: 0 auto;
+    border: 1px solid #bfbfbf;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+section.cart .container .cartRow .cartRowDetailNum button,
+section.cart .container .cartRow .cartRowDetailNum input{
+    float: left;
+}
+
+section.cart .container .cartRow .cartRowDetailNum button{
+    width: 26px;
+    height: 26px;
+    border: transparent;
+    background-color: rgba(255, 255, 255, .8);
+    cursor: pointer;
+}
+
+section.cart .container .cartRow .cartRowDetailNum input{
+    width: 36px;
+    height: 26px;
+    text-align: center;
+    border: transparent;
+    border-right: 1px solid #bfbfbf;
+    border-left: 1px solid #bfbfbf;
+    background-color: rgba(255, 255, 255, .8);
+}
+
+section.cart .container .cartRow .cartRowDetailNum .cartRowSmallSizeApear{
+    border: none;
+}
+
+
+/*=============2-3.商品價格=============*/
+section.cart .cartPrice{
+    background-color: rgb(255, 255, 255, .5);
+    border-radius: 0 0 25px 25px;
+    padding: 20px 30px 30px 30px; 
+}
+
+section.cart .cartPrice{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+section.cart .cartPrice span.cartPriceBoxLast{
+    display: inline-block;
+    padding-left: 20px;
+
+}
+
+/*=============2-4.按鈕=============*/
+section.cart .cartBtn{
+    text-align: center;
+    padding: 30px 0 100px;
+}
+
+section.cart .cartBtn .cartContinueBtn,
+section.cart .cartBtn .cartNextBtn{
+    margin: 0 5px;
+    display: inline-block;    
+}
+
+section.cart .cartBtn .cartNextBtn .whiteButton{
+    border: 2px solid rgba(243, 152, 0, .8);
+}
+
+section.cart .cartBtn div.whiteButton:hover{
+    color: #fff;
+    background-color: rgba(243, 152, 0, .8);
+    transition: all .5s;
+}
+
+
+
+@media screen and (min-width: 768px){
+    /*----------------shopcart購物車頁面開始(>=768)----------------*/
+    /*=============1.標題=============*/
+    section.pageTitle .container{
+        padding: 180px 0 50px;
+    }
+
+    section.pageTitle div.pageTitleBird1{
+        display: block;
+    }
+
+    /*=============2-1.欄位名稱=============*/
+    section.cart .container .cartHeader{
+        background-color: rgba(243, 152, 0, .8);
+        border-radius: 25px 25px 0 0;    
+    }
+
+    section.cart .container .cartHeader h3{
+        display: block;
+        width: 16.6666%;
+        text-align: center;
+        float: left;
+        padding: 10px 0;
+    }
+
+    /*=============2-2.商品列=============*/
+    /*清除<768以下的表頭*/
+    section.cart .container .cartRow1{
+        border-top: none;
+        border-radius: 0;
+    }
+
+    section.cart .container{
+        max-width: 1000px;
+    }
+
+    section.cart .container .cartRow .cartRowDetail{
+        width: auto;
+        float: none;
+    }
+
+    section.cart .container .cartRow .cartRowDetail .cartRowSmallSizeApear{
+        display: none;
+    }
+
+    section.cart .container .cartRow .cartRowPic,
+    section.cart .container .cartRow .cartRowDetailName,
+    section.cart .container .cartRow .cartRowDetailPrice,
+    section.cart .container .cartRow .cartRowDetailNum,
+    section.cart .container .cartRow .cartRowDetailSubtotal,
+    section.cart .container .cartRow .cartRowTrash{
+        width: 16.6666%;
+        text-align: center;
+        float: left;
+    }
+
+    /*圖片調整*/
+    section.cart .container .cartRow .cartRowPic .cartPicShopItem,
+    section.cart .container .cartRow .cartRowPic .cartPicPostcard{
+        width: 65%;
+        max-width: 100px;
+        margin: 0 auto;
+    }
+
+    section.cart .container .cartRow .cartRowTrash div{
+        margin: 0 auto;
+        position: relative;
+        bottom: 0;
+        right: 0;
+    }
+
+    /*=============2-4.按鈕=============*/
+    section.cart .cartBtn{
+        padding: 50px 0 100px;
+    }
+
+    section.cart .cartBtn .cartContinueBtn,
+    section.cart .cartBtn .cartNextBtn{
+        margin: 0 10px;
+    }
+
+}
+

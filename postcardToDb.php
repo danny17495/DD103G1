@@ -6,8 +6,8 @@ $postcardPic = $_POST['hidden_data5'];
 
 try {
 	$dsn = "mysql:host=localhost;port=3306;dbname=dd103g1;charset=utf8";
-	$user = "dd103g1";
-	$password = "dd103g1";
+	$user = "root";
+	$password = "ddj1778";
 	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
 	$pdo = new PDO( $dsn, $user, $password, $options);  
 	$sql = "INSERT INTO postcard(postcardNo, memNo, postcardPic) VALUES(:postcardNo, :memNo,:postcardPic)";

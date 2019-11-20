@@ -172,6 +172,6 @@ $('.messageBtn').click(function(){
     $('.message').show();
 });
 
-$('.closeBtn').click(function(){
+$('#closeBtn').click(function(){
     $('.message').hide();
 });

@@ -54,12 +54,14 @@ try{
     <title>Competition</title>
 </head>
 <body>
+
 <?php
     if( $errMsg != ""){
         echo "<center>$errMsg</center>";
         exit();
     }
 ?>
+
     <header>
         <div class="container headerStyle">
             <a href="index.html">
@@ -132,7 +134,8 @@ try{
 
             <div class="messageTitle">
                 <h3>留言板</h3> 
-                <img src="images/competition/X.png" alt="close" class="closeBtn">
+                <i class="fa fa-times-circle Trip2_lightBoxBTN closeBtn" aria-hidden="true"></i>
+                <!-- <img src="images/competition/X.png" alt="close" class="closeBtn"> -->
             </div>
             
             <!-- 留言區 -->
@@ -140,6 +143,7 @@ try{
             <div id="messageContent" class="messageContent">
 
                 <!-- PHP 抓取資料 -->
+
                 <?php
                     while($msgMemberRow = $msgMember -> fetch(PDO::FETCH_ASSOC)){
                 ?>
@@ -175,9 +179,11 @@ try{
                         </div>
                     </div>
                 </div>
+
                 <?php
                     }
                 ?>  
+
             </div>
 
             <!-- 留言輸入區塊 -->

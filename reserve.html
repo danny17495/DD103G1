@@ -44,7 +44,7 @@
                             <a href="spotIntro.html">行程介紹</a>
                         </li>
                         <li>
-                            <a href="reserve.html">預約行程</a>
+                            <a href="reserve.html" class="nowpage">預約行程</a>
                         </li>
                         <li>
                             <a href="postcard.html">客製明信片</a>
@@ -63,15 +63,16 @@
                 <a href="javascript:;"></a>
             </div>
             <div class="headerIcon">
-                <a href="shopcart.html">
+                <a href="shopcart.html" id="shopcart">
                     <img src="images/icon_shopcar.png" alt="icon_shopcar">
                 </a>
-                <a href="member.php">
+                <a href="member.php" id="memberInfo">
                     <img src="images/icon_login.png" alt="icon_login">
                 </a>
             </div>
         </div>
     </header>
+
     <div style="display: inline-block"></div>
     <div class="linearOrange">
         <section class="indexReserve">
@@ -157,8 +158,8 @@
             </div>
         </section>
         <section class="timelyBus"> 
-            <h1>及時公車資訊</h1>
-            <div class="container">
+            <h1>即時公車資訊</h1>
+            <div class="container" >
                 <div class="busContent">
                     <div class="chooseBusPlace">
                         <div class="leafButton route active" data-route="856(台灣好行-黃金福隆線)">尋幽訪古</div>
@@ -180,27 +181,27 @@
                     <img src="images/reserve/cat.png" alt="cat">
                 </div>
                 <div class="feetLeft">
-                    <div class="catFeet1">
+                    <div class="catFeet1 catFeet">
                         <img src="images/reserve/footl1.png" alt="footl">
                     </div>
-                    <div class="catFeet2">
+                    <div class="catFeet2 catFeet">
                         <img src="images/reserve/footl2.png" alt="footl">
                     </div>
-                    <div class="catFeet3">
+                    <div class="catFeet3 catFeet">
                         <img src="images/reserve/footl3.png" alt="footl">
                     </div>
-                    <div class="catFeet4">
+                    <div class="catFeet4 catFeet">
                         <img src="images/reserve/footl4.png" alt="footl">
                     </div>
                 </div>
                 <div class="feetRight">
-                    <div class="catFeetr1">
+                    <div class="catFeetr1 catFeet">
                         <img src="images/reserve/footr1.png" alt="footr">
                     </div>
-                    <div class="catFeetr2">
+                    <div class="catFeetr2 catFeet">
                         <img src="images/reserve/footr2.png" alt="footr">
                     </div>
-                    <div class="catFeetr3">
+                    <div class="catFeetr3 catFeet">
                         <img src="images/reserve/footr3.png" alt="footr">
                     </div>
                 </div>
@@ -250,12 +251,137 @@
                 <div class="cancelButton whiteButton">取消</div>
             </div>
             <div class="alertClose">
-                <span>x</span>
+                <i class="fa fa-times-circle Trip2_lightBoxBTN" aria-hidden="true" id="Trip2_lightBoxBTN02"></i>
             </div>
+        
         </div>
     </div>
+    <section id="login" class="Loginwrap" >
+            <div class="LoginForm">
+                <div class="Loginhead" id="LoginForm-head">
+                    <div data-tab="login">
+                        <div class="Loginclose">
+                            <h3>會員登入</h3>
+                            <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+               <form action="">
+                    <div class="Loginbody" id="LoginForm-body">
+                        <div class="Login-login">
+                            <div class="LoginForm-row">
+                                <label class="LoginLabel" for="">帳號</label>
+                                <input class="Logininput" id="user-id" type="text" placeholder="account" autocomplete="on">
+                            </div>
+                            <div class="LoginForm-row">
+                                <label class="LoginLabel" for="">密碼</label>
+                                <input class="Logininput" type="password" id="user-psw" placeholder="Password" autocomplete="on">
+                            </div>
+                            <div class="Login-forget">
+                                <a class="Login-forget-password" id="linkLoginForget">
+                                    <p class="LoginP">忘記密碼</p>
+                                </a>
+                            </div>
+                            <div class="LoginForm-row">
+                                <div class="LoginBtnCenter whiteButton">登入</div>
+                            </div>
+                            <a class="LoginForm-signup-now" href="javascript:;">立即註冊</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+    </section>
+    <section id="loginRegister" class="Loginwrap" style="display: none">
+        <div class="LoginForm">
+            <div class="Loginhead" id="LoginForm-head">
+                <div data-tab="login">
+                    <div class="Loginclose">
+                        <h3>會員註冊</h3>
+                        <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <form action="">
+                    <div class="Loginbody" id="LoginForm-body">
+                        <div class="Login-signup">
+                            <div class="LoginForm-row">
+                                <label class="Loginlabal" for="">姓名</label>
+                                <input id="name" class="Logininput" name="name" type="text" placeholder="Name">
+                            </div>
+                            <div class="LoginForm-row">
+                                <label class="Loginlabal" style="color:aliceblue;" for="">密碼</label>
+                                <input id="password" class="Logininput" name="password" type="password" 
+                                    placeholder="Password" autocomplete="on">
+                
+                            </div>
+                            <div class="LoginForm-row">
+                                <label class="Loginlabal" style="color:aliceblue;" for="">密碼確認</label>
+                                <input id="passwordcheck" class="Logininput" name="passwordcheck" type="password" 
+                                    placeholder="passwordcheck" autocomplete="on">
+                            </div>
+                            <div class="LoginForm-row">
+                                <label class="Loginlabal" style="color:aliceblue;" >Email</label>
+                                <input id="Email" class="Logininput" name="email" type="text" size=20 
+                                    placeholder="email">
+                            </div>
+                            <div class="LoginForm-row">
+                                <div class="LoginBtnR">
+                                    <div class="whiteButton">
+                                        <a href="#" id="signup" name="signup">註冊</a>
+                                    </div>
+                                </div>
+                                <div class="LoginBtnL">
+                                    <div class="whiteButton">
+                                        <a  href="javascript:;">回上頁</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </section>
+    <section id="loginforget" class="Loginwrap" style="display: none">
+        <div class="LoginForm">
+            <div class="Loginhead" id="LoginForm-head">
+                <div data-tab="login">
+                    <div class="Loginclose">
+                        <h3>重設密碼</h3>
+                        <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true"></i>
+        
+                    </div>
+                </div>
+            </div>
+            <div class="Loginbody LoginForm-body">
+                <div class="login">
+                    <div class="LoginForm-row">
+                        <label class="LoginLabel" for="">email</label>
+                        <input class="Logininput" type="email" placeholder="email">
+                    </div>
+                    <p class="resetpsw">*請送出表單後,到信箱查看並重設密碼*</p>
+                    <div class="LoginForm-row fix">
+                        <div class="LoginBtnR">
+                            <div class="whiteButton">
+                                <a href="#">
+                                    送出
+                                </a>
+                            </div>
+                        </div>
+                        <div class="LoginBtnL">
+                            <div class="whiteButton">
+                                <a href="javascript:;">回上頁</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<script src="js/busAPI.js"></script>
+<script src="js/login.js"></script>
+<script src="js/reserveMove.js"></script>
+<script src="js/alert.js"></script>
 <script src="js/reserveDate.js"></script>
 <script src="js/canlendar.js"></script>
-<script src="js/busAPI.js"></script>
 </body>
 </html>

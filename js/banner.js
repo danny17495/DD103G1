@@ -74,13 +74,10 @@ $(document).ready(function () {
     }
 
     function navigateRight(e) {
-        //if (!autoScrollVar) return;
         if (curSlide >= numOfCities) return;
         pagination(0);
         curSlide++;
-       
         setTimeout(timeout, animSpd);
-
     }
 
     function navigateLeft() {
@@ -152,7 +149,6 @@ $(document).ready(function () {
     $('.indexBanner').on('mousewheel DOMMouseScroll', function (e) {
         let delta = e.originalEvent.wheelDelta;
 
-        //console.log('ya');
         if ($(window).scrollTop() == 0) {
             if (!ifwheel && passScrollTop == 0){
                     e.preventDefault();/*不會滑動 */
@@ -164,7 +160,6 @@ $(document).ready(function () {
                      if (delta > 0 || e.originalEvent.detail < 0) {
                         dir='left';
                        navigateLeft();
-                         //console.log(`目前頁數:${curSlide}`);
                      }
                      if (delta < 0 || e.originalEvent.detail > 0) {
                          dir='right';
@@ -173,7 +168,6 @@ $(document).ready(function () {
             
             }else{
                 passScrollTop = $(window).scrollTop();
-            //console.log(passScrollTop);
             }
     });
 });

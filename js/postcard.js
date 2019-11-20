@@ -206,13 +206,13 @@ function btnNoFuntion(){
 	$('#aapostStepB2').attr({onclick: "",});
 	$('#aapostStepB3').attr({onclick: "",});
 	$('#aapostStepB4').attr({onclick: "",});
-	$('#aapostStepB5').attr({onclick: "",});
+	// $('#aapostStepB5').attr({onclick: "",});
 
 	$('#aapostStepS1').attr({onclick: "",});
 	$('#aapostStepS2').attr({onclick: "",});
 	$('#aapostStepS3').attr({onclick: "",});
 	$('#aapostStepS4').attr({onclick: "",});
-	$('#aapostStepS5').attr({onclick: "",});
+	// $('#aapostStepS5').attr({onclick: "",});
 
 	aapostStepB1.style.cursor = "auto";			
 	aapostStepB2.style.cursor = "auto";			
@@ -886,7 +886,7 @@ function saveImageStep1() {
 	//五-3.抓第二張#postcardCanvasSecret上的圖
 	var postcardCanvasSecret = document.getElementById("postcardCanvasSecret");
 	var ctxPostcardCanvasSecret = postcardCanvasSecret.getContext("2d");
-	var dataURLSecret = postcardCanvasSecret.toDataURL("image/png");
+	var dataURLSecret = postcardCanvasSecret.toDataURL("image/jpeg");
 	// console.log("dataURL2:", dataURLSecret);	
 	document.getElementById('hidden_data2').value = dataURLSecret;
 	// console.log("dataURL2:", dataURLSecret);
@@ -899,7 +899,7 @@ function saveImageStep2(){
 	//五-4.再抓一次第二張#postcardCanvasSecret上的圖
 	var postcardCanvasSecret = document.getElementById("postcardCanvasSecret");
 	var ctxPostcardCanvasSecret = postcardCanvasSecret.getContext("2d");
-	var dataURLSecret = postcardCanvasSecret.toDataURL("image/png");
+	var dataURLSecret = postcardCanvasSecret.toDataURL("image/jpeg");
 	document.getElementById('hidden_data2').value = dataURLSecret;
 
 	setTimeout(saveImageStep3,100);
@@ -966,12 +966,17 @@ function postcardToDb2(){
 /*======================================================================*/
 /*第七支程式: 按下購買時->放入購物車->記錄進去localStorage*/
 var buyPostcardBtn = document.getElementById("buyPostcardBtn")
+
 function postcardToCart(){
-	alert("加入購物車成功！");	
+	//value值為postcardNo
+	localStorage.setItem(`addPostcard:`,`1, 3, `);
+	
+	//測試
+	localStorage.setItem(`addShopItem:`,`2, 18, 15, `);	
+	alert("加入購物車成功！");
 }
 
 function postcardInit10(){
-	localStorage.setItem(`buyPostcard: 001`,`postcardNo: 1`);
 	buyPostcardBtn.addEventListener("click", postcardToCart, false);
 }
 
