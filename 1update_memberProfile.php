@@ -6,43 +6,20 @@ session_start();
 try {
 	require_once('connect.php');
 	
-	$members=$pdo->prepare('update user set memberId=:memberId,memberPassword=:memberPassword,memberEmail=:memberEmail,memberPhone=:memberPhone,memberAddress=:memberAddress where memberId =:memberId');
+	$members=$pdo->prepare('update user set memberId=:memberId,memberPassword
+	=:memberPassword,memberEmail=:memberEmail,memberPhone=:memberPhone,memberAddress
+	=:memberAddress,memberVisa=:memberVisa where memberId =:memberId');
 
 	$members->bindValue(':memrId',$_REQUEST["memId"]);
 	$members->bindValue(':memPassword',$_REQUEST["memPassword"]);
 	$members->bindValue(':memEmail',$_REQUEST["memrEmail"]);
 	$members->bindValue(':memPhone',$_REQUEST["memPhone"]);
 	$members->bindValue(':memAddress',$_REQUEST["memAddress"]);
-
+	$members->bindValue(':memVisa',$_REQUEST["memVisa"]);
+	
 	// echo "異動成功~" ;
-	
-	header("location:../../member.php");
-    
-
-  if( $_FILES["upFile"]["error"] == UPLOAD_ERR_OK){
-
-		//先檢查images資料夾存不存在
-		$dir ="../../images/";
-
-		if(!file_exists($dir)){
-			mkdir($dir);
-		}
-		//將檔案copy到要放的路徑
-		// $fileInfoArr = pathinfo($_FILES["upFile"]["name"]); //原本使用者放的路徑
-		
-		// $fileName = "member". $_SESSION['memNo'] . "_sticker" . "." . $fileInfoArr["extension"];  //use1_sticker.gif
-		
-		// $from = $_FILES["upFile"]["tmp_name"];//暫存檔的路徑名稱
-	
-		// $to = $dir . $fileName;
-		
-		// copy( $from, $to);//從暫存檔的路徑名稱複製到images
 
 	//將檔案名稱寫回資料庫
-	
-		$file_src = "img/customize/" . $fileName ;
-	
-		
     	$memberImg -> bindValue(':memId',$_REQUEST["memId"]);
 		$memberImg -> execute();
 		// echo "新增成功~";

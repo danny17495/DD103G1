@@ -117,56 +117,166 @@
 		<div class="container spotIntroTrip1_SpotAouter">
 			<div class="spotIntroTrip_mvOuter">	
 				<div class="spotIntroTrip1_SpotA_mv">
-					<video src="images/spotIntro/jifinStreet.mp4" controls="controls" width="500" autoplay loop muted="true"></video>	
+					<!-- <video src="images/spotIntro/jifinStreet.mp4" controls="controls" width="500" autoplay loop muted="true"></video> -->
+					<video src="" controls="controls" width="500" autoplay loop muted="true" id="SpotA_mv"></video>	
 				</div>
 			</div>
 			<div class="spotIntroTrip1_SpotA_text">
 				<span>01</span>
-				<h2>九份老街</h2>
-				<p>九份老街被許多階梯圍繞，別具特色。孤懸在山丘上的九份山城，以能鳥瞰基隆嶼山海險峙，霧雨迷濛的美景而聞名。</p>
-				<p id="goldM_id">開放時間：全年開放(依店家營業時間為主)</p>
+				<h2 id="SpotA_text_h2"><!-- 九份老街 --></h2>
+				<p id="SpotA_text_p"><!-- 九份老街被許多階梯圍繞，別具特色。孤懸在山丘上的九份山城，以能鳥瞰基隆嶼山海險峙，霧雨迷濛的美景而聞名。 --></p>
+				<p id="goldM_id"><!-- 開放時間：全年開放(依店家營業時間為主) --></p>
 			</div>
 		</div>
    	</section>
+	<script>
+		//顯示景點A資料
+    function showSpotA(xmlDoc){
+    	var fields = xmlDoc.documentElement.childNodes;
+    	document.getElementById("SpotA_text_h2").innerText=fields[1].firstChild.nodeValue;
+    	document.getElementById("SpotA_text_p").innerText=fields[2].firstChild.nodeValue;
+    	document.getElementById("SpotA_mv").src=fields[3].firstChild.nodeValue;
+    }
 
+   	//從php抓景點資料
+   	function getSpotA(){
+   		var xhr = new XMLHttpRequest();
+
+		xhr.onreadystatechange = function(){
+		if(xhr.readyState == 4){ //server端做完了
+		//處理的結果
+		if( xhr.status == 200){
+			showSpotA(xhr.responseXML)
+
+		  } else {
+		    // alert(xhr.status);
+		}
+		}
+		}
+		    //設定好所要連結的程式
+	  let url = "spotIntro.php";
+	  xhr.open("post", url, true);
+  	  let data_info = `spotsName=九份老街&spotsName=黃金博物館`;
+ 	  xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+ 	  xhr.send(data_info);
+   	}
+
+   	window.addEventListener("load",getSpotA,false);
+	</script>
   <!------- 行程介紹 Trip1 02黃金博物館 ------>
    	<section class="spotIntroTrip1_SpotB">
 		<div class="container spotIntroTrip1_SpotBouter">
 			<div class="spotIntroTrip1_SpotB_text">
 				<span>02</span>
-				<h2>黃金博物館</h2>
-				<p>新北市立黃金博物館是由過去的金礦礦區轉型而成的博物館區，原址是昔日亞洲最大金礦產區。</p>
+				<h2 id="SpotB_text_h2"><!-- 黃金博物館 --></h2>
+				<p id="SpotB_text_p"><!-- 新北市立黃金博物館是由過去的金礦礦區轉型而成的博物館區，原址是昔日亞洲最大金礦產區。</p>
 				<p  id="goldWater_id">開放時間：週一到週五09:30~17:00  週六，週日及國定假日09:30~18:00
-				(公休日為每月第一個星期一)</p>
+				(公休日為每月第一個星期一) --></p>
 			</div>
 			<div class="spotIntroTrip_SpotBPic_OOuter">	
 				<div class="spotIntroTrip1_SpotBPic_outer">
-					<img src="images/spotIntro/goldMuseum.jpg" alt="">
+					<!-- <img src="images/spotIntro/goldMuseum.jpg" alt="" id="SpotB_pic"> -->
+					<img src="" alt="" id="SpotB_pic">
 				</div>
 			</div>
 		</div>
    	</section>
+ 	<script>
+		//顯示景點B資料
+    function showSpotB(xmlDoc){
+    	var fields = xmlDoc.documentElement.childNodes;
+    	document.getElementById("SpotB_text_h2").innerText=fields[1].firstChild.nodeValue;
+    	document.getElementById("SpotB_text_p").innerText=fields[2].firstChild.nodeValue;
+    	document.getElementById("SpotB_pic").src=fields[3].firstChild.nodeValue;
+    }
 
+   	//從php抓景點資料
+   	function getSpotB(){
+   		var xhr = new XMLHttpRequest();
+
+		xhr.onreadystatechange = function(){
+		if(xhr.readyState == 4){ //server端做完了
+		//處理的結果
+		if( xhr.status == 200){
+			showSpotB(xhr.responseXML)
+
+		  } else {
+		    // alert(xhr.status);
+		}
+		}
+		}
+		    //設定好所要連結的程式
+	  let url = "spotIntroB.php";
+	  xhr.open("post", url, true);
+  	  let data_info = `spotsName=九份老街&spotsName=黃金博物館`;
+ 	  xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+ 	  xhr.send(data_info);
+   	}
+
+   	window.addEventListener("load",getSpotB,false);
+	</script>
    	<!------- 行程介紹 Trip1 03黃金瀑布 ------>
    	<section class="spotIntroTrip1_SpotC">
 		<div class="container spotIntroTrip1_SpotCouter">
 			<div class="spotIntroTrip_SpotCPic_OOuter">	
+				<!-- <div class="spotIntroTrip1_SpotCPic_outer">
+					<img src="images/spotIntro/goldWaterfall.jpeg" alt="" id="SpotC_pic">
+				</div> -->
 				<div class="spotIntroTrip1_SpotCPic_outer">
-					<img src="images/spotIntro/goldWaterfall.jpeg" alt="">
+					<img src="" alt="" id="SpotC_pic">
 				</div>
 			</div>
 			<div class="spotIntroTrip1_SpotC_text">
 				<span>03</span>
-				<h2>黃金瀑布</h2>
-				<p>黃金瀑布是因地下伏流水湧出地面而形成，因此並非河道的一部分。因水色帶有氧化後的金屬礦石顏色因而得名。</p>
-				<p>開放時間：全年開放。</p>
+				<h2 id="SpotC_text_h2"><!-- 黃金瀑布 --></h2>
+				<p id="SpotC_text_p"><!-- 黃金瀑布是因地下伏流水湧出地面而形成，因此並非河道的一部分。因水色帶有氧化後的金屬礦石顏色因而得名。</p>
+				<p>開放時間：全年開放。 --></p>
 			</div>
 		</div>
 		<div class="whiteButton spotIntroTrip1_SpotC_Btn">我要預約</div>
    	</section>
+	<script>
+		//顯示景點C資料
+    function showSpotC(xmlDoc){
+    	var fields = xmlDoc.documentElement.childNodes;
+    	document.getElementById("SpotC_text_h2").innerText=fields[1].firstChild.nodeValue;
+    	document.getElementById("SpotC_text_p").innerText=fields[2].firstChild.nodeValue;
+    	document.getElementById("SpotC_pic").src=fields[3].firstChild.nodeValue;
+    }
 
+   	//從php抓景點資料
+   	function getSpotC(){
+   		var xhr = new XMLHttpRequest();
+
+		xhr.onreadystatechange = function(){
+		if(xhr.readyState == 4){ //server端做完了
+		//處理的結果
+		if( xhr.status == 200){
+			showSpotC(xhr.responseXML)
+
+		  } else {
+		    // alert(xhr.status);
+		}
+		}
+		}
+		    //設定好所要連結的程式
+	  let url = "spotIntroC.php";
+	  xhr.open("post", url, true);
+  	  let data_info = `spotsName=九份老街&spotsName=黃金博物館`;
+ 	  xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+ 	  xhr.send(data_info);
+   	}
+
+   	window.addEventListener("load",getSpotC,false);
+	</script>
   	<!------- 行程介紹 Trip2 漫遊山城之旅 ------>
    	<section class="spotIntroTrip2">
+   		<div class="introBus">
+   			<a href="reserve.html#submit">
+	   			<img src="images/busStop.png" alt="">
+	   			<div class="seeBus">+</div>
+   			</a>
+   		</div>
    	  <div class="container spotIntroTrip2_Outer">
    		<div class="spotIntroTrip2_pic">
    			<div class="owl-carousel owl-theme">
@@ -258,6 +368,7 @@
 	  		<i class="fa fa-times-circle Trip2_lightBoxBTN" aria-hidden="true" id="Trip2_lightBoxBTN03"></i>
 	  	</div>
 	  </div>
+	  
    	</section>
    	<!------- 行程介紹 Trip3 船遊秘境之旅 ------>
    	<section class="spotIntroTrip3">
