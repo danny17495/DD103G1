@@ -1,11 +1,11 @@
 <?php 
 $errMsg = "";
 try {
-    require_once('php/connectShop.php');
+    require_once("php/connectShop.php");
     $prods  = $pdo->query("select * from productdeco where product_status=1");
     $prodsRow=$prods->fetchAll(PDO::FETCH_ASSOC);
-    
-    $imgs  = $pdo->query("select cmp_img,amlbg_img from collections order by vote desc limit 3");
+    $sql = "select * from productdeco";
+
     
 
 ?>
@@ -15,6 +15,9 @@ try {
     $errMsg .= "錯誤行號: " . $e->getLine() . "<br>";
 }
 ?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -104,7 +107,40 @@ try {
 </section>
 
 
-<!-- 商城開始 -->
+<!-- 商城開始 -->]
+
+
+
+                    <!-- 投票前三名從資料庫撈 -->
+                        <?php
+                        if( $imgs->rowCount() == 0 ){
+                            $imgName=['Top1','top2','top3'];
+                            foreach ($imgName as $i => $value) {
+                        ?>
+                        <div class="item">
+                            <div class="shopPic">
+                                <img class="shop_animal_bg" src="img/member/user0_amlbg.png" alt="">
+                            </div>
+                            <p><?=$value?></p>
+                        </div>
+
+                        <?php
+                            }
+                        }else{ 
+                            $imgRow=$imgs->fetchAll(PDO::FETCH_ASSOC);
+                            $imgName=['Top1','top2','top3'];
+                            foreach ($imgName as $i => $value) {
+                        ?>
+                        <div class="shopItem">
+                            <div class="shopPic">
+                                <img class="shop_animal_bg" src=<?=$imgRow[$i]['amlbg_img'] ?> alt="">
+                            </div>
+                            <p><?=$value?></p>
+                        </div>
+                        <?php
+                            }
+                        }
+                        ?>
 
 <div class="wrapper wrapperShopA">
     <section class="container containerShop">
@@ -118,19 +154,19 @@ try {
                     <div class="shopOneSlider">
                         <div>
                             <div class="shopShows" id="SMALL">
-                                <img src="images/shopImg/top1.jpg" id="SS1">
+                                <img src="images/shopImg/top1.jpg" id="SS1" onclick="shopSrcChange1()">
                             </div>
                             <span>第一名</span>
                         </div>
                         <div>
                             <div class="shopShows" id="SMALL">
-                                <img src="images/shopImg/top2.jpg"  id="SS2">
+                                <img src="images/shopImg/top2.jpg"  id="SS2" onclick="shopSrcChange2()">
                             </div>
                             <span>第二名</span>
                         </div>
                         <div>
                             <div class="shopShows" id="SMALL">
-                                <img src="images/shopImg/top3.jpg"  id="SS3">
+                                <img src="images/shopImg/top3.jpg"  id="SS3" onclick="shopSrcChange3()">
                             </div>
                             <span>第三名</span>
                         </div>
@@ -154,19 +190,19 @@ try {
                 <ul>
                     <li>
                         <div class="shopPic shopPic1" id="SMALL">
-                            <img src="images/shopImg/top1.jpg" id="SS1">
+                            <img src="images/shopImg/top1.jpg" id="SS1" onclick="shopSrcChange1()">
                         </div>
                         <span>第一名</span>
                     </li>
                     <li>
                         <div class="shopPic shopPic2" id="SMALL">
-                            <img src="images/shopImg/top2.jpg" id="SS2">
+                            <img src="images/shopImg/top2.jpg" id="SS2" onclick="shopSrcChange2()">
                         </div>
                         <span>第二名</span>
                     </li>
                     <li>
                         <div class="shopPic shopPic3" id="SMALL">
-                            <img src="images/shopImg/top3.jpg" id="SS3">
+                            <img src="images/shopImg/top3.jpg" id="SS3" onclick="shopSrcChange3()">
                         </div>
                         <span>第三名</span>
                     </li>
@@ -193,9 +229,9 @@ try {
         </p>        
 
                 <span class="shopAllBtn">
-                    <button @click="content='lessons'" id="white"></button>
-                    <button @click="content='apply'" id="red"></button>
-                    <button @click="content='temp'"id="blue"></button>
+                    <button @click="content='lessons'" id="white" onclick="shopCupColorChange1()" ></button>
+                    <button @click="content='apply'" id="red" onclick="shopCupColorChange2()"></button>
+                    <button @click="content='temp'"id="blue" onclick="shopCupColorChange3()"></button>
                 </span>
             </div>
 <script>
@@ -203,7 +239,7 @@ try {
             template: `
 
                     <div class="shopItemPrice1">
-                    <img src="images/shopImg/shopNewCup1104-1.png" alt="">
+                    <img src="images/shopImg/shopNewCup1104-1.png" id="shopItemBottom" alt="">
                     <p>NT.550</p>
                     </div>   
           
@@ -214,7 +250,7 @@ try {
 
 
                     <div class="shopItemPrice2">
-                    <img src="images/shopImg/shopNewCup1104-2.png" alt="">
+                    <img src="images/shopImg/shopNewCup1104-2.png" id="shopItemBottom" alt="">
                            <p>NT.450</p>
                        </div>      
             `,
@@ -223,7 +259,7 @@ try {
             template: `
 
                 <div class="shopItemPrice3">
-                    <img src="images/shopImg/shopNewCup1104-3.png" alt="">
+                    <img src="images/shopImg/shopNewCup1104-3.png" id="shopItemBottom" alt="">
                             <p>NT.650</p>
                 </div> 
                
@@ -249,9 +285,9 @@ try {
                             </p>      
 
                             <span class="shopAllBtn1">
-                                <button @click="content='lessons1'" id="white"></button>
-                                <button @click="content='apply1'" id="red"></button>
-                                <button @click="content='temp1'"id="blue"></button>
+                                <button @click="content='lessons1'" id="white" onclick="shopTColorChange1()"></button>
+                                <button @click="content='apply1'" id="red" onclick="shopTColorChange2()"></button>
+                                <button @click="content='temp1'"id="blue" onclick="shopTColorChange3()"></button>
                             </span>  
                         </div>
 
@@ -260,7 +296,7 @@ try {
         Vue.component('apply1',{  
             template: `
                     <div class="shopItemPrice4">
-                    <img src="images/shopImg/shopNewShirt1104-1.png" alt="">
+                    <img src="images/shopImg/shopNewShirt1104-1.png" id="shopItemBottom" alt="">
                            <p>NT.550</p>
                        </div>        
           
@@ -271,7 +307,7 @@ try {
 
 
                     <div class="shopItemPrice5">
-                    <img src="images/shopImg/shopNewShirt1104-2.png" alt="">
+                    <img src="images/shopImg/shopNewShirt1104-2.png" id="shopItemBottom" alt="">
                            <p>NT.450</p>
                        </div> 
             
@@ -281,7 +317,7 @@ try {
             template: `
 
                  <div class="shopItemPrice6">
-                    <img src="images/shopImg/shopNewShirt1104-3.png" alt="">
+                    <img src="images/shopImg/shopNewShirt1104-3.png" id="shopItemBottom" alt="">
                             <p>NT.650</p>
                 </div> 
                
@@ -309,10 +345,10 @@ try {
  <h4 id="shopTitle">
     <div class="shopSelectProduct">
         <div class="leafButton">
-            <span class="shopOn">馬克杯</span>
+            <span class="shopOn" onclick="shopTypeChange1()">馬克杯</span>
         </div>
         <div class="leafButton">
-            <span>T-shirt</span>
+            <span onclick="shopTypeChange2()">T-shirt</span>
         </div>
     </div>
 </h4>
