@@ -1,34 +1,72 @@
-<!-- 先建立PHP連線資料 -->
 <?php
 $errMsg = "";
-// 設定連線資料 try{}
 try{
-	$dsn = "mysql:host=localhost;port=3306;dbname=dd103g1;charset=utf8";
-    $user = "root";
-    $password = "da0919294452";
-	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION, PDO::ATTR_CASE=>PDO::CASE_NATURAL);
-    $pdo = new PDO($dsn, $user, $password, $options);
-    
-    //留言板抓資料
-    //選取message跟member 的 msgContent,msgDate;member 的memName 指定條件 memNo相同
+    require_once("php/connect.php");
+    session_start();
+
     $sql_msg_member = 
     "select message.msgContent,message.msgDate,member.memId
     from `message`,`member`
-    where message.memNo=member.memNo";
-    //使用PREPARE 抓取 需要事先編譯sql指令
+    where message.memNo=member.memNo 
+    order by message.msgDate desc";
     $msgMember = $pdo->prepare($sql_msg_member);
     $msgMember ->execute();
 
-    //投票資料
-    //選取member跟competition
+    $sql_msg_member2 = 
+    "select message.msgContent,message.msgDate,member.memId
+    from `message`,`member`
+    where message.memNo=member.memNo order by message.msgDate desc limit 2 ";
+    $msgMember2 = $pdo->prepare($sql_msg_member2);
+    $msgMember2 ->execute();
+
+    $sql_msg_member3 = 
+    "select message.msgContent,message.msgDate,member.memId
+    from `message`,`member`
+    where message.memNo=member.memNo limit 2";
+    $msgMember3 = $pdo->prepare($sql_msg_member3);
+    $msgMember3 ->execute();
+
+    $sql_msg_member4 = 
+    "select message.msgContent,message.msgDate,member.memId
+    from `message`,`member`
+    where message.memNo=member.memNo limit 2";
+    $msgMember4 = $pdo->prepare($sql_msg_member4);
+    $msgMember4 ->execute();
+
     $sql_member_vote = 
     "select member.memId,member.postcardPic,competition.vote,competition.memId,postcard.postcardPic
     from `member`, `competition`, `postcard`
-    where member.memId=competition.memId and YEAR(startDate) = 2019 
+    where member.memId=competition.memId and member.postcardPic=postcard.postcardPic and YEAR(startDate) = 2019 
     order by competition.vote desc";
-    //根據票數從大到小排列
-    $member_vote = $pdo->prepare($sql_member_vote);
-    $member_vote ->execute();
+
+    // $sql_member_vote = 
+    // "select member.memId,member.postcardPic,competition.vote,competition.memId,postcard.postcardPic,message.msgContent
+    // from `member`, `competition`, `postcard` ,`message`
+    // where member.memId=competition.memId and member.postcardPic=postcard.postcardPic and YEAR(startDate) = 2019 
+    // order by competition.vote desc";
+
+    $memberVote = $pdo->prepare($sql_member_vote);
+    $memberVote ->execute();
+
+    $item = "select count(*) from competition";
+$result = $pdo->query($item);
+$result ->bindColumn(1,$totalRecord);
+$result->fetch();
+
+$recPerPage = 6;
+
+$totalPage = ceil($totalRecord/$recPerPage);
+
+if(isset($_GET["startDate"])==false)
+$startDate=1;
+else
+$startDate=$_GET["startDate"];
+
+$start = ($startDate-1) * $recPerPage;
+$items = "select * from competition order by startDate limit $start,$recPerPage";
+$competition = $pdo->query($items);
+
+
 
 
 
@@ -37,7 +75,6 @@ try{
     $errMsg .= "錯誤行號: " . $e->getLine() . "<br>";
 }
 ?>
-
 
  <!DOCTYPE html>
 <html lang="en">
@@ -134,8 +171,7 @@ try{
 
             <div class="messageTitle">
                 <h3>留言板</h3> 
-                <i class="fa fa-times-circle Trip2_lightBoxBTN closeBtn" aria-hidden="true"></i>
-                <!-- <img src="images/competition/X.png" alt="close" class="closeBtn"> -->
+                <img src="images/competition/X.png" alt="close" class="closeBtn">
             </div>
             
             <!-- 留言區 -->
@@ -214,36 +250,59 @@ try{
             <img src="images/competition/skyLight3.png" id="skylight3" alt="">
             <img src="images/competition/skyLight2.png" id="skylight2" alt="">
 
+            <?php
+                for($i=0;$i<1;$i++){
+              $memberVoteRow = $memberVote -> fetch(PDO::FETCH_ASSOC)
+            ?> 
+
             <!-- 第一名明信片 -->
             <div class="messageNo1">
                 <div class="messageBoard">
                     <div class="competitionVoteTitle">
-                        <input type="hidden"  name="work_no">
-                        <span>第一名<span id="memId"></span></span>
-                        <span>得票數<span id="vote0">票</span></span>
+                        <input type="hidden"  name="competNo">
+                        <span>第一名
+                            <span id="memId">
+                                <?=$memberVoteRow["memId"]?>
+                            </span>
+                        </span>
+                        <span>得票數:<span><?=$memberVoteRow["vote"]?>票</span></span>
                     </div>
                     <div class="competitionPost">
-                        <img src="" alt="">
+                        <img src="images/postcard/<?=$memberVoteRow["postcardPic"]?>.jpg" alt="">
                     </div>
+            <?php
+            }
+            ?>
+            <?php
+                while($msgMemberRow2 = $msgMember2 -> fetch(PDO::FETCH_ASSOC)){
+                    
+            ?>
                     <div class="competitionText">
-                        <div class="textContent">123</div>
-                        <div class="textContent">123</div>
+                        <div class="textContent"><?=$msgMemberRow2["msgContent"]?></div>
                     </div>
+            <?php
+                }
+            ?>
                     <div class="competitionButton">
                         <span href="#"  class="whiteButton voteBtn">
                             <img src="images/indexSpot/voteIcon.png" alt="">
                             投票
-                            <input type="hidden" name="work_no2" value="25">
+                            <input type="hidden" name="competNo2" value="25">
                         </span>
                         <span href="#"  class="whiteButton messageBtn">
                             <img src="images/indexSpot/messIcon.png" alt="">
                             留言
-                            <input type="hidden" name="work_no3" value="25">
+                            <input type="hidden" name="competNo3" value="25">
                         </span>
                     </div>
                 </div>
             </div>
 
+
+            <?php
+                for($i=0;$i<1;$i++){  
+                $memberVoteRow = $memberVote -> fetch(PDO::FETCH_ASSOC)
+            ?> 
 
             <div class="clearfix"></div>
 
@@ -251,59 +310,99 @@ try{
             <div class="messageNo2 row">
                 <div class="messageBoard">
                     <div class="competitionVoteTitle">
-                        <input type="hidden"  name="work_no">
-                        <span>第二名<span id="memId">台南喬喬</span></span>
-                        <span>得票數<span id="vote0">666票</span></span>
+                        <input type="hidden"  name="competNo">
+                        <span>第二名
+                            <span id="memId">
+                                <?=$memberVoteRow["memId"]?>
+                            </span>
+                        </span>
+                        <span>得票數:<span><?=$memberVoteRow["vote"]?>票</span></span>
                     </div>
                     <div class="competitionPost">
-                        <img src="images/competition/card02.png" alt="">
+                        <img src="images/postcard/<?=$memberVoteRow["postcardPic"]?>.jpg" alt="">
                     </div>
+                    <?php
+                        }
+                    ?>
+                   <?php
+                        while($msgMemberRow3 = $msgMember3 -> fetch(PDO::FETCH_ASSOC)){
+                            
+                    ?>
+
+
                     <div class="competitionText">
-                        <div class="textContent">123</div>
-                        <div class="textContent">123</div>
+                        <div class="textContent"><?=$msgMemberRow3["msgContent"]?></div>
                     </div>
+
+                    <?php
+                        }
+                    ?>
                     <div class="competitionButton">
                         <span href="#"  class="whiteButton voteBtn">
                             <img src="images/indexSpot/voteIcon.png" alt="">
                             投票
-                            <input type="hidden" name="work_no2" value="25">
+                            <input type="hidden" name="competNo2" value="25">
                         </span>
                         <span href="#"  class="whiteButton messageBtn">
                             <img src="images/indexSpot/messIcon.png" alt="">
                             留言
-                            <input type="hidden" name="work_no3" value="25">
+                            <input type="hidden" name="competNo3" value="25">
                         </span>
                     </div>
                 </div>
+                <?php
+                for($i=0;$i<1;$i++){  
+                    $memberVoteRow = $memberVote -> fetch(PDO::FETCH_ASSOC)
+                ?> 
 
                 <div class="messageBoard" id="under">
                     <div class="competitionVoteTitle">
-                        <input type="hidden"  name="work_no">
-                        <span>第三名<span id="memId">台北亭亭</span></span>
-                        <span>得票數<span id="vote0">333票</span></span>
+                        <input type="hidden"  name="competNo">
+                        <span>第三名
+                            <span id="memId">
+                                <?=$memberVoteRow["memId"]?>
+                            </span>
+                        </span>
+                        <span>得票數:<span><?=$memberVoteRow["vote"]?>票</span></span>
+
                     </div>
                     <div class="competitionPost">
-                        <img src="images/competition/card03.png" alt="">
+                        <img src="images/postcard/<?=$memberVoteRow["postcardPic"]?>.jpg" alt="">
                     </div>
+                    <?php
+                        }
+                    ?>
+
+                    <?php
+                        while($msgMemberRow4 = $msgMember4 -> fetch(PDO::FETCH_ASSOC)){
+                            
+                    ?>
+
+
                     <div class="competitionText">
-                        <div class="textContent">123</div>
-                        <div class="textContent">123</div>
+                        <div class="textContent"><?=$msgMemberRow4["msgContent"]?></div>
                     </div>
+
+                    <?php
+                        }
+                    ?>
+
                     <div class="competitionButton">
                         <span href="#"  class="whiteButton voteBtn">
                             <img src="images/indexSpot/voteIcon.png" alt="">
                             投票
-                            <input type="hidden" name="work_no2" value="25">
+                            <input type="hidden" name="competNo2" value="25">
                         </span>
                         <span href="#"  class="whiteButton messageBtn">
                             <img src="images/indexSpot/messIcon.png" alt="">
                             留言
-                            <input type="hidden" name="work_no3" value="25">
+                            <input type="hidden" name="competNo3" value="25">
                         </span>
                     </div>
                 </div>
             </div>
         </div>
+
         <div class="clearfix"></div>
     </section>
 
@@ -337,145 +436,40 @@ try{
                         <span href="#">最夯作品</span>
                     </div>
                 </div>
-                
+
+
 
                 <div class="messageOtherBoard" id="fly1">
+                <?php
+                    while( $memberVoteRow = $memberVote -> fetch(PDO::FETCH_ASSOC)){
+
+                    ?>
                     <div class="smallMessage">
-                        <img src="images/competition/card01.png" alt="">
+                    <img src="images/postcard/<?=$memberVoteRow["postcardPic"]?>.jpg" alt="">
                         <div class="smallMessageButton">                       
                             <div class="competitionVoteTitle">
-                                <input type="hidden"  name="work_no">
-                                <span><span id="memId">中壢大大</span></span>
-                                <span><span id="vote0">50票</span></span>
+                                <input type="hidden"  name="competNo">
+                                <span><span id="memId"><?=$memberVoteRow["memId"]?></span></span>
+                                <span><span id="vote0"><?=$memberVoteRow["vote"]?>票</span></span>
                             </div>
 
                             <div class="competitionButton">
                                 <span href="#"  class="whiteButton voteBtn">
                                     <img src="images/indexSpot/voteIcon.png" alt="">
                                     投票
-                                    <input type="hidden" name="work_no2" value="25">
+                                    <input type="hidden" name="competNo2" value="25">
                                 </span>
                                 <span href="#"  class="whiteButton messageBtn">
                                     <img src="images/indexSpot/messIcon.png" alt="">
                                     留言
-                                    <input type="hidden" name="work_no3" value="25">
+                                    <input type="hidden" name="competNo3" value="25">
                                 </span>
                             </div>
                         </div>
                     </div>
-                    <div class="smallMessage">
-                        <img src="images/competition/card02.png" alt="">
-                        <div class="smallMessageButton">                       
-                            <div class="competitionVoteTitle">
-                                <input type="hidden"  name="work_no">
-                                <span><span id="memId">彰化齊齊</span></span>
-                                <span><span id="vote0">40票</span></span>
-                            </div>
-                            <div class="competitionButton">
-                                    <span href="#"  class="whiteButton voteBtn">
-                                        <img src="images/indexSpot/voteIcon.png" alt="">
-                                        投票
-                                        <input type="hidden" name="work_no2" value="25">
-                                    </span>
-                                    <span href="#"  class="whiteButton messageBtn">
-                                        <img src="images/indexSpot/messIcon.png" alt="">
-                                        留言
-                                        <input type="hidden" name="work_no3" value="25">
-                                    </span>
-                                </div>
-                        </div>
-                    </div>
-                    <div class="smallMessage">
-                        <img src="images/competition/card03.png" alt="">
-                        <div class="smallMessageButton">                       
-                            <div class="competitionVoteTitle">
-                                <input type="hidden"  name="work_no">
-                                <span><span id="memId">雲林靜靜</span></span>
-                                <span><span id="vote0">39票</span></span>
-                            </div>
-                            <div class="competitionButton">
-                                    <span href="#"  class="whiteButton voteBtn">
-                                        <img src="images/indexSpot/voteIcon.png" alt="">
-                                        投票
-                                        <input type="hidden" name="work_no2" value="25">
-                                    </span>
-                                    <span href="#"  class="whiteButton messageBtn">
-                                        <img src="images/indexSpot/messIcon.png" alt="">
-                                        留言
-                                        <input type="hidden" name="work_no3" value="25">
-                                    </span>
-                                </div>
-                        </div>
-                    </div>
-                    <div class="smallMessage">
-                        <img src="images/competition/card01.png" alt="">
-                        <div class="smallMessageButton">                       
-                            <div class="competitionVoteTitle">
-                                <input type="hidden"  name="work_no">
-                                <span><span id="memId">大溪阿玫</span></span>
-                                <span><span id="vote0">30票</span></span>
-                            </div>
-                            <div class="competitionButton">
-                                    <span href="#"  class="whiteButton voteBtn">
-                                        <img src="images/indexSpot/voteIcon.png" alt="">
-                                        投票
-                                        <input type="hidden" name="work_no2" value="25">
-                                    </span>
-                                    <span href="#"  class="whiteButton messageBtn">
-                                        <img src="images/indexSpot/messIcon.png" alt="">
-                                        留言
-                                        <input type="hidden" name="work_no3" value="25">
-                                    </span>
-                                </div>
-                        </div>
-                    </div>
-                    <div class="smallMessage">
-                        <img src="images/competition/card02.png" alt="">
-                        <div class="smallMessageButton">                       
-                            <div class="competitionVoteTitle">
-                                <input type="hidden"  name="work_no">
-                                <span><span id="memId">SEXFAT</span></span>
-                                <span><span id="vote0">10票</span></span>
-                            </div>
-                            <div class="competitionButton">
-                                    <span href="#"  class="whiteButton voteBtn">
-                                        <img src="images/indexSpot/voteIcon.png" alt="">
-                                        投票
-                                        <input type="hidden" name="work_no2" value="25">
-                                    </span>
-                                    <span href="#"  class="whiteButton messageBtn">
-                                        <img src="images/indexSpot/messIcon.png" alt="">
-                                        留言
-                                        <input type="hidden" name="work_no3" value="25">
-                                    </span>
-                                </div>
-                        </div>
-                    </div>
-                    <div class="smallMessage">
-                        <img src="images/competition/card03.png" alt="">
-                        <div class="smallMessageButton">                       
-                            <div class="competitionVoteTitle">
-                                <input type="hidden"  name="work_no">
-                                <span><span id="memId">新竹愷愷</span></span>
-                                <span><span id="vote0">2票</span></span>
-                            </div>
-                            <div class="competitionButton">
-                                <span href="#"  class="whiteButton voteBtn">
-                                    <img src="images/indexSpot/voteIcon.png" alt="">
-                                    投票
-                                    <input type="hidden" name="work_no2" value="25">
-                                </span>
-                                <span href="#"  class="whiteButton messageBtn">
-                                    <img src="images/indexSpot/messIcon.png" alt="">
-                                    留言
-                                    <input type="hidden" name="work_no3" value="25">
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>     
-        </div>
+                    <?php
+                    }
+                    ?>
     </section>
 
     <!-- 比賽說明 -->
@@ -517,6 +511,18 @@ try{
             </div>
         </div> 
     </section>
+    <div style="display:compact;text-align:center;margin:auto;">
+       <?php
+       echo "<a href='?startDate=1' onclick='return false'>第一頁</a>&nbsp";
+       for($i=1;$i<= $totalPage;$i++){
+           if($i==$startDate)
+            echo "<a href='?startDate=$i' style='color:deepPink' onclick='return false'>",$i,"</a>&nbsp&nbsp";
+           else
+            echo "<a href='?startDate=$i'onclick='return false'>",$i,"</a>&nbsp&nbsp";
+       }
+       echo "<a href='?startDate=$totalPage' onclick='return false' javascript:'void(0)'>最後一頁</a>&nbsp";
+       ?>
+    </div>
 
 
     <footer>
