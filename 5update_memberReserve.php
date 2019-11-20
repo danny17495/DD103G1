@@ -7,7 +7,8 @@ try {
 
 
   //找預約日期<目前日期
-  $reserveDate=$pdo->prepare("select * from `reserve` WHERE `reserve`.`reserveDate` < CURRENT_DATE AND `reserve`.`reserveNo` = :reserveNo;");
+  $reserveDate=$pdo->prepare("select * from `reserve` WHERE 
+  `reserve`.`reserveDate` < CURRENT_DATE AND `reserve`.`reserveNo` = :reserveNo;");
   $reserveDate->bindValue(':reserveNo',$_POST['reserveNo']);
   $reserveDate->execute();
 
@@ -16,7 +17,8 @@ try {
     exit();
   }
 
-  $reserve=$pdo->prepare("select * from `reserve` WHERE `reserve`.`memId` = :memId AND `reserve`.`reserveNo` = :reserveNo;");
+  $reserve=$pdo->prepare("select * from `reserve` WHERE 
+  `reserve`.`memId` = :memId AND `reserve`.`reserveNo` = :reserveNo;");
   $reserve->bindValue(':memId',$_SESSION['memNo']);
   $reserve->bindValue(':reserveNo',$_POST['reserveNo']);
   $reserve->execute();
