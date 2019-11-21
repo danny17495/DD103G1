@@ -20,19 +20,6 @@ try {
 	// echo "異動成功~" ;
 
 	//將檔案名稱寫回資料庫
-    	$memberImg -> bindValue(':memId',$_REQUEST["memId"]);
-		$memberImg -> execute();
-		// echo "新增成功~";
-		header("location:../../member.php");
-
-	}else if($_FILES["upFile"]["error"] == 4){ //如果未指定上傳檔案,還是跳轉成功
-		header("location:../../member.php");
-	}
-	else{
-		echo "錯誤代碼 : {$_FILES["upFile"]["error"]} <br>";
-		echo "新增失敗";
-	}
-
 
 } catch (PDOException $e) {
 	$errMsg = $errMsg . "錯誤訊息: " . $e->getMessage() . "</br>";

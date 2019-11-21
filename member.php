@@ -8,29 +8,29 @@ try {
 
   //找會員
   $member=$pdo->prepare('SELECT * FROM `member` where memberNo = :memberNo');
-  $member->bindValue(':memNo',@$_SESSION['memNo']);
+  $member->bindValue(':memNo',$_SESSION['memNo']);
   $member->execute();
   echo "<pre>member:"; print_r($member); echo "</pre>";
   //找明信片
-  $postcardform=$pdo->prepare('SELECT * FROM `postcard` where memNo = :memNo');
-  $postcardform->bindValue(':memNo',@$_SESSION['memNo']);
-  $postcards->execute();
-  echo "<pre>postcards:"; print_r($postcards); echo "</pre>";
+  $postcard=$pdo->prepare('SELECT * FROM `postcard` where memNo = :memNo');
+  $postcard->bindValue(':memNo',$_SESSION['memNo']);
+  $postcard->execute();
+  echo "<pre>postcards:"; print_r($postcard); echo "</pre>";
 
   //找優惠劵
   $holdingcoupon=$pdo->prepare('SELECT * FROM `holdingcoupon` where memNo = :memNo');
-  $holdingcoupon->bindValue(':memNo',@$_SESSION['memNo']);
+  $holdingcoupon->bindValue(':memNo',$_SESSION['memNo']);
   $holdingcoupon->execute();
   echo "<pre>holdingcoupon:"; print_r($holdingcoupon); echo "</pre>";
 
-  //找訂單
+  找訂單
   $orderItems=$pdo->prepare('SELECT * FROM  order_item o join product pro on pro.product_no = o.product_no where o.order_no = :order_no ');
   $orderItems->execute();
   echo "<pre>orderform:"; print_r($orderform); echo "</pre>";
 
-  //找預約
-  $revs=$pdo->prepare('SELECT * FROM resv_order r join resv_session_capacity rc on r.session_no = rc.session_no where r.member_id = :member_id');
-  $revs->bindValue(':memberId',@$_SESSION['memNo']);
+  找預約
+  $revs=$pdo->prepare('SELECT * FROM reserve join resv_session_capacity rc on r.session_no = rc.session_no where r.member_id = :member_id');
+  $revs->bindValue(':memId',$_SESSION['memNo']);
   $revs->execute();
   echo "<pre>reserve:"; print_r($reserve); echo "</pre>";
 
@@ -51,6 +51,8 @@ try {
     <script src="js/memberScript.js"></script>
     <link rel="stylesheet" href="css/memberStyle.css">
 </head>
+
+
 <body>
     <header>
         <div class="container headerStyle">
@@ -123,6 +125,16 @@ try {
         </section><!-- section.pageTitle結束div -->
 
 <!--****會員中心內容***************************************************************************-->
+
+    <?php
+
+    if ($errMsg !=""){
+    echo "<center>$errMsg</center>";
+    }else{
+
+?>
+
+
         <div id="memberWrap">
             <div class="container member">
                 <div id="memberTab-panel">
@@ -154,29 +166,34 @@ try {
                                 <div class="membertitle">
                                     <h2>基本資料</h2>
                                 </div>
+                                <?php
+                                    while($memRow = $memItems -> fetch(PDO::FETCH_ASSOC)){
+                                    $dir="";
+                                ?>
                                 <div class="memberTabGroup">
                                     <label for="membername" class="label">姓名</label>
-                                    <input id="memberinput" type="text" class="memberinput">
+                                    <input id="memberinput" type="text" class="memberinput" value="<?=$memRow["memId"]?>">
+                                    <div class="memberRow"><p><?=$memRow["memId"]?></p></div>
                                 </div>
                              
                                 <div class="memberTabGroup">
                                     <label for="phone" class="label">電話</label>
-                                    <input id="memberinput" type="text" class="memberinput">
+                                    <input id="memberinput" type="text" class="memberinput" value="<?=$memRow["memPassword"]?>">
                                 </div>
                                 <div class="memberTabGroup">
                                     <label for="email" class="label">Email</label>
-                                    <input id="memberinput" type="text" class="memberinput">
+                                    <input id="memberinput" type="text" class="memberinput" value="<?=$memRow["memEmail"]?>">
                                 </div>
                                 <div class="memberTabGroup">
                                     <label for="add" class="label">地址</label>
-                                    <input id="memberinput" type="text" class="memberinput">
+                                    <input id="memberinput" type="text" class="memberinput" value="<?=$memRow["memAddress"]?>">
                                 </div>
                                 <div class="memberTabGroup">
                                     <label for="card" class="label">VISA</label>
-                                    <input id="membervisa" type="text" class="memberinput">
-                                    <input id="membervisa" type="text" class="memberinput">
-                                    <input id="membervisa" type="text" class="memberinput">
-                                    <input id="membervisa" type="text" class="memberinput">
+                                    <input id="membervisa" type="text" class="memberinput" value="<?=$memRow["memVisa"]?>">
+                                    <input id="membervisa" type="text" class="memberinput" value="<?=$memRow["memVisa"]?>">
+                                    <input id="membervisa" type="text" class="memberinput" value="<?=$memRow["memVisa"]?>">
+                                    <input id="membervisa" type="text" class="memberinput" value="<?=$memRow["memVisa"]?>">
                                     </br>
                                 </div>
                                 <div class="memberBigbtn">
@@ -216,6 +233,16 @@ try {
                             <ul id="memberPostcard" class="memberul">
                                 <div class="memberBigBoxdiv">
                                     <div class="memberboxdiv">
+                                    <?php
+                                        if($userRow["postcard"]==NULL){
+                                        ?>
+                                            <div class="ifnull"><p>尚未有明信片</p>
+                                            <img id="upfile_pic" src="../DD103G1/images/member/memberPostercard.png">
+                                            </div>
+
+                                        <?php
+                                        }else{
+                                        ?>
                                         <li class="memberli"> <img src="../DD103G1/images/member/memberPostercard.png"></li>
                                     </div>
                                     <div class="memberboxdiv">
@@ -402,5 +429,4 @@ try {
         <p>DD103 G1 copyright</p>
     </footer>
     </body>
-
 </html>

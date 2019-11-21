@@ -11,7 +11,7 @@ function showFeet(){
 }
 
 function scrollFeet(){
-    console.log('aa');
+    //console.log('aa');
     if (window.scrollY > reYuJourney.offsetTop + indexReContent.offsetTop) {
         showFeet().then(function (value) {
             catFeet[3].style.opacity = 1;
