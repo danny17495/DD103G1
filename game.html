@@ -51,13 +51,13 @@
                         <a href="javascript:;"></a>
                     </div>
                    <div class="headerIcon">
-                        <a href="shopcart.html">
-                            <img src="images/icon_shopcar.png" alt="icon_shopcar">
-                        </a>
-                        <a href="member.php">
-                            <img src="images/icon_login.png" alt="icon_login">
-                        </a>
-                    </div>
+                    <a href="javascript:;" id="shopcart">
+                        <img src="images/icon_shopcar.png" alt="icon_shopcar">
+                    </a>
+                    <a id="memberInfo" href="member.php">
+                        <img src="images/icon_login.png" alt="icon_login">
+                    </a>
+                </div>
             </div>
     </header>
    <!------- 小遊戲 說明 ------> 
@@ -132,7 +132,6 @@
             </div>
 <script>
     //顯示優惠券序號
-   
     //從php抓優惠券資料
     function getCouponNum(){
         var xhr = new XMLHttpRequest();
