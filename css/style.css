@@ -640,7 +640,32 @@
 	width: 100%;
     background-color: #fef6ea;
     margin-top: -60px;
+    position: relative;
 }
+/*============首頁明信片信封打開============*/
+.indexPost_trsOuter{
+    width: 100%;
+ /*   height: 100vh;*/
+  /*  z-index: 1000;*/
+    position: absolute;
+    top: 0;
+}
+.indexPost_trs1{
+    width: 1280px;
+    position: absolute;
+    top: 0;
+}
+.indexPost_trs2{
+    width: 100vw;
+    position: absolute;
+    top: 0;
+}
+.indexPost_trs3{
+    width: 100vw;
+    position: absolute;
+    top: 0;
+}
+
 
 /*=============01明信片裝飾斜線=============*/
 .wrapperPostLine{
@@ -5726,6 +5751,7 @@ body.postcardBody .forWallDeco{
 }
 .LoginP{
   color:#FFF;
+  cursor: pointer
 }
 
 /*註冊*/
