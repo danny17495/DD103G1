@@ -5751,6 +5751,7 @@ body.postcardBody .forWallDeco{
 }
 .LoginP{
   color:#FFF;
+  cursor: pointer
 }
 
 /*註冊*/
