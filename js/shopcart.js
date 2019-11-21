@@ -734,7 +734,7 @@ function cartNextPage(){
             var cartItemNum = parseInt(cartItemNumString);          //單品欲買數量
             // console.log(cartItemNum);
 
-            localStorage.setItem(`pc${itemId}`,`${itemId}, 客製化明信片, 60, ${cartItemNum}, ${cartItemNum * 60}, `);
+            localStorage.setItem(`明信片(編號, 商品數量, 商品小計)編號${itemId}`,`${itemId}, ${cartItemNum}, ${cartItemNum * 60}, `);
         }
     }
 
@@ -750,15 +750,7 @@ function cartNextPage(){
             console.log(fathersi);
             var cartItemNumStringsi = fathersi.children[1].children[2].children[1].children[1].value;
             var cartItemNumsi = parseInt(cartItemNumStringsi);          //單品欲買數量
-            console.log(cartItemNumsi);
-
-            // 商城商品名稱有2種
-            var itemName;
-            if(itemIdsi < 10){
-                itemName = "客製化馬克杯";
-            }else{
-                itemName = "客製化T-shirt";
-            }            
+            console.log(cartItemNumsi);      
 
             //紀錄商城商品價格
             var itemPrice;
@@ -770,7 +762,7 @@ function cartNextPage(){
                 itemPrice = 650;
             }
 
-            localStorage.setItem(`si${itemIdsi}`,`${itemIdsi}, ${itemName}, ${itemPrice}, ${cartItemNumsi}, ${cartItemNumsi * itemPrice}, `);
+            localStorage.setItem(`商城商品(編號, 商品數量, 商品小計)編號${itemIdsi}`,`${itemIdsi}, ${cartItemNumsi}, ${cartItemNumsi * itemPrice}, `);
         }
     }    
 }
