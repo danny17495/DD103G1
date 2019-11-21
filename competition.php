@@ -49,25 +49,22 @@ try{
     $memberVote ->execute();
 
     $item = "select count(*) from competition";
-$result = $pdo->query($item);
-$result ->bindColumn(1,$totalRecord);
-$result->fetch();
+    $result = $pdo->query($item);
+    $result ->bindColumn(1,$totalRecord);
+    $result->fetch();
 
-$recPerPage = 6;
+    $recPerPage = 6;
 
-$totalPage = ceil($totalRecord/$recPerPage);
+    $totalPage = ceil($totalRecord/$recPerPage);
 
-if(isset($_GET["startDate"])==false)
-$startDate=1;
-else
-$startDate=$_GET["startDate"];
+    if(isset($_GET["startDate"])==false)
+    $startDate=1;
+    else
+    $startDate=$_GET["startDate"];
 
-$start = ($startDate-1) * $recPerPage;
-$items = "select * from competition order by startDate limit $start,$recPerPage";
-$competition = $pdo->query($items);
-
-
-
+    $start = ($startDate-1) * $recPerPage;
+    $items = "select * from competition order by startDate limit $start,$recPerPage";
+    $competition = $pdo->query($items);
 
 
 } catch (PDOException $e) {
@@ -188,8 +185,8 @@ $competition = $pdo->query($items);
 
                     <!-- 會員圖片 -->
 
-                     <figure class="mem_pic" id="bg_pic">
-                    </figure>
+                     <!-- <figure class="mem_pic" id="bg_pic">
+                    </figure> -->
 
                     <!-- 會員留言資料 -->
 
@@ -471,6 +468,20 @@ $competition = $pdo->query($items);
                     }
                     ?>
     </section>
+    <div style="display:flex;text-align:center;justify-content:center;">
+       <?php
+       echo "<a href='?startDate=1' onclick='return false'>第一頁</a>&nbsp";
+       for($i=1;$i<= $totalPage;$i++){
+           if($i==$startDate)
+            echo "<a href='?startDate=$i' style='color:deepPink' onclick='return false'>",$i,"</a>&nbsp&nbsp";
+           else
+            echo "<a href='?startDate=$i'onclick='return false'>",$i,"</a>&nbsp&nbsp";
+       }
+       echo "<a href='?startDate=$totalPage' onclick='return false' javascript:'void(0)'>最後一頁</a>&nbsp";
+       ?>
+    </div>
+    
+
 
     <!-- 比賽說明 -->
 
@@ -511,18 +522,6 @@ $competition = $pdo->query($items);
             </div>
         </div> 
     </section>
-    <div style="display:compact;text-align:center;margin:auto;">
-       <?php
-       echo "<a href='?startDate=1' onclick='return false'>第一頁</a>&nbsp";
-       for($i=1;$i<= $totalPage;$i++){
-           if($i==$startDate)
-            echo "<a href='?startDate=$i' style='color:deepPink' onclick='return false'>",$i,"</a>&nbsp&nbsp";
-           else
-            echo "<a href='?startDate=$i'onclick='return false'>",$i,"</a>&nbsp&nbsp";
-       }
-       echo "<a href='?startDate=$totalPage' onclick='return false' javascript:'void(0)'>最後一頁</a>&nbsp";
-       ?>
-    </div>
 
 
     <footer>
