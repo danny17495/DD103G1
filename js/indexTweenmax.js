@@ -25,22 +25,22 @@ window.addEventListener("load", function () {
 
     //首頁明信片打開
     var postscene1 = new ScrollMagic.Scene({
-        triggerElement: '.postDIY',
+        triggerElement: '.postBGC_1',
         reverse:false,
-    }).setClassToggle('.indexPost_trs1', 'trs1Down').addIndicators().addTo(controller);
+    }).setClassToggle('.indexPost_trs1', 'trs1Down').addTo(controller);
     
     var postscene2 = new ScrollMagic.Scene({
-        triggerElement: '.postDIY',
+        triggerElement: '.postBGC_1',
         reverse:false,
     }).setClassToggle('.indexPost_trs2', 'trs2UP').addTo(controller);
     
     var postscene3 = new ScrollMagic.Scene({
-        triggerElement: '.postDIY',
+        triggerElement: '.postBGC_1',
         reverse:false,
     }).setClassToggle('.indexPost_trs3', 'trs3UP').addTo(controller);
 
     var postsgirl = new ScrollMagic.Scene({
-        triggerElement: '.postDIY',
+        triggerElement: '.postBGC_1',
         reverse:false,
     }).setClassToggle('.postGirl', 'postGirlShow').addTo(controller);
 
