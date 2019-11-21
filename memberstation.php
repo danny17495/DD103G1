@@ -23,16 +23,16 @@ try {
   $holdingcoupon->execute();
   echo "<pre>holdingcoupon:"; print_r($holdingcoupon); echo "</pre>";
 
-//   找訂單
-//   $orderItems=$pdo->prepare('SELECT * FROM  order_item o join product pro on pro.product_no = o.product_no where o.order_no = :order_no ');
-//   $orderItems->execute();
-//   echo "<pre>orderform:"; print_r($orderform); echo "</pre>";
+  //找訂單
+  $orderItems=$pdo->prepare('SELECT * FROM  order_item o join product pro on pro.product_no = o.product_no where o.order_no = :order_no ');
+  $orderItems->execute();
+  echo "<pre>orderform:"; print_r($orderform); echo "</pre>";
 
-//   找預約
-//   $revs=$pdo->prepare('SELECT * FROM resv_order r join resv_session_capacity rc on r.session_no = rc.session_no where r.member_id = :member_id');
-//   $revs->bindValue(':memberId',@$_SESSION['memNo']);
-//   $revs->execute();
-//   echo "<pre>reserve:"; print_r($reserve); echo "</pre>";
+  //找預約
+  $revs=$pdo->prepare('SELECT * FROM resv_order r join resv_session_capacity rc on r.session_no = rc.session_no where r.member_id = :member_id');
+  $revs->bindValue(':memberId',@$_SESSION['memNo']);
+  $revs->execute();
+  echo "<pre>reserve:"; print_r($reserve); echo "</pre>";
 
 ?>
 

@@ -213,35 +213,110 @@ cursor:pointer;
 	width: 60%;
 }
 
+/*----顏色按鈕----*/
 
+/*選擇顏色*/
+.shopCupColorChoose,.shopTColorChoose{
+	position: relative;
+	top: -90px;
+    width: 50%;
+    margin: auto;
+    cursor: pointer
+}
+.shopCupColorChoose span.cupColor,
+.shopTColorChoose span.TColor{
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	margin: 0 10px;
+	position: relative;	
+}
 
+.shopCupColorChoose span.cupColor1,
+.shopTColorChoose span.TColor1{
+	background-color: #287fa0;
+}
 
+.shopCupColorChoose span.cupColor2,
+.shopTColorChoose span.TColor2{
+	background-color: rgb(194, 57, 6);
+}
+.shopCupColorChoose span.cupColor:after,
+.shopTColorChoose span.TColor:after{
+    content: "";
+	display: block;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	box-sizing: border-box;
+	position: absolute;
+	top: -5px;
+    left: -5px;
+}
+.shopCupColorChoose span.cupColor1.active:after,
+.shopTColorChoose span.TColor1.active:after{
+    border: 1px solid #287fa0;
+}
+.shopCupColorChoose span.cupColor2.active:after,
+.shopTColorChoose span.TColor2.active:after{
+    border: 1px solid rgb(194, 57, 6);
+}
+.shopCupColorChoose span.cupColor3.active:after,
+.shopTColorChoose span.TColor3.active:after{
+    border: 1px solid #1b3263;
+}
 
-
+/**
 #white{
 		margin: 0 10px;
-		width: 30px;
-		height: 30px;
+		width: 25px;
+		height: 25px;
 		border-radius: 50%;
 		border:none;
 		background-color: #fff;
 	}
 	#red{
 		margin: 0 10px;
-		width: 30px;
-		height: 30px;
+		width: 25px;
+		height: 25px;
 		border-radius: 50%;
 		border:none;
 		background-color: #a83d15;
 	}
 	#blue{
 		margin: 0 10px;
-		width: 30px;
-		height: 30px;
+		width: 25px;
+		height: 25px;
 		border-radius: 50%;
 		border:none;
 		background-color: #283562;
+
 	}
+
+	.shopAlllbtn button#shopCupColor:after{
+    content: "";
+	display: block;
+	width: 35px;
+	height: 35px;
+	border-radius: 50%;
+	box-sizing: border-box;
+	position: absolute;
+	top: -5px;
+    left: -5px;
+	}
+
+
+	.#white.active:after{
+    border: 1px solid #287fa0;
+	}
+	.#red.active:after{
+	    border: 1px solid rgb(194, 57, 6);
+	}
+	.#blue.active:after{
+	    border: 1px solid #1b3263;
+	}
+*/
 
 
 /*-----選擇圖案-------手機板----*/
