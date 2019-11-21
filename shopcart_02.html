@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/styleShopcart_02.css">
     <script src="js/shopcart_02.js" defer></script>
+    <style>
+        #form1{
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -41,7 +46,7 @@
                                 <a href="shop.php">購物商城</a>
                             </li>
                             <li>
-                                <a href="competition.php">投票比賽</a>
+                                <a href="competition.html">投票比賽</a>
                             </li>
                         </ul>
                     </div>
@@ -91,23 +96,22 @@
                     <h3>小計</h3>
                     <div class="clearfix"></div>
                 </div>
+                <div class="bornItemList" id="bornItemList1"></div>
+                <div class="bornItemList" id="bornItemList2"></div>
     
                 <!-- (2-2)商品列1 -->
-                <div class="cartOrderRow cartOrderRow1"><!-- 商品列1 -->
-                    <div class="cartRowPic"><!-- (2-2-1)商品相片 -->
+                <!--<div class="cartOrderRow cartOrderRow1">
+                    <div class="cartRowPic">
                         <div>
                             <img src="images/shopcart/shopCartItem_2.png" alt="">
                         </div>
                     </div>
                     
-                    <div class="cartRowDetail"><!-- (2-2-2)商品資訊 -->
+                    <div class="cartRowDetail">
                         <div class="cartRowDetailName">
                             <span class="cartRowSmallSizeApear">名稱：</span>
                             <span>客製化馬克杯</span>
                         </div>
-                        <!-- <div class="cartRowDetailColor">
-                            <span></span>
-                        </div> -->
                         <div class="cartRowDetailPrice">
                             <span class="cartRowSmallSizeApear">單價：</span>
                             <span>NT$450</span>
@@ -123,41 +127,8 @@
                         </div>
                     </div>
                     <div class="clearfix"></div>
-                </div><!-- .cartRow1商品列1結束div -->
+                </div> -->
     
-    
-                <!-- (2-2)商品列2 -->
-                <div class="cartOrderRow cartOrderRow2"><!-- 商品列2 -->
-                    <div class="cartRowPic"><!-- (2-2-1)商品相片 -->
-                        <div>
-                            <img src="images/shopcart/shopCartItem_1.png" alt="">
-                        </div>
-                    </div>
-                    
-                    <div class="cartRowDetail"><!-- (2-2-2)商品資訊 -->
-                        <div class="cartRowDetailName">
-                            <span class="cartRowSmallSizeApear">名稱：</span>
-                            <span>客製化馬克杯</span>
-                        </div>
-                        <!-- <div class="cartRowDetailColor">
-                            <span></span>
-                        </div> -->
-                        <div class="cartRowDetailPrice">
-                            <span class="cartRowSmallSizeApear">單價：</span>
-                            <span>NT$450</span>
-                        </div>                            
-
-                        <div class="cartRowDetailNum">
-                            <span class="cartRowSmallSizeApear">數量：</span>
-                            <span>2</span>
-                        </div>
-                        <div class="cartRowDetailSubtotal">
-                            <span class="cartRowSmallSizeApear">小計：</span>
-                            <span>NT$900</span>
-                        </div>
-                    </div>
-                    <div class="clearfix"></div>
-                </div><!-- .cartRow2商品列2結束div -->
     
                 <!-- (2-3)商品取貨 -->
                 <div class="cartOrderShip">
@@ -175,15 +146,15 @@
                             <table>
                                 <tr>
                                     <td>姓名：</td>
-                                    <td><input type="text"></td>
+                                    <td><input type="text" placeholder="請填寫收件姓名"></td>
                                 </tr> 
                                 <tr>
                                     <td>手機：</td>
-                                    <td><input type="text"></td>
+                                    <td><input type="text" placeholder="請填寫收件手機"></td>
                                 </tr>
                                 <tr>
                                     <td>地址：</td>
-                                    <td><input type="text"></td>
+                                    <td><input type="text" placeholder="請填寫收件地址"></td>
                                 </tr>
                             </table>
                         </div>
@@ -194,17 +165,22 @@
                 <div class="cartOrderDiScount">
                     <div class="cartOrderDiScountHeader">
                         <h3>選擇折扣卷</h3>
+                        <form method="post" accept-charset="utf-8" id="form1">
+                            <input name="hidden_data" id='hidden_data' type="hidden"/>
+                        </form>
                     </div>
                     <div class="cartOrderDiScountBody">
                         <table>
                             <tr>
                                 <td>持有折扣卷：</td>
                                 <td>
-                                    <select name="" id="">
-                                        <option value="">NT$100</option>
+                                    <select name="coupon" id="chooseCoupon">
+                                        <option value="none">無折扣卷&nbsp;</option>
+                                        <!-- <option value="">NT$100</option>
                                         <option value="">NT$50</option>
-                                        <option value="">NT$10</option>
-                                    </select>  
+                                        <option value="">NT$10</option> -->
+                                    </select>
+                                    <a href="game.html" class="cartGameForCoupon" id="cartGameForCoupon"><span>(玩遊戲拿折扣)</span></a>
                                 </td>
                             </tr>
                         </table> 
@@ -221,7 +197,7 @@
                         <table>
                             <tr class="cartPriceBox">
                                 <td>小計：</td>
-                                <td>NT$1350</td>
+                                <td id="cartTotal">NT$1350</td>
                             </tr>
                             <tr class="cartPriceBox">
                                 <td>運費：</td>
@@ -229,11 +205,11 @@
                             </tr>
                             <tr class="cartPriceBox">
                                 <td>折扣：</td>
-                                <td>-NT$100</td>
+                                <td id="cartDiscount">-NT$100</td>
                             </tr>
                             <tr class="cartPriceBox">
                                 <td>總計：</td>
-                                <td>NT$1370</td>
+                                <td id="cartTotalFinal">NT$1370</td>
                             </tr>
                         </table>                        
                     </div>
