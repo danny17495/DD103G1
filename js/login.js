@@ -38,11 +38,11 @@ function sendData(){
                 for (var i in userData) {
                     sessionStorage.setItem(i, userData[i]);
                 }
-                sessionStorage.setItem('password', "");//不顯示
-                sessionStorage.setItem('visa', "");//不顯示
+                sessionStorage.setItem('memPassword', "");//不顯示
+                sessionStorage.setItem('memVisa', "");//不顯示
                 //console.log(userData.name);
                 $id("login").style.display = "none";
-                $id("headermemId").innerHTML = `${userData.memId}<a id="logout" href="javascript:;">登出</a>`;
+                $id("headerMemName").innerHTML = `${userData.memName}<a id="logout" href="javascript:;">登出</a>`;
                 $id("logout").onclick=logout;
                 if (memberInfoClick){ //判定原先有無按會員頁按鈕
                     document.location.href = "member.php";
@@ -101,7 +101,7 @@ function openLoginData(){ //登入 註冊 盒子
 function judgeLogin(){
     fetch("php/login/loginJudge.php").then(loginJudge => loginJudge.text().then(loginJudge => {
         if (loginJudge != "not login") {   //已登入
-            $id("headermemId").innerHTML = `${sessionStorage.memId}<a id="logout" href="javascript:;">登出</a>`;
+            $id("headerMemName").innerHTML = `${sessionStorage.memName}<a id="logout" href="javascript:;">登出</a>`;
             $id("logout").onclick = logout;
         } else {
            
