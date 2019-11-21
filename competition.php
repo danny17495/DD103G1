@@ -49,25 +49,22 @@ try{
     $memberVote ->execute();
 
     $item = "select count(*) from competition";
-$result = $pdo->query($item);
-$result ->bindColumn(1,$totalRecord);
-$result->fetch();
+    $result = $pdo->query($item);
+    $result ->bindColumn(1,$totalRecord);
+    $result->fetch();
 
-$recPerPage = 6;
+    $recPerPage = 6;
 
-$totalPage = ceil($totalRecord/$recPerPage);
+    $totalPage = ceil($totalRecord/$recPerPage);
 
-if(isset($_GET["startDate"])==false)
-$startDate=1;
-else
-$startDate=$_GET["startDate"];
+    if(isset($_GET["startDate"])==false)
+    $startDate=1;
+    else
+    $startDate=$_GET["startDate"];
 
-$start = ($startDate-1) * $recPerPage;
-$items = "select * from competition order by startDate limit $start,$recPerPage";
-$competition = $pdo->query($items);
-
-
-
+    $start = ($startDate-1) * $recPerPage;
+    $items = "select * from competition order by startDate limit $start,$recPerPage";
+    $competition = $pdo->query($items);
 
 
 } catch (PDOException $e) {
@@ -141,7 +138,7 @@ $competition = $pdo->query($items);
                     <a href="shopcart.html">
                         <img src="images/icon_shopcar.png" alt="icon_shopcar">
                     </a>
-                    <a href="login tabs/login.html">
+                    <a id="memberInfo" href="member.php">
                         <img src="images/icon_login.png" alt="icon_login">
                     </a>
                 </div>
@@ -188,8 +185,8 @@ $competition = $pdo->query($items);
 
                     <!-- 會員圖片 -->
 
-                     <figure class="mem_pic" id="bg_pic">
-                    </figure>
+                     <!-- <figure class="mem_pic" id="bg_pic">
+                    </figure> -->
 
                     <!-- 會員留言資料 -->
 
@@ -471,6 +468,20 @@ $competition = $pdo->query($items);
                     }
                     ?>
     </section>
+    <div style="display:flex;text-align:center;justify-content:center;">
+       <?php
+       echo "<a href='?startDate=1' onclick='return false'>第一頁</a>&nbsp";
+       for($i=1;$i<= $totalPage;$i++){
+           if($i==$startDate)
+            echo "<a href='?startDate=$i' style='color:deepPink' onclick='return false'>",$i,"</a>&nbsp&nbsp";
+           else
+            echo "<a href='?startDate=$i'onclick='return false'>",$i,"</a>&nbsp&nbsp";
+       }
+       echo "<a href='?startDate=$totalPage' onclick='return false' javascript:'void(0)'>最後一頁</a>&nbsp";
+       ?>
+    </div>
+    
+
 
     <!-- 比賽說明 -->
 
@@ -511,18 +522,6 @@ $competition = $pdo->query($items);
             </div>
         </div> 
     </section>
-    <div style="display:compact;text-align:center;margin:auto;">
-       <?php
-       echo "<a href='?startDate=1' onclick='return false'>第一頁</a>&nbsp";
-       for($i=1;$i<= $totalPage;$i++){
-           if($i==$startDate)
-            echo "<a href='?startDate=$i' style='color:deepPink' onclick='return false'>",$i,"</a>&nbsp&nbsp";
-           else
-            echo "<a href='?startDate=$i'onclick='return false'>",$i,"</a>&nbsp&nbsp";
-       }
-       echo "<a href='?startDate=$totalPage' onclick='return false' javascript:'void(0)'>最後一頁</a>&nbsp";
-       ?>
-    </div>
 
 
     <footer>
@@ -539,7 +538,143 @@ $competition = $pdo->query($items);
         </div>
         <p>DD103 G1 copyright</p>
     </footer>
-
+    <div class="alertWindow">
+        <div class="alert">
+            <div class="alertTitle">提示</div>
+            <div class="alertContent">我是內容</div>
+            <div class="closeWrap">
+                <div class="yesButton whiteButton">確認</div>
+                <div class="cancelButton whiteButton">取消</div>
+            </div>
+            <div class="alertClose">
+                <i class="fa fa-times-circle Trip2_lightBoxBTN" aria-hidden="true" id="Trip2_lightBoxBTN02"></i>
+            </div>
+    
+        </div>
+    </div>
+    <section id="login" class="Loginwrap">
+        <div class="LoginForm">
+            <div class="Loginhead" id="LoginForm-head">
+                <div data-tab="login">
+                    <div class="Loginclose">
+                        <h3>會員登入</h3>
+                        <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <form action="">
+                <div class="Loginbody" id="LoginForm-body">
+                    <div class="Login-login">
+                        <div class="LoginForm-row">
+                            <label class="LoginLabel" for="">帳號</label>
+                            <input class="Logininput" id="user-id" type="text" placeholder="account" autocomplete="on">
+                        </div>
+                        <div class="LoginForm-row">
+                            <label class="LoginLabel" for="">密碼</label>
+                            <input class="Logininput" type="password" id="user-psw" placeholder="Password"
+                                autocomplete="on">
+                        </div>
+                        <div class="Login-forget">
+                            <a class="Login-forget-password" id="linkLoginForget">
+                                <p class="LoginP">忘記密碼</p>
+                            </a>
+                        </div>
+                        <div class="LoginForm-row">
+                            <div class="LoginBtnCenter whiteButton">登入</div>
+                        </div>
+                        <a class="LoginForm-signup-now" href="javascript:;">立即註冊</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <section id="loginRegister" class="Loginwrap" style="display: none">
+        <div class="LoginForm">
+            <div class="Loginhead" id="LoginForm-head">
+                <div data-tab="login">
+                    <div class="Loginclose">
+                        <h3>會員註冊</h3>
+                        <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <form action="">
+                <div class="Loginbody" id="LoginForm-body">
+                    <div class="Login-signup">
+                        <div class="LoginForm-row">
+                            <label class="Loginlabal" for="">姓名</label>
+                            <input id="name" class="Logininput" name="name" type="text" placeholder="Name">
+                        </div>
+                        <div class="LoginForm-row">
+                            <label class="Loginlabal" style="color:aliceblue;" for="">密碼</label>
+                            <input id="password" class="Logininput" name="password" type="password" placeholder="Password"
+                                autocomplete="on">
+    
+                        </div>
+                        <div class="LoginForm-row">
+                            <label class="Loginlabal" style="color:aliceblue;" for="">密碼確認</label>
+                            <input id="passwordcheck" class="Logininput" name="passwordcheck" type="password"
+                                placeholder="passwordcheck" autocomplete="on">
+                        </div>
+                        <div class="LoginForm-row">
+                            <label class="Loginlabal" style="color:aliceblue;">Email</label>
+                            <input id="Email" class="Logininput" name="email" type="text" size=20 placeholder="email">
+                        </div>
+                        <div class="LoginForm-row">
+                            <div class="LoginBtnR">
+                                <div class="whiteButton">
+                                    <a href="#" id="signup" name="signup">註冊</a>
+                                </div>
+                            </div>
+                            <div class="LoginBtnL">
+                                <div class="whiteButton">
+                                    <a href="javascript:;">回上頁</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <section id="loginforget" class="Loginwrap" style="display: none">
+        <div class="LoginForm">
+            <div class="Loginhead" id="LoginForm-head">
+                <div data-tab="login">
+                    <div class="Loginclose">
+                        <h3>重設密碼</h3>
+                        <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true"></i>
+    
+                    </div>
+                </div>
+            </div>
+            <div class="Loginbody LoginForm-body">
+                <div class="login">
+                    <div class="LoginForm-row">
+                        <label class="LoginLabel" for="">email</label>
+                        <input class="Logininput" type="email" placeholder="email">
+                    </div>
+                    <p class="resetpsw">*請送出表單後,到信箱查看並重設密碼*</p>
+                    <div class="LoginForm-row fix">
+                        <div class="LoginBtnR">
+                            <div class="whiteButton">
+                                <a href="#">
+                                    送出
+                                </a>
+                            </div>
+                        </div>
+                        <div class="LoginBtnL">
+                            <div class="whiteButton">
+                                <a href="javascript:;">回上頁</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="js/login.js"></script>
+    <script src="js/alert.js"></script>
     <script src="js/animation.js"></script>
 
 </body>
