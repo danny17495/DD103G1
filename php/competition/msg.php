@@ -1,7 +1,7 @@
 <?php
-$competNo="2";
+$competNo="1";
 $msg=$_GET["msg"];
-$memNo="2";
+$memNo="1";
 require_once("../connect.php");
 
 $time=date("Y-m-d H:i:s");

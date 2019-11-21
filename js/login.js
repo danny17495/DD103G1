@@ -7,7 +7,7 @@ function logout(){
     let xhr = new XMLHttpRequest();
     xhr.open("Get", "php/login/logout.php", true);
     xhr.send(null);
-    $id("headerMemName").innerHTML='';
+    $id("headermemId").innerHTML='';
     $id('memberInfo').onclick = function (e) {
         memberInfoClick = true;
         e.preventDefault();
@@ -34,6 +34,7 @@ function sendData(){
                 alertWrap("帳號密碼錯誤");
             }else{
                 userData = JSON.parse(loginResult)[0];
+                alert(userData);
                 for (var i in userData) {
                     sessionStorage.setItem(i, userData[i]);
                 }
@@ -41,7 +42,7 @@ function sendData(){
                 sessionStorage.setItem('visa', "");//不顯示
                 //console.log(userData.name);
                 $id("login").style.display = "none";
-                $id("headerMemName").innerHTML = `${userData.name}<a id="logout" href="javascript:;">登出</a>`;
+                $id("headermemId").innerHTML = `${userData.memId}<a id="logout" href="javascript:;">登出</a>`;
                 $id("logout").onclick=logout;
                 if (memberInfoClick){ //判定原先有無按會員頁按鈕
                     document.location.href = "member.php";
@@ -100,11 +101,11 @@ function openLoginData(){ //登入 註冊 盒子
 function judgeLogin(){
     fetch("php/login/loginJudge.php").then(loginJudge => loginJudge.text().then(loginJudge => {
         if (loginJudge != "not login") {   //已登入
-            $id("headerMemName").innerHTML = `${sessionStorage.name}<a id="logout" href="javascript:;">登出</a>`;
+            $id("headermemId").innerHTML = `${sessionStorage.memId}<a id="logout" href="javascript:;">登出</a>`;
             $id("logout").onclick = logout;
         } else {
            
-           // $id("headerMemName").innerHTML='';    //尚未登入
+           // $id("headermemId").innerHTML='';    //尚未登入
                 $id('memberInfo').onclick = function (e) {
                 memberInfoClick=true;
                  e.preventDefault();
