@@ -1,9 +1,5 @@
 console.log('start');
-//alert(0);
-
-// $(".messageNo1 .messageBoard img").attr("src","images/postcard/postDemo_1.jpg")
-
-
+// alert(0);
 
 function $id(e){
 return document.getElementById(e);
@@ -30,7 +26,7 @@ function competition(){
 
 //留言
 function message_xml(e){
-    //alert(1);
+    // alert(1);
     console.log(e);
     message_item=competition();
     message_item.open("GET","php/competition/message.php?competNo="+e,true);
@@ -39,10 +35,10 @@ function message_xml(e){
 }
 
 function message_php(){
-    //alert(2);
     if(message_item.readyState==4  && message_item.status==200){
         let message_arr= JSON.parse(message_item.responseText);
         message_btn(message_arr); 
+        alert(2);
 }}
 
 //按鈕類-----------------
@@ -80,22 +76,24 @@ $('#msgBtn').click(function(){
 //按鈕函示-------------------
  
 function message_btn(e){
-    //alert(6);
+    // alert(6);
     message_arr=e;
     $('.messageBtn').addClass(function(){
         $('.message').slideDown(50);
     })
     
     
-  for (let i = 0; i < message_arr.length; i++) {
-  $("#messageContent").append($("#messageWrap").clone(true).attr({id:'message_itme'+i,class:'message_itme messageWrap'}));
-  $(`#message_itme${i}  .megsageMemName p:eq(0)`).text(message_arr[i]['memId']);
-  $(`#message_itme${i}  .megsageMemName p:eq(1)`).text(message_arr[i]['msgDate']);
-  $(`#message_itme${i}  .messageBox p:eq(0)`).text(message_arr[i]['msgContent']);
-  let $input=(`<input type="hidden" name="msgNo"></input>`)
-  $(`#message_itme${i}  .messageBtn span:eq(0)`).attr('id','messageBtn'+(i)).append($input);
-  $(`#message_itme${i}   input`)[0].value=message_arr[i]['msgNo']
-}}
+for (let i = 0; i < message_arr.length; i++) {
+$("#messageContent").append($("#messageWrap").clone(true).attr({id:'message_itme'+i,class:'message_itme messageWrap'}));
+$(`#message_itme${i}  .megsageMemName p:eq(0)`).text(message_arr[i]['memId']);
+$(`#message_itme${i}  .megsageMemName p:eq(1)`).text(message_arr[i]['msgDate']);
+$(`#message_itme${i}  .messageBox p:eq(0)`).text(message_arr[i]['msgContent']);
+let $input=(`<input type="hidden" name="msgNo"></input>`)
+$(`#message_itme${i}  .messageBtn span:eq(0)`).attr('id','messageBtn'+(i)).append($input);
+$(`#message_itme${i}   input`)[0].value=message_arr[i]['msgNo']
+}
+console.log($("#messageWrap").clone(true).attr({id:'message_itme'+i,class:'message_itme messageWrap'}));
+}
 
 
 function msg_value() {
@@ -106,7 +104,7 @@ function msg_value() {
 //      return ;
 // } 
 if ($(`#inputText`).val()==0)
-{  //alert("請輸入文字");
+{  alert("請輸入文字");
     return ;
 }
 
