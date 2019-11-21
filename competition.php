@@ -5,7 +5,7 @@ try{
     session_start();
 
     $sql_msg_member = 
-    "select message.msgContent,message.msgDate,member.memId
+    "select message.msgContent,message.msgDate,member.memName
     from `message`,`member`
     where message.memNo=member.memNo 
     order by message.msgDate desc";
@@ -13,36 +13,36 @@ try{
     $msgMember ->execute();
 
     $sql_msg_member2 = 
-    "select message.msgContent,message.msgDate,member.memId
+    "select message.msgContent,message.msgDate,member.memName
     from `message`,`member`
     where message.memNo=member.memNo order by message.msgDate desc limit 2 ";
     $msgMember2 = $pdo->prepare($sql_msg_member2);
     $msgMember2 ->execute();
 
     $sql_msg_member3 = 
-    "select message.msgContent,message.msgDate,member.memId
+    "select message.msgContent,message.msgDate,member.memName
     from `message`,`member`
     where message.memNo=member.memNo limit 2";
     $msgMember3 = $pdo->prepare($sql_msg_member3);
     $msgMember3 ->execute();
 
     $sql_msg_member4 = 
-    "select message.msgContent,message.msgDate,member.memId
+    "select message.msgContent,message.msgDate,member.memName
     from `message`,`member`
     where message.memNo=member.memNo limit 2";
     $msgMember4 = $pdo->prepare($sql_msg_member4);
     $msgMember4 ->execute();
 
     $sql_member_vote = 
-    "select member.memId,member.postcardPic,competition.vote,competition.memId,postcard.postcardPic
+    "select member.memName,competition.vote,competition.memName,postcard.postcardPic
     from `member`, `competition`, `postcard`
-    where member.memId=competition.memId and member.postcardPic=postcard.postcardPic and YEAR(startDate) = 2019 
+    where member.memName=competition.memName and member.memNo=postcard.memNo and YEAR(startDate) = 2019 
     order by competition.vote desc";
 
     // $sql_member_vote = 
-    // "select member.memId,member.postcardPic,competition.vote,competition.memId,postcard.postcardPic,message.msgContent
+    // "select member.memName,member.postcardPic,competition.vote,competition.memName,postcard.postcardPic,message.msgContent
     // from `member`, `competition`, `postcard` ,`message`
-    // where member.memId=competition.memId and member.postcardPic=postcard.postcardPic and YEAR(startDate) = 2019 
+    // where member.memName=competition.memName and member.postcardPic=postcard.postcardPic and YEAR(startDate) = 2019 
     // order by competition.vote desc";
 
     $memberVote = $pdo->prepare($sql_member_vote);
@@ -76,6 +76,7 @@ try{
  <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/competition.css">
     <link rel="stylesheet" href="css/common.css">
     <meta charset="UTF-8">
@@ -96,53 +97,53 @@ try{
     }
 ?>
 
-    <header>
-        <div class="container headerStyle">
-            <a href="index.html">
-                <h1>
-                    <img src="images/logo.png" alt="logo">
-                </h1>
-            </a>
-            <input type="checkbox" id="headerCheck" >
-            <label for="headerCheck" class="headerClick">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
-                <nav  class="navMenu">
-                    <div class="navDarken">
-                        <ul>
-                            <li>
-                                <a href="spotIntro.html">行程介紹</a>
-                            </li>
-                            <li>
-                                <a href="reserve.html">預約行程</a>
-                            </li>
-                            <li>
-                                <a href="postcard.html">客製明信片</a>
-                            </li>
-                            <li>
-                                <a href="shop.html">購物商城</a>
-                            </li>
-                            <li>
-                                <a href="competition.html">投票比賽</a>
-                            </li>
-                        </ul>
+<header>
+            <div class="container headerStyle">
+                <a href="index.html">
+                    <h1>
+                        <img src="images/logo.png" alt="logo">
+                    </h1>
+                </a>
+                <input type="checkbox" id="headerCheck" >
+                <label for="headerCheck" class="headerClick">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                    <nav  class="navMenu">
+                        <div class="navDarken">
+							<ul>
+								<li>
+									<a href="spotIntro.html"  class="nowpage">行程介紹</a>
+								</li>
+								<li>
+									<a href="reserve.html">預約行程</a>
+								</li>
+								<li>
+									<a href="postcard.html">客製明信片</a>
+								</li>
+								<li>
+									<a href="shop.html">購物商城</a>
+								</li>
+								<li>
+									<a href="competition.php">投票比賽</a>
+								</li>
+							</ul>
+                        </div>
+                    </nav>
+                    <div class="headerMemInfo">
+                        <span id="headerMemName"></span>
+                        <a href="javascript:;"></a>
                     </div>
-                </nav>
-                <div class="headerMemInfo">
-                    <span id="headerMemName"></span>
-                    <a href="javascript:;"></a>
-                </div>
-                <div class="headerIcon">
-                    <a href="shopcart.html">
-                        <img src="images/icon_shopcar.png" alt="icon_shopcar">
-                    </a>
-                    <a id="memberInfo" href="member.php">
-                        <img src="images/icon_login.png" alt="icon_login">
-                    </a>
-                </div>
-        </div>
+				<div class="headerIcon">
+					<a href="javascript:;" id="shopcart">
+						<img src="images/icon_shopcar.png" alt="icon_shopcar">
+					</a>
+					<a id="memberInfo" href="member.php">
+						<img src="images/icon_login.png" alt="icon_login">
+					</a>
+				</div>
+            </div>
     </header>
     
 
@@ -192,8 +193,8 @@ try{
 
                     <div id="memText" class="memText">
                         <div class="megsageMemName">
-                            <p id="messageMemId">
-                                <?=$msgMemberRow["memId"]?>
+                            <p id="messageMemName">
+                                <?=$msgMemberRow["memName"]?>
                             </p>
                             <p class="messageDate" id="messageDate">
                                 <?=$msgMemberRow["msgDate"]?>
@@ -258,8 +259,8 @@ try{
                     <div class="competitionVoteTitle">
                         <input type="hidden"  name="competNo">
                         <span>第一名
-                            <span id="memId">
-                                <?=$memberVoteRow["memId"]?>
+                            <span id="memName">
+                                <?=$memberVoteRow["memName"]?>
                             </span>
                         </span>
                         <span>得票數:<span><?=$memberVoteRow["vote"]?>票</span></span>
@@ -309,8 +310,8 @@ try{
                     <div class="competitionVoteTitle">
                         <input type="hidden"  name="competNo">
                         <span>第二名
-                            <span id="memId">
-                                <?=$memberVoteRow["memId"]?>
+                            <span id="memName">
+                                <?=$memberVoteRow["memName"]?>
                             </span>
                         </span>
                         <span>得票數:<span><?=$memberVoteRow["vote"]?>票</span></span>
@@ -356,8 +357,8 @@ try{
                     <div class="competitionVoteTitle">
                         <input type="hidden"  name="competNo">
                         <span>第三名
-                            <span id="memId">
-                                <?=$memberVoteRow["memId"]?>
+                            <span id="memName">
+                                <?=$memberVoteRow["memName"]?>
                             </span>
                         </span>
                         <span>得票數:<span><?=$memberVoteRow["vote"]?>票</span></span>
@@ -446,7 +447,7 @@ try{
                         <div class="smallMessageButton">                       
                             <div class="competitionVoteTitle">
                                 <input type="hidden"  name="competNo">
-                                <span><span id="memId"><?=$memberVoteRow["memId"]?></span></span>
+                                <span><span id="memName"><?=$memberVoteRow["memName"]?></span></span>
                                 <span><span id="vote0"><?=$memberVoteRow["vote"]?>票</span></span>
                             </div>
 

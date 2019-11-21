@@ -3,7 +3,7 @@ session_start();
 try{
         require_once("../connect.php");
         if(isset($_POST["user_id"]) && $_POST["user_id"] != ''){
-            $sql='select * from  `member` where account=:user_id';
+            $sql='select * from  `member` where memAccount=:user_id';
             $user=$pdo->prepare($sql);
             $user->bindValue(':user_id',$_POST['user_id']);
             $user->execute();
@@ -12,7 +12,7 @@ try{
                 echo 'loginError';
                 return;
             }
-            $passwd=$userRow[0]['password'];
+            $passwd=$userRow[0]['memPassword'];
             if($_POST["user_psw"]===$passwd){
                 $_SESSION['memNo']=$userRow[0]['memNo'];
                 echo json_encode($userRow);
