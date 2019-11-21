@@ -26,7 +26,7 @@
     justify-content: center;
 }
 .welocmeSun img{
-    width: 80%;
+    width: 100%;
     align-items:flex-start; 
 }
 
@@ -39,7 +39,7 @@
 .welocmeCloud img{
     width: 80%;
     align-items:flex-start; 
-    margin-left: 10%;
+    /* margin-left: 10%; */
 }
 /* 鳥 */
 .welcomebird #welcomebird1{
@@ -169,17 +169,17 @@
 /* 太陽圖片 */
 .welocmeSun img{
     width: 60%;
-    margin-left: 30%;
+    /* margin-left: 30%; */
        
 }
 /* 天空 雲容器 */
 .welocmeSky .welocmeCloud{
-    margin-top: -15%;
+    /* margin-top: -15%; */
 }
 /* 天空 雲圖片 */
 .welocmeCloud img{
     width: 80%;
-    margin-left: 10%;
+    /* margin-left: 10%; */
 }
 /* 前端房子 */
 .welocmeHouse-Front{
@@ -194,4 +194,22 @@
 @media all and (min-width: 992px) {}
 
 
-@media all and (min-width: 1200px) {}
+@media all and (min-width: 1200px) {
+    
+    
+
+
+
+.welocmeCloud img {
+    width: 100%;
+  
+  
+}
+
+
+.welocmeSun img{
+    width: 100%;
+   
+
+}
+}
