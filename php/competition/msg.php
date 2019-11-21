@@ -1,10 +1,7 @@
-<!-- 留言PHP -->
-
 <?php
-
-$competNo=$_GET["competNo"];
+$competNo="2";
 $msg=$_GET["msg"];
-$user_no=$_GET["member"];
+$memNo="2";
 require_once("../connect.php");
 
 $time=date("Y-m-d H:i:s");

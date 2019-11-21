@@ -20,13 +20,13 @@
                     <img src="images/logo.png" alt="logo">
                 </h1>
             </a>
-            <input type="checkbox" id="headerCheck" >
+            <input type="checkbox" id="headerCheck">
             <label for="headerCheck" class="headerClick">
                 <span></span>
                 <span></span>
                 <span></span>
             </label>
-                <nav  class="navMenu">
+                <nav class="navMenu">
                     <div class="navDarken">
                         <ul>
                             <li>
@@ -36,29 +36,29 @@
                                 <a href="reserve.html">預約行程</a>
                             </li>
                             <li>
-                                <a href="postcard.html">客製明信片</a>
+                                <a href="postcard.html"  class="nowpage">客製明信片</a>
                             </li>
                             <li>
-                                <a href="shop.html">購物商城</a>
+                                <a href="shop.php">購物商城</a>
                             </li>
                             <li>
-                                <a href="competition.html">投票比賽</a>
+                                <a href="competition.php">投票比賽</a>
                             </li>
                         </ul>
                     </div>
                 </nav>
-                <div class="headerMemInfo">
-                    <span id="headerMemName"></span>
-                    <a href="javascript:;"></a>
-                </div>
-                <div class="headerIcon">
-                    <a href="shopcart.html">
-                        <img src="images/icon_shopcar.png" alt="icon_shopcar">
-                    </a>
-                    <a href="login tabs/login.html">
-                        <img src="images/icon_login.png" alt="icon_login">
-                    </a>
-                </div>
+            <div class="headerMemInfo">
+                <span id="headerMemName"></span>
+                <a href="javascript:;"></a>
+            </div>
+            <div class="headerIcon">
+                <a href="javascript:;" id="shopcart">
+                    <img src="images/icon_shopcar.png" alt="icon_shopcar">
+                </a>
+                <a id="memberInfo" href="member.php">
+                    <img src="images/icon_login.png" alt="icon_login">
+                </a>
+            </div>
         </div>
     </header>
     
@@ -80,49 +80,27 @@
 
     <section class="message" id="message">
         <div class="messageContainer">
-
-               <!-- 留言板開頭 -->
-
             <div class="messageTitle">
                 <h3>留言板</h3> 
-                <i class="fa fa-times-circle Trip2_lightBoxBTN" aria-hidden="true" id="closeBtn"></i>
-                <!-- <img src="images/competition/X.png" alt="close" class="closeBtn"> -->
+                    <img src="images/competition/X.png" alt="close" class="closeBtn">
             </div>
-            
-            <!-- 留言區 -->
-
             <div id="messageContent" class="messageContent">
                 <div class="messageWrap" id="messageWrap">
-
-                    <!-- 會員圖片 -->
-
-                     <figure class="mem_pic" id="bg_pic">
-                    </figure>
-
-                    <!-- 會員留言資料 -->
-
                     <div id="memText" class="memText">
                         <div class="megsageMemName">
                             <p id="messageMemId"></p>
                             <p class="messageDate" id="messageDate"></p> 
                         </div>
                         <div class="messageBox">
-                            <p class="messageText" id="messageText">
-                            
+                            <p class="messageText" id="messageText">    
                             </p>  
                         </div> 
-
-                    <!-- 會員檢舉 -->
-
                         <div class="messageBtn">
                             <span class="btnCloudb">檢舉</span>
                         </div>
                     </div>
                 </div> 
             </div>
-
-            <!-- 留言輸入區塊 -->
-
             <form class="messageWrapInput">
                 <input type="hidden" id="msgBtnNo">
                 <input type="text" id="inputText" name="msg" placeholder="最多輸入10字數" maxlength="10">
@@ -154,27 +132,38 @@
                 <div class="messageBoard">
                     <div class="competitionVoteTitle">
                         <input type="hidden"  name="competNo">
-                        <span>第一名<span id="memId">淡水豪豪</span></span>
-                        <span>得票數<span id="vote0">999票</span></span>
+                        <span>第一名<span id="memId"></span></span>
+                        <span>得票數<span id="vote0">票</span></span>
                     </div>
                     <div class="competitionPost">
                         <img src="images/competition/card01.png" alt="">
                     </div>
                     <div class="competitionText">
-                        <div class="textContent">123</div>
-                        <div class="textContent">123</div>
+                        <div class="textContent"></div>
+                        <div class="textContent"></div>
                     </div>
                     <div class="competitionButton">
-                        <span href="#"  class="whiteButton voteBtn">
+                        <div class="voteBtn">
+                            <span href="#" class="btn_cloudb">投票
+                                <input type="hidden" name="competNo3"></input>
+                            </span>
+                        </div>
+                        <div class="messageBtn">
+                            <span class="btn_cloudp" id="messageBtn">留言
+                                <input type="hidden" name="competNo2"></input>
+                            </span>
+                        </div>
+
+                        <!-- <span href="#"  class="whiteButton voteBtn">
                             <img src="images/indexSpot/voteIcon.png" alt="">
                             投票
                             <input type="hidden" name="competNo2" value="25">
                         </span>
-                        <span href="#"  class="whiteButton messageBtn">
+                        <span class="whiteButton messageBtn" id="messageBtn">
                             <img src="images/indexSpot/messIcon.png" alt="">
                             留言
                             <input type="hidden" name="competNo3" value="25">
-                        </span>
+                        </span> -->
                     </div>
                 </div>
             </div>
@@ -272,11 +261,91 @@
                         <span href="#">最夯作品</span>
                     </div>
                 </div>
+
+                <div class="frank_player_more" id="frank_player_more">
+                    <div class="frank_player_items" id="frank_player_items">   
+                        <div class="frank_players_title">
+                            <input type="hidden"  >
+                            <span>動物：</span>
+                            <span id="aid"></span>
+                        </div>
+                        <div class="frank_player_card ">
+                            <div class="frank_player_front">
+                                <div class="frank_player_pic">
+                                    <img src="" alt="" id="bg">
+                                    <div class="frank_player_animal">
+                                        <img src="" alt="pinkbird" id="ag">
+                                    </div>
+                                </div>
+                                <div class="frank_player_text">
+                                    <h3>會員：<span id="id"></span></h3>
+                                    <span>目前投票數<span id="vote"></span></span>
+                                </div>
+                                <div class="frank_expand_arrow">
+                                    <img src="img/frank/expand-arrow.png" alt="expand-arrow">
+                                </div>
+                            </div>
+                            <div class="frank_player_back">
+                                <div class="info_wrap">
+                                    <h3>體質能力</h3>
+                                    <div class="life_ability">
+                                        <p>生命力:</p>
+                                        <div class="life" id="life">
+                                            <img src="" alt="">
+                                        </div>
+                                    </div>
+                                    <div class="jump_ability">
+                                        <p>跳躍力:</p>
+                                        <div class="pic jump">
+                                            <div class="jump_bar">
+                                                <div class="bar_add"></div>
+                                                <span class="meter" id="meter"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <h3 class="surroundings">環境適應力</h3>
+                                    <div class="evemt_ability" id="">
+                                        <img id="evemt_ability" src="" alt="">
+                                    </div>
+                                </div>
+                                <div class="frank_back_btn">   
+                                    <a href="game.html" class="btn_cloudp"> 去玩遊戲
+                                         @@include('template/btn_sp.html')</a> 
+                                </div>
+                                <div class="frank_expand_button">
+                                    <img src="img/frank/expand-button.png" alt="expand-button">
+                                </div>  
+                            </div>
+                        </div>
+                        <div class="frank_player_btn">
+                            <div class="frank_message_btn">
+                                <span class="btn_cloudp">留言
+                                    @@include('template/btn_sp.html')
+                                </span>
+                            </div>
+                            <div class="frank_vote_btn">
+                                <span class="btn_cloudb">投票
+                                    @@include('template/btn_sp.html')
+                                </span>
+                            </div>
+                            <div class="frank_Collection_btn">
+                                <span>
+                                    <img src="img/frank/wlike.png" alt="collection" title="加入收藏">
+                                </span>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
                 
 
-                <div class="messageOtherBoard" id="fly1">
-                    <div class="smallMessage">
-                        <img src="images/competition/card01.png" alt="">
+                <!-- <div class="messageOtherBoard" id="messageOtherBoard">
+                    <div class="smallMessage" id="smallMessage">
+                        <div class="competitionPostcard">
+                            <input type="hidden">
+                            <span id="postId">
+                                <img src="" alt="">
+                            </span>
+                        </div>
                         <div class="smallMessageButton">                       
                             <div class="competitionVoteTitle">
                                 <input type="hidden"  name="competNo">
@@ -411,7 +480,7 @@
                 </div>
             </div>     
         </div>
-    </section>
+    </section> -->
 
     <!-- 比賽說明 -->
 
@@ -445,8 +514,8 @@
                     <div class="whiteButton">
                         <span>我要客製明信片</span>
                     </div>
-                    <div class="whiteButton">
-                        <span>我要去購物商城</span>
+                    <div class="whiteButton" id="activity_join">
+                        <span>我要參加比賽</span>
                     </div>
                 </div>                
             </div>

@@ -6,4 +6,5 @@ if(isset( $_SESSION['memNo'])){
 }else{
     echo "not login";
 }
+
 ?>
