@@ -1325,6 +1325,11 @@
     top: 0;
     overflow: hidden;
 }
+.trsOuterHidden{
+    z-index: 1;
+  /*  display: none;*/
+}
+
 .indexPost_trs1{
     position: absolute;
     top: -200px;
@@ -1587,6 +1592,10 @@
     position: absolute;
     top: 0;
     overflow: hidden;
+}
+.trsOuterHidden{
+    /*display: none;*/
+    z-index: 1;
 }
 .indexPost_trs1{
     position: absolute;
