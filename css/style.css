@@ -5,7 +5,7 @@
 }
 *{
     list-style: none;
-	/* outline:solid 1px red; */
+	 /*outline:solid 1px red; */
 }
 /*----------------index Banner(手機板)-----------------*/
 
@@ -644,55 +644,9 @@
 }
 /*============首頁明信片信封打開============*/
 .indexPost_trsOuter{
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-    position: absolute;
-    top: 0;
-    overflow: hidden;
+    display: none;
 }
-.indexPost_trs1{
-    position: absolute;
-    top: -200px;
-}
-.indexPost_trs1 img{
-    width: 100vw; 
-}
-.trs1Down{
-    animation: trs1Down .5s .3s linear forwards;
-}
-@keyframes trs1Down{
-    40% {top:-150px;}
-    100%{top:1000px;}
-}
-.indexPost_trs2{
-    position: absolute;
-    top: -250px;
-}
-.indexPost_trs2 img{
-    width: 100vw;
-}
-.trs2UP{
-    animation: trs2UP .4s .3s cubic-bezier(.44,.05,.93,.24) forwards;
-}
-@keyframes trs2UP{
-    40% {top:-180px;}
-    100%{top:-1000px;}
-}
-.indexPost_trs3{
-    position: absolute;
-    top: -250px;
-}
-.indexPost_trs3 img{
-    width: 100vw;
-}
-.trs3UP{
-    animation: trs3UP .4s .3s cubic-bezier(.44,.05,.93,.24) forwards;
-}
-@keyframes trs3UP{
-    50% {top:-400px;}
-    100%{top:-1000px;}
-}
+
 
 
 /*=============01明信片裝飾斜線=============*/
@@ -741,12 +695,9 @@
 	height: auto;
 }
 .postGirl{
-    opacity: 0;
-}
-.postGirlShow{
     opacity: 1;
-    transition: 2.5s;
 }
+
 
 /*=============02-2明信片主要Block=============*/
 .containerPost{
@@ -1202,57 +1153,6 @@
 
 @media all and (min-width: 768px) {
 	/*====================首頁明信片開始>768====================*/
-    /*============首頁明信片信封打開============*/
-.indexPost_trsOuter{
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-    position: absolute;
-    top: 0;
-    overflow: hidden;
-}
-.indexPost_trs1{
-    position: absolute;
-    top: -200px;
-}
-.indexPost_trs1 img{
-    width: 100vw; 
-}
-.trs1Down{
-    animation: trs1Down .5s .3s linear forwards;
-}
-@keyframes trs1Down{
-    40% {top:-150px;}
-    100%{top:1000px;}
-}
-.indexPost_trs2{
-    position: absolute;
-    top: -250px;
-}
-.indexPost_trs2 img{
-    width: 100vw;
-}
-.trs2UP{
-    animation: trs2UP .4s .3s cubic-bezier(.44,.05,.93,.24) forwards;
-}
-@keyframes trs2UP{
-    40% {top:-180px;}
-    100%{top:-1000px;}
-}
-.indexPost_trs3{
-    position: absolute;
-    top: -250px;
-}
-.indexPost_trs3 img{
-    width: 100vw;
-}
-.trs3UP{
-    animation: trs3UP .4s .3s cubic-bezier(.44,.05,.93,.24) forwards;
-}
-@keyframes trs3UP{
-    50% {top:-400px;}
-    100%{top:-1000px;}
-}
 
 	/*=============03明信片預覽畫面=============*/
 	/*步驟*/
@@ -1415,6 +1315,92 @@
 
 @media all and (min-width: 992px) {
     /*====================首頁明信片開始>992====================*/
+        /*============首頁明信片信封打開============*/
+.indexPost_trsOuter{
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+}
+.trsOuterHidden{
+    z-index: 1;
+  /*  display: none;*/
+}
+
+.indexPost_trs1{
+    position: absolute;
+    top: -200px;
+}
+.indexPost_trs1 img{
+    width: 100vw; 
+}
+.trs1Down{
+    animation: trs1Down .5s .3s linear forwards;
+}
+@keyframes trs1Down{
+    40% {top:-150px;}
+    100%{top:1000px;}
+}
+.indexPost_trs2{
+    position: absolute;
+    top: -250px;
+}
+.indexPost_trs2 img{
+    width: 100vw;
+}
+.trs2UP{
+    animation: trs2UP .4s .3s cubic-bezier(.44,.05,.93,.24) forwards;
+}
+@keyframes trs2UP{
+    40% {top:-180px;}
+    100%{top:-1000px;}
+}
+.indexPost_trs3{
+    position: absolute;
+    top: -250px;
+}
+.indexPost_trs3 img{
+    width: 100vw;
+}
+.trs3UP{
+    animation: trs3UP .4s .3s cubic-bezier(.44,.05,.93,.24) forwards;
+}
+@keyframes trs3UP{
+    50% {top:-400px;}
+    100%{top:-1000px;}
+}
+.containerTitle div.postGirl{
+    top: -117px;
+    left: 27px;
+    width: 25%;
+    min-width: 100px;
+    height: auto;
+}
+
+.containerTitle div.stemp{
+    top: -27px;
+    right: 10px;
+    width: 20%;
+    max-width: 168px;
+    height: auto;
+}
+
+.containerTitle img{
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+}
+.postGirl{
+    opacity: 0;
+}
+.postGirlShow{
+    opacity: 1;
+    transition: 2s;
+}
+
     .wrapperPost{
         margin-top: 0;
     }
@@ -1596,6 +1582,66 @@
     /*=============新增=============*/
    
 }
+/*--------------indexPost 明信片打開-------------------*/
+@media all and (min-width: 1400px) {
+.indexPost_trsOuter{
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+}
+.trsOuterHidden{
+    /*display: none;*/
+    z-index: 1;
+}
+.indexPost_trs1{
+    position: absolute;
+    top: -200px;
+}
+.indexPost_trs1 img{
+    width: 100vw; 
+}
+.trs1Down{
+    animation: trs1Down .5s .3s linear forwards;
+}
+@keyframes trs1Down{
+    40% {top:-150px;}
+    100%{top:1000px;}
+}
+.indexPost_trs2{
+    position: absolute;
+    top: -250px;
+}
+.indexPost_trs2 img{
+    width: 100vw;
+}
+.trs2UP{
+    animation: trs2UP .4s .3s cubic-bezier(.44,.05,.93,.24) forwards;
+}
+@keyframes trs2UP{
+    40% {top:-180px;}
+    100%{top:-1800px;}
+}
+.indexPost_trs3{
+    position: absolute;
+    top: -250px;
+}
+.indexPost_trs3 img{
+    width: 100vw;
+}
+.trs3UP{
+    animation: trs3UP .4s .3s cubic-bezier(.44,.05,.93,.24) forwards;
+}
+@keyframes trs3UP{
+    50% {top:-400px;}
+    100%{top:-1800px;}
+}
+
+}
+
 /*--------------indexVoteGame 投票比賽-------------------------*/
 .indexVoteGame{
     background:linear-gradient(transparent 0%,#7fa6e9 15%,#6896e7 25%,#558be5 70%);

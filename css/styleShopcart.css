@@ -10,6 +10,17 @@ section.pageTitle .container{
     position: relative;
 }
 
+body{
+    font-family: 'Noto Serif TC', serif;
+    background-color: rgb(255, 230, 193);
+}
+
+@font-face {
+    font-family: '華康秀風體';
+    src: url('華康秀風體.TTF')
+    /*unicode-range: U+884C, U+7A0B, U+4ECB, U+7D39;*/
+}
+
 /*----------------動態生成----------------*/
 .bornItemList{
     width: 100%;

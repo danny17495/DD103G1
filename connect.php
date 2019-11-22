@@ -4,6 +4,7 @@
 
   // $password = "da0919294452";
   $user = "root";
+  $password = "root";
   // $user = "dd103g1";
    $password = "UNIVERLK258";
   $options=array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION, PDO::ATTR_CASE=>PDO::CASE_NATURAL);
