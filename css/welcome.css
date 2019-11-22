@@ -202,14 +202,21 @@
 
 .welocmeCloud img {
     width: 100%;
-  
-  
+
 }
 
 
 .welocmeSun img{
     width: 100%;
-   
+}
+
+/*房子*2 板子*2 前端後端全部圖片*/
+.welocmeHouse img{
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: block;
 
 }
+
 }
