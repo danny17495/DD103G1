@@ -5,8 +5,8 @@ try {
     session_start();
     //選取member跟competition
     $sql_member_vote = 
-    "select member.memId,member.postcardPic,competition.vote,competition.memId,postcard.postcardPic,message.msgContent
-    from `member`, `competition`, `postcard` ,`message`
+    "select member.memId,member.postcardPic,competition.vote,competition.memId,postcard.postcardPic
+    from `member`, `competition`, `postcard`
     where member.memId=competition.memId and member.postcardPic=postcard.postcardPic and YEAR(startDate) = 2019 
     order by competition.vote desc";
     //根據票數從大到小排列
