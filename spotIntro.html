@@ -309,31 +309,48 @@
    			</a>
    		</div>
 		<div class="spotIntroTrip2_text">
-			<h2>漫遊山城之旅</h2>
-			<p>九份金礦博物館位在九份老街旁，館中展示許多九份採礦的資料與圖片，介紹九份的採金歷史。金礦博物館中還有一座九番坑小礦坑，猶如是一座小型的礦場。上午步行漫遊琉榔路觀光步道，接著參觀金礦博物館，最後再至九份老街品茗、吃美食，結束豐富知性的九份之旅。</p>
-			<h6>行程路線</h6>
+			<h2>{{trip2_h2}}</h2>
+			<p>{{trip2_p}}</p>
+			<h6>{{trip2_h6}}</h6>
 			<div class="spotIntroTrip2_Stopbar">
     			<ul>
 	    		  <li>
-	    		  	<a href="javascript: void(0)">瑞芳火車站</a>
-	    		  	
+	    		  	<a href="javascript: void(0)" id="Trip2_BTN0">{{stop0}}</a>
 	    		  </li>
 	    		  <li>
-	    		  	<a href="javascript: void(0)" id="Trip2_BTN01"
+	    			<a href="javascript: void(0)" id="Trip2_BTN01" @click="showTrip2Box1"
 	    		  	>
-	    		  		琉榔路觀光步道
+	    		  	{{stop1}}
 	    			</a>
 	    		  </li>
 	    		  <li>
-	    		  	<a href="javascript:void(0)" id="Trip2_BTN02">九份金礦博物館</a>
+	    		  	<a href="javascript: void(0)" id="Trip2_BTN02" @click="showTrip2Box2"
+	    		  	>
+	    		  	{{stop2}}
+	    			</a>
 	    		  </li>
 	    		  <li>
-	    		  	<a href="javascript:void(0)" id="Trip2_BTN03">九份老街</a>
+	    		  	<a href="javascript:void(0)" id="Trip2_BTN03" @click="showTrip2Box3">{{stop3}}</a>
 	    		  </li>
 	    		</ul>
 	    	</div>
 		</div>
 	  </div>
+	  <script src="js/vue-2.6.10.min.js"></script>
+	  <script>
+	  	new Vue({
+	  		el:'.spotIntroTrip2_text',
+	  		data:{
+	  			trip2_h2:'漫遊山城之旅',
+	  			trip2_p:'九份金礦博物館位在九份老街旁，館中展示許多九份採礦的資料與圖片，介紹九份的採金歷史。金礦博物館中還有一座九番坑小礦坑，猶如是一座小型的礦場。上午步行漫遊琉榔路觀光步道，接著參觀金礦博物館，最後再至九份老街品茗、吃美食，結束豐富知性的九份之旅。',
+	  			trip2_h6:'行程路線',
+	  			stop0:'瑞芳火車站',
+	  			stop1:'琉榔路觀光步道',
+	  			stop2:'九份金礦博物館',
+	  			stop3:'九份老街',
+	  		},
+	  	});
+	  </script>
 	  <!------- 行程介紹 Trip2 燈箱 ------>
 	  <div class="Trip2_lightBox" id="Trip2_lightBox01">
 	  	<div class="lightBox_wrapper">
@@ -406,27 +423,41 @@
    			</a>
    		</div>
 		<div class="spotIntroTrip2_text">
-			<h2>船遊秘境之旅</h2>
-			<p>您聽過「台灣天空之城」嗎？水湳洞選煉廠遺址原身為日治時期挖礦留下的建築，在2019年由台電推出「點亮十三層」公共藝術重新回到大眾面前。參加深澳小旅行可以搭船出海賞景，太陽下山後迎來十三層點燈，最後彎進九份老街尋覓山城美食、好茶。</p>
-			<h6>行程路線</h6>
+			<h2>{{trip3_h2}}</h2>
+			<p>{{trip3_p}}</p>
+			<p>{{trip3_h6}}</p>
 			<div class="spotIntroTrip2_Stopbar">
     			<ul>
 	    		  <li>
-	    		  	<a href="javascript:void(0)">瑞芳火車站</a>
+	    		  	<a href="javascript:void(0)">{{stop0}}</a>
 	    		  </li>
 	    		  <li>
-	    		  	<a href="javascript:void(0)" id="Trip3_BTN01">深澳漁港</a>
+	    		  	<a href="javascript:void(0)" id="Trip3_BTN01" @click="showTrip3Box1">{{stop1}}</a>
 	    		  </li>
 	    		  <li>
-	    		  	<a href="javascript:void(0)" id="Trip3_BTN02">水湳洞十三層遺址</a>
+	    		  	<a href="javascript:void(0)" id="Trip3_BTN02">{{stop2}}</a>
 	    		  </li>
 	    		  <li>
-	    		  	<a href="javascript:void(0)" id="Trip3_BTN03">九份老街</a>
+	    		  	<a href="javascript:void(0)" id="Trip3_BTN03">{{stop3}}</a>
 	    		  </li>
 	    		</ul>
 	    	</div>
 		</div>
 	  </div>
+	  <script>
+	  	new Vue({
+	  		el:'.spotIntroTrip3 .spotIntroTrip2_text',
+	  		data:{
+	  			trip3_h2:'船遊秘境之旅',
+	  			trip3_p:'您聽過「台灣天空之城」嗎？水湳洞選煉廠遺址原身為日治時期挖礦留下的建築，在2019年由台電推出「點亮十三層」公共藝術重新回到大眾面前。參加深澳小旅行可以搭船出海賞景，太陽下山後迎來十三層點燈，最後彎進九份老街尋覓山城美食、好茶。',
+	  			trip3_h6:'行程路線',
+	  			stop0:'瑞芳火車站',
+	  			stop1:'深澳漁港',
+	  			stop2:'水湳洞十三層遺址',
+	  			stop3:'九份老街',
+	  		},
+	  	});
+	  </script>
 	  <!------- 行程介紹 Trip3 燈箱 ------>
 	  <div class="Trip2_lightBox" id="Trip3_lightBox01">
 	  	<div class="lightBox_wrapper">
