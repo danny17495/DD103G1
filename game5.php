@@ -302,6 +302,19 @@ session_start();
         </div>
     </div>
    </section>
+   <script>
+
+let contestnow= document.getElementById('contestnow'); //註冊你那個按鈕點擊事件
+    contestnow.addEventListener('click',function(e){ //點擊按鈕時 判定有無登入
+         if (!sessionStorage['memNo']) { //固定寫法 一定要有
+                 memberInfoClick = false;//固定寫法 一定要有
+                 e.preventDefault();//如果點擊的按鈕是a標籤 必須加入
+                 openLoginData();//固定寫法 一定要有 打開燈箱
+        }
+     
+    });
+</script>
+
 <?php
 if(isset( $_SESSION['memNo'])){
     $memNo=$_SESSION['memNo'];
