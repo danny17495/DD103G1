@@ -476,6 +476,87 @@ function orderCheck(){
     }else if(cardSafenumber == ""){
         alert("請輸入信用卡安全碼！");
     }else{
+        //存入orderdetails的資料=========================================================
+        //1.如果有買明信片就存cartPost陣列
+        var cartPost = [], jsonStr, jsonStr2;
+        if(postcardNum >= 1 && postcardArr[0] != [""]){
+            for(var key in postcardArr){
+                console.log("11/22測試",key);
+
+                //處理字串得到編號及數量及小計
+                var itemId = postcardArr[key];
+
+                var itemStorage = `明信片(編號, 商品數量, 商品小計)編號${itemId}`
+                var itemString = localStorage.getItem(itemStorage);;
+                var itemStringArr = itemString.substr(0,itemString.length-2).split(', ');
+
+                var prodItem = {};
+                prodItem.productType = '明信片';  //1.商品類別
+                prodItem.orderItemNo = itemStringArr[0];  //2.商品編號
+                prodItem.orderItemName = '客製化明信片';  //3.商品名稱
+                prodItem.orderPrice = 60;  //4.商品價格
+                prodItem.orderItemNum = itemStringArr[1];//5.商品數量
+                prodItem.orderItemTotal = itemStringArr[2];  //6.單項商品小計
+                prodItem.orderItemPic = `${prodItem.orderItemNum}.jpg`;  //7.商品圖片檔名
+                // console.log("11/22測試", prodItem.orderItemTotal); 
+
+                cartPost[key] = prodItem;
+                // console.log("11/22測試", cartPost[key]);
+
+            }
+            jsonStr = JSON.stringify(cartPost);
+
+            // console.log(typeof jsonStr);
+        }
+
+        //2.如果有買商城商品就存cartShop陣列
+        var cartShop = [];
+        if(shopItemNum >= 1 && shopItemArr[0] != [""]){
+            for(var key in shopItemArr){
+                //處理字串得到編號及數量及小計
+                var itemId = shopItemArr[key];
+
+                var itemStorage = `商城商品(編號, 商品數量, 商品小計)編號${itemId}`
+                var itemString = localStorage.getItem(itemStorage);
+                var itemStringArr = itemString.substr(0,itemString.length-2).split(', ');
+
+                // 商城商品價格有3種
+                var itemPrice;
+                if(itemId==1 || itemId==2 || itemId==3 || itemId==10 || itemId==11 || itemId==12){
+                    itemPrice = 450;
+                }else if(itemId==4 || itemId==5 || itemId==6 || itemId==13 || itemId==14 || itemId==15){
+                    itemPrice = 550;
+                }else{
+                    itemPrice = 650;
+                }
+
+                // 商城商品名稱有2種
+                var itemName;
+                if(itemId < 10){
+                    itemName = "客製化馬克杯";
+                }else{
+                    itemName = "客製化T-shirt";
+                }
+
+                var prodItem = {};
+                prodItem.productType = '商城商品';  //1.商品類別
+                prodItem.orderItemNo = itemStringArr[0];  //2.商品編號
+                prodItem.orderItemName = itemName;  //3.商品名稱
+                prodItem.orderPrice = itemPrice;  //4.商品價格
+                prodItem.orderItemNum = itemStringArr[1];//5.商品數量
+                prodItem.orderItemTotal = itemStringArr[2];  //6.單項商品小計
+                prodItem.orderItemPic = `${prodItem.orderItemNum}.jpg`;  //7.商品圖片檔名
+                // console.log("11/22測試", prodItem.orderItemTotal); 
+
+                cartShop[key] = prodItem;
+                // console.log("11/22測試", cartShop[key]);
+                
+            }
+            jsonStr2 = JSON.stringify(cartShop);          
+        }
+
+
+        //存入orderform的資料=========================================================
         //1.總價
         var totalPrice = document.getElementById('cartTotalFinal').innerText;
         totalPrice = totalPrice.replace('NT$', '')
@@ -490,8 +571,9 @@ function orderCheck(){
         document.getElementById('hidden_data6').value = cardNumber;  //cardNumber
         document.getElementById('hidden_data7').value = cardDateline;  //cardDateline
         document.getElementById('hidden_data8').value = cardSafenumber;  //cardSafenumber    
-
-        orderSave(); 
+        document.getElementById('hidden_cart').value = jsonStr;
+        document.getElementById('hidden_cart2').value = jsonStr2;
+        orderSave();
     }
 }
 
@@ -500,20 +582,20 @@ function orderSave(){
 
     var xhr = new XMLHttpRequest();
     xhr.onload = function(){
-      if( xhr.status == 200){
-        if(xhr.responseText == "error"){
-          alert("Error");
+        if( xhr.status == 200){
+            if(xhr.responseText == "error"){
+                alert("Error");
+            }else{
+                console.log("------------");
+                console.log(xhr.responseText);
+            }
         }else{
-          console.log(xhr.responseText);
+            alert(xhr.status)
         }
-      }else{
-        alert(xhr.status)
-      }
     }
 
     xhr.open('POST', 'orderSave.php', true);
-    // xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    xhr.send(formData2);    
+    xhr.send(formData2);
 }
 
 
@@ -523,4 +605,9 @@ function shopcartInitPage2_3(){
 }
 
 window.addEventListener("load", shopcartInitPage2_3, false);
+
+
+
+
+
 

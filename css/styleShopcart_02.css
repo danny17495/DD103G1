@@ -25,6 +25,11 @@ section.cartOrder input{
     padding: 3px;
 }
 
+/*for AJAX*/
+#form1, #form2{
+    display: none;
+}
+
 /*=============0.最外層為了雲消失包的=============*/
 .forCloudAnimation{
     overflow: hidden;
@@ -283,7 +288,8 @@ section.cartOrder .cartOrderBtn div.whiteButton:hover{
     /*=============2-2.商品列=============*/
     /*清除<768以下的表頭*/
     section.cartOrder .container .cartOrderRow1{
-        display: none;
+        border-top: 0 solid rgba(243, 152, 0, .8);
+        border-radius: 0;
     }   
 
     section.cartOrder .container{
