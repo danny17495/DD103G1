@@ -4587,20 +4587,20 @@
     transition: transform 750ms ease-in-out;
 }
 .indexBanner .slideDarkBg--1{
-    background: url(../images/BG_PIC.png) no-repeat;
+    background: url(../images/BG_PIC.jpg) no-repeat;
     width: 100%;
     height:863px;
 	background-position:  center center;
 }
 .indexBanner .slideDarkBg--2{
-    background: url(../images/BG_PIC2.png) no-repeat;
+    background: url(../images/BG_PIC2.jpg) no-repeat;
     width: 100%;
     height:863px;
 	background-position:  center center;
 	left: -50%;
 }
 .indexBanner .slideDarkBg--3{
-    background: url(../images/BG_PIC3.png) no-repeat;
+    background: url(../images/BG_PIC3.jpg) no-repeat;
     width: 100%;
     height:863px;
 	background-position: bottom center;
@@ -5992,12 +5992,12 @@ body.postcardBody .forWallDeco{
 /*註冊*/
 .LoginForm-row .LoginBtnR{
   position: absolute;
-  bottom:51px;
+  bottom:17px;
   left:24%;
 }
 .LoginForm-row .LoginBtnL{
   position: absolute;
-  bottom:51px;
+  bottom:17px;
   left:50%;
 }
 .LoginForm-row.fix .LoginBtnL,.LoginForm-row.fix .LoginBtnR{
@@ -6013,7 +6013,6 @@ body.postcardBody .forWallDeco{
   display:block;
   padding:10px 12px 10px 0px;
   font-weight:600;
-  text-transform:uppercase;
 }
 
 
@@ -6075,5 +6074,15 @@ body.postcardBody .forWallDeco{
   top:0;
   background-attachment: fixed;
 }
-
+.LoginForm #myForm .Login-signup{
+    padding: 0 20px;
+}
+#myForm .errMsg{
+    font-size: 8px;
+    margin-left: 10px;
+    color:red;
+}
+.whiteButton a{
+    color:inherit
+}
 
