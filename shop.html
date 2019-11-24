@@ -7,6 +7,7 @@
 <title>購物商城</title>
 <meta name="description" content="">
 <meta name="keywords" content="">
+<link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/shop.css">
 <link rel="stylesheet" type="text/css" href="css/common.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
@@ -19,59 +20,60 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
 
+
 </head>
 
 
 <body class="shopBody">
 <!-------------------頁首---------------------------------->
 <header>
-            <div class="container headerStyle">
-                <a href="index.html">
-                    <h1>
-                        <img src="images/logo.png" alt="logo">
-                    </h1>
-                </a>
-                <input type="checkbox" id="headerCheck" >
-                <label for="headerCheck" class="headerClick">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </label>
-                    <nav  class="navMenu">
-                        <div class="navDarken">
-                            <ul>
-                                <li>
-                                    <a href="spotIntro.html">行程介紹</a> 
-                                </li>
-                                <li>
-                                    <a href="reserve.html">預約行程</a> 
-                                </li>
-                                <li>
-                                    <a href="postcard.html">客製明信片</a>
-                                </li>
-                                <li>
-                                    <a href="shop.html">購物商城</a> 
-                                </li>
-                                <li>
-                                    <a href="competition.php">投票比賽</a> 
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                    <div class="headerMemInfo">
-                        <span id="headerMemName"></span>
-                        <a href="javascript:;"></a>
-                    </div>
-                    <div class="headerIcon">
-                        <a href="shopcart.html">
-                            <img src="images/icon_shopcar.png" alt="icon_shopcar">
-                        </a>
-                        <a href="member_html/member.html">
-                            <img src="images/icon_login.png" alt="icon_login">
-                        </a>
-                    </div>
-            </div>
-        </header>
+    <div class="container headerStyle">
+        <a href="index.html">
+            <h1>
+                <img src="images/logo.png" alt="logo">
+            </h1>
+        </a>
+        <input type="checkbox" id="headerCheck">
+        <label for="headerCheck" class="headerClick">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+            <nav class="navMenu">
+                <div class="navDarken">
+                    <ul>
+                        <li>
+                            <a href="spotIntro.html">行程介紹</a>
+                        </li>
+                        <li>
+                            <a href="reserve.html">預約行程</a>
+                        </li>
+                        <li>
+                            <a href="postcard.html"  class="nowpage">客製明信片</a>
+                        </li>
+                        <li>
+                            <a href="shop.html">購物商城</a>
+                        </li>
+                        <li>
+                            <a href="competition.php">投票比賽</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        <div class="headerMemInfo">
+            <span id="headerMemName"></span>
+            <a href="javascript:;"></a>
+        </div>
+        <div class="headerIcon">
+            <a href="javascript:;" id="shopcart">
+                <img src="images/icon_shopcar.png" alt="icon_shopcar">
+            </a>
+            <a id="memberInfo" href="member.php">
+                <img src="images/icon_login.png" alt="icon_login">
+            </a>
+        </div>
+    </div>
+</header>
 
 <section class="shopBlock1">
     <div class="containerpa shopStep1">
@@ -101,19 +103,31 @@
                     <div class="shopOneSlider">
                         <div>
                             <div class="shopShows" id="SMALL">
+
+                                
+
                                 <img src="images/shopImg/top1.jpg" id="SS1" data-pic="1">
+
                             </div>
                             <span>第一名</span>
                         </div>
                         <div>
                             <div class="shopShows" id="SMALL">
+
+                                
+
                                 <img src="images/shopImg/top2.jpg"  id="SS2" data-pic="2">
+
                             </div>
                             <span>第二名</span>
                         </div>
                         <div>
                             <div class="shopShows" id="SMALL">
+
+                             
+
                                 <img src="images/shopImg/top3.jpg"  id="SS3" data-pic="3">
+
                             </div>
                             <span>第三名</span>
                         </div>
@@ -185,16 +199,7 @@
          </div>
         
            
-<!--
-                <span class="shopAllBtn">
-                    <button @click="content='lessons'" id="white" data-color="1"></button>
-                    <button @click="content='apply'" id="red" data-color="2"></button>
-                    <button @click="content='temp'"id="blue" data-color="3">
-                         <img src="images/image_abby/color.png" alt="color">
-                    </button>
-                </span>
-            </div>
---->
+
 <script>
         Vue.component('apply',{  
             template: `
@@ -253,15 +258,7 @@
                     </span>
                 </div>
 
-<!---
-                            <span class="shopAllBtn1">
-                                <button @click="content='lessons1'" id="white" data-color="1"></button>
-                                <button @click="content='apply1'" id="red" data-color="2"></button>
-                                <button @click="content='temp1'"id="blue" data-color="3"></button>
-                            </span>  
-                        </div>
 
----->
 <script>
         Vue.component('apply1',{  
             template: `
@@ -314,16 +311,18 @@
 <!---------------------------------- 產品選擇按鈕----------------------------- -->
  <h4 id="shopTitle">
     <div class="shopSelectProduct">
+
         <div class="leafButton">
             <span class="shopOn" data-type="1">馬克杯</span>
         </div>
+
         <div class="leafButton">
             <span data-type="2">T-shirt</span>
         </div>
     </div>
 </h4>
 <!---------------------------------- 購物按鈕----------------------------- --> 
-<span class="whiteButton shopMadeButton">加入購物車</span>
+<span class="whiteButton shopMadeButton" onclick="cart()">加入購物車</span>
 
 </div><!-- .shopRight結束div -->
 <div class="clearfix"></div>
@@ -331,7 +330,7 @@
 
 <!------------購物商城-第三區塊---------------->
         <section class="shopMountain">
-            <div class="wrapper wrapperShop2"></div>
+           
         </section><!------------第三區塊結束------------------>   
 
     </div>
@@ -353,7 +352,24 @@
         <p>DD103 G1 copyright</p>
 </footer>
 
+<div class="alertWindow">
+    <div class="alert">
+        <div class="alertTitle">九份客棧</div>
+            <div class="alertContent">我是內容</div>
+        <div class="closeWrap">
+            <div class="yesButton whiteButton" id="aa">確認</div>
+            <div class="cancelButton whiteButton">取消</div>
+        </div>
+        <div class="alertClose">
+            <i class="fa fa-times-circle Trip2_lightBoxBTN" aria-hidden="true" id="game_close" ></i>
+        </div>
+    
+    </div>
+</div>
+
+
 <!-----控制產品選擇按鈕的JS---------->
+
 
 <script type="text/javascript">
 window.onload=function () {
@@ -476,84 +492,16 @@ function shopItemIdSet(){
 }
 
 // console.log("shopItemId", shopItemId);
-console.log("測試");
+
 
 </script>
-
-
-<!--更該圖片路徑-->
-<!-- <script>
-$('shopItemId'="1").on({
-    'click': function(){
-        $('#shopItemId1').attr('src','images/shopImg/0001.png');
-    }
-});
-
-
-$('shopItemId'="2").on({
-    'click': function(){
-        $('shopItemId'="1").attr('src','images/shopImg/0002.png');
-    }
-});
-
-
-$('shopItemId'="3").on({
-    'click': function(){
-        $('shopItemId'="1").attr('src','images/shopImg/0003.png');
-    }
-});
-
-</script> -->
-
-
-
 
 <script>
-    for(i=0;i<addCartButtons.length;i++){  //加入購物車
-    addCartButtons[i].onclick=function(){
-        let prodName=JSON.parse(this.nextElementSibling.value)[0]    //cup/hat/pillow...
-        let data={};
-        data.prodInfo=JSON.parse(this.nextElementSibling.value);  //name +商品本人圖片+單價
-        data.num=this.parentNode.previousElementSibling.children[1].value   //數量
-        data.img=this.parentNode.parentNode.children[2].children[1].children[0].src  
+    function cart() {
 
-        let imgName=data.img.substring(data.img.lastIndexOf("/")+1,data.img.lastIndexOf("."));   //圖片檔名
-        let sessionName=prodName+"|"+imgName;  //cup|work_amlbg_5
-
-        data.name=sessionName;
-        // console.log(sessionName)
-        data=JSON.stringify(data);
-        // console.log(data);
-        // {"prodInfo":["1","馬克杯","img/shop/cup.png","500"],"num":"1","Img":"http://localhost/G3/img/collections/work_amlbg_5.png","name":"cup|work_amlbg_5"}
-        
-        $.get('php/cart/cart_session.php',{data:data});
-        if(sessionStorage['shopList'] == null){
-            sessionStorage['shopList'] =""; 
-        }
-        if(sessionStorage[sessionName]){   //買過了  num+1
-            let dataNew;
-            dataNew=JSON.parse(sessionStorage[sessionName]);
-            dataNew.num=Number(dataNew.num)+1;
-            dataNew=JSON.stringify(dataNew);
-            sessionStorage.setItem(sessionName,dataNew);  
-            alert("此商品已在購物車！");
-        }else{    //沒買過這個商品
-            sessionStorage['shopList']+=sessionName+",";
-            sessionStorage.setItem(sessionName,data);
-            alert("成功加入購物車！");
-
-        }
-        
-
-        document.getElementById("cart_num").style.display='block';
-        document.getElementById("cart_num").innerText=sessionStorage['shopList'].split(',').length-1;
-        
-    }
+        alertWrap("成功加入購物車")
 }
 </script>
-
-
-
 
 
 <script>
@@ -580,21 +528,143 @@ $('shopItemId'="3").on({
     });
 });
 </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <div class="alertWindow">
+        <div class="alert">
+            <div class="alertTitle">九份客棧</div>
+            <div class="alertContent">我是內容</div>
+            <div class="closeWrap">
+                <div class="yesButton whiteButton">確認</div>
+                <div class="cancelButton whiteButton">取消</div>
+            </div>
+            <div class="alertClose">
+                <i class="fa fa-times-circle Trip2_lightBoxBTN" aria-hidden="true" id="Trip2_lightBoxBTN02"></i>
+            </div>
+    
+        </div>
+    </div>
+    <section id="login" class="Loginwrap">
+        <div class="LoginForm">
+            <div class="Loginhead" id="LoginForm-head">
+                <div data-tab="login">
+                    <div class="Loginclose">
+                        <h3>會員登入</h3>
+                        <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <form action="">
+                <div class="Loginbody" id="LoginForm-body">
+                    <div class="Login-login">
+                        <div class="LoginForm-row">
+                            <label class="LoginLabel" for="">帳號</label>
+                            <input class="Logininput" id="user-id" type="text" placeholder="account" autocomplete="on">
+                        </div>
+                        <div class="LoginForm-row">
+                            <label class="LoginLabel" for="">密碼</label>
+                            <input class="Logininput" type="password" id="user-psw" placeholder="Password"
+                                autocomplete="on">
+                        </div>
+                        <div class="Login-forget">
+                            <a class="Login-forget-password" id="linkLoginForget">
+                                <p class="LoginP">忘記密碼</p>
+                            </a>
+                        </div>
+                        <div class="LoginForm-row">
+                            <div class="LoginBtnCenter whiteButton">登入</div>
+                        </div>
+                        <a class="LoginForm-signup-now" href="javascript:;">立即註冊</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <section id="loginRegister" class="Loginwrap" style="display: none">
+        <div class="LoginForm">
+            <div class="Loginhead" id="LoginForm-head">
+                <div data-tab="login">
+                    <div class="Loginclose">
+                        <h3>會員註冊</h3>
+                        <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <form action="">
+                <div class="Loginbody" id="LoginForm-body">
+                    <div class="Login-signup">
+                        <div class="LoginForm-row">
+                            <label class="Loginlabal" for="">姓名</label>
+                            <input id="name" class="Logininput" name="name" type="text" placeholder="Name">
+                        </div>
+                        <div class="LoginForm-row">
+                            <label class="Loginlabal" style="color:aliceblue;" for="">密碼</label>
+                            <input id="password" class="Logininput" name="password" type="password" placeholder="Password"
+                                autocomplete="on">
+    
+                        </div>
+                        <div class="LoginForm-row">
+                            <label class="Loginlabal" style="color:aliceblue;" for="">密碼確認</label>
+                            <input id="passwordcheck" class="Logininput" name="passwordcheck" type="password"
+                                placeholder="passwordcheck" autocomplete="on">
+                        </div>
+                        <div class="LoginForm-row">
+                            <label class="Loginlabal" style="color:aliceblue;">Email</label>
+                            <input id="Email" class="Logininput" name="email" type="text" size=20 placeholder="email">
+                        </div>
+                        <div class="LoginForm-row">
+                            <div class="LoginBtnR">
+                                <div class="whiteButton">
+                                    <a href="#" id="signup" name="signup">註冊</a>
+                                </div>
+                            </div>
+                            <div class="LoginBtnL">
+                                <div class="whiteButton">
+                                    <a href="javascript:;">回上頁</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <section id="loginforget" class="Loginwrap" style="display: none">
+        <div class="LoginForm">
+            <div class="Loginhead" id="LoginForm-head">
+                <div data-tab="login">
+                    <div class="Loginclose">
+                        <h3>重設密碼</h3>
+                        <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true"></i>
+    
+                    </div>
+                </div>
+            </div>
+            <div class="Loginbody LoginForm-body">
+                <div class="login">
+                    <div class="LoginForm-row">
+                        <label class="LoginLabel" for="">email</label>
+                        <input class="Logininput" type="email" placeholder="email">
+                    </div>
+                    <p class="resetpsw">*請送出表單後,到信箱查看並重設密碼*</p>
+                    <div class="LoginForm-row fix">
+                        <div class="LoginBtnR">
+                            <div class="whiteButton">
+                                <a href="#">
+                                    送出
+                                </a>
+                            </div>
+                        </div>
+                        <div class="LoginBtnL">
+                            <div class="whiteButton">
+                                <a href="javascript:;">回上頁</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="js/login.js"></script>
+    <script src="js/alert.js"></script>
  <script src="js/animationShop.js"></script>
 
 </body>

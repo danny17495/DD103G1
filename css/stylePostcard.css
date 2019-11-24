@@ -1,5 +1,5 @@
 /*----------------shopcart購物車頁面開始(<768)---------------*/
-/*----------------購物車, 客製化明信片頁面的共用----------------*/
+/*----------------客製化明信片頁面的共用----------------*/
 .wrapA{
     width: 100%;
 }
@@ -12,6 +12,23 @@ section.pageTitle .container{
 
 body.postcardBody .container{
     position: relative;
+}
+
+
+body{
+    font-family: 'Noto Serif TC', serif;
+    background-color: rgb(255, 230, 193);
+}
+
+@font-face {
+    font-family: '華康秀風體';
+    src: url('華康秀風體.TTF')
+    /*unicode-range: U+884C, U+7A0B, U+4ECB, U+7D39;*/
+}
+
+/*for AJAX*/
+#form1, #form2, #form3{
+    display: none;
 }
 
 /*----------------0.客製化明信片頁面的基本設定及共用----------------*/
@@ -212,6 +229,7 @@ section.postcardMain .aapostLeft .postWhiteBack{
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
+    position: relative;
 }
 
 section.postcardMain .aapostLeft #postcardCanvas{
@@ -219,6 +237,27 @@ section.postcardMain .aapostLeft #postcardCanvas{
     background-size: contain;
     background-repeat: no-repeat;
 }
+
+#postcardCanvasSecret{
+    display: none;
+    /*background-color: red;*/
+}
+
+/*
+section.postcardMain .aapostLeft .postWhiteBack .debug{
+    background-image: url(../images/postcard/postBlack.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+*/
+/*section.postcardMain .aapostLeft .postWhiteBack img.test{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+}*/
 
 /*步驟*/
 section.postcardMain .aapostLeft .postLeftStepBox{
@@ -295,10 +334,10 @@ section.postcardMain .aapostLeft .postStepYellow4:after{
 /*2-2-2(二).操作畫面.postRight設定*/
 /*===============================================================*/
 /*2-2-2(二).操作畫面.postRight切換步驟css + postcard.js*/
-.postRight_1{display: none}
 .postRight_2{display: none}
 .postRight_3{display: none}
 .postRight_4{display: none}
+.postRight_5{display: none}
 
 /*2-2-2(二).操作畫面.postRight排版*/
 section.postcardMain .aapostRight h3{
@@ -315,11 +354,17 @@ section.postcardMain .aapostRight .aapostRightDIY{
     position: relative;
     padding-bottom: 80%;
 }
+
+#postDIYBtn_8_Back{
+    visibility: hidden;
+}
+
 /*===============================================================*/
 
 
 /*2-2-2(二-1).操作畫面.postRight步驟一樣式*/
-section.postcardMain .postRight_1 .aapostRightDIY > div{
+section.postcardMain .postRight_1 .aapostRightDIY > div,
+section.postcardMain .postRight_1 .aapostRightDIY label{
     width: 60%;
     box-sizing: border-box;
     border: 1px solid #fff;
@@ -366,6 +411,10 @@ section.postcardMain .postRight_1 .aapostRightDIY .aauploadBGC{
     top: 75%;
     left: 45%;
     z-index: 2;
+}
+
+section.postcardMain .postRight_1 .aapostRightDIY .aauploadBGC input{
+    display: none;
 }
 
 section.postcardMain .postRight_1 .aapostRightDIY .aauploadBGC div{
@@ -635,15 +684,6 @@ section.postcardMain .postRight_5 .aapostRightDIY p{
     text-align: left;
     font-size: 12px;
 }
-
-
-
-
-
-
-
-
-
 
 
 

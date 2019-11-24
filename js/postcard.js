@@ -194,7 +194,7 @@ function toPR5(){
 	postStepYellowB4.classList.remove("postStepYellowHere");
 	postStepYellowB5.classList.add("postStepYellowHere");
 
-	saveImageStep1();
+	getPostcardNo();
 	btnNoFuntion();
 
 }
@@ -283,6 +283,9 @@ var canvas2H = (postFather.offsetWidth - 20) * 350 / 530;
 console.log(canvas2W);
 console.log(canvas2H);
 
+//上傳背景置放
+var uploadImgSrc = '';
+
 
 /*==三-1.只要點擊更換背景,無條件先畫一次*/
 //背景1
@@ -318,12 +321,43 @@ function aaPostcardChangeBGI_3(){
 
 //上傳窗格
 function aaPostcardChangeuploadBGI(){
-	canvas2.style.backgroundImage = "url(images/postcard/pBgiPic_3.jpg)";
+	alert("建議上傳橫式照片，最佳寬：高比例為3：2！");
+
+	document.getElementById("theFile").onchange = fileChange;
 
 	aapostBGC_1.classList.remove("aapostBGC_1_Selected");
 	aapostBGC_2.classList.remove("aapostBGC_2_Selected");
 	aapostBGC_3.classList.remove("aapostBGC_3_Selected");
 	aauploadBGC.classList.add("aauploadBGC_Selected");
+}
+
+function fileChange(){
+    let file = document.getElementById('theFile').files[0];
+    // let message = '';
+
+    // message += 'File Name: ' + file.name + '\n';
+    // message += `File Type: ${file.type} \n`;
+    // message += `File Size: ${file.size} byte(s)\n`;
+    // message += `Last Modified: ${file.lastModifiedDate.toDateString()} \n`;
+	
+    //==========
+    let readFile = new FileReader();
+    readFile.readAsDataURL(file);
+    readFile.addEventListener('load',function(){
+        uploadImgSrc = this.result;
+        canvas2.style.backgroundImage = `url(${uploadImgSrc})`;
+        canvas2.style.backgroundSize = `cover`;
+        console.log(uploadImgSrc)
+        // image.style.maxWidth = '500px';
+        // image.style.maxHeight = '400px';
+    });
+
+    //同時重畫隱藏畫布
+	setTimeout(postcardInit8, 1000);
+
+    
+
+
 }
 
 function postcardInit2(){
@@ -358,7 +392,6 @@ let postcardCanvas = new fabric.Canvas('postcardCanvas',{
 
 /*======四-2.使canvas畫布可以跟隨RWD======*/
 /*==四-2-(1).無條件先做一次==*/
-console.log("hi^_^2");
 //抓父層RWD之後的大小去設定畫布大小
 var postFather = document.getElementById("postWhiteBack");
 var postcardCanvasW = postFather.offsetWidth - 20;
@@ -374,7 +407,6 @@ postcardCanvas.setHeight( postcardCanvasH );
 
 /*==四-2-(2).視窗risize時就重新偵測==*/
 function postcardInit3(){
-	console.log("hi^_^1");
 	var postFather = document.getElementById("postWhiteBack");
 	var postcardCanvasW = postFather.offsetWidth - 20;
 	var postcardCanvasH = (postFather.offsetWidth - 20) * 350 / 530;
@@ -475,7 +507,6 @@ function newMark_2(){
 }
 
 function postcardInit4(){
-	console.log("hi^_^3");
 	postDecoFood_1.addEventListener("click", newFood_1, false);
 	postDecoFood_2.addEventListener("click", newFood_2, false);
 	postDecoFood_3.addEventListener("click", newFood_3, false);
@@ -544,38 +575,6 @@ function postcardTextColorChoose_4(){
 	postcardTextColor3.classList.remove("postcardTextColorSelected");
 	postcardTextColor4.classList.add("postcardTextColorSelected");
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -707,26 +706,6 @@ window.addEventListener("load", postcardInit5, false);
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*======================================================================*/
 /*第bb支程式: #postcardCanvasSecret用於融合背景+上面畫畫的地方,
    主要用來處理背景,等待主畫面畫完把套件畫的圖貼到這上面,再存進去server
@@ -737,8 +716,8 @@ window.addEventListener("load", postcardInit5, false);
 /*==bb-1.只要點擊更換背景,無條件先畫一次*/
 //抓父層RWD之後的大小去設定畫布大小
 var postFather = document.getElementById("postWhiteBack");
-var postcardCanvasSecretW  = postFather.offsetWidth - 20;
-var postcardCanvasSecretH = (postFather.offsetWidth - 20) * 350 / 530;
+var postcardCanvasSecretW  = postFather.offsetWidth-20;
+var postcardCanvasSecretH = (postFather.offsetWidth-20) * 350 / 530;
 
 $('#postcardCanvasSecret').attr({
 	width: postcardCanvasSecretW,
@@ -788,7 +767,7 @@ function aaPostcardSecretChangeuploadBGI(){
 	img.onload = function(){
 	    ctxPostcardCanvasSecret.drawImage(img,0,0,postcardCanvasSecretW ,postcardCanvasSecretH); //drawImage(img,x,y,width,height)
 	}
-	img.src = 'images/postcard/pBgiPic_3.jpg';
+	img.src = `${uploadImgSrc}`;
 }
 
 function postcardInitbb(){
@@ -806,14 +785,15 @@ window.addEventListener("load", postcardInitbb, false);
 
 /*==bb-2.視窗risize時就重新偵測==*/
 function postcardInit8(){
-	console.log("postcardInit8");
+	console.log("hi,postcardInit8背景按照視窗risize重新繪畫");
 	//重新偵測
 	var postFather = document.getElementById("postWhiteBack");
-	var postcardCanvasSecretW = postFather.offsetWidth - 20;
-	var postcardCanvasSecretH = (postFather.offsetWidth - 20) * 350 / 530;
-	console.log(`hi^_^8,實際畫布寬${postcardCanvasSecretW},背景生成也要按照視窗risize重新繪畫`);
-	console.log(`hi^_^8,實際畫布高${postcardCanvasSecretH},背景生成也要按照視窗risize重新繪畫`);
-
+	// var postcardCanvasSecretW = $("#postWhiteBack").width();
+	// var postcardCanvasSecretH = $("#postWhiteBack").height();
+	var postcardCanvasSecretW = postFather.offsetWidth-20;
+	var postcardCanvasSecretH = (postFather.offsetWidth-20) * 350 / 530;
+	console.log(`實際畫布寬${postcardCanvasSecretW}`);
+	console.log(`實際畫布高${postcardCanvasSecretH}`);
 
 	$('#postcardCanvasSecret').attr({
 		width: postcardCanvasSecretW,
@@ -851,12 +831,75 @@ function postcardInit8(){
 		img.onload = function(){
 		    ctxPostcardCanvasSecret.drawImage(img,0,0,postcardCanvasSecretW,postcardCanvasSecretH); //drawImage(img,x,y,width,height)
 		}
-		img.src = 'images/postcard/pBgiPic_3.jpg';			
+		img.src = `${uploadImgSrc}`;			
 	}
 }
 
-window.addEventListener("resize", postcardInit8, false);
 
+/*如果按f12的處理*/
+var aa = document.getElementsByClassName("debug")["0"];
+function postcardInit8ForF12(e){
+// console.log(windowW);
+// e.preventDefault(); 
+       if(e.keyCode==123){
+            alert("您按下了F12，為了您的使用體驗我們將幫您重整頁面！");
+            console.log(aa);
+			setTimeout(upperCanvasResize,500);
+			// setTimeout(postcardInit8,2000);
+        }
+}
+
+function upperCanvasResize(){
+	// var postFather = document.getElementById("postWhiteBack");
+	// var postcardCanvasSecretW = postFather.offsetWidth ;
+	// var postcardCanvasSecretH = (postFather.offsetWidth) * 350 / 530 ;
+
+	// $('#postcardCanvas').attr({
+	// 	width: postcardCanvasSecretW,
+	// 	height: postcardCanvasSecretH,
+	// });
+
+	// $('.upper-canvas').attr({
+	// 	width: postcardCanvasSecretW,
+	// 	height: postcardCanvasSecretH,
+	// });
+
+	// $('.canvas-container').attr({
+	// 	width: postcardCanvasSecretW,
+	// 	height: postcardCanvasSecretH,
+	// });
+ 	//            console.log("你按!!!!!!!!!!!!");
+
+	// aa.style.width = postcardCanvasSecretW;
+	// aa.style.height = postcardCanvasSecretH;
+	// aa.style.height = postcardCanvasSecretH;
+// F5
+history.go(0)
+document.execCommand('Refresh')
+// Ctrl+F5
+// window.location.reload()
+// window.location.href=window.location.href
+// location=location
+// window.navigate(location)
+
+}
+
+document.onkeyup = function(e){  
+	console.log(e.keyCode)
+	e=e||window.event;  
+	e.preventDefault(); 
+	switch(e.keyCode){  
+		case 38: 
+			console.log('上鍵');
+			break; 
+		case 40:
+			console.log('下鍵');
+			break;
+	}
+}
+
+document.addEventListener("keydown", postcardInit8ForF12, false);
+window.addEventListener("resize", postcardInit8, false);
 
 
 
@@ -865,7 +908,33 @@ window.addEventListener("resize", postcardInit8, false);
 /*第五支程式: 儲存canvas上的畫面進Server資料夾*/
 //建立html連結:demo畫面, 第三支程式裡已宣告過canvas2 = document.getElementById("postcardCanvas");
 //註冊在function toPR5()裡
-function saveImageStep1() {
+var newPostcardNo = 0;
+function getPostcardNo(){
+	//傳送一個假資料
+    var formData1 = new FormData(document.getElementById("form1"));
+
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function(){
+        if( xhr.status == 200){
+            if(xhr.responseText == "error"){
+                alert("Error");
+            }else{
+                console.log("------------");
+                console.log(xhr.responseText);
+                newPostcardNo = xhr.responseText;
+                newPostcardNo = newPostcardNo.replace(' ', '');
+                saveImageStep1();
+            }
+        }else{
+            alert(xhr.status)
+        }
+    }
+
+    xhr.open('POST', 'getPostcardNo.php', true);
+    xhr.send(formData1);
+}
+
+function saveImageStep1(){
 	//五-1.抓第一張canvas上的圖
 	console.log("hi第五支程式:saveImage");
 	var canvas2 = document.getElementById("postcardCanvas");
@@ -889,6 +958,7 @@ function saveImageStep1() {
 	var dataURLSecret = postcardCanvasSecret.toDataURL("image/jpeg");
 	// console.log("dataURL2:", dataURLSecret);	
 	document.getElementById('hidden_data2').value = dataURLSecret;
+	document.getElementById('hidden_data6').value = newPostcardNo;
 	// console.log("dataURL2:", dataURLSecret);
 
 	//處理有時間差, 所以讓他漫一點在執行一次一樣function, 才能成功等待兩層東西真正合成再存進去
@@ -934,9 +1004,11 @@ function saveImageStep3() {
 /*第六支程式: 儲存客製明信片時同時需要紀錄客製明信片資料進入資料庫*/
 //註冊在function saveImageStep3()裡
 function postcardToDb(){
-	document.getElementById('hidden_data3').value = 3;  //postcardNo
-	document.getElementById('hidden_data4').value = 1;  //memNo
-	document.getElementById('hidden_data5').value = 'm001p03';  //postcardPic
+	var memNo = sessionStorage.getItem('memNo');
+	newPostcardNo = newPostcardNo.replace(' ', '');
+	document.getElementById('hidden_data3').value = newPostcardNo;  //postcardNo
+	document.getElementById('hidden_data4').value = memNo;  //memNo
+	document.getElementById('hidden_data5').value = `${newPostcardNo}.jpg`;  //postcardPic
 	postcardToDb2();
 
 }
@@ -966,11 +1038,18 @@ function postcardToDb2(){
 /*======================================================================*/
 /*第七支程式: 按下購買時->放入購物車->記錄進去localStorage*/
 var buyPostcardBtn = document.getElementById("buyPostcardBtn")
-
 function postcardToCart(){
 	//value值為postcardNo
-	localStorage.setItem(`addPostcard:`,`1, 3, `);
-	
+	var postcardNo = newPostcardNo;
+	// console.log(newPostcardNo);
+
+    if(localStorage[`addPostcard:`] == null){
+		localStorage.setItem(`addPostcard:`,`${postcardNo}, `);
+		// localStorage.setItem(`addPostcard:`,`1, 3, `);
+    }else{
+		localStorage[`addPostcard:`] += `${postcardNo}, `;
+    }
+
 	//測試
 	localStorage.setItem(`addShopItem:`,`2, 18, 15, `);	
 	alert("加入購物車成功！");
@@ -981,6 +1060,176 @@ function postcardInit10(){
 }
 
 window.addEventListener("load", postcardInit10, false);
+
+
+
+/*======================================================================*/
+/*第八支程式: */
+
+
+
+
+
+
+
+
+
+
+
+
+/*======================================================================*/
+/*11/23新增會員登入及註冊: */
+// let contestnow1 = document.getElementById('aapostStepS5');
+// var contestnow2 = document.getElementById('aapostStepB5');
+// var contestnow3 = document.getElementById('postDIYBtn_7_Next');
+
+// contestnow1.addEventListener('click',function(e){ //點擊按鈕時 判定有無登入
+//     if(!sessionStorage['memNo']){ //固定寫法 一定要有
+//              memberInfoClick = false;//固定寫法 一定要有
+//              openLoginData();//固定寫法 一定要有 打開燈箱
+//     }
+// });
+
+// contestnow2.addEventListener('click',function(e){ //點擊按鈕時 判定有無登入
+//     if(!sessionStorage['memNo']){ //固定寫法 一定要有
+//              memberInfoClick = false;//固定寫法 一定要有
+//              openLoginData();//固定寫法 一定要有 打開燈箱
+//     }
+// });
+
+// contestnow3.addEventListener('click',function(e){ //點擊按鈕時 判定有無登入
+//     if(!sessionStorage['memNo']){ //固定寫法 一定要有
+//              memberInfoClick = false;//固定寫法 一定要有
+//              openLoginData();//固定寫法 一定要有 打開燈箱
+//     }
+// });
+
+
+
+// let memberInfoClick = false;
+// function $id(id) {
+//     return document.getElementById(id);
+// };
+// function logout(){
+//     sessionStorage.clear();
+//     let xhr = new XMLHttpRequest();
+//     xhr.open("Get", "php/login/logout.php", true);
+//     xhr.send(null);
+//     $id("headerMemName").innerHTML='';
+//     // $id('memberInfo').onclick = function (e) {
+//     //     memberInfoClick = false;
+//     //     e.preventDefault();
+//     //     openLoginData();
+//     // }
+//     if (window.location.href.indexOf("member.php") != -1) {
+//         window.location.href = "index.html"
+//     }
+//     return false;
+// }
+// function sendData(){
+//     let userId = $id("user-id").value;
+//     let userPsw = $id("user-psw").value;
+//     if (userId == '' || userPsw==''){
+//         alertWrap("請輸入帳號密碼");
+//     }else{
+//         let xhr=new XMLHttpRequest();
+//         xhr.onload=function(){
+//             let loginResult=xhr.responseText;
+//             console.log(loginResult);
+//             if (loginResult.indexOf('systemError')!=-1){
+//                 alertWrap("系統錯誤");
+//             } else if (loginResult.indexOf('loginError') != -1){
+//                 alertWrap("帳號密碼錯誤");
+//             }else{
+//                 userData = JSON.parse(loginResult)[0];
+//                 alert(userData);
+//                 for (var i in userData) {
+//                     sessionStorage.setItem(i, userData[i]);
+//                 }
+//                 sessionStorage.setItem('memPassword', "");//不顯示
+//                 sessionStorage.setItem('memVisa', "");//不顯示
+//                 //console.log(userData.name);
+//                 $id("login").style.display = "none";
+//                 $id("headerMemName").innerHTML = `${userData.memName}<a id="logout" href="javascript:;">登出</a>`;
+//                 $id("logout").onclick=logout;
+//                 if (memberInfoClick){ //判定原先有無按會員頁按鈕
+//                     window.location.href = "member.php";
+//                     memberInfoClick=false;
+//                 }
+//             }
+            
+//         }
+//         xhr.open("post", "php/login/login.php", true);
+//         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+//         xhr.send(`user_id=${userId}&user_psw=${userPsw}`);
+//     }
+// }
+// function openLoginData(){ //登入 註冊 盒子
+//     let login=$id("login");
+//     let loginforget = $id("loginforget");
+//     let loginRegister = $id("loginRegister");
+//     let linkLoginForget = $id("linkLoginForget");
+//     let loginClose = document.querySelectorAll(".game_close");
+//     let linkLoginRegister = document.querySelector('.LoginForm-signup-now');
+//     let LoginBtnL = document.querySelectorAll('.LoginBtnL');
+//     let LoginBtnCenter = document.querySelector('.LoginBtnCenter');
+//     login.style.display="block";
+//     $id("user-id").value = '';
+//     $id("user-psw").value = '';
+//     linkLoginForget.addEventListener("click",function(){
+//         login.style.display = "none";
+//         loginforget.style.display="block";
+//     });
+//     linkLoginRegister.addEventListener('click',function(){
+//         login.style.display = "none";
+//         loginRegister.style.display = "block";
+//     });
+//     LoginBtnL.forEach(dom => {
+//         dom.addEventListener('click', function (e) {
+//             e.preventDefault();
+//             loginforget.style.display = "none";
+//             loginRegister.style.display="none";
+//             login.style.display = "block";
+//             $id("user-id").value = '';
+//             $id("user-psw").value = '';
+//         });
+//     });
+//     loginClose.forEach(function(dom) {
+//         dom.addEventListener('click', function () {
+//             login.style.display="none";
+//             loginforget.style.display = "none";
+//             loginRegister.style.display = "none";
+//             // $id("user-id").value = '';
+//             // $id("user-psw").value = '';
+//         });
+//     });
+//     LoginBtnCenter.addEventListener('click',sendData);
+// }
+
+// function judgeLogin(){
+//     fetch("php/login/loginJudge.php").then(loginJudge => loginJudge.text().then(loginJudge => {
+//         if (loginJudge != "not login") {   //已登入
+//             $id("headerMemName").innerHTML = `${sessionStorage.memName}<a id="logout" href="javascript:;">登出</a>`;
+//             $id("logout").onclick = logout;
+//         }
+//     }));
+// }
+// window.addEventListener('load',function(){
+//     judgeLogin();
+
+//     $id('memberInfo').onclick = function (e) {
+//         if (!sessionStorage['memNo']) { //未登入
+//             alert('未登入');
+//             memberInfoClick = true;
+//             e.preventDefault();
+//             openLoginData();
+//         }else{
+//             alert('已登入');
+//             window.location.href = "member.php";
+//         }
+//     }
+
+// });
 
 
 

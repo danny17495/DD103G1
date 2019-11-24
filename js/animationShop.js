@@ -1,5 +1,3 @@
-console.log('start');
-
 //鳥移動(TWEENMAX))
 var T1 = new TimelineMax({
     repeat: -1,

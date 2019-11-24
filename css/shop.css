@@ -3,6 +3,12 @@
 	outline: 1px solid red;
 }
 ---*/
+#game_close{
+	font-size: 36px;
+	color: #ddd;
+}
+
+
 .shopBody{
 	background-color: #ffe6c1;
 	position: relative;
@@ -17,6 +23,9 @@
 .shopSelelctBig{
 	padding: 0 20px;
 }
+.wrapper .wrapperShop2{
+	display: none;
+}
 
 
 /*------padding-End---------*/
@@ -27,7 +36,7 @@
 
 .shopStep1 h1{
 	text-align: center;
-	margin-bottom: 85px;
+	margin-bottom: 65px;
 	padding-top: 150px;
 
 }
@@ -200,8 +209,8 @@ cursor:pointer;
 
 }
 .shopCustomerProduct img#BIG{
-	margin-top: -200%;
-	margin-left: 0%;
+	margin-top: -60%;
+	margin-left: 0.5%;
 	cursor:default;
 	z-index:2;
 	max-width: 400px;
@@ -264,6 +273,7 @@ cursor:pointer;
 }
 .shopCupColorChoose span.cupColor3.active:after,
 .shopTColorChoose span.TColor3.active:after{
+
     border: 1px solid #1b3263;
 }
 
@@ -337,13 +347,13 @@ cursor:pointer;
 	
 
 	.shopCustomerProduct img#BIG{
-    	margin-top: 10%;
+    	margin-top: -100%;
     	position: relative;
-    	top: -400px;
+    	top: 0px;
     	margin-left: -3%;
    	 	cursor: default;
     	z-index: 2;
-    	width: 23%;
+    	width: 25%;
     	max-width: 250px;
     	height: auto;
 	}
@@ -401,6 +411,12 @@ cursor:pointer;
 
 @media all and (max-width: 767px){
 
+	.shopCupColorChoose span.cupColor3.active:after,
+	.shopTColorChoose span.TColor3.active:after{
+	position: relative;
+	top: -38px;
+    border: 1px solid #1b3263;
+}
 	.shopWhiteBtn{
 	height: 30px;	
 	width: 30px;	
@@ -467,7 +483,11 @@ cursor:pointer;
 font-family: "華康仿宋體W2";
 }
 
-
+#app,#app1{
+	max-height: 300px;
+	height: 100%;
+	
+}
 
 
 

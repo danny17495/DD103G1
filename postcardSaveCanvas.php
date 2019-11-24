@@ -1,5 +1,5 @@
 <?php
-$upload_dir = "images/postcardClient//";  //檢查資料夾存不存在
+$upload_dir = "images/postcardClient/";  //檢查資料夾存不存在
 if( ! file_exists($upload_dir )){
   mkdir($upload_dir);
 }
@@ -9,8 +9,11 @@ $imgDataStr = str_replace('data:image/jpeg;base64,', '', $imgDataStr); //將檔�
 // $imgDataStr = str_replace(' ', '+', $imgDataStr);
 $data = base64_decode($imgDataStr);
 
+$newPostcardNo = $_POST['hidden_data6'];
+
+
 //準備好要存的filename
-$fileName = date("Ymd");  //或time()
+$fileName = $newPostcardNo;  //或time()
 
 $file = $upload_dir . $fileName . ".jpg";
 $success = file_put_contents($file, $data);
