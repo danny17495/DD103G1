@@ -172,6 +172,7 @@ function message_xml(e){
         }
     });
 }
+
 function msg_xml(e){
     let i = window.sessionStorage.memNo;
     console.log(e);
