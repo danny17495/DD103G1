@@ -6,8 +6,8 @@ $postcardPic = $_POST['hidden_data5'];
 
 try {
 	$dsn = "mysql:host=localhost;port=3306;dbname=dd103g1;charset=utf8";
-	$user = "root";
-	$password = "ddj1778";
+	$user = "dd103g1";
+	$password = "dd103g1";
 	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
 	$pdo = new PDO( $dsn, $user, $password, $options);  
 	$sql = "INSERT INTO postcard(postcardNo, memNo, postcardPic) VALUES(:postcardNo, :memNo,:postcardPic)";
@@ -20,7 +20,7 @@ try {
 	$postcard->bindValue(":postcardPic", $postcardPic);
 
 	$postcard->execute();
-	echo "存入資料庫成功~~~目前只能存一筆~~~";
+	// echo "存入資料庫成功";
 } catch (PDOException $e) {
 	$errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";
   	$errMsg .= "錯誤行號 : ".$e -> getLine(). "<br>";

@@ -1,15 +1,19 @@
 /*一. 撈取LocalStorage確認放入購物車的資料*/
 var addPostcardString = localStorage.getItem('addPostcard:');    // var itemString = storage['addItemList'];
-var postcardArr = addPostcardString.substr(0,addPostcardString.length-2).split(', ');
+var postcardArr, postcardNum = 0;  //postcardNum加入購物車幾個明信片
+if(addPostcardString != null){
+    postcardArr = addPostcardString.substr(0,addPostcardString.length-2).split(', ');
+    postcardNum = postcardArr.length;  //加入購物車幾個明信片
+}
 // console.log(postcardArr);     //(2) ["1", "3"]
-var postcardNum = postcardArr.length;  //加入購物車幾個明信片
 // console.log(postcardNum);
 
 var addShopItemString = localStorage.getItem('addShopItem:');    // var itemString = storage['addItemList'];
-var shopItemArr = addShopItemString.substr(0,addShopItemString.length-2).split(', ');
-// console.log(shopItemArr);     //(3) ["2", "18", "15"]
-var shopItemNum = shopItemArr.length;  //加入購物車幾個商城商品
-// console.log(shopItemNum);
+var shopItemArr, shopItemNum = 0;  //shopItemNum加入購物車幾個商城商品
+if(addShopItemString != null){
+    shopItemArr = addShopItemString.substr(0,addShopItemString.length-2).split(', ');
+    shopItemNum = shopItemArr.length;  //加入購物車幾個
+}
 
 
 /*三.for折扣卷初始設定*/
@@ -462,7 +466,7 @@ function orderCheck(){
     //7.信用卡安全碼
     var cardSafenumber = document.getElementById('cardSafenumber').value;
 
-    console.log(shippingName)
+    // console.log(shippingName);
     if(shippingName == ""){
         alert("請輸入收件姓名！");
     }else if(shippingPhone == ""){
@@ -562,17 +566,21 @@ function orderCheck(){
         totalPrice = totalPrice.replace('NT$', '')
         totalPrice = parseInt(totalPrice);
 
-        console.log(totalPrice)
-        console.log(shippingName)
+        //9.會員編號
+        var memNo = sessionStorage.getItem('memNo');
+
+        // console.log(totalPrice)
         document.getElementById('hidden_data2').value = totalPrice;  //totalPrice
         document.getElementById('hidden_data3').value = shippingName;  //shippingName
         document.getElementById('hidden_data4').value = shippingPhone;  //shippingPhone
         document.getElementById('hidden_data5').value = shippingAddress;  //shippingAddress
         document.getElementById('hidden_data6').value = cardNumber;  //cardNumber
         document.getElementById('hidden_data7').value = cardDateline;  //cardDateline
-        document.getElementById('hidden_data8').value = cardSafenumber;  //cardSafenumber    
+        document.getElementById('hidden_data8').value = cardSafenumber;  //cardSafenumber
+        document.getElementById('hidden_data9').value = memNo;  
         document.getElementById('hidden_cart').value = jsonStr;
         document.getElementById('hidden_cart2').value = jsonStr2;
+        console.log("前台處js紀錄的memNo",memNo);
         orderSave();
     }
 }
