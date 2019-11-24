@@ -12,6 +12,18 @@ var shopItemNum = shopItemArr.length;  //加入購物車幾個商城商品
 // console.log(shopItemNum);
 
 
+/*三.for折扣卷初始設定*/
+//使用折扣卷前的未加運費金額
+var PriceTotalDiscountBefore = 0;
+//紀錄前次使用折扣卷
+var couponSelect = document.getElementById("chooseCoupon");
+var index = couponSelect.selectedIndex;    //選中
+var chooseCouponValue = couponSelect.options[index].value;    //選中的值  
+chooseCouponValue = parseInt(chooseCouponValue);
+var chooseCouponValueNow = 0;
+// console.log("外部變數紀錄的預設折扣值", chooseCouponValue);
+
+
 /*二. 動態生成, 還是會生成兩種結構*/
 function shopcartInitPage2_1(){
 
@@ -84,7 +96,10 @@ function shopcartInitPage2_1(){
 
             createShopItemListPage2(itemId, itemImage, itemPrice, itemNum, itemTotal, itemName);
         }
-    } 
+    }
+
+    //生成折扣卷
+    cartMemCoupon();
 }
 
 
@@ -184,7 +199,7 @@ function createPostcardListPage2(itemId, itemImage, itemNum, itemTotal){
 
 
     /*初始價格*/
-    postcardTotal1 += 60;
+    postcardTotal1 += parseInt(itemTotal);
     var cartPriceTotal1 = document.getElementById('cartTotal');
     cartPriceTotal1.innerText = `NT$${postcardTotal1}`;
     var cartPriceTotal2 = document.getElementById('cartTotalFinal');
@@ -295,10 +310,13 @@ function createShopItemListPage2(itemId, itemImage, itemPrice, itemNum, itemTota
     var oldTotal1 = cartPriceTotal1.innerText;
     var oldTotalMath1 = oldTotal1.replace('NT$', '')
     //按一次總計+商品價格itemPrice
-    cartPriceTotal1.innerText = 'NT$' + (parseInt(oldTotalMath1) + itemPrice);
+    console.log(chooseCouponValue )
+    cartPriceTotal1.innerText = 'NT$' + (parseInt(oldTotalMath1) + parseInt(itemTotal) - chooseCouponValue );
 
     var cartPriceTotal2 = document.getElementById('cartTotalFinal');
-    cartPriceTotal2.innerText = 'NT$' + (parseInt(oldTotalMath1) + itemPrice + 120);
+    cartPriceTotal2.innerText = 'NT$' + (parseInt(oldTotalMath1) + parseInt(itemTotal) - chooseCouponValue + 120);
+
+    PriceTotalDiscountBefore = (parseInt(oldTotalMath1) + parseInt(itemTotal));
 
     j++;
 }
@@ -338,29 +356,45 @@ function cartMemCoupon(){
 
 			//三-1-3.按照持有張數生成下拉選項
 		    if(holdingCouponNum >= 1 && holdingCoupon[0] != [""]){
+                //如果有折扣卷移除無折扣卷的選項並且將selected壓在較大的面額上
+                var chooseCoupon = document.getElementById("chooseCoupon");
+                var couponValueZero = document.getElementById("CouponValueZero");     
+                chooseCoupon.removeChild(couponValueZero);
 		        for(var key in holdingCoupon){
-		        	// console.log("1");
 		        	// 折扣卷面額
 					var holdingCouponValue = holdingCoupon[`${key}`];
+                    // console.log("1.使用者所持有的折扣卷面額", holdingCouponValue);
 		        	createCouponInit(holdingCouponValue);
 		        }
-		    }
 
+            console.log("5.外部變數紀錄的預設折扣值chooseCouponValue", chooseCouponValue);                
+            /*初始價格*/
+            var cartPriceTotal1 = document.getElementById('cartTotal');
+            //處理字串取數字轉成數字做計算
+            var oldTotal1 = cartPriceTotal1.innerText;
+            var oldTotalMath1 = oldTotal1.replace('NT$', '')
+            cartPriceTotal1.innerText = 'NT$' + (parseInt(oldTotalMath1));
+
+            var cartPriceTotal2 = document.getElementById('cartTotalFinal');
+            cartPriceTotal2.innerText = 'NT$' + (parseInt(oldTotalMath1) - chooseCouponValue + 120);
+
+            document.getElementById("cartDiscount").innerText = `-NT$${chooseCouponValue}`;
+
+            PriceTotalDiscountBefore = (parseInt(oldTotalMath1) - chooseCouponValue); 
+		    }
 		}
 	  }else{
 			alert(xhr.status)
 	  }
 	}
-
 	xhr.open('POST', 'cartCoupon.php', true);
 	// xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	xhr.send(formData1);
 }
 
-
 /*三-2.按照陣列資料處理動態生成折扣卷*/
 function createCouponInit(holdingCouponValue){
-	console.log("折扣卷面額", holdingCouponValue);
+	// console.log("2.產生新的折扣卷面額", holdingCouponValue);
 	var chooseCoupon = document.getElementById("chooseCoupon");
     var newOption = document.createElement('option');
 
@@ -368,9 +402,212 @@ function createCouponInit(holdingCouponValue){
     newOption.value = `${holdingCouponValue}`;
     newOption.innerText = `NT$${holdingCouponValue}`;
 
+    //將selected壓在較大的面額上
+    if(holdingCouponValue > chooseCouponValue){
+        chooseCouponValue = parseInt(holdingCouponValue);
+        console.log("3.外部變數紀錄的預設折扣值chooseCouponValue", chooseCouponValue);
+        newOption.setAttribute("selected","true");
+    }
+
 }
 
 
+/*三-3.按照選取折扣卷產生折扣到金額總計計算*/
+function shopcartInitPage2_2(){
+    var couponSelect = document.getElementById("chooseCoupon");
+    couponSelect.addEventListener("click", useCoupon, false);
+}
 
-window.addEventListener("load", cartMemCoupon, false);
+//紀錄折扣值
+function useCoupon(){
+    var couponSelect = document.getElementById("chooseCoupon");
+    var index = couponSelect.selectedIndex;    //選中
+    chooseCouponValueNow = couponSelect.options[index].value;    //選中的值
+    chooseCouponValueNow = parseInt(chooseCouponValueNow);
+
+    console.log("使用者前次選擇的折扣金額", chooseCouponValue);
+    console.log("使用者目前選擇的折扣金額", chooseCouponValueNow);
+
+    if(chooseCouponValueNow != chooseCouponValue){
+        console.log("6666.外部變數紀錄的預設折扣值chooseCouponValue", chooseCouponValue);                
+        /*初始價格*/
+        var cartPriceTotal2 = document.getElementById('cartTotalFinal');
+        var oldTotal2 = cartPriceTotal2.innerText;
+        var oldTotalMath2 = oldTotal2.replace('NT$', '')
+        cartPriceTotal2.innerText = 'NT$' + (parseInt(oldTotalMath2) + chooseCouponValue - chooseCouponValueNow);
+
+        document.getElementById("cartDiscount").innerText = `-NT$${chooseCouponValueNow}`;
+        chooseCouponValue = chooseCouponValueNow;
+    }
+}
+
+window.addEventListener("load", shopcartInitPage2_2, false);
+
+
+
+
+
+/*四.AJAX存入訂單到資料庫*/
+function orderCheck(){
+    //2.收件姓名
+    var shippingName = document.getElementById('shippingName').value;
+    //3.收件手機
+    var shippingPhone = document.getElementById('shippingPhone').value;
+    //4.收件地址
+    var shippingAddress = document.getElementById('shippingAddress').value;
+    //5.信用卡帳號
+    var cardNumber = document.getElementById('cardNumber').value;
+    //6.信用卡有效期限
+    var cardDateline = document.getElementById('cardDateline').value;
+    //7.信用卡安全碼
+    var cardSafenumber = document.getElementById('cardSafenumber').value;
+
+    console.log(shippingName)
+    if(shippingName == ""){
+        alert("請輸入收件姓名！");
+    }else if(shippingPhone == ""){
+        alert("請輸入收件手機號碼！");
+    }else if(shippingAddress == ""){
+        alert("請輸入收件地址！");
+    }else if(cardNumber == ""){
+        alert("請輸入信用卡帳號！");
+    }else if(cardDateline == ""){
+        alert("請輸入信用卡有效期限！");
+    }else if(cardSafenumber == ""){
+        alert("請輸入信用卡安全碼！");
+    }else{
+        //存入orderdetails的資料=========================================================
+        //1.如果有買明信片就存cartPost陣列
+        var cartPost = [], jsonStr, jsonStr2;
+        if(postcardNum >= 1 && postcardArr[0] != [""]){
+            for(var key in postcardArr){
+                console.log("11/22測試",key);
+
+                //處理字串得到編號及數量及小計
+                var itemId = postcardArr[key];
+
+                var itemStorage = `明信片(編號, 商品數量, 商品小計)編號${itemId}`
+                var itemString = localStorage.getItem(itemStorage);;
+                var itemStringArr = itemString.substr(0,itemString.length-2).split(', ');
+
+                var prodItem = {};
+                prodItem.productType = '明信片';  //1.商品類別
+                prodItem.orderItemNo = itemStringArr[0];  //2.商品編號
+                prodItem.orderItemName = '客製化明信片';  //3.商品名稱
+                prodItem.orderPrice = 60;  //4.商品價格
+                prodItem.orderItemNum = itemStringArr[1];//5.商品數量
+                prodItem.orderItemTotal = itemStringArr[2];  //6.單項商品小計
+                prodItem.orderItemPic = `${prodItem.orderItemNum}.jpg`;  //7.商品圖片檔名
+                // console.log("11/22測試", prodItem.orderItemTotal); 
+
+                cartPost[key] = prodItem;
+                // console.log("11/22測試", cartPost[key]);
+
+            }
+            jsonStr = JSON.stringify(cartPost);
+
+            // console.log(typeof jsonStr);
+        }
+
+        //2.如果有買商城商品就存cartShop陣列
+        var cartShop = [];
+        if(shopItemNum >= 1 && shopItemArr[0] != [""]){
+            for(var key in shopItemArr){
+                //處理字串得到編號及數量及小計
+                var itemId = shopItemArr[key];
+
+                var itemStorage = `商城商品(編號, 商品數量, 商品小計)編號${itemId}`
+                var itemString = localStorage.getItem(itemStorage);
+                var itemStringArr = itemString.substr(0,itemString.length-2).split(', ');
+
+                // 商城商品價格有3種
+                var itemPrice;
+                if(itemId==1 || itemId==2 || itemId==3 || itemId==10 || itemId==11 || itemId==12){
+                    itemPrice = 450;
+                }else if(itemId==4 || itemId==5 || itemId==6 || itemId==13 || itemId==14 || itemId==15){
+                    itemPrice = 550;
+                }else{
+                    itemPrice = 650;
+                }
+
+                // 商城商品名稱有2種
+                var itemName;
+                if(itemId < 10){
+                    itemName = "客製化馬克杯";
+                }else{
+                    itemName = "客製化T-shirt";
+                }
+
+                var prodItem = {};
+                prodItem.productType = '商城商品';  //1.商品類別
+                prodItem.orderItemNo = itemStringArr[0];  //2.商品編號
+                prodItem.orderItemName = itemName;  //3.商品名稱
+                prodItem.orderPrice = itemPrice;  //4.商品價格
+                prodItem.orderItemNum = itemStringArr[1];//5.商品數量
+                prodItem.orderItemTotal = itemStringArr[2];  //6.單項商品小計
+                prodItem.orderItemPic = `${prodItem.orderItemNum}.jpg`;  //7.商品圖片檔名
+                // console.log("11/22測試", prodItem.orderItemTotal); 
+
+                cartShop[key] = prodItem;
+                // console.log("11/22測試", cartShop[key]);
+                
+            }
+            jsonStr2 = JSON.stringify(cartShop);          
+        }
+
+
+        //存入orderform的資料=========================================================
+        //1.總價
+        var totalPrice = document.getElementById('cartTotalFinal').innerText;
+        totalPrice = totalPrice.replace('NT$', '')
+        totalPrice = parseInt(totalPrice);
+
+        console.log(totalPrice)
+        console.log(shippingName)
+        document.getElementById('hidden_data2').value = totalPrice;  //totalPrice
+        document.getElementById('hidden_data3').value = shippingName;  //shippingName
+        document.getElementById('hidden_data4').value = shippingPhone;  //shippingPhone
+        document.getElementById('hidden_data5').value = shippingAddress;  //shippingAddress
+        document.getElementById('hidden_data6').value = cardNumber;  //cardNumber
+        document.getElementById('hidden_data7').value = cardDateline;  //cardDateline
+        document.getElementById('hidden_data8').value = cardSafenumber;  //cardSafenumber    
+        document.getElementById('hidden_cart').value = jsonStr;
+        document.getElementById('hidden_cart2').value = jsonStr2;
+        orderSave();
+    }
+}
+
+function orderSave(){
+    var formData2 = new FormData(document.getElementById("form2"));
+
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function(){
+        if( xhr.status == 200){
+            if(xhr.responseText == "error"){
+                alert("Error");
+            }else{
+                console.log("------------");
+                console.log(xhr.responseText);
+            }
+        }else{
+            alert(xhr.status)
+        }
+    }
+
+    xhr.open('POST', 'orderSave.php', true);
+    xhr.send(formData2);
+}
+
+
+function shopcartInitPage2_3(){
+    var sendOrder = document.getElementById('sendOrder');
+    sendOrder.addEventListener("click", orderCheck, false);
+}
+
+window.addEventListener("load", shopcartInitPage2_3, false);
+
+
+
+
+
 

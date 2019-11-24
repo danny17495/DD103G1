@@ -237,13 +237,13 @@ try {
                                         if($userRow["postcard"]==NULL){
                                         ?>
                                             <div class="ifnull"><p>尚未有明信片</p>
-                                            <img id="upfile_pic" src="../DD103G1/images/member/memberPostercard.png">
+                                            <img id="upfile_pic" src="../DD103G1/images/member/memberPostercard.jpg">
                                             </div>
 
                                         <?php
                                         }else{
                                         ?>
-                                        <li class="memberli"> <img src="../DD103G1/images/member/memberPostercard.png"></li>
+                                        <li class="memberli"> <img src="../DD103G1/images/member/memberPostercard.jpg"></li>
                                     </div>
                                     <div class="memberboxdiv">
                                         <a href="#">下載圖片</a>
@@ -254,7 +254,7 @@ try {
                                 </div>
                                 <div class="memberBigBoxdiv">
                                     <div class="memberboxdiv">
-                                        <li class="memberli"> <img src="../DD103G1/images/member/memberPostercard.png"></li>
+                                        <li class="memberli"> <img src="../DD103G1/images/member/memberPostercard.jpg"></li>
                                     </div>
                                     <div class="memberboxdiv">
                                         <a href="#">下載圖片</a>
@@ -272,20 +272,20 @@ try {
                                 <div class="memberboxdivwrap1">
                                     <div class="memberBigBoxdiv2">
                                         <div class="memberboxdiv3">
-                                            <a href="#" style="text-align: left;">芋圓 $-5元</a>
-                                            <a href="#" style="text-align: left;">序號: 12345</a>
+                                            <a href="#" style="text-align: left;">芋圓<br> $-5元</a>
+                                            <!-- <a href="#" style="text-align: left;">序號: 12345</a> -->
                                         </div>
                                         <div class="memberboxdiv3">
-                                            <img src="../DD103G1/images/member/memberCoupon.png">
+                                            <img src="../DD103G1/images/member/memberCoupon.jpg">
                                         </div>
                                     </div>
                                     <div class="memberBigBoxdiv2">
                                         <div class="memberboxdiv3">
-                                            <a href="#" style="text-align: left;">芋圓 $-5元</a>
-                                            <a href="#" style="text-align: left;">序號: 12345</a>
+                                            <a href="#" style="text-align: left;">芋圓 <br>$-5元</a>
+                                            <!-- <a href="#" style="text-align: left;">序號: 12345</a> -->
                                         </div>
                                         <div class="memberboxdiv3">
-                                            <img src="../DD103G1/images/member/memberCoupon.png">
+                                            <img src="../DD103G1/images/member/memberCoupon.jpg">
                                         </div>
                                     </div>
                                 </div>

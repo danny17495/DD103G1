@@ -7,12 +7,12 @@ function logout(){
     let xhr = new XMLHttpRequest();
     xhr.open("Get", "php/login/logout.php", true);
     xhr.send(null);
-    $id("headermemId").innerHTML='';
-    $id('memberInfo').onclick = function (e) {
-        memberInfoClick = true;
-        e.preventDefault();
-        openLoginData();
-    }
+    $id("headerMemName").innerHTML='';
+    // $id('memberInfo').onclick = function (e) {
+    //     memberInfoClick = false;
+    //     e.preventDefault();
+    //     openLoginData();
+    // }
     if (window.location.href.indexOf("member.php") != -1) {
         window.location.href = "index.html"
     }
@@ -45,7 +45,7 @@ function sendData(){
                 $id("headerMemName").innerHTML = `${userData.memName}<a id="logout" href="javascript:;">登出</a>`;
                 $id("logout").onclick=logout;
                 if (memberInfoClick){ //判定原先有無按會員頁按鈕
-                    document.location.href = "member.php";
+                    window.location.href = "member.php";
                     memberInfoClick=false;
                 }
             }
@@ -103,18 +103,24 @@ function judgeLogin(){
         if (loginJudge != "not login") {   //已登入
             $id("headerMemName").innerHTML = `${sessionStorage.memName}<a id="logout" href="javascript:;">登出</a>`;
             $id("logout").onclick = logout;
-        } else {
-           
-           // $id("headermemId").innerHTML='';    //尚未登入
-                $id('memberInfo').onclick = function (e) {
-                memberInfoClick=true;
-                 e.preventDefault();
-                openLoginData();
-                // return false;
-            }
         }
     }));
 }
 window.addEventListener('load',function(){
     judgeLogin();
+
+    $id('memberInfo').onclick = function (e) {
+        if (!sessionStorage['memNo']) { //未登入
+            alert('未登入');
+            memberInfoClick = true;
+            e.preventDefault();
+            openLoginData();
+        }else{
+            alert('已登入');
+            window.location.href = "member.php";
+        }
+    }
+
 });
+
+

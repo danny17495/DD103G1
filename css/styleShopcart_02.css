@@ -1,5 +1,5 @@
 /*----------------shopcart購物車頁面開始(<768)---------------*/
-/*----------------購物車, 客製化明信片頁面的共用----------------*/
+/*----------------購物車共用----------------*/
 .wrapA{
     width: 100%;
 }
@@ -19,6 +19,15 @@ body{
     font-family: '華康秀風體';
     src: url('華康秀風體.TTF')
     /*unicode-range: U+884C, U+7A0B, U+4ECB, U+7D39;*/
+}
+
+section.cartOrder input{
+    padding: 3px;
+}
+
+/*for AJAX*/
+#form1, #form2{
+    display: none;
 }
 
 /*=============0.最外層為了雲消失包的=============*/
@@ -90,7 +99,7 @@ section.cartOrder .container .cartOrderRow{
 }
 
 /*<768以下的表頭*/
-section.cartOrder .container > .cartOrderRow:nth-child(2){
+section.cartOrder .container .cartOrderRow1{
     border-top: 20px solid rgba(243, 152, 0, .8);
     border-radius: 20px 20px 0 0;
 }
@@ -183,6 +192,21 @@ section.cartOrder .cartOrderDiScount .cartGameForCoupon span:hover{
     text-decoration: underline;  
 }
 
+section.cartOrder .cartOrderDiScount select.chooseCoupon{
+    padding: 5px;
+    outline: none;
+    /*border: 1px solid rgba(243, 152, 0, .8);*/
+    background-color: #fff;
+}
+
+section.cartOrder .cartOrderDiScount select option{
+    height: 5px;
+    /*outline: none;*/
+    /*border: 1px solid rgba(243, 152, 0, .8);*/
+    background-color: #fff;
+}
+
+
 /*=============2-5.商品價格=============*/
 section.cartOrder .cartOrderPrice{
     background-color: rgb(255, 255, 255, .5);
@@ -263,10 +287,10 @@ section.cartOrder .cartOrderBtn div.whiteButton:hover{
 
     /*=============2-2.商品列=============*/
     /*清除<768以下的表頭*/
-    section.cartOrder .container > .cartOrderRow:nth-child(2){
-        border-top: none;
+    section.cartOrder .container .cartOrderRow1{
+        border-top: 0 solid rgba(243, 152, 0, .8);
         border-radius: 0;
-    }
+    }   
 
     section.cartOrder .container{
         max-width: 1000px;

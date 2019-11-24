@@ -10,11 +10,6 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/styleShopcart_02.css">
     <script src="js/shopcart_02.js" defer></script>
-    <style>
-        #form1{
-            display: none;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -65,7 +60,6 @@
             </div>
         </div>
     </header>
-
 
 
     <div class="forCloudAnimation"><!-- 最外層為了雲消失包的 -->
@@ -146,15 +140,15 @@
                             <table>
                                 <tr>
                                     <td>姓名：</td>
-                                    <td><input type="text" placeholder="請填寫收件姓名"></td>
+                                    <td><input type="text" placeholder="請輸入收件姓名" id="shippingName"></td>
                                 </tr> 
                                 <tr>
                                     <td>手機：</td>
-                                    <td><input type="text" placeholder="請填寫收件手機"></td>
+                                    <td><input type="text" placeholder="請輸入收件手機" id="shippingPhone"></td>
                                 </tr>
                                 <tr>
                                     <td>地址：</td>
-                                    <td><input type="text" placeholder="請填寫收件地址"></td>
+                                    <td><input type="text" placeholder="請輸入收件地址" id="shippingAddress"></td>
                                 </tr>
                             </table>
                         </div>
@@ -174,8 +168,8 @@
                             <tr>
                                 <td>持有折扣卷：</td>
                                 <td>
-                                    <select name="coupon" id="chooseCoupon">
-                                        <option value="none">無折扣卷&nbsp;</option>
+                                    <select name="coupon" class="chooseCoupon" id="chooseCoupon">
+                                        <option value="0" id="CouponValueZero">無折扣卷&nbsp;</option>
                                         <!-- <option value="">NT$100</option>
                                         <option value="">NT$50</option>
                                         <option value="">NT$10</option> -->
@@ -197,7 +191,7 @@
                         <table>
                             <tr class="cartPriceBox">
                                 <td>小計：</td>
-                                <td id="cartTotal">NT$1350</td>
+                                <td id="cartTotal">NT$0</td>
                             </tr>
                             <tr class="cartPriceBox">
                                 <td>運費：</td>
@@ -205,17 +199,15 @@
                             </tr>
                             <tr class="cartPriceBox">
                                 <td>折扣：</td>
-                                <td id="cartDiscount">-NT$100</td>
+                                <td id="cartDiscount">-NT$0</td>
                             </tr>
                             <tr class="cartPriceBox">
                                 <td>總計：</td>
-                                <td id="cartTotalFinal">NT$1370</td>
+                                <td id="cartTotalFinal">NT$0</td>
                             </tr>
                         </table>                        
                     </div>
                 </div>
-
-
 
                 <!-- (2-6)付款資料 -->
                 <div class="cartOrderPay">
@@ -226,15 +218,15 @@
                         <table>
                             <tr class="cartOrderPayItem">
                                 <td>帳號：</td>
-                                <td><input type="text" placeholder="xxxx-xxxx-xxxx-xxxx"></td>
+                                <td><input type="text" placeholder="xxxx-xxxx-xxxx-xxxx" id="cardNumber"></td>
                             </tr>
                             <tr class="cartOrderPayItem">
                                 <td>有效期限：</td>
-                                <td><input type="text"placeholder="MM/YY"></td>
+                                <td><input type="text"placeholder="MM/YY" id="cardDateline"></td>
                             </tr>
                             <tr class="cartOrderPayItem">
                                 <td>安全碼：</td>
-                                <td><input type="text" placeholder="xxx"></td>
+                                <td><input type="text" placeholder="xxx" id="cardSafenumber"></td>
                             </tr>
                         </table>  
                     </div>
@@ -243,13 +235,23 @@
                 <!-- (2-7)按鈕 -->
                 <div class="cartOrderBtn">
                     <a href="shopcart.html" class="cartContinueBtn"><div class="whiteButton">返回</div></a>
-                    <div class="whiteButton cartNextBtn">送出</div>
+                    <div class="whiteButton cartNextBtn" id="sendOrder">送出</div>
                 </div>
+                <!-- 存訂單AJAX隱藏欄位 -->
+                <form method="post" accept-charset="utf-8" id="form2">
+                    <input name='hidden_cart' id='hidden_cart' type="hidden"/>
+                    <input name='hidden_cart2' id='hidden_cart2' type="hidden"/>
+                    <input name='hidden_data2' id='hidden_data2' type="text"/>
+                    <input name='hidden_data3' id='hidden_data3' type="text"/>
+                    <input name='hidden_data4' id='hidden_data4' type="text"/>
+                    <input name='hidden_data5' id='hidden_data5' type="text"/>
+                    <input name='hidden_data6' id='hidden_data6' type="text"/>
+                    <input name='hidden_data7' id='hidden_data7' type="text"/>
+                    <input name='hidden_data8' id='hidden_data8' type="text"/>
+                </form>
             </div><!-- .container結束div -->
         </section>
     </div><!-- .forCloudAnimation結束div -->
-
-
 
 
     <footer>
