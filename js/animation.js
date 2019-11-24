@@ -20,6 +20,54 @@ function competition(){
     }
     return xmlHttp;
 }
+//JOIN
+
+function  join_xml(){
+    join_item=competition();
+    join_item.open("GET","php/competition/join.php?memNo="+sessionStorage.memNo,true);
+    join_item.onreadystatechange = join_php;
+    join_item.send(null);  
+}
+function join_php(){
+    console.log(1);
+    if(join_item.readyState==4  && join_item.status==200){
+        var join_arr= JSON.parse(join_item.responseText);
+        console.log(join_arr);
+        if (join_arr=="error") {
+            alert("參加過了喔");
+        }else{
+             alertWrap("參加成功");
+        }}};
+
+
+        function vote(voteNo){
+
+            // console.log(voteNo);
+            let e = voteNo;
+            
+            $.ajax({
+                "type": "GET",
+                "dataType": "text",
+                "url": "php/competition/vote.php",
+                "data":	{
+                    "competNo": e
+                },		
+                "cache": false,
+                "success": function (data) {	
+                    // 同步更新票數
+                    $(".vote"+voteNo).text(data+"票");
+                    // (message_arr); 
+                },
+                "error":function(data){
+                    // console.log(data);
+                }
+            
+            });
+        }        
+
+
+
+
 
 //檢舉
 
@@ -30,7 +78,8 @@ function report(){
          return ;
         //  alert(1);
     } 
-    let m= $(this).find("input").val();
+    let m= $('.messageBtn').find("input").val();
+    // let m= document.getElementsByClassName("btnCloudb").value
        console.log(m);
     let u =sessionStorage['memNo'];
     //    let r = prompt("為什麼你檢舉他了呢", "");
@@ -151,12 +200,16 @@ function msg_xml(e){
 
 
 //按鈕類-----------------
-    
+//參加比賽
+$("#join").click(function() {
+    join();
+ });
+
+//留言    
     $('.messageBtn').click(function(){
     let e =$(this).find("input")[0].value;
     console.log(e); 
-    $('.messageWrapInput input:eq(0)').val(e).attr({name:'competNo',id:'msgBtnNo'})
-    alert(4);
+    $('.messageWrapInput input:eq(0)').val(e).attr({name:'competNo',id:'msgBtnNo'});
     message_xml(e)
      
 });
@@ -179,6 +232,18 @@ $('#msgBtn').click(function(){
 
 
 //按鈕函示-------------------
+
+function join(){
+    // 先判斷sessionStorage有沒有會員登入資料，有才往下做轉圖檔工作
+    if (sessionStorage['memName']){
+                join_xml();
+        }else{
+   //尚未登入
+               $id('login').style.display = 'block';
+    }
+};
+
+
  
 function message_btn(e){
     message_arr=e;
@@ -199,7 +264,8 @@ add += '<p id="messageMemName">'+message_arr[i]['memName']+'</p>';
 add += '<p class="messageDate" id="messageDate">'+message_arr[i]['msgDate']+'</p>';
 add += '</div><div class="messageBox">';
 add += '<p class="messageText" id="messageText">'+message_arr[i]['msgContent']+'</p>';
-add += '</div><div class="messageBtn"><span class="btnCloudb" onclick="report()">檢舉</span></div>';
+add += `</div><div class="messageBtn"><span class="btnCloudb" value=${i} onclick="report()">檢舉</span></div>`;
+add += `<input type="hidden" value="${i}" id="reportBtn"></input> `;
 add += '</div></div>';
 }
 $("#messageContent").append(add);

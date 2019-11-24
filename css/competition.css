@@ -566,10 +566,10 @@ body{
 }
 
 .competitionDescriptionSpan p{
-    font-family: "華康秀風體";
+    /* font-family: "華康秀風體"; */
     text-align: left;
     font-size: 26px;
-    margin: 50px;
+    margin: 30px;
 }
 
 .competitionGo{
