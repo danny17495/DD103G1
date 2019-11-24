@@ -424,13 +424,13 @@ try{
                     </div>
                     
                     <div class="whiteButton" id="join">
-                        <a href="#">我要參加比賽</a>
+                        <a href="#">參加比賽</a>
                     </div>
                     <div class="whiteButton">
-                        <a href="postcard.html">我要客製明信片</a>
+                        <a href="postcard.html">客製明信片</a>
                     </div>
                     <div class="whiteButton">
-                        <a href="shop.html">我要去購物商城</a>
+                        <a href="shop.html">購物商城</a>
                     </div>
                 </div>                
             </div>
