@@ -89,7 +89,7 @@ function vote(voteNo){
         },		
         "cache": false,
         "success": function (data) {	
-            // console.log(data);
+            // 同步更新票數
             $(".vote"+voteNo).text(data+"票");
             // (message_arr); 
         },

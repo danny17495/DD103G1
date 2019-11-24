@@ -376,7 +376,11 @@ try{
 
                 <div class="messageOtherBoard" id="fly1">
                 <?php
+                for($i=4;$i<=10;$i++){
                     while( $memberVoteRow = $memberVote -> fetch(PDO::FETCH_ASSOC)){
+
+                    }
+                    
 
                     ?>
                     <div class="smallMessage">
@@ -385,11 +389,11 @@ try{
                             <div class="competitionVoteTitle">
                                 <input type="hidden"  name="competNo">
                                 <span><span id="memName"><?=$memberVoteRow["memName"]?></span></span>
-                                <span><span id="vote0"><?=$memberVoteRow["vote"]?>票</span></span>
+                                <span><span class="vote"${i}><?=$memberVoteRow["vote"]?>票</span></span>
                             </div>
 
                             <div class="competitionButton">
-                                <span href="#"  class="whiteButton voteBtn">
+                                <span href="#" class="whiteButton voteBtn" data-vote="${i}">
                                     <img src="images/indexSpot/voteIcon.png" alt="">
                                     投票
                                     <input type="hidden" name="competNo2" value="">
