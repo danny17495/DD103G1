@@ -5,7 +5,7 @@
 }
 *{
     list-style: none;
-	/* outline:solid 1px red; */
+	 /*outline:solid 1px red; */
 }
 /*----------------index Banner(手機板)-----------------*/
 
@@ -644,55 +644,9 @@
 }
 /*============首頁明信片信封打開============*/
 .indexPost_trsOuter{
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-    position: absolute;
-    top: 0;
-    overflow: hidden;
+    display: none;
 }
-.indexPost_trs1{
-    position: absolute;
-    top: -200px;
-}
-.indexPost_trs1 img{
-    width: 100vw; 
-}
-.trs1Down{
-    animation: trs1Down .5s .3s linear forwards;
-}
-@keyframes trs1Down{
-    40% {top:-150px;}
-    100%{top:1000px;}
-}
-.indexPost_trs2{
-    position: absolute;
-    top: -250px;
-}
-.indexPost_trs2 img{
-    width: 100vw;
-}
-.trs2UP{
-    animation: trs2UP .4s .3s cubic-bezier(.44,.05,.93,.24) forwards;
-}
-@keyframes trs2UP{
-    40% {top:-180px;}
-    100%{top:-1000px;}
-}
-.indexPost_trs3{
-    position: absolute;
-    top: -250px;
-}
-.indexPost_trs3 img{
-    width: 100vw;
-}
-.trs3UP{
-    animation: trs3UP .4s .3s cubic-bezier(.44,.05,.93,.24) forwards;
-}
-@keyframes trs3UP{
-    50% {top:-400px;}
-    100%{top:-1000px;}
-}
+
 
 
 /*=============01明信片裝飾斜線=============*/
@@ -741,12 +695,9 @@
 	height: auto;
 }
 .postGirl{
-    opacity: 0;
-}
-.postGirlShow{
     opacity: 1;
-    transition: 2.5s;
 }
+
 
 /*=============02-2明信片主要Block=============*/
 .containerPost{
@@ -1202,57 +1153,6 @@
 
 @media all and (min-width: 768px) {
 	/*====================首頁明信片開始>768====================*/
-    /*============首頁明信片信封打開============*/
-.indexPost_trsOuter{
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-    position: absolute;
-    top: 0;
-    overflow: hidden;
-}
-.indexPost_trs1{
-    position: absolute;
-    top: -200px;
-}
-.indexPost_trs1 img{
-    width: 100vw; 
-}
-.trs1Down{
-    animation: trs1Down .5s .3s linear forwards;
-}
-@keyframes trs1Down{
-    40% {top:-150px;}
-    100%{top:1000px;}
-}
-.indexPost_trs2{
-    position: absolute;
-    top: -250px;
-}
-.indexPost_trs2 img{
-    width: 100vw;
-}
-.trs2UP{
-    animation: trs2UP .4s .3s cubic-bezier(.44,.05,.93,.24) forwards;
-}
-@keyframes trs2UP{
-    40% {top:-180px;}
-    100%{top:-1000px;}
-}
-.indexPost_trs3{
-    position: absolute;
-    top: -250px;
-}
-.indexPost_trs3 img{
-    width: 100vw;
-}
-.trs3UP{
-    animation: trs3UP .4s .3s cubic-bezier(.44,.05,.93,.24) forwards;
-}
-@keyframes trs3UP{
-    50% {top:-400px;}
-    100%{top:-1000px;}
-}
 
 	/*=============03明信片預覽畫面=============*/
 	/*步驟*/
@@ -1415,6 +1315,92 @@
 
 @media all and (min-width: 992px) {
     /*====================首頁明信片開始>992====================*/
+        /*============首頁明信片信封打開============*/
+.indexPost_trsOuter{
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+}
+.trsOuterHidden{
+    z-index: 1;
+  /*  display: none;*/
+}
+
+.indexPost_trs1{
+    position: absolute;
+    top: -200px;
+}
+.indexPost_trs1 img{
+    width: 100vw; 
+}
+.trs1Down{
+    animation: trs1Down .5s .3s linear forwards;
+}
+@keyframes trs1Down{
+    40% {top:-150px;}
+    100%{top:1000px;}
+}
+.indexPost_trs2{
+    position: absolute;
+    top: -250px;
+}
+.indexPost_trs2 img{
+    width: 100vw;
+}
+.trs2UP{
+    animation: trs2UP .4s .3s cubic-bezier(.44,.05,.93,.24) forwards;
+}
+@keyframes trs2UP{
+    40% {top:-180px;}
+    100%{top:-1000px;}
+}
+.indexPost_trs3{
+    position: absolute;
+    top: -250px;
+}
+.indexPost_trs3 img{
+    width: 100vw;
+}
+.trs3UP{
+    animation: trs3UP .4s .3s cubic-bezier(.44,.05,.93,.24) forwards;
+}
+@keyframes trs3UP{
+    50% {top:-400px;}
+    100%{top:-1000px;}
+}
+.containerTitle div.postGirl{
+    top: -117px;
+    left: 27px;
+    width: 25%;
+    min-width: 100px;
+    height: auto;
+}
+
+.containerTitle div.stemp{
+    top: -27px;
+    right: 10px;
+    width: 20%;
+    max-width: 168px;
+    height: auto;
+}
+
+.containerTitle img{
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+}
+.postGirl{
+    opacity: 0;
+}
+.postGirlShow{
+    opacity: 1;
+    transition: 2s;
+}
+
     .wrapperPost{
         margin-top: 0;
     }
@@ -1596,6 +1582,66 @@
     /*=============新增=============*/
    
 }
+/*--------------indexPost 明信片打開-------------------*/
+@media all and (min-width: 1400px) {
+.indexPost_trsOuter{
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    overflow: hidden;
+}
+.trsOuterHidden{
+    /*display: none;*/
+    z-index: 1;
+}
+.indexPost_trs1{
+    position: absolute;
+    top: -200px;
+}
+.indexPost_trs1 img{
+    width: 100vw; 
+}
+.trs1Down{
+    animation: trs1Down .5s .3s linear forwards;
+}
+@keyframes trs1Down{
+    40% {top:-150px;}
+    100%{top:1000px;}
+}
+.indexPost_trs2{
+    position: absolute;
+    top: -250px;
+}
+.indexPost_trs2 img{
+    width: 100vw;
+}
+.trs2UP{
+    animation: trs2UP .4s .3s cubic-bezier(.44,.05,.93,.24) forwards;
+}
+@keyframes trs2UP{
+    40% {top:-180px;}
+    100%{top:-1800px;}
+}
+.indexPost_trs3{
+    position: absolute;
+    top: -250px;
+}
+.indexPost_trs3 img{
+    width: 100vw;
+}
+.trs3UP{
+    animation: trs3UP .4s .3s cubic-bezier(.44,.05,.93,.24) forwards;
+}
+@keyframes trs3UP{
+    50% {top:-400px;}
+    100%{top:-1800px;}
+}
+
+}
+
 /*--------------indexVoteGame 投票比賽-------------------------*/
 .indexVoteGame{
     background:linear-gradient(transparent 0%,#7fa6e9 15%,#6896e7 25%,#558be5 70%);
@@ -2215,10 +2261,41 @@
 	.spotIntroBanner{
 		padding-top: 25px;
 	}
+    #BannerVideo{
+        position: fixed;
+        width :100%;  
+        height : auto ;
+        right: 0;
+        top: 0px;
+        z-index: -100;
+        background-size : cover ;
+        margin-top: 80px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .spotIntroBannerOuter{
+        height: 100vh;
+        position: relative;
+    }
+    .spotWave2{
+        background: url(../images/spotIntro/wave_bg02.png) repeat-x bottom;
+        background-size: contain;
+        z-index: 10;
+        position: absolute;
+        left: 0;
+        bottom: 56.8%;
+        width: 100%;
+        height: 24px;
+        animation: move_wave 12s linear 0s infinite;
+    }
+    @keyframes move_wave{
+        0%{background-position-x: -945px;}
+        100%{background-position-x: 0;}
+    }
 	.spotIntroBannerOuter{
 		width: 100%;
-		height: 70vh;
-		background-image: url(../images/spotIntro/spot_bg.jpg);
+		height: 44vh;
+		/*background-image: url(../images/spotIntro/spot_bg.jpg);*/
 		background-repeat: no-repeat;
 		background-size: cover;
 		position: relative;
@@ -2226,9 +2303,9 @@
 	.spotIntroBannerText{
 		padding:20px 20px ;
 		width: 80%;
-		background-color: #f39800;
+		/*background-color: #f39800;*/
 		position: absolute;
-		bottom: -55px;
+		bottom: 100px;
 		right: 0;
 		left: 0;
 		margin: 0 auto;
@@ -2237,10 +2314,11 @@
         width: 50px;
         height: 80px;
         position: absolute;
-        bottom: 156px;
-        right: 37px;
+        bottom: 0;
+        right: 16px;
         transform-origin: bottom center;
         transform: scale(0);
+        z-index: 20;
     }
     .spotIntroTree img{ 
         width: 100%;
@@ -2251,21 +2329,11 @@
 	.spotIntroBannerText h1{
 		font-size: 20px;
 		text-align: center;
-		margin-bottom: 30px;
 		color: #fff;
 		position: relative;
 	}
-	.spotIntroBannerText h1:after{
-		content:'';
-		display: block;
-		width: 50px;
-		height: 1.5px;
-		background-color: #fff;
-		position: absolute;
-		bottom: -20px;
-		left: 0;
-	}
 	.spotIntroBannerText p{
+        display: none;
 		color: #fff;
 		text-align: justify;
 		margin-bottom: 40px;
@@ -2274,29 +2342,75 @@
 	.spotIntroBannerText .spotIntroBannerBtn{
 		margin-left: 50%;
 		transform: translateX(-50%);
+        display: none;
 	}
 
+@media all and (min-width: 460px) {
+    .spotIntroBannerOuter{
+        width: 100%;
+        height: 55vh;
+        /*background-image: url(../images/spotIntro/spot_bg.jpg);*/
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+    .spotIntroTripOter{
+        margin-top: -30px;
+        padding-top: 100px;
+    }
+     .spotWave2{
+        bottom: 45.6%;
+    }
+}
 /*---------------行程介紹 Banner (網頁板)------------*/
 @media all and (min-width: 992px) {
 	.spotIntroBanner{
 		padding-top: 100px;
 	}
-	.spotIntroBannerOuter{
-		height: 100vh;
+    #BannerVideo{
+        position: fixed;
+        width :100%;  
+        height : 100%;
+        right: 0;
+        top: 0px;
+        z-index: -100;
+        background-size : cover ;
+        margin-top: -50px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+   	.spotIntroBannerOuter{
+		height: 75vh;
         position: relative;
 	}
+    .spotWave2{
+        background: url(../images/spotIntro/wave_bg02.png) repeat-x bottom;
+        background-size: contain;
+        z-index: 10;
+        position: absolute;
+        left: 0;
+        bottom: 224px;
+        width: 100%;
+        height: 24px;
+        animation: move_wave 12s linear 0s infinite;
+    }
+    @keyframes move_wave{
+        0%{background-position-x: -945px;}
+        100%{background-position-x: 0;}
+    }
     .spotIntroTree{
         width: 60px;
         height: 102px;
         position: absolute;
-        bottom: -70px;
+        bottom: 12px;
         right: 20px;
+        z-index: 10;
     }
 	.spotIntroBannerText{
 		padding:140px 30px ;
-		width: 24%;
+		width: 34%;
 		height: 100%;
-		background-color: #f39800;
+		/*background-color: #f39800;*/
 		position: absolute;
 		top: 0;
 		right: -580px;
@@ -2307,45 +2421,60 @@
 	.spotIntroBannerText h1{
 		font-size: 28px;
 		text-align: center;
-		margin-bottom: 120px;
+		margin-bottom:50px;
 		color: #fff;
 		position: relative;
-	}
-	.spotIntroBannerText h1:after{
-		content:'';
-		display: block;
-		width: 50px;
-		height: 1.5px;
-		background-color: #fff;
-		position: absolute;
-		bottom: -90px;
-		left: 0;
 	}
 	.spotIntroBannerText p{
 		color: #fff;
 		text-align: justify;
-		margin-bottom: 100px;
+		margin-bottom: 50px;
 		font-family: 'Noto Serif TC', serif;
+        display: block;
 	}
 	.spotIntroBannerText .spotIntroBannerBtn{
 		margin-left: 50%;
 		transform: translateX(-50%);
+        display: block;
+        text-align: center;
+        width: 120px;
 	}
 }
 @media all and (min-width: 1200px) {
+    #BannerVideo{
+        position: fixed;
+        width :100%;  
+        height : auto ;
+        right: 0;
+        top: 0px;
+        z-index: -100;
+        background-size : cover ;
+        margin-top: 50px;
+        margin-right: auto;
+        margin-left: auto;
+    }
 	.spotIntroBannerText h1{
 		font-size: 32px;
 	}
+    .spotIntroBannerOuter{
+        height: 100vh;
+        position: relative;
+    }
+    .spotWave2{
+        bottom: -70.5px;
+    }
 }
 
 /*-------------行程介紹 Trip1 尋幽訪古之旅(手機板)----------*/
 .spotIntroTripOter{
 	width: 100%;
 	background: linear-gradient(#fff 0%, #feeed4 10%);
+    margin-top: -30px;
+    padding-top: 100px;
 }
 .spotIntroTrip1Nav{
 	width: 100%;
-	padding-top: 120px;
+    margin-top: -15px;
 }
 .spotIntroTrip1Nav h1{
 	width: 280px;
@@ -2446,8 +2575,14 @@
 .spotIntroTrip1_Stopbar li:nth-child(3):after{
 	right:-36px;
 }
+
 /*-------------行程介紹 Trip1 尋幽訪古之旅(網頁板)----------*/
 @media all and (min-width: 768px) {
+    .spotIntroTrip1Nav{
+        width: 100%;
+        padding-top: 50px;
+        margin-top: -30px;
+    }
 	.spotIntroTrip1Nav h1{
 		font-size: 48px;
 		width: 400px;
@@ -2507,6 +2642,10 @@
 	.spotIntroTrip1_Stopbar{
 		width: 90%;
  	}
+    .spotIntroTripOter{
+        margin-top: -110px;
+        padding-top: 100px;
+    }
 }
 @media all and (min-width: 1200px) {
 	.spotIntroTrip1_Stopbar{
@@ -2515,6 +2654,10 @@
  	.spotIntroTrip1_Stopbar li:first-child:after{
 		right: -30px;
  	}
+    .spotIntroTripOter{
+        margin-top: -30.5px;
+        padding-top: 100px;
+    }
 }
 /*-------------行程介紹 Trip1 01九份老街(手機版)----------*/
 .spotIntroTrip1_SpotA{
@@ -4444,20 +4587,20 @@
     transition: transform 750ms ease-in-out;
 }
 .indexBanner .slideDarkBg--1{
-    background: url(../images/BG_PIC.png) no-repeat;
+    background: url(../images/BG_PIC.jpg) no-repeat;
     width: 100%;
     height:863px;
 	background-position:  center center;
 }
 .indexBanner .slideDarkBg--2{
-    background: url(../images/BG_PIC2.png) no-repeat;
+    background: url(../images/BG_PIC2.jpg) no-repeat;
     width: 100%;
     height:863px;
 	background-position:  center center;
 	left: -50%;
 }
 .indexBanner .slideDarkBg--3{
-    background: url(../images/BG_PIC3.png) no-repeat;
+    background: url(../images/BG_PIC3.jpg) no-repeat;
     width: 100%;
     height:863px;
 	background-position: bottom center;
@@ -5849,12 +5992,12 @@ body.postcardBody .forWallDeco{
 /*註冊*/
 .LoginForm-row .LoginBtnR{
   position: absolute;
-  bottom:51px;
+  bottom:17px;
   left:24%;
 }
 .LoginForm-row .LoginBtnL{
   position: absolute;
-  bottom:51px;
+  bottom:17px;
   left:50%;
 }
 .LoginForm-row.fix .LoginBtnL,.LoginForm-row.fix .LoginBtnR{
@@ -5870,7 +6013,6 @@ body.postcardBody .forWallDeco{
   display:block;
   padding:10px 12px 10px 0px;
   font-weight:600;
-  text-transform:uppercase;
 }
 
 
@@ -5932,5 +6074,15 @@ body.postcardBody .forWallDeco{
   top:0;
   background-attachment: fixed;
 }
-
+.LoginForm #myForm .Login-signup{
+    padding: 0 20px;
+}
+#myForm .errMsg{
+    font-size: 8px;
+    margin-left: 10px;
+    color:red;
+}
+.whiteButton a{
+    color:inherit
+}
 

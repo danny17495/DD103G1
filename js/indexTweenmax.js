@@ -27,7 +27,7 @@ window.addEventListener("load", function () {
     var postscene1 = new ScrollMagic.Scene({
         triggerElement: '.postDIY',
         reverse:false,
-    }).setClassToggle('.indexPost_trs1', 'trs1Down').addIndicators().addTo(controller);
+    }).setClassToggle('.indexPost_trs1', 'trs1Down').addTo(controller);
     
     var postscene2 = new ScrollMagic.Scene({
         triggerElement: '.postDIY',
@@ -43,6 +43,11 @@ window.addEventListener("load", function () {
         triggerElement: '.postDIY',
         reverse:false,
     }).setClassToggle('.postGirl', 'postGirlShow').addTo(controller);
+
+     var postsOuter = new ScrollMagic.Scene({
+        triggerElement: '.postBGC_3',
+        reverse:false,
+    }).setClassToggle('.indexPost_trsOuter', 'trsOuterHidden').addTo(controller);
 
         
 });
