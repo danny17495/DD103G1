@@ -175,7 +175,7 @@ try{
         <div id="containerpa floatBoard">
             <div class="skylightBanner">
                     <h1>投票比賽</h1>
-                    <h2>十月份比賽</h2>
+                    <h2>2019年11月</h2>
             </div>
 
             <!-- 天燈 -->
@@ -216,15 +216,15 @@ try{
             <?php
                 }
             ?>
-                    <div class="competitionButton">
-                        <span href="#" class="whiteButton voteBtn" data-vote="1">
-                            <img src="images/indexSpot/voteIcon.png" alt="">
-                            投票
+                    <div class="competitionButton indexVoBtn">
+                        <div href="#" class="indexVoBtn voteBtn" data-vote="1">
+                        <i class="fa fa-hand-o-down fa-2x voteIcon" aria-hidden="true"></i>
+                        <p>投票</p>
                             <input type="hidden" name="competNo2" value="">
-                        </span>
-                        <span href="#"  class="whiteButton messageBtn">
-                            <img src="images/indexSpot/messIcon.png" alt="">
-                            留言
+                        </div>
+                        <div href="#"  class="indexVoBtn messageBtn">
+                        <i class="fa fa-commenting-o messIcon fa-2x" aria-hidden="true"></i>
+                        <p>留言</p>
                             <input type="hidden" name="competNo3" value="1">
                         </span>
                     </div>
@@ -270,17 +270,17 @@ try{
                     <?php
                         }
                     ?>
-                    <div class="competitionButton">
-                        <span href="#" class="whiteButton voteBtn" data-vote="2">
-                            <img src="images/indexSpot/voteIcon.png" alt="">
-                            投票
+                    <div class="competitionButton indexVoBtn">
+                        <div href="#" class="indexVoBtn voteBtn" data-vote="2">
+                        <i class="fa fa-hand-o-down fa-2x voteIcon" aria-hidden="true"></i>
+                            <p>投票</p>
                             <input type="hidden" name="competNo2" value="">
-                        </span>
-                        <span href="#"  class="whiteButton messageBtn">
-                            <img src="images/indexSpot/messIcon.png" alt="">
-                            留言
+                        </div>
+                        <div href="#"  class="indexVoBtn messageBtn">
+                        <i class="fa fa-commenting-o messIcon fa-2x" aria-hidden="true"></i>
+                            <p>留言</p>
                             <input type="hidden" name="competNo3" value="2">
-                        </span>
+                        </div>
                     </div>
                 </div>
                 <?php
@@ -320,17 +320,17 @@ try{
                         }
                     ?>
 
-                    <div class="competitionButton">
-                        <span href="#" class="whiteButton voteBtn" data-vote="3">
-                            <img src="images/indexSpot/voteIcon.png" alt="">
-                            投票
+                    <div class="competitionButton indexVoBtn">
+                        <div href="#" class="indexVoBtn voteBtn" data-vote="3">
+                        <i class="fa fa-hand-o-down fa-2x voteIcon" aria-hidden="true"></i>
+                            <p>投票</p>
                             <input type="hidden" name="competNo2" value="">
-                        </span>
-                        <span href="#"  class="whiteButton messageBtn">
-                            <img src="images/indexSpot/messIcon.png" alt="">
-                            留言
+                        </div>
+                        <div href="#"  class="indexVoBtn messageBtn">
+                        <i class="fa fa-commenting-o messIcon fa-2x" aria-hidden="true"></i>
+                            <p>留言</p>
                             <input type="hidden" name="competNo3" value="3">
-                        </span>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -372,17 +372,17 @@ try{
                                 <span><span class="vote<?echo $i?>"><?=$memberVoteRow["vote"]?>票</span></span>
                             </div>
 
-                            <div class="competitionButton">
-                                <span href="#" class="whiteButton voteBtn" data-vote="<?echo $i?>">
-                                    <img src="images/indexSpot/voteIcon.png" alt="">
-                                    投票
+                            <div class="competitionButton indexVoBtn">
+                                <div href="#" class="indexVoBtn voteBtn" data-vote="<?echo $i?>">
+                                <i class="fa fa-hand-o-down fa-2x voteIcon" aria-hidden="true"></i>
+                                    <p>投票</p>
                                     <input type="hidden" name="competNo2" value="">
-                                </span>
-                                <span href="#"  class="whiteButton messageBtn">
-                                    <img src="images/indexSpot/messIcon.png" alt="">
-                                    留言
+                                </div>
+                                <div href="#"  class="indexVoBtn messageBtn">
+                                <i class="fa fa-commenting-o messIcon fa-2x" aria-hidden="true"></i>
+                                    <p>留言</p>
                                     <input type="hidden" name="competNo3" value="">
-                                </span>
+                        </div>
                             </div>
                         </div>
                     </div>

@@ -10,6 +10,7 @@ body{
     font-size: 36px;
     color: #ddd;
 } */
+
 .message {
     width: 100%;
     height: 100%;
@@ -384,16 +385,14 @@ body{
     margin-top: 10px;
 }
 
-.comprtitionButton span{
+.competitionButton .indexVoBtn{
     display: flex;
     justify-content: space-around;
     flex-flow: row nowrap;
 }
 
-.competitionButton img{
-    width:30%;
-    padding-top: 3px;
-    margin: 0;
+.competitionButton{
+    margin-top: 20px;
 }
 
 
