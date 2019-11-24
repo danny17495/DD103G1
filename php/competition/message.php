@@ -1,15 +1,16 @@
 <?php
 $errMsg = "";
+// $competNo = 1;
 $competNo=$_GET["competNo"];
 try {
     require_once("../connect.php");
     session_start();
 
     $sql_msg_member = 
-   "select message.msgContent,message.msgDate,member.memId,message.competNo,message.msgNo
+   "select message.msgContent,message.msgDate,member.memName,message.competNo,message.msgNo
     from `message`,`member`
-    where message.memNo=member.memberNo and message.msgStatus=1 and message.competNo= $competNo
-    order by message.msgDate desc;";
+    where message.memNo=member.memNo and message.msgStatus=1 and message.competNo= $competNo
+    order by message.msgDate desc";
 
     $msgMember = $pdo->prepare($sql_msg_member);
     $msgMember ->execute();

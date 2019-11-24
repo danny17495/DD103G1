@@ -39,32 +39,26 @@ try{
     where member.memName=competition.memName and member.memNo=postcard.memNo and YEAR(startDate) = 2019 
     order by competition.vote desc";
 
-    // $sql_member_vote = 
-    // "select member.memName,member.postcardPic,competition.vote,competition.memName,postcard.postcardPic,message.msgContent
-    // from `member`, `competition`, `postcard` ,`message`
-    // where member.memName=competition.memName and member.postcardPic=postcard.postcardPic and YEAR(startDate) = 2019 
-    // order by competition.vote desc";
-
     $memberVote = $pdo->prepare($sql_member_vote);
     $memberVote ->execute();
 
-    $item = "select count(*) from competition";
-    $result = $pdo->query($item);
-    $result ->bindColumn(1,$totalRecord);
-    $result->fetch();
+    // $item = "select count(*) from competition";
+    // $result = $pdo->query($item);
+    // $result ->bindColumn(1,$totalRecord);
+    // $result->fetch();
 
-    $recPerPage = 6;
+    // $recPerPage = 6;
 
-    $totalPage = ceil($totalRecord/$recPerPage);
+    // $totalPage = ceil($totalRecord/$recPerPage);
 
-    if(isset($_GET["startDate"])==false)
-    $startDate=1;
-    else
-    $startDate=$_GET["startDate"];
+    // if(isset($_GET["startDate"])==false)
+    // $startDate=1;
+    // else
+    // $startDate=$_GET["startDate"];
 
-    $start = ($startDate-1) * $recPerPage;
-    $items = "select * from competition order by startDate limit $start,$recPerPage";
-    $competition = $pdo->query($items);
+    // $start = ($startDate-1) * $recPerPage;
+    // $items = "select * from competition order by startDate limit $start,$recPerPage";
+    // $competition = $pdo->query($items);
 
 
 } catch (PDOException $e) {
@@ -178,51 +172,10 @@ try{
 
                 <!-- PHP 抓取資料 -->
 
-                <?php
-                    while($msgMemberRow = $msgMember -> fetch(PDO::FETCH_ASSOC)){
-                ?>
-
-                <div class="messageWrap" id="messageWrap">
-
-                    <!-- 會員圖片 -->
-
-                     <!-- <figure class="mem_pic" id="bg_pic">
-                    </figure> -->
-
-                    <!-- 會員留言資料 -->
-
-                    <div id="memText" class="memText">
-                        <div class="megsageMemName">
-                            <p id="messageMemName">
-                                <?=$msgMemberRow["memName"]?>
-                            </p>
-                            <p class="messageDate" id="messageDate">
-                                <?=$msgMemberRow["msgDate"]?>
-                            </p> 
-                        </div>
-                        <div class="messageBox">
-                            <p class="messageText" id="messageText">
-                                <?=$msgMemberRow["msgContent"]?>
-                            </p>  
-                        </div> 
-
-                    <!-- 會員檢舉 -->
-
-                        <div class="messageBtn">
-                            <span class="btnCloudb">檢舉</span>
-                        </div>
-                    </div>
-                </div>
-
-                <?php
-                    }
-                ?>  
-
-            </div>
 
             <!-- 留言輸入區塊 -->
-
-            <form class="messageWrapInput" method="POST" action="memComprtitionMessage.php">
+            </div>
+            <form class="messageWrapInput">
                 <input type="hidden" id="msgBtnNo">
                 <input type="text" id="inputText" name="msg" placeholder="最多輸入10字數" maxlength="10">
                 <div class="messageInputBtn">
@@ -263,7 +216,7 @@ try{
                                 <?=$memberVoteRow["memName"]?>
                             </span>
                         </span>
-                        <span>得票數:<span><?=$memberVoteRow["vote"]?>票</span></span>
+                        <span>得票數:<span class="vote1"><?=$memberVoteRow["vote"]?>票</span></span>
                     </div>
                     <div class="competitionPost">
                         <img src="images/postcard/<?=$memberVoteRow["postcardPic"]?>.jpg" alt="">
@@ -282,15 +235,15 @@ try{
                 }
             ?>
                     <div class="competitionButton">
-                        <span href="#"  class="whiteButton voteBtn">
+                        <span href="#" class="whiteButton voteBtn" data-vote="1">
                             <img src="images/indexSpot/voteIcon.png" alt="">
                             投票
-                            <input type="hidden" name="competNo2" value="25">
+                            <input type="hidden" name="competNo2" value="">
                         </span>
                         <span href="#"  class="whiteButton messageBtn">
                             <img src="images/indexSpot/messIcon.png" alt="">
                             留言
-                            <input type="hidden" name="competNo3" value="25">
+                            <input type="hidden" name="competNo3" value="1">
                         </span>
                     </div>
                 </div>
@@ -314,7 +267,7 @@ try{
                                 <?=$memberVoteRow["memName"]?>
                             </span>
                         </span>
-                        <span>得票數:<span><?=$memberVoteRow["vote"]?>票</span></span>
+                        <span>得票數:<span class="vote2"><?=$memberVoteRow["vote"]?>票</span></span>
                     </div>
                     <div class="competitionPost">
                         <img src="images/postcard/<?=$memberVoteRow["postcardPic"]?>.jpg" alt="">
@@ -336,15 +289,15 @@ try{
                         }
                     ?>
                     <div class="competitionButton">
-                        <span href="#"  class="whiteButton voteBtn">
+                        <span href="#" class="whiteButton voteBtn" data-vote="2">
                             <img src="images/indexSpot/voteIcon.png" alt="">
                             投票
-                            <input type="hidden" name="competNo2" value="25">
+                            <input type="hidden" name="competNo2" value="">
                         </span>
                         <span href="#"  class="whiteButton messageBtn">
                             <img src="images/indexSpot/messIcon.png" alt="">
                             留言
-                            <input type="hidden" name="competNo3" value="25">
+                            <input type="hidden" name="competNo3" value="2">
                         </span>
                     </div>
                 </div>
@@ -361,7 +314,7 @@ try{
                                 <?=$memberVoteRow["memName"]?>
                             </span>
                         </span>
-                        <span>得票數:<span><?=$memberVoteRow["vote"]?>票</span></span>
+                        <span>得票數:<span class="vote3"><?=$memberVoteRow["vote"]?>票</span></span>
 
                     </div>
                     <div class="competitionPost">
@@ -386,15 +339,15 @@ try{
                     ?>
 
                     <div class="competitionButton">
-                        <span href="#"  class="whiteButton voteBtn">
+                        <span href="#" class="whiteButton voteBtn" data-vote="3">
                             <img src="images/indexSpot/voteIcon.png" alt="">
                             投票
-                            <input type="hidden" name="competNo2" value="25">
+                            <input type="hidden" name="competNo2" value="">
                         </span>
                         <span href="#"  class="whiteButton messageBtn">
                             <img src="images/indexSpot/messIcon.png" alt="">
                             留言
-                            <input type="hidden" name="competNo3" value="25">
+                            <input type="hidden" name="competNo3" value="3">
                         </span>
                     </div>
                 </div>
@@ -414,28 +367,12 @@ try{
             <span class="star blue"></span>
         </div>
 
-        <div class="containerpa">
+        <div class="containerpa otherBord">
             <div class="row">
                 <div class="skylightBanner ">
                     <img src="images/competition/skylight4.png" id="skylight4" alt="">
                     <h2>其他作品</h2>
                 </div>
-
-                <!-- 篩選按鈕 -->
-                
-                <div class="chooseButton">
-                    <div class="whiteButton">
-                        <span href="#">熱門作品</span>
-                    </div>
-                    <div class="whiteButton">
-                        <span href="#">最新作品</span>
-                    </div>
-                    <div class="whiteButton">                    
-                        <span href="#">最夯作品</span>
-                    </div>
-                </div>
-
-
 
                 <div class="messageOtherBoard" id="fly1">
                 <?php
@@ -455,32 +392,24 @@ try{
                                 <span href="#"  class="whiteButton voteBtn">
                                     <img src="images/indexSpot/voteIcon.png" alt="">
                                     投票
-                                    <input type="hidden" name="competNo2" value="25">
+                                    <input type="hidden" name="competNo2" value="">
                                 </span>
                                 <span href="#"  class="whiteButton messageBtn">
                                     <img src="images/indexSpot/messIcon.png" alt="">
                                     留言
-                                    <input type="hidden" name="competNo3" value="25">
+                                    <input type="hidden" name="competNo3" value="">
                                 </span>
                             </div>
                         </div>
                     </div>
+                    
                     <?php
                     }
                     ?>
+                                  
+                    
     </section>
-    <div style="display:flex;text-align:center;justify-content:center;">
-       <?php
-       echo "<a href='?startDate=1' onclick='return false'>第一頁</a>&nbsp";
-       for($i=1;$i<= $totalPage;$i++){
-           if($i==$startDate)
-            echo "<a href='?startDate=$i' style='color:deepPink' onclick='return false'>",$i,"</a>&nbsp&nbsp";
-           else
-            echo "<a href='?startDate=$i'onclick='return false'>",$i,"</a>&nbsp&nbsp";
-       }
-       echo "<a href='?startDate=$totalPage' onclick='return false' javascript:'void(0)'>最後一頁</a>&nbsp";
-       ?>
-    </div>
+
     
 
 
@@ -507,17 +436,17 @@ try{
                 </div>
                 <div class="competitionGo">
                     <div class="Bus">
-                        <img src="images/busStop.png" alt="">
+                        <a href="reserve.html"><img src="images/spotintro/busStop.png" alt=""></a>
                     </div>
                     
                     <div class="whiteButton">
-                        <span>我要加入會員</span>
+                        <a href="#">我要加入會員</a>
                     </div>
                     <div class="whiteButton">
-                        <span>我要客製明信片</span>
+                        <a href="postcard.html">我要客製明信片</a>
                     </div>
                     <div class="whiteButton">
-                        <span>我要去購物商城</span>
+                        <a href="shop.html">我要去購物商城</a>
                     </div>
                 </div>                
             </div>
@@ -544,13 +473,12 @@ try{
             <div class="alertTitle">提示</div>
             <div class="alertContent">我是內容</div>
             <div class="closeWrap">
-                <div class="yesButton whiteButton">確認</div>
+                <div class="yesButton whiteButton">取消</div>
                 <div class="cancelButton whiteButton">取消</div>
             </div>
             <div class="alertClose">
                 <i class="fa fa-times-circle Trip2_lightBoxBTN" aria-hidden="true" id="Trip2_lightBoxBTN02"></i>
             </div>
-    
         </div>
     </div>
     <section id="login" class="Loginwrap">
@@ -677,6 +605,7 @@ try{
     <script src="js/login.js"></script>
     <script src="js/alert.js"></script>
     <script src="js/animation.js"></script>
+
 
 </body>
 </html>
