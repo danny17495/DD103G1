@@ -146,23 +146,11 @@ function msg_xml(e){
         }
         
     });
-    // message_item=competition();
-    // message_item.open("GET","php/competition/message.php?competNo="+e,true);
-    // message_item.onreadystatechange = message_php;
-    // message_item.send(null);
 
 }
 
-// function message_php(){
-//     if(message_item.readyState==4  && message_item.status==200){
-//         let message_arr= JSON.parse(message_item.responseText);
-//         // console.log(message_arr);
-//         message_btn(message_arr); 
-//     //alert(1);
-// }}
 
 //按鈕類-----------------
-// function activity_button(){
     
     $('.messageBtn').click(function(){
     let e =$(this).find("input")[0].value;
@@ -184,7 +172,6 @@ $('#msgBtn').click(function(){
     msg_value(); 
  })
 
-// }
 
 
 

@@ -374,26 +374,24 @@ try{
                     <h2>其他作品</h2>
                 </div>
 
-                <div class="messageOtherBoard" id="fly1">
+                <div class="messageOtherBoard">
                 <?php
-                for($i=4;$i<=10;$i++){
-                    while( $memberVoteRow = $memberVote -> fetch(PDO::FETCH_ASSOC)){
-
-                    }
                     
+                        for($i=4;$i<=$memberVoteRow;$i++){
+                            $memberVoteRow = $memberVote -> fetch(PDO::FETCH_ASSOC)
 
-                    ?>
+                ?>
                     <div class="smallMessage">
                     <img src="images/postcard/<?=$memberVoteRow["postcardPic"]?>.jpg" alt="">
                         <div class="smallMessageButton">                       
                             <div class="competitionVoteTitle">
                                 <input type="hidden"  name="competNo">
                                 <span><span id="memName"><?=$memberVoteRow["memName"]?></span></span>
-                                <span><span class="vote"${i}><?=$memberVoteRow["vote"]?>票</span></span>
+                                <span><span class="vote<?echo $i?>"><?=$memberVoteRow["vote"]?>票</span></span>
                             </div>
 
                             <div class="competitionButton">
-                                <span href="#" class="whiteButton voteBtn" data-vote="${i}">
+                                <span href="#" class="whiteButton voteBtn" data-vote="<?echo $i?>">
                                     <img src="images/indexSpot/voteIcon.png" alt="">
                                     投票
                                     <input type="hidden" name="competNo2" value="">
