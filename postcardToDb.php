@@ -11,7 +11,7 @@ try {
 	// $password = "dd103g1";
 	// $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
 	// $pdo = new PDO( $dsn, $user, $password, $options);  
-	$sql = "INSERT INTO postcard(postcardNo, memNo, postcardPic) VALUES(:postcardNo, :memNo,:postcardPic)";
+	$sql = "INSERT INTO `postcard`(postcardNo, memNo, postcardPic) VALUES(:postcardNo, :memNo,:postcardPic)";
 
 	//INSERT INTO postcard(postcardNo, memNo, postcardPic) VALUES(1, 1,'m001p01')
 

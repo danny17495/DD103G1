@@ -19,7 +19,6 @@ if(addShopItemString != null){
 
 /*二. 動態生成*/
 function shopcartInit1(){
-
     //1.如果有買明信片就產生結構.newRow, `cartRow cartRow${i}`
     if(postcardNum >= 1 && postcardArr[0] != [""]){
         for(var key in postcardArr){
@@ -64,7 +63,6 @@ function shopcartInit1(){
             }else{
                 itemName = "客製化T-shirt";
             }
-
             createShopItemList(itemId, itemImage, itemPrice, itemName);
         }
     }    
@@ -707,29 +705,35 @@ window.addEventListener('load', shopcartInit1, false);
 
 
 /*六. 購物車確認->記錄進去localStorage進下一頁*/
-var cartNextBtn = document.getElementById("cartNextBtn")
+var cartNextBtn = document.getElementById("cartNextBtn");
+
 
 function cartNextPage(){
     /*六-1.撈取LocalStorage重新確認最後放入購物車的明細*/
     var addPostcardString = localStorage.getItem('addPostcard:');    // var itemString = storage['addItemList'];
-    var postcardArrLatest = addPostcardString.substr(0,addPostcardString.length-2).split(', ');
-    console.log("最後放入購物車的明信片編號", postcardArrLatest);     //(2) ["1", "3"]
-    var postcardNumLatest = postcardArrLatest.length;  //加入購物車幾個明信片
-    console.log(postcardNumLatest);
+    console.log("1125測試",addPostcardString);
+    if(addPostcardString != null){
+        var postcardArrLatest = addPostcardString.substr(0,addPostcardString.length-2).split(', ');
+        console.log("最後放入購物車的明信片編號", postcardArrLatest);     //(2) ["1", "3"]
+        var postcardNumLatest = postcardArrLatest.length;  //加入購物車幾個明信片
+        console.log(postcardNumLatest);
+    }
 
-    var addShopItemString = localStorage.getItem('addShopItem:');    // var itemString = storage['addItemList'];
-    var shopItemArrLatest = addShopItemString.substr(0,addShopItemString.length-2).split(', ');
-    console.log("最後放入購物車的商城商品編號", shopItemArrLatest);     //(3) ["2", "18", "15"]
-    var shopItemNumLatest = shopItemArrLatest.length;  //加入購物車幾個商城商品
-    console.log(shopItemNumLatest);
+    if(addShopItemString != null){
+        var addShopItemString = localStorage.getItem('addShopItem:');    // var itemString = storage['addItemList'];
+        var shopItemArrLatest = addShopItemString.substr(0,addShopItemString.length-2).split(', ');
+        console.log("最後放入購物車的商城商品編號", shopItemArrLatest);     //(3) ["2", "18", "15"]
+        var shopItemNumLatest = shopItemArrLatest.length;  //加入購物車幾個商城商品
+        console.log(shopItemNumLatest);
+    }
 
 
     //六-2-1.如果有買明信片就存入LocalStorage
     if(postcardNumLatest >= 1 && postcardArrLatest[0] != [""]){
         for(var key in postcardArrLatest){
-            // console.log(key);
+            console.log("postcardArrLatest的key",key);
             itemId = postcardArrLatest[key];  //itemId明信片編號
-            // console.log(itemId);
+            console.log("postcardArrLatest的itemId",itemId);
 
             //紀錄目前數量
             var father = document.getElementById("bornItemList1").children[`${key}`];
@@ -738,23 +742,28 @@ function cartNextPage(){
             var cartItemNum = parseInt(cartItemNumString);          //單品欲買數量
             // console.log(cartItemNum);
 
-            localStorage.setItem(`明信片(編號, 商品數量, 商品小計)編號${itemId}`,`${itemId}, ${cartItemNum}, ${cartItemNum * 60}, `);
+            localStorage.setItem(`明信片(編號, 商品數量, 商品小計)編號${itemId}`, `${itemId}, ${cartItemNum}, ${cartItemNum * 60}, `);
         }
     }
 
     //六-2-2.如果有買商城商品就存入LocalStorage
-    if(shopItemNumLatest >= 1 && shopItemArrLatest[0] != [""]){
+    if(shopItemNumLatest >= 1 && shopItemArrLatest[0] != ""){
         for(var key in shopItemArrLatest){
-            // console.log(key);
+            console.log(key);
             itemIdsi = shopItemArrLatest[key];  //itemIdsi商城商品編號
-            console.log(itemIdsi);
+            console.log("itemIdsi",itemIdsi);
+
+            if(addShopItemString != null){
+            shopItemArr = addShopItemString.substr(0,addShopItemString.length-2).split(', ');
+            shopItemNum = shopItemArr.length;  //加入購物車幾個
+            }
 
             //紀錄目前數量
             var fathersi = document.getElementById("bornItemList2").children[`${key}`];
-            console.log(fathersi);
+            console.log("購買", fathersi);
             var cartItemNumStringsi = fathersi.children[1].children[2].children[1].children[1].value;
             var cartItemNumsi = parseInt(cartItemNumStringsi);          //單品欲買數量
-            console.log(cartItemNumsi);      
+            console.log("購買數量", cartItemNumsi);      
 
             //紀錄商城商品價格
             var itemPrice;
@@ -766,10 +775,17 @@ function cartNextPage(){
                 itemPrice = 650;
             }
 
-            localStorage.setItem(`商城商品(編號, 商品數量, 商品小計)編號${itemIdsi}`,`${itemIdsi}, ${cartItemNumsi}, ${cartItemNumsi * itemPrice}, `);
+            localStorage.setItem(`商城商品(編號, 商品數量, 商品小計)編號${itemIdsi}`, `${itemIdsi}, ${cartItemNumsi}, ${cartItemNumsi * itemPrice}, `);
         }
-    }    
+    }
+	// setTimeout(aa,3000);
+
 }
+
+// function aa(){
+
+//     location.href = "shopcart_02.html";    
+// }
 
 function shopcartInit2(){
     cartNextBtn.addEventListener("click", cartNextPage, false);

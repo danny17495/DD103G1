@@ -1042,7 +1042,7 @@ function postcardToCart(){
     }
 
 	//測試
-	localStorage.setItem(`addShopItem:`,`2, 18, 15, `);	
+	// localStorage.setItem(`addShopItem:`,`2, 18, 15, `);	
 	alert("加入購物車成功！");
 }
 
@@ -1096,7 +1096,7 @@ function sendToline1(){
 
 function sendToline2(){
 	var mediaWidth = document.body.clientWidth;
-	var picLocation = `http://140.115.236.71/demo-projects/DD103/DD103G1/images/postcardClient[]====/${newPostcardNo}.jpg`;
+	var picLocation = `http://140.115.236.71/demo-projects/DD103/DD103G1/images/postcardClient/${newPostcardNo}.jpg`;
 	// var picLocation = `http://localhost/DD103G1/images/postcardClient/${newPostcardNo}.jpg`;
 
 	if(mediaWidth < 800){

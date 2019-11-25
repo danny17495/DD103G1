@@ -14,7 +14,6 @@ try{
   	//used = 0表示未使用
  	$holdingCoupon = $pdo->prepare($sql);
   	$holdingCoupon->bindValue(":memNo", $memNo);
-  	// $holdingCoupon->bindValue(":memNo", $_SESSION['memNo']);
   	$holdingCoupon->execute();
 
  	$holdingCouponRows = $holdingCoupon->fetchAll(PDO::FETCH_ASSOC);
