@@ -10,11 +10,6 @@
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/styleShopcart_02.css">
     <script src="js/shopcart_02.js" defer></script>
-    <style>
-        #form1, #form2{
-            display: none;
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -43,7 +38,7 @@
                                 <a href="postcard.html">客製明信片</a>
                             </li>
                             <li>
-                                <a href="shop.php">購物商城</a>
+                                <a href="shop.html">購物商城</a>
                             </li>
                             <li>
                                 <a href="competition.html">投票比賽</a>
@@ -65,7 +60,6 @@
             </div>
         </div>
     </header>
-
 
 
     <div class="forCloudAnimation"><!-- 最外層為了雲消失包的 -->
@@ -245,6 +239,8 @@
                 </div>
                 <!-- 存訂單AJAX隱藏欄位 -->
                 <form method="post" accept-charset="utf-8" id="form2">
+                    <input name='hidden_cart' id='hidden_cart' type="hidden"/>
+                    <input name='hidden_cart2' id='hidden_cart2' type="hidden"/>
                     <input name='hidden_data2' id='hidden_data2' type="text"/>
                     <input name='hidden_data3' id='hidden_data3' type="text"/>
                     <input name='hidden_data4' id='hidden_data4' type="text"/>
@@ -252,12 +248,11 @@
                     <input name='hidden_data6' id='hidden_data6' type="text"/>
                     <input name='hidden_data7' id='hidden_data7' type="text"/>
                     <input name='hidden_data8' id='hidden_data8' type="text"/>
+                    <input name='hidden_data9' id='hidden_data9' type="text"/>
                 </form>
             </div><!-- .container結束div -->
         </section>
     </div><!-- .forCloudAnimation結束div -->
-
-
 
 
     <footer>

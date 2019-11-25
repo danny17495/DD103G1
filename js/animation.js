@@ -20,39 +20,202 @@ function competition(){
     }
     return xmlHttp;
 }
+//JOIN
+
+function  join_xml(){
+    join_item=competition();
+    join_item.open("GET","php/competition/join.php?memNo="+sessionStorage.memNo,true);
+    join_item.onreadystatechange = join_php;
+    join_item.send(null);  
+}
+function join_php(){
+    console.log(1);
+    if(join_item.readyState==4  && join_item.status==200){
+        var join_arr= JSON.parse(join_item.responseText);
+        console.log(join_arr);
+        if (join_arr=="error") {
+            alert("參加過了喔");
+        }else{
+             alertWrap("參加成功");
+        }}};
+
+
+        function vote(voteNo){
+
+            // console.log(voteNo);
+            let e = voteNo;
+            
+            $.ajax({
+                "type": "GET",
+                "dataType": "text",
+                "url": "php/competition/vote.php",
+                "data":	{
+                    "competNo": e
+                },		
+                "cache": false,
+                "success": function (data) {	
+                    // 同步更新票數
+                    $(".vote"+voteNo).text(data+"票");
+                    // (message_arr); 
+                },
+                "error":function(data){
+                    // console.log(data);
+                }
+            
+            });
+        }        
+
+
+
+
+
+//檢舉
+
+
+function report(){
+     if (!sessionStorage['memNo']) {
+         $id('login').style.display = 'block';
+         return ;
+        //  alert(1);
+    } 
+    let m= $('.messageBtn').find("input").val();
+    // let m= document.getElementsByClassName("btnCloudb").value
+       console.log(m);
+    let u =sessionStorage['memNo'];
+    //    let r = prompt("為什麼你檢舉他了呢", "");
+        // alertWrap("為什麼")
+        alertWrap(`<p style="color:#ddd">檢舉原因?</p><input type="text" id="report_msg" value="" style="width:80%;"><br><br><a " class="yesButton whiteButton report_true">確認</a>`);
+    let r;
+        document.getElementsByClassName('report_true')[0].addEventListener('click',send_report);
+        
+
+        function send_report(){
+            r= document.getElementById("report_msg").value;
+            console.log(r);
+            // 假如r不等於空字串再送出資料庫 else alert 請再次輸入
+            if (r != "") {
+                $("#hmsg").hide();
+                report_xml(u,m,r);
+                alertWrap(`確實收到你的檢舉了`);
+               
+
+            }
+        }
+    
+};
+
+function  report_xml(u,m,r){
+    report_item=competition();
+    report_item.open("GET","php/competition/report.php?memNo="+u+"&msgNo="+m+"&report_reason="+r,true);
+    report_item.onreadystatechange = report_php;
+    report_item.send(null);
+}
+function report_php(){
+    if(report_item.readyState==4  && report_item.status==200){
+        let report_arr= JSON.parse(report_item.responseText);
+      console.log(report_arr);
+       
+}}
+
+//投票
+$(".voteBtn").click(function(){
+    let voteNo = $(this).data('vote');
+    // alert(voteNo);
+    vote(voteNo);
+});
+
+function vote(voteNo){
+
+    // console.log(voteNo);
+    let e = voteNo;
+    
+    $.ajax({
+        "type": "GET",
+        "dataType": "text",
+        "url": "php/competition/vote.php",
+        "data":	{
+            "competNo": e
+        },		
+        "cache": false,
+        "success": function (data) {	
+            // 同步更新票數
+            $(".vote"+voteNo).text(data+"票");
+            // (message_arr); 
+        },
+        "error":function(data){
+            // console.log(data);
+        }
+    
+    });
+}
+
 
 
 
 //留言
 function message_xml(e){
-    message_item=competition();
-    message_item.open("GET","php/competition/message.php?competNo="+e,true);
-    message_item.onreadystatechange = message_php;
-    message_item.send(null);
-    //alert(0);
+    console.log(e);
+    $.ajax({
+        "type": "GET",
+        "dataType": "json",
+        "url": "php/competition/message.php",
+        "data":	{
+            "competNo": e
+        },		
+        "cache": false,
+        "success": function (message_arr) {	
+            console.log(message_arr);
+            message_btn(message_arr); 
+        },
+        "error":function(data){
+            console.log(data);
+        }
+    });
 }
 
-function message_php(){
-    if(message_item.readyState==4  && message_item.status==200){
-        let message_arr= JSON.parse(message_item.responseText);
-        message_btn(message_arr); 
-    //alert(1);
-}}
+function msg_xml(e){
+    let i = window.sessionStorage.memNo;
+    console.log(e);
+    console.log($('#inputText').val());
+    $.ajax({
+        "type": "GET",
+        "dataType": "json",
+        "url": "php/competition/msg.php",
+        "data":	{
+            "competNo": e,
+            "memNo":i,
+            "msg": $('#inputText').val()
+        },		
+        "cache": false,
+        "success": function (data) {	
+            console.log(e);
+            message_btn(e); 
+        },
+        "error":function(data){
+            console.log(data);
+        }
+        
+    });
+
+}
+
 
 //按鈕類-----------------
-// function activity_button(){
-    
+//參加比賽
+$("#join").click(function() {
+    join();
+ });
+
+//留言    
     $('.messageBtn').click(function(){
     let e =$(this).find("input")[0].value;
-    console.log($(this).find("input")[0]); 
-    $('.messageWrapInput input:eq(0)').val(e).attr({name:'competNo',id:'msgBtnNo'})
+    console.log(e); 
+    $('.messageWrapInput input:eq(0)').val(e).attr({name:'competNo',id:'msgBtnNo'});
     message_xml(e)
-    //alert(3);
      
 });
 //關留言板
 $('.closeBtn').click(function(){
-    ////alert(4);
     $('.message').hide();
     $('.message_itme').remove();
     $(`#inputText`)[0].value="";
@@ -60,12 +223,9 @@ $('.closeBtn').click(function(){
 
 //留言按鈕
 $('#msgBtn').click(function(){
-    ////alert(5);
-    console.log(); 
     msg_value(); 
  })
 
-// }
 
 
 
@@ -73,69 +233,74 @@ $('#msgBtn').click(function(){
 
 
 //按鈕函示-------------------
+
+function join(){
+    // 先判斷sessionStorage有沒有會員登入資料，有才往下做轉圖檔工作
+    if (sessionStorage['memName']){
+                join_xml();
+        }else{
+   //尚未登入
+               $id('login').style.display = 'block';
+    }
+};
+
+
  
 function message_btn(e){
-    // //alert(6);
     message_arr=e;
     $('.messageBtn').addClass(function(){
         $('.message').slideDown(50);
-        //alert(5);
     })
+    console.log(message_arr);
+    console.log(message_arr.length);
     
+$("#messageContent").empty();
+let add = '';
 for (let i = 0; i < message_arr.length; i++) {
-$("#messageContent").append($("#messageWrap").clone(true).attr({id:'message_itme'+i,class:'message_itme messageWrap'}));
-// let newWrap = document.getElementById("messageWrap").cloneNode(true);
-// newWrap.setAttribute("id","message_itme" + i);
-// newWrap.setAttribute("class","message_itme messageWrap");
-// document.getElementById("messageContent").appendChild(newWrap);
-$(`#message_itme${i}  .megsageMemName p:eq(0)`).text(message_arr[i]['memId']);
-$(`#message_itme${i}  .megsageMemName p:eq(1)`).text(message_arr[i]['msgDate']);
-$(`#message_itme${i}  .messageBox p:eq(0)`).text(message_arr[i]['msgContent']);
-let $input=(`<input type="hidden" name="msgNo"></input>`)
-$(`#message_itme${i}  .messageBtn span:eq(0)`).attr('id','messageBtn'+(i)).append($input);
-$(`#message_itme${i}   input`)[0].value=message_arr[i]['msgNo']
+
+add += '<div class="message_itme messageWrap" id="message_itme'+i+'">';
+add += '<div id="memText" class="memText">';
+add += '<div class="megsageMemName">';
+add += '<p id="messageMemName">'+message_arr[i]['memName']+'</p>';
+add += '<p class="messageDate" id="messageDate">'+message_arr[i]['msgDate']+'</p>';
+add += '</div><div class="messageBox">';
+add += '<p class="messageText" id="messageText">'+message_arr[i]['msgContent']+'</p>';
+add += `</div><div class="messageBtn"><span class="btnCloudb" value=${i} onclick="report()">檢舉</span></div>`;
+add += `<input type="hidden" value="${i}" id="reportBtn"></input> `;
+add += '</div></div>';
 }
-//alert(6);
+$("#messageContent").append(add);
+
+
 }
+
+
 
 
 function msg_value() {
-    ////alert(7);
-//     if (!sessionStorage['memNo']) {
+    if (!sessionStorage['memNo']) {
    
-//      $id('login_gary').style.display = 'block';
-//      return ;
-// } 
+     $id('login').style.display = 'block';
+     return ;
+} 
 if ($(`#inputText`).val()==0)
-{  //alert("請輸入文字");
+{  
+    alert("請輸入文字");
+
     return ;
 }
 
-// console.log( sessionStorage['memNo']);
-
-msg_xml=competition();
-msg_xml.onreadystatechange=
-function(){
-    if (msg_xml.readyState==4 && msg_xml.status==200){
-      console.log(msg_xml.responseText);
-    }
-    //alert(7);
-};
-// console.log( sessionStorage['user_no']);
-    let msg_arr= $('.messageWrapInput').serializeArray();
-    console.log(msg_arr);
-    msg_xml.open("GET","php/competition/msg.php?competNo="+msg_arr[0]["value"]+"&msg="+msg_arr[1]["value"]+"&user="+sessionStorage['memId'],true);
-    msg_xml.send();
- $('.message_itme').remove();
- setTimeout(() => {
-     msg_revalue()
- }, 100);
- //alert(8);
+let e =$(`#msgBtnNo`).val();
+    msg_xml(e);
+    console.log(e);
+    setTimeout(() => {
+        msg_revalue()
+    }, 100);
 }
 
 function msg_revalue(){
-    //alert(9);
  let e =$(`#msgBtnNo`).val();
+//  let e =1;
 message_xml(e);
 } 
 

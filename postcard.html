@@ -8,24 +8,13 @@
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="css/common.css">
-    <link rel="stylesheet" href="css/style.css">
-    <!-- <link rel="stylesheet" href="css/stylePostcard.css"> -->
-    <link rel="stylesheet" href="css/odometer-theme-default.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <link rel="stylesheet" href="css/odometer-theme-default.css">        
+    <link rel="stylesheet" href="css/stylePostcard.css">
     <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/odometer.js"></script>
+    <script src="js/odometer.js" defer></script>    
+    <script src="js/typewriter.js" defer></script>    
     <script src="js/postcard.js" defer></script>
-    <style>
-        #form1, #form2, #form3{
-            display: none;
-        }
-        #postcardCanvasSecret{
-            display: none;
-            /*background-color: red;*/
-        }
-        #postDIYBtn_8_Back{
-            visibility: hidden;
-        }
-    </style>
 </head>
 <body class="postcardBody">
     <header>
@@ -54,7 +43,7 @@
                                 <a href="postcard.html"  class="nowpage">客製明信片</a>
                             </li>
                             <li>
-                                <a href="shop.php">購物商城</a>
+                                <a href="shop.html">購物商城</a>
                             </li>
                             <li>
                                 <a href="competition.php">投票比賽</a>
@@ -67,7 +56,7 @@
                 <a href="javascript:;"></a>
             </div>
             <div class="headerIcon">
-                <a href="javascript:;" id="shopcart">
+                <a href="shopcart.html" id="shopcart">
                     <img src="images/icon_shopcar.png" alt="icon_shopcar">
                 </a>
                 <a id="memberInfo" href="member.php">
@@ -84,7 +73,7 @@
         <section class="pageTitle postcardExampleTitle wrapA">
             <div class="container">
                 <h1>精彩的明信片</h1>
-                <h3>已有&nbsp;&nbsp;<div class="postcardOdometer">10,820</div>&nbsp;&nbsp;個訪客製作</h3>
+                <h3>已有&nbsp;&nbsp;<span class="postcardOdometer">10,820</span>&nbsp;&nbsp;個訪客製作</h3>
                 <div class="birdEnvelope">
                     <img src="images/postcard/birdEnvelope.png" alt="bird">
                 </div>
@@ -97,17 +86,17 @@
         <section class="postcardExample wrapA">
             <div class="container">
                 <div>
-                    <div class="postWhiteBack postWhiteBackDemo">
+                    <div class="postWhiteBack postWhiteBackDemo postDemo1">
                         <img src="images/postcard/postDemo_1.jpg" alt="postcard">
                     </div>
-                    <div class="postWhiteBack postWhiteBackDemo">
+                    <div class="postWhiteBack postWhiteBackDemo postDemo2">
                         <img src="images/postcard/postDemo_2.jpg" alt="postcard">
                     </div>
-                    <div class="postWhiteBack postWhiteBackDemo">
+                    <div class="postWhiteBack postWhiteBackDemo postDemo3">
                         <img src="images/postcard/postDemo_3.jpg" alt="postcard">
                     </div>
-                    <div class="postWhiteBack postWhiteBackDemo">
-                        <img src="images/postcard/postDemo_1.jpg" alt="postcard">
+                    <div class="postWhiteBack postWhiteBackDemo postDemo4">
+                        <img src="images/postcard/postDemo_4.jpg" alt="postcard">
                     </div>
                 </div>
                 <span>
@@ -183,6 +172,7 @@
 
                 <!-- (2)明信片預覽畫面 -->
                 <div class="postWhiteBack" id="postWhiteBack"><!-- 明信片白底陰影 -->
+                    <!-- <img class="test" src="images/image_abby/postBGC_1_BIG.jpg" alt=""> -->
                     <canvas id="postcardCanvas">您的瀏覽器不支援此技術，換Chrome瀏覽器開啟此網頁試試吧，不要錯過精彩好玩的客製明信片！</canvas>
                     <canvas id="postcardCanvasSecret">秘密畫布</canvas>
                     <!-- <img src="images/postcard/postBlack.jpg" alt="postCard"> -->
@@ -238,12 +228,15 @@
                         <img src="images/postcard/postBGC_3.jpg" alt="postBGC">
                     </div>
                     <!-- (2)上傳窗格 -->
-                    <div class="aauploadBGC" id="aauploadBGC">
+                    <label class="aauploadBGC" id="aauploadBGC">
+                        <input type="file" id="theFile">
                         <p>上傳圖片</p>
                         <div>
                             <img src="images/postcard/uploadPlus.png" alt="upload">
                         </div>
-                    </div>
+                    </label>
+                    <span class="postcardTeach postcardTeach1" id="postcardTeach1">點擊照片</span>
+                    <span class="postcardTeach postcardTeach2" id="postcardTeach2">也可選擇上傳照片</span>
                 </div><!-- .postRightDIY_1結束div -->
                 <div>
                     <div class="whiteButton postDIYBtn_1_Next postDIYBtn" id="postDIYBtn_1_Next">下一步</div>   
@@ -283,23 +276,16 @@
                         <!-- (2)教學 -->
                         <div>
                             <div class="postcardTeachBox">
-                                <img src="images/postcard/teachCursors-1move.png" alt="teachPic">
+                                <img src="images/postcard/teachCursors-1move.png" alt="teachPic" id="stepTwoTypePic">
                                 <div class="postcardTeachText">
-                                    <p>1. 點擊移動</p>
-                                    <p>2. 點擊縮放</p>
-                                    <p>3. 點擊旋轉</p>
-                                    <p>4. 點兩下刪除</p>
+                                    <p id="stepTwoType1"></p>
+                                    <p id="stepTwoType2"></p>
+                                    <p id="stepTwoType3"></p>
+                                    <p id="stepTwoType4"></p>
                                 </div>
                             </div>
                         </div>                   
                     </div>
-                   
-
-
-                    
-
-
-
                 </div><!-- .postRightDIY結束div -->
                 <div class="postDIYBtn_Wrap">
                     <div class="whiteButton postDIYBtn_2_Back postDIYBtn" id="postDIYBtn_2_Back">上一步</div>
@@ -336,22 +322,6 @@
                             <div class="leafButton" id="newTextBtn">生成文字</div>
                         </div>
                     </div>
-
-
-
-
-
-                    <!-- (2)選色 -->
-
-
-
-
-
-                    <!-- (3)確認按鈕 -->
-
-
-
-
                 </div><!-- .postRightDIY結束div -->
                 <div class="postDIYBtn_Wrap">
                     <div class="whiteButton postDIYBtn_4_Back postDIYBtn" id="postDIYBtn_4_Back">上一步</div>
@@ -395,17 +365,6 @@
                             </div>
                         </div>               
                     </div>
-                   
-
-
-
-
-
-                    <!-- (2)教學 -->
-
-
-
-
 
 
                 </div><!-- .postRightDIY結束div -->
@@ -418,6 +377,7 @@
                     </form>
                     <form method="post" accept-charset="utf-8" id="form2">
                         <input name="hidden_data2" id='hidden_data2' type="hidden"/>
+                        <input name="hidden_data6" id='hidden_data6' type="hidden"/>
                     </form>
                     <form method="post" accept-charset="utf-8" id="form3">
                         <input name="hidden_data3" id='hidden_data3' type="text"/>
@@ -438,7 +398,7 @@
                         <table>
                             <tr class="finishBox">
                                 <th>
-                                    <div class="leafButton postFinishBtn">下載</div>
+                                    <a href="#" download="postcard.png" onclick="this.href=postcardCanvasSecret.toDataURL();" ><div class="leafButton postFinishBtn">下載</div></a>
                                 </th>
                                 <td>
                                     <p class="postcardFinishTextS">免費儲存</p>
@@ -447,7 +407,7 @@
                             </tr>
                             <tr class="finishBox">
                                 <th>
-                                    <div class="leafButton postFinishBtn">分享</div>
+                                    <div class="leafButton postFinishBtn" id="sendToLine">分享</div>
                                 </th>
                                 <td>
                                     <p>免費分享</p>
@@ -472,16 +432,6 @@
                             </tr>
                         </table>
                     </div>
-
-
-
-
-                    <!-- (2) -->
-
-
-
-
-
                 </div><!-- .postRightDIY結束div -->
                 <div>
                     <div class="whiteButton postDIYBtn_8_Back postDIYBtn" id="postDIYBtn_8_Back">上一步</div>
@@ -557,6 +507,7 @@
             </div><!-- .container結束div -->
         </section>
     </div>
+
     <footer>
         <div>
             <a href="#">
@@ -642,7 +593,6 @@
                             <label class="Loginlabal" style="color:aliceblue;" for="">密碼</label>
                             <input id="password" class="Logininput" name="password" type="password" placeholder="Password"
                                 autocomplete="on">
-    
                         </div>
                         <div class="LoginForm-row">
                             <label class="Loginlabal" style="color:aliceblue;" for="">密碼確認</label>

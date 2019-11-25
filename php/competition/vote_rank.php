@@ -16,11 +16,6 @@ catch (PDOException $e) {
     $errMsg .= "錯誤行號: " . $e->getLine() . "<br>";
 }
 
-// $j=0;
-// while( $user_ctnRow[$j]= $user_ctn -> fetch(PDO::FETCH_ASSOC)){
-//    $j++;
-// }
-// array_splice($user_ctnRow,$j,1);
 $memberVoteRow = $memberVote -> fetchAll(PDO::FETCH_ASSOC);
 echo json_encode( $memberVoteRow );
 ?>

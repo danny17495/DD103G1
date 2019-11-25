@@ -1,5 +1,5 @@
 /*----------------shopcart購物車頁面開始(<768)---------------*/
-/*----------------購物車, 客製化明信片頁面的共用----------------*/
+/*----------------客製化明信片頁面的共用----------------*/
 .wrapA{
     width: 100%;
 }
@@ -12,6 +12,23 @@ section.pageTitle .container{
 
 body.postcardBody .container{
     position: relative;
+}
+
+
+body{
+    font-family: 'Noto Serif TC', serif;
+    background-color: rgb(255, 230, 193);
+}
+
+@font-face {
+    font-family: '華康秀風體';
+    src: url('華康秀風體.TTF')
+    /*unicode-range: U+884C, U+7A0B, U+4ECB, U+7D39;*/
+}
+
+/*for AJAX*/
+#form1, #form2, #form3{
+    display: none;
 }
 
 /*----------------0.客製化明信片頁面的基本設定及共用----------------*/
@@ -50,11 +67,11 @@ section.postcardExampleTitle .container div.birdEnvelope{
     max-width: 70px;
     min-width: 30px;
     position: absolute;
-    top: 70%;
-    right: 5%;
-    animation: flyX 11s linear infinite,
-                flyY 11s linear infinite,
-                opacity1 11s linear infinite;
+    top: 0;
+    right: -100%;
+    animation: flyX 11s linear 5s infinite normal,
+                flyY 11s linear 5s infinite normal,
+                opacity1 11s linear 5s infinite normal;
 }
 
 @keyframes flyX{
@@ -93,7 +110,7 @@ section.postcardExample .container{
 }
 
 section.postcardExample .postWhiteBackDemo{
-    padding: 5px;
+    padding: 3px;
 }
 
 section.postcardExample .container > div{
@@ -104,9 +121,55 @@ section.postcardExample .container > div{
     flex-wrap: wrap;
 }
 
-section.postcardExample .container > div > div{
+section.postcardExample .container > div .postWhiteBackDemo{
     width: 40%;
     margin-top: 20px;
+    position: relative;     
+}
+
+section.postcardExample .container > div .postDemo1{transform: rotateZ(-3deg); animation: appearSpeedA 5s ease-in 1,}
+section.postcardExample .container > div .postDemo2{transform: rotateZ(0deg);  animation: appearSpeedA 2s ease-in 1;}
+section.postcardExample .container > div .postDemo3{transform: rotateZ(2deg); top: 25px; animation: appearSpeedA 3s ease-in 1;}
+section.postcardExample .container > div .postDemo4{transform: rotateZ(-2deg); top: 15px; animation: appearSpeedA 4s ease-in 1;}
+
+@keyframes appearSpeedA{
+    0%{opacity: .3;}
+    30%{opacity: .8;}
+    100%{opacity: 1;}
+}
+
+section.postcardExample .container > div .postDemo1:before,
+section.postcardExample .container > div .postDemo2:before,
+section.postcardExample .container > div .postDemo3:before,
+section.postcardExample .container > div .postDemo4:before{
+    content: "";
+    display: block;
+    width: 12px;
+    height: 20px;
+    background-image: url(../images/postcard/tape2.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -10px;
+    left: 48%;
+    opacity: 0;
+}
+
+section.postcardExample .container > div .postDemo1:before,
+section.postcardExample .container > div .postDemo3:before{
+    transform: rotateY(180deg);
+    top: -12px;
+    left: 48%;
+}
+
+section.postcardExample .container > div .postDemo1:before{animation: appearSpeedB 1s ease-in 3s 1 normal forwards;}
+section.postcardExample .container > div .postDemo2:before{animation: appearSpeedB 1s ease-in 0.5s 1 normal forwards;}
+section.postcardExample .container > div .postDemo3:before{animation: appearSpeedB 1s ease-in 1s 1 normal forwards;}
+section.postcardExample .container > div .postDemo4:before{animation: appearSpeedB 1s ease-in 2s 1 normal forwards;}    
+
+@keyframes appearSpeedB{
+    0%{opacity: 0;}
+    100%{opacity: 1;}
 }
 
 /*食物裝飾*/
@@ -130,7 +193,6 @@ body.postcardBody .forFoodDeco .postcardFood img{
     width: 100%;
     height: auto;
 }
-
 
 /*----------------2-1,2-3.postLine  明信片裝飾斜線----------------*/
 section.aapostLine{
@@ -212,6 +274,7 @@ section.postcardMain .aapostLeft .postWhiteBack{
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
+    position: relative;
 }
 
 section.postcardMain .aapostLeft #postcardCanvas{
@@ -219,6 +282,27 @@ section.postcardMain .aapostLeft #postcardCanvas{
     background-size: contain;
     background-repeat: no-repeat;
 }
+
+#postcardCanvasSecret{
+    display: none;
+    /*background-color: red;*/
+}
+
+/*
+section.postcardMain .aapostLeft .postWhiteBack .debug{
+    background-image: url(../images/postcard/postBlack.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+*/
+/*section.postcardMain .aapostLeft .postWhiteBack img.test{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
+}*/
 
 /*步驟*/
 section.postcardMain .aapostLeft .postLeftStepBox{
@@ -295,10 +379,10 @@ section.postcardMain .aapostLeft .postStepYellow4:after{
 /*2-2-2(二).操作畫面.postRight設定*/
 /*===============================================================*/
 /*2-2-2(二).操作畫面.postRight切換步驟css + postcard.js*/
-.postRight_1{display: none}
 .postRight_2{display: none}
 .postRight_3{display: none}
 .postRight_4{display: none}
+.postRight_5{display: none}
 
 /*2-2-2(二).操作畫面.postRight排版*/
 section.postcardMain .aapostRight h3{
@@ -315,11 +399,17 @@ section.postcardMain .aapostRight .aapostRightDIY{
     position: relative;
     padding-bottom: 80%;
 }
+
+#postDIYBtn_8_Back{
+    visibility: hidden;
+}
+
 /*===============================================================*/
 
 
 /*2-2-2(二-1).操作畫面.postRight步驟一樣式*/
-section.postcardMain .postRight_1 .aapostRightDIY > div{
+section.postcardMain .postRight_1 .aapostRightDIY > div,
+section.postcardMain .postRight_1 .aapostRightDIY label{
     width: 60%;
     box-sizing: border-box;
     border: 1px solid #fff;
@@ -366,6 +456,10 @@ section.postcardMain .postRight_1 .aapostRightDIY .aauploadBGC{
     top: 75%;
     left: 45%;
     z-index: 2;
+}
+
+section.postcardMain .postRight_1 .aapostRightDIY .aauploadBGC input{
+    display: none;
 }
 
 section.postcardMain .postRight_1 .aapostRightDIY .aauploadBGC div{
@@ -636,21 +730,6 @@ section.postcardMain .postRight_5 .aapostRightDIY p{
     font-size: 12px;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*postRight_1 + postRight_5 按鈕*/
 section.postcardMain .postRight_1 .postDIYBtn_1_Next,
 section.postcardMain .postRight_5 .postDIYBtn_8_Back{
@@ -664,11 +743,40 @@ section.postcardMain .postRight_4 .postDIYBtn{
     margin: 20px 5px 30px;
 }
 
+/*===============================================================*/
+/*1125補充教學引導*/
+section.postcardMain .aapostRight .postcardTeach{
+    background-color: #fff;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    position: absolute;
+    padding: 4px 10px;
+    z-index: 20;
+    font-size: 12px;
+}
 
+section.postcardMain .aapostRight .postcardTeach1{
+    top: 10%;
+    left: 50%;
+    animation: upDown1 1s linear infinite normal;      
+}
+@keyframes upDown1{
+    0%{top: 14%;}
+    50%{top: 16%;}
+    100%{top: 14%;}
+}
 
-
-
-
+section.postcardMain .aapostRight .postcardTeach2{
+    display: none;
+    top: 68%;
+    left: 6%;
+    animation: upDown4 1s linear infinite normal;      
+}
+@keyframes upDown4{
+    0%{top: 68%;}
+    50%{top: 70%;}
+    100%{top: 68%;}
+}
 
 
 
@@ -781,7 +889,6 @@ body.postcardBody .forWallDeco{
 }
 
 
-
 @media screen and (min-width: 768px){
     /*----------------shopcart購物車頁面開始(>768)---------------*/
     /*----------------購物車, 客製化明信片頁面的共用----------------*/
@@ -827,10 +934,33 @@ body.postcardBody .forWallDeco{
         justify-content: space-between;
     }
 
-    section.postcardExample .container > div > div{
+    section.postcardExample .container > div .postWhiteBackDemo{
         width: 20%;
         margin-top: 0px;
+        position: relative;        
     }
+
+    section.postcardExample .container > div .postDemo1{top: 15px;}
+    section.postcardExample .container > div .postDemo2{top: -10px;}
+    section.postcardExample .container > div .postDemo3{top: 40px;}
+    section.postcardExample .container > div .postDemo4{top: -20px;}
+
+    section.postcardExample .container > div .postDemo2:before,
+    section.postcardExample .container > div .postDemo4:before{
+        width: 15px;
+        height: 25px;
+    }
+
+    section.postcardExample .container > div .postDemo1:before{animation: appearSpeedB 1s ease-in 3s 1 normal forwards;}
+    section.postcardExample .container > div .postDemo2:before{animation: appearSpeedB 1s ease-in 0.5s 1 normal forwards;}
+    section.postcardExample .container > div .postDemo3:before{animation: appearSpeedB 1s ease-in 1s 1 normal forwards;}
+    section.postcardExample .container > div .postDemo4:before{animation: appearSpeedB 1s ease-in 2s 1 normal forwards;}    
+
+    @keyframes appearSpeedB{
+        0%{opacity: 0;}
+        100%{opacity: 1;}
+    }
+
 
     /*食物裝飾*/
     body.postcardBody .forFoodDeco .postcardFood1{top: 30%; left: 60%;}
@@ -939,6 +1069,13 @@ body.postcardBody .forWallDeco{
     section.postcardMain .postRight_5 .finishBox td{
         padding: 8px 2px;
     }
+
+
+
+
+
+
+
 
 
     /*----------------3-1.pageTitle  標題:注意事項----------------*/
@@ -1098,6 +1235,19 @@ body.postcardBody .forWallDeco{
     }
 
 
+    /*===============================================================*/
+    /*1125補充教學引導*/
+    section.postcardMain .aapostRight .postcardTeach{
+        padding: 6px 12px;
+        z-index: 20;
+        font-size: 14px;
+    }
+
+
+
+
+
+
 
     /*----------------3-2.postcardNotice  注意事項----------------*/
     section.postcardNotice .container{
@@ -1137,6 +1287,32 @@ body.postcardBody .forWallDeco{
 
     section.postcardMain .postRight_5 .finishBox td{
         padding: 10px 5px;
+    }
+
+    /*===============================================================*/
+    /*1125補充教學引導*/
+    section.postcardMain .aapostRight .postcardTeach1{
+        top: 18%;
+        left: 60%;
+        animation: upDown2 1s linear infinite normal;      
+    }
+
+    @keyframes upDown2{
+        0%{top: 18%;}
+        50%{top: 20%;}
+        100%{top: 18%;}
+    }
+
+    section.postcardMain .aapostRight .postcardTeach2{
+        top: 70%;
+        left: 10%;
+        animation: upDown3 1s linear infinite normal;      
+    }
+
+    @keyframes upDown3{
+        0%{top: 70%;}
+        50%{top: 72%;}
+        100%{top: 70%;}
     }
 
 }
