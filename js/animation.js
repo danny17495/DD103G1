@@ -164,8 +164,9 @@ function message_xml(e){
         },		
         "cache": false,
         "success": function (message_arr) {	
-            console.log(message_arr);
-            message_btn(message_arr); 
+            message_btn(message_arr);
+
+
         },
         "error":function(data){
             console.log(data);
@@ -185,18 +186,15 @@ function msg_xml(e){
             "competNo": e,
             "memNo":i,
             "msg": $('#inputText').val()
-        },		
+        },	
         "cache": false,
         "success": function (data) {	
-            console.log(e);
-            message_btn(e); 
+            message_btn(e);
         },
         "error":function(data){
             console.log(data);
         }
-        
     });
-
 }
 
 
@@ -212,6 +210,7 @@ $("#join").click(function() {
     console.log(e); 
     $('.messageWrapInput input:eq(0)').val(e).attr({name:'competNo',id:'msgBtnNo'});
     message_xml(e)
+    
      
 });
 //關留言板

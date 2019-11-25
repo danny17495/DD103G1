@@ -211,7 +211,7 @@ try{
                     
             ?>
                     <div class="competitionText">
-                        <div class="textContent"><?=$msgMemberRow2["msgContent"]?></div>
+                        <div class="textContent" id="msg1"><?=$msgMemberRow2["msgContent"]?></div>
                     </div>
             <?php
                 }
@@ -264,7 +264,7 @@ try{
 
 
                     <div class="competitionText">
-                        <div class="textContent"><?=$msgMemberRow3["msgContent"]?></div>
+                        <div class="textContent" id="msg2"><?=$msgMemberRow3["msgContent"]?></div>
                     </div>
 
                     <?php
@@ -313,7 +313,7 @@ try{
 
 
                     <div class="competitionText">
-                        <div class="textContent"><?=$msgMemberRow4["msgContent"]?></div>
+                        <div class="textContent" id="msg3"><?=$msgMemberRow4["msgContent"]?></div>
                     </div>
 
                     <?php
@@ -359,8 +359,9 @@ try{
                 <div class="messageOtherBoard">
                 <?php
                     
-                        for($i=4;$i<=$memberVoteRow;$i++){
+                        for($i=4;$i<=$memberVote->rowCount();$i++){
                             $memberVoteRow = $memberVote -> fetch(PDO::FETCH_ASSOC)
+                            
 
                 ?>
                     <div class="smallMessage">
@@ -381,7 +382,7 @@ try{
                                 <div href="#"  class="indexVoBtn messageBtn">
                                 <i class="fa fa-commenting-o messIcon fa-2x" aria-hidden="true"></i>
                                     <p>留言</p>
-                                    <input type="hidden" name="competNo3" value="">
+                                    <input type="hidden" name="competNo3" value="<?echo $i?>">
                         </div>
                             </div>
                         </div>
@@ -420,7 +421,7 @@ try{
                 </div>
                 <div class="competitionGo">
                     <div class="Bus">
-                        <a href="reserve.html"><img src="images/spotintro/busStop.png" alt=""></a>
+                        <a href="reserve.html#submit"><img src="images/spotintro/busStop.png" alt=""></a>
                     </div>
                     
                     <div class="whiteButton" id="join">
