@@ -778,7 +778,9 @@ section.postcardMain .aapostRight .postcardTeach2{
     100%{top: 68%;}
 }
 
-
+section.postcardMain .aapostRight .postcardTeach3{
+    display: none;
+}
 
 
 
@@ -1296,7 +1298,6 @@ body.postcardBody .forWallDeco{
         left: 60%;
         animation: upDown2 1s linear infinite normal;      
     }
-
     @keyframes upDown2{
         0%{top: 18%;}
         50%{top: 20%;}
@@ -1308,7 +1309,17 @@ body.postcardBody .forWallDeco{
         left: 10%;
         animation: upDown3 1s linear infinite normal;      
     }
+    @keyframes upDown3{
+        0%{top: 70%;}
+        50%{top: 72%;}
+        100%{top: 70%;}
+    }
 
+    section.postcardMain .aapostRight .postcardTeach3{
+        top: 70%;
+        left: 10%;
+        animation: upDown3 1s linear infinite normal;      
+    }
     @keyframes upDown3{
         0%{top: 70%;}
         50%{top: 72%;}
