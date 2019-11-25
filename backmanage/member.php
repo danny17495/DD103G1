@@ -15,6 +15,11 @@
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+  <?php
+    session_start();
+    require_once('../connect.php');
+  ?>
+
  <!-- top_header -->
  <header class="app-header navbar">
     <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
@@ -170,7 +175,7 @@
                     <a href="#">九份客棧</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="#">訂單管理</a>
+                    <a href="#">會員管理</a>
                 </li>
             </ol>
         </nav>
@@ -178,74 +183,135 @@
        <div class="row">
         <div class="col-md-12">
           <div class="card">
-            <div class="card-header">訂單管理</div>
+            <div class="card-header">會員管理</div>
             <div class="card-body">
-              <button class="btn btn-block btn-outline-primary" type="button">新增訂單</button>
+              <button class="btn btn-block btn-outline-primary" type="button">新增會員</button>
 
 
               <!-- 每一頁主要改這個table -->
               <table class="table table-responsive-sm table-sm">
                 <thead>
                   <tr>
-                    <th>訂單編號</th>
-                    <th>訂購會員標號</th>
-                    <th>訂購日期</th>
-                    <th>訂單項目</th>
-                    <th>總金額</th>
-                    <th>取消訂單</th>
+                    <th>會員編號</th>
+                    <th>姓名</th>
+                    <th>帳號</th>
+                    <th>密碼</th>
+                    <th>手機</th>
+                    <th>地址</th>
+                    <th>信箱</th>
+                    <th>帳號狀態</th>
                   </tr>
                 </thead>
                 <tbody>
+                  <?php
+
+                  $sql="select * from `member` where memNo={$_SESSION['memNo']}";
+                  $member = $pdo->query($sql);
+
+                  $member->bindColumn("memName", $memName);
+                  $member->bindColumn("memPhone", $memPhone);
+                  $member->bindColumn("memAddress", $memAddress);
+                  $member->bindColumn("memEmail", $memEmail);
+
+                  ?>
+
                   <tr>
-                    <td>191008001</td>
+                    <td><?php echo $['memNo'];?>01</td>
+                    <td>淡水豪豪</td>
+                    <td>mange1</td>
+                    <td>123</td>
+                    <td>0912345678</td>
+                    <td>123</td>
+                    <td>123@gmail.com</td>
+                    <td>
+                      <label class="switch switch-3d switch-success">
+                        <input type="checkbox" class="switch-input">
+                        <span class="switch-slider" data-checked="" data-unchecked="">                  
+                        </span>      
+                      </label>
+                    </td>
+                  </tr>
+
+                  <!--tr>
+                    <td>02</td>
+                    <td>桃園凱凱</td>
+                    <td>kai123</td>
+                    <td>kai123</td>
+                    <td>0987887887</td>
+                    <td>中央路150號</td>
+                    <td>123@gmail.com</td>
+                    <td>
+                      <label class="switch switch-3d switch-success">
+                        <input type="checkbox" class="switch-input">
+                        <span class="switch-slider" data-checked="" data-unchecked="">                  
+                        </span>      
+                      </label>
+                    </td>
+                  </tr>
+                  <tr>
                     <td>03</td>
-                    <td>2019/11/29  18:00</td>
-                    <td>1</td>
-                    <td>450</td>
-                    <td><button>取消</button></td>
+                    <td>楊梅花花</td>
+                    <td>hana123</td>
+                    <td>hana123</td>
+                    <td>0977770770</td>
+                    <td>中央路150號</td>
+                    <td>123@gmail.com</td>
+                    <td>
+                      <label class="switch switch-3d switch-success">
+                        <input type="checkbox" class="switch-input">
+                        <span class="switch-slider" data-checked="" data-unchecked="">                  
+                        </span>      
+                      </label>
+                    </td>
                   </tr>
                   <tr>
-                    <td>191008002</td>
-                    <td>03</td>
-                    <td>2019/11/29  18:00</td>
-                    <td>1</td>
-                    <td>650</td>
-
-                    <td><button>取消</button></td>
+                    <td>04</td>
+                    <td>台北奇奇</td>
+                    <td>chi123</td>
+                    <td>chi123</td>
+                    <td>0912123123</td>
+                    <td>中央路150號</td>
+                    <td>123@gmail.com</td>
+                    <td>
+                      <label class="switch switch-3d switch-success">
+                        <input type="checkbox" class="switch-input">
+                        <span class="switch-slider" data-checked="" data-unchecked="">                  
+                        </span>      
+                      </label>
+                    </td>
                   </tr>
                   <tr>
-                    <td>191008003</td>
-                    <td>13</td>
-                    <td>2019/11/29  18:00</td>
-                    <td>3</td>
-                    <td>1350</td>
-                    <td><button>取消</button></td>
+                    <td>05</td>
+                    <td>台中喵喵</td>
+                    <td>meow123</td>
+                    <td>meow123</td>
+                    <td>0923330330</td>
+                    <td>中央路150號</td>
+                    <td>123@gmail.com</td>
+                    <td>
+                      <label class="switch switch-3d switch-success">
+                        <input type="checkbox" class="switch-input">
+                        <span class="switch-slider" data-checked="" data-unchecked="">                  
+                        </span>      
+                      </label>
+                    </td>
                   </tr>
                   <tr>
-                    <td>191008004</td>
-                    <td>08</td>
-                    <td>2019/11/29  18:00</td>
-                    <td>2</td>
-                    <td>1100</td>
-                    <td><button>取消</button></td>
-                  </tr>
-                  <tr>
-                    <td>191008005</td>
-                    <td>20</td>
-                   <td>2019/11/29  18:00</td>
-                    <td>2</td>
-                    <td>900</td>
-                    <td><button>取消</button></td>
-                  </tr>
-                  <tr>
-                    <td>191008006</td>
-                    <td>14</td>
-                    <td>2019/11/29  18:00</td>
-                    <td>1</td>
-                    <td>550</td>
-
-
-<td><button>取消</button></td>                  </tr>
+                    <td>06</td>
+                    <td>台南婷婷</td>
+                    <td>tin123</td>
+                    <td>tin123</td>
+                    <td>0988880881</td>
+                    <td>中央路150號</td>
+                    <td>123@gmail.com</td>
+                    <td>
+                      <label class="switch switch-3d switch-success">
+                        <input type="checkbox" class="switch-input">
+                        <span class="switch-slider" data-checked="" data-unchecked="">                  
+                        </span>      
+                      </label>
+                    </td>
+                  </tr> -->
                 </tbody>
               </table>
 
@@ -569,6 +635,37 @@
         </div>
       </footer>
   <!-- CoreUI and necessary plugins-->
+
+
+
+  <script>
+      function reversechange(e){
+        console.log(e.target.parentNode.parentNode.children[1]);   
+        e.target.parentNode.parentNode.children[5].firstChild.removeAttribute("readonly");
+        e.target.parentNode.parentNode.children[5].firstChild.classList.remove("dissinputstyle");
+        e.target.parentNode.parentNode.children[7].firstChild.removeAttribute("disabled");
+      }
+      
+    
+    var btn1= document.getElementsByClassName('btn1');
+    function doFirst(){
+      for(i=0; i<btn1.length;i++){
+        btn1[i].addEventListener('click',reversechange,false);
+      }
+    }
+    window.addEventListener('load',doFirst);
+    
+  </script>
+
+
+
+
+
+
+
+
+
+
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>

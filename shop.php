@@ -6,8 +6,6 @@ try {
     $prodsRow=$prods->fetchAll(PDO::FETCH_ASSOC);
     $sql = "select * from productdeco";
 
-    
-
 ?>
 <?php
 } catch (PDOException $e) {
