@@ -7,6 +7,7 @@ $shippingAddress = $_POST['hidden_data5'];
 $cardNumber = $_POST['hidden_data6'];
 $cardDateline = $_POST['hidden_data7'];
 $cardSafenumber = $_POST['hidden_data8'];
+$memNo = $_POST['hidden_data9'];
 $jsonStr = $_POST['hidden_cart'];
 $jsonStr2 = $_POST['hidden_cart2'];
 $cart = json_decode($jsonStr);
@@ -38,14 +39,12 @@ try {
 	echo "目前已有的訂單編號: ", $rowResult;
 	$newOrderNo = $rowResult + 1;
 
-
 	// 2. sql2: 訂單存入orderform
 	$sql2 = "insert into `orderform`(orderNo, memNo, totalPrice, startDate, shippingName, shippingPhone, shippingAddress, cardNumber, cardDateline, cardSafenumber) values(:newOrderNo, :memNo, :totalPrice, :startDate, :shippingName, :shippingPhone, :shippingAddress, :cardNumber, :cardDateline, :cardSafenumber)";
 
 	$order = $pdo->prepare($sql2);
 	$order->bindValue(":newOrderNo", $newOrderNo);	
-	// $order->bindValue(":memNo", $_SESSION['memNo']);
-	$order->bindValue(":memNo", '1');
+	$order->bindValue(":memNo", $memNo);
 	$order->bindValue(":totalPrice", $totalPrice);
 	$order->bindValue(":startDate", $startDate);
 	$order->bindValue(":shippingName", $shippingName);
@@ -59,7 +58,6 @@ try {
 
 	// echo "訂單存入資料庫成功~~~";
 	// echo json_last_error();
-
 
 	//3. sql3 +sql4 : 訂單存入orderdetails
 	// 如果有買明信片, $cart資料存入資料庫
@@ -76,7 +74,6 @@ try {
 			$sql4 = "insert into `orderdetails`(orderNo, productType, orderItemNo, orderItemName, orderPrice, orderItemNum, orderItemTotal, orderItemPic) values(:newOrderNo, :productType, :orderItemNo, :orderItemName, :orderPrice, :orderItemNum, :orderItemTotal, :orderItemPic)";
 
 			$cartDetail_2 = $pdo->prepare($sql4);
-			// $cartDetail_2->bindValue(":memNo", $_SESSION['memNo']);
 			$cartDetail_2->bindValue(":newOrderNo", $newOrderNo);  //ok
 			$cartDetail_2->bindValue(":productType", $productType);
 			$cartDetail_2->bindValue(":orderItemNo", $orderItemNo);
@@ -87,7 +84,6 @@ try {
 			$cartDetail_2->bindValue(":orderItemPic", $orderItemPic);
 
 			$cartDetail_2->execute();
-
 			// $aa = var_dump($cart);
 			// echo $aa;
 		}
@@ -109,8 +105,7 @@ try {
 			$sql3 = "insert into `orderdetails`(orderNo, productType, orderItemNo, orderItemName, orderPrice, orderItemNum, orderItemTotal, orderItemPic) values(:newOrderNo, :productType, :orderItemNo, :orderItemName, :orderPrice, :orderItemNum, :orderItemTotal, :orderItemPic)";
 
 			$cartDetail_1 = $pdo->prepare($sql3);
-			// $cartDetail_1->bindValue(":memNo", $_SESSION['memNo']);
-			$cartDetail_1->bindValue(":newOrderNo", $newOrderNo);  //ok
+			$cartDetail_1->bindValue(":newOrderNo", $newOrderNo); 
 			$cartDetail_1->bindValue(":productType", $productType);
 			$cartDetail_1->bindValue(":orderItemNo", $orderItemNo);
 			$cartDetail_1->bindValue(":orderItemName", $orderItemName);
@@ -120,19 +115,11 @@ try {
 			$cartDetail_1->bindValue(":orderItemPic", $orderItemPic);
 
 			$cartDetail_1->execute();
-
-			// $aa = var_dump($cart);
-			// echo $aa;
 		}
-
 	}
-
-
 
 	// echo json_encode($cart);
 	echo "訂單明細存入資料庫成功~~~";
-
-
 
 
 } catch (PDOException $e) {

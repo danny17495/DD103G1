@@ -1,16 +1,20 @@
 /*一. 撈取LocalStorage確認放入購物車的資料*/
+/*一. 撈取LocalStorage確認放入購物車的資料*/
 var addPostcardString = localStorage.getItem('addPostcard:');    // var itemString = storage['addItemList'];
-var postcardArr = addPostcardString.substr(0,addPostcardString.length-2).split(', ');
+var postcardArr, postcardNum = 0;  //postcardNum加入購物車幾個明信片
+if(addPostcardString != null){
+    postcardArr = addPostcardString.substr(0,addPostcardString.length-2).split(', ');
+    postcardNum = postcardArr.length;  //加入購物車幾個明信片
+}
 // console.log(postcardArr);     //(2) ["1", "3"]
-var postcardNum = postcardArr.length;  //加入購物車幾個明信片
 // console.log(postcardNum);
 
 var addShopItemString = localStorage.getItem('addShopItem:');    // var itemString = storage['addItemList'];
-var shopItemArr = addShopItemString.substr(0,addShopItemString.length-2).split(', ');
-console.log(shopItemArr);     //(3) ["2", "18", "15"]
-var shopItemNum = shopItemArr.length;  //加入購物車幾個商城商品
-console.log(shopItemNum);
-
+var shopItemArr, shopItemNum = 0;  //shopItemNum加入購物車幾個商城商品
+if(addShopItemString != null){
+    shopItemArr = addShopItemString.substr(0,addShopItemString.length-2).split(', ');
+    shopItemNum = shopItemArr.length;  //加入購物車幾個
+}
 
 
 /*二. 動態生成*/

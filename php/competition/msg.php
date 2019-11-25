@@ -1,5 +1,5 @@
 <?php
-$competNo=$_GET["competNo"];;
+$competNo=$_GET["competNo"];
 $msg=$_GET["msg"];
 $memNo=$_GET["memNo"];
 // $memNo=6;

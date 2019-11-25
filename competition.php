@@ -15,50 +15,32 @@ try{
     $sql_msg_member2 = 
     "select message.msgContent,message.msgDate,member.memName
     from `message`,`member`
-    where message.memNo=member.memNo order by message.msgDate desc limit 2 ";
+    where message.memNo=member.memNo and message.competNo=1 order by message.msgDate desc limit 2 ";
     $msgMember2 = $pdo->prepare($sql_msg_member2);
     $msgMember2 ->execute();
 
     $sql_msg_member3 = 
     "select message.msgContent,message.msgDate,member.memName
     from `message`,`member`
-    where message.memNo=member.memNo limit 2";
+    where message.memNo=member.memNo and message.competNo=2 order by message.msgDate desc limit 2 ";
     $msgMember3 = $pdo->prepare($sql_msg_member3);
     $msgMember3 ->execute();
 
     $sql_msg_member4 = 
     "select message.msgContent,message.msgDate,member.memName
     from `message`,`member`
-    where message.memNo=member.memNo limit 2";
+    where message.memNo=member.memNo and message.competNo=3 order by message.msgDate desc limit 2";
     $msgMember4 = $pdo->prepare($sql_msg_member4);
     $msgMember4 ->execute();
 
     $sql_member_vote = 
-    "select member.memName,competition.vote,competition.memName,postcard.postcardPic
+    "select member.memName,competition.vote,competition.memNo,postcard.postcardPic
     from `member`, `competition`, `postcard`
-    where member.memName=competition.memName and member.memNo=postcard.memNo and YEAR(startDate) = 2019 
+    where member.memNo=competition.memNo and member.memNo=postcard.memNo and YEAR(startDate) = 2019 
     order by competition.vote desc";
 
     $memberVote = $pdo->prepare($sql_member_vote);
     $memberVote ->execute();
-
-    // $item = "select count(*) from competition";
-    // $result = $pdo->query($item);
-    // $result ->bindColumn(1,$totalRecord);
-    // $result->fetch();
-
-    // $recPerPage = 6;
-
-    // $totalPage = ceil($totalRecord/$recPerPage);
-
-    // if(isset($_GET["startDate"])==false)
-    // $startDate=1;
-    // else
-    // $startDate=$_GET["startDate"];
-
-    // $start = ($startDate-1) * $recPerPage;
-    // $items = "select * from competition order by startDate limit $start,$recPerPage";
-    // $competition = $pdo->query($items);
 
 
 } catch (PDOException $e) {
@@ -130,7 +112,7 @@ try{
                         <a href="javascript:;"></a>
                     </div>
 				<div class="headerIcon">
-					<a href="javascript:;" id="shopcart">
+					<a href="shopcart.html" id="shopcart">
 						<img src="images/icon_shopcar.png" alt="icon_shopcar">
 					</a>
 					<a id="memberInfo" href="member.php">
@@ -193,7 +175,7 @@ try{
         <div id="containerpa floatBoard">
             <div class="skylightBanner">
                     <h1>投票比賽</h1>
-                    <h2>十月份比賽</h2>
+                    <h2>2019年11月</h2>
             </div>
 
             <!-- 天燈 -->
@@ -219,7 +201,7 @@ try{
                         <span>得票數:<span class="vote1"><?=$memberVoteRow["vote"]?>票</span></span>
                     </div>
                     <div class="competitionPost">
-                        <img src="images/postcard/<?=$memberVoteRow["postcardPic"]?>.jpg" alt="">
+                        <img src="images/postcardClient/<?=$memberVoteRow["postcardPic"]?>.jpg" alt="">
                     </div>
             <?php
             }
@@ -234,15 +216,15 @@ try{
             <?php
                 }
             ?>
-                    <div class="competitionButton">
-                        <span href="#" class="whiteButton voteBtn" data-vote="1">
-                            <img src="images/indexSpot/voteIcon.png" alt="">
-                            投票
+                    <div class="competitionButton indexVoBtn">
+                        <div href="#" class="indexVoBtn voteBtn" data-vote="1">
+                        <i class="fa fa-hand-o-down fa-2x voteIcon" aria-hidden="true"></i>
+                        <p>投票</p>
                             <input type="hidden" name="competNo2" value="">
-                        </span>
-                        <span href="#"  class="whiteButton messageBtn">
-                            <img src="images/indexSpot/messIcon.png" alt="">
-                            留言
+                        </div>
+                        <div href="#"  class="indexVoBtn messageBtn">
+                        <i class="fa fa-commenting-o messIcon fa-2x" aria-hidden="true"></i>
+                        <p>留言</p>
                             <input type="hidden" name="competNo3" value="1">
                         </span>
                     </div>
@@ -270,7 +252,7 @@ try{
                         <span>得票數:<span class="vote2"><?=$memberVoteRow["vote"]?>票</span></span>
                     </div>
                     <div class="competitionPost">
-                        <img src="images/postcard/<?=$memberVoteRow["postcardPic"]?>.jpg" alt="">
+                    <img src="images/postcardClient/<?=$memberVoteRow["postcardPic"]?>.jpg" alt="">
                     </div>
                     <?php
                         }
@@ -288,17 +270,17 @@ try{
                     <?php
                         }
                     ?>
-                    <div class="competitionButton">
-                        <span href="#" class="whiteButton voteBtn" data-vote="2">
-                            <img src="images/indexSpot/voteIcon.png" alt="">
-                            投票
+                    <div class="competitionButton indexVoBtn">
+                        <div href="#" class="indexVoBtn voteBtn" data-vote="2">
+                        <i class="fa fa-hand-o-down fa-2x voteIcon" aria-hidden="true"></i>
+                            <p>投票</p>
                             <input type="hidden" name="competNo2" value="">
-                        </span>
-                        <span href="#"  class="whiteButton messageBtn">
-                            <img src="images/indexSpot/messIcon.png" alt="">
-                            留言
+                        </div>
+                        <div href="#"  class="indexVoBtn messageBtn">
+                        <i class="fa fa-commenting-o messIcon fa-2x" aria-hidden="true"></i>
+                            <p>留言</p>
                             <input type="hidden" name="competNo3" value="2">
-                        </span>
+                        </div>
                     </div>
                 </div>
                 <?php
@@ -318,7 +300,7 @@ try{
 
                     </div>
                     <div class="competitionPost">
-                        <img src="images/postcard/<?=$memberVoteRow["postcardPic"]?>.jpg" alt="">
+                    <img src="images/postcardClient/<?=$memberVoteRow["postcardPic"]?>.jpg" alt="">
                     </div>
                     <?php
                         }
@@ -338,17 +320,17 @@ try{
                         }
                     ?>
 
-                    <div class="competitionButton">
-                        <span href="#" class="whiteButton voteBtn" data-vote="3">
-                            <img src="images/indexSpot/voteIcon.png" alt="">
-                            投票
+                    <div class="competitionButton indexVoBtn">
+                        <div href="#" class="indexVoBtn voteBtn" data-vote="3">
+                        <i class="fa fa-hand-o-down fa-2x voteIcon" aria-hidden="true"></i>
+                            <p>投票</p>
                             <input type="hidden" name="competNo2" value="">
-                        </span>
-                        <span href="#"  class="whiteButton messageBtn">
-                            <img src="images/indexSpot/messIcon.png" alt="">
-                            留言
+                        </div>
+                        <div href="#"  class="indexVoBtn messageBtn">
+                        <i class="fa fa-commenting-o messIcon fa-2x" aria-hidden="true"></i>
+                            <p>留言</p>
                             <input type="hidden" name="competNo3" value="3">
-                        </span>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -382,7 +364,7 @@ try{
 
                 ?>
                     <div class="smallMessage">
-                    <img src="images/postcard/<?=$memberVoteRow["postcardPic"]?>.jpg" alt="">
+                    <img src="images/postcardClient/<?=$memberVoteRow["postcardPic"]?>.jpg" alt="">
                         <div class="smallMessageButton">                       
                             <div class="competitionVoteTitle">
                                 <input type="hidden"  name="competNo">
@@ -390,17 +372,17 @@ try{
                                 <span><span class="vote<?echo $i?>"><?=$memberVoteRow["vote"]?>票</span></span>
                             </div>
 
-                            <div class="competitionButton">
-                                <span href="#" class="whiteButton voteBtn" data-vote="<?echo $i?>">
-                                    <img src="images/indexSpot/voteIcon.png" alt="">
-                                    投票
+                            <div class="competitionButton indexVoBtn">
+                                <div href="#" class="indexVoBtn voteBtn" data-vote="<?echo $i?>">
+                                <i class="fa fa-hand-o-down fa-2x voteIcon" aria-hidden="true"></i>
+                                    <p>投票</p>
                                     <input type="hidden" name="competNo2" value="">
-                                </span>
-                                <span href="#"  class="whiteButton messageBtn">
-                                    <img src="images/indexSpot/messIcon.png" alt="">
-                                    留言
+                                </div>
+                                <div href="#"  class="indexVoBtn messageBtn">
+                                <i class="fa fa-commenting-o messIcon fa-2x" aria-hidden="true"></i>
+                                    <p>留言</p>
                                     <input type="hidden" name="competNo3" value="">
-                                </span>
+                        </div>
                             </div>
                         </div>
                     </div>
@@ -432,7 +414,7 @@ try{
                         
                         2.每日更新票數/每月更新名次<br>
                         
-                        3.前三名會在商城販售持續一個月
+                        3.會員可同時製作多張明信片，但是只有當月製作的第一張可以參加比賽。
                     </p>
                         
                 </div>
@@ -441,14 +423,14 @@ try{
                         <a href="reserve.html"><img src="images/spotintro/busStop.png" alt=""></a>
                     </div>
                     
-                    <div class="whiteButton">
-                        <a href="#">我要加入會員</a>
+                    <div class="whiteButton" id="join">
+                        <a href="#">參加比賽</a>
                     </div>
                     <div class="whiteButton">
-                        <a href="postcard.html">我要客製明信片</a>
+                        <a href="postcard.html">客製明信片</a>
                     </div>
                     <div class="whiteButton">
-                        <a href="shop.html">我要去購物商城</a>
+                        <a href="shop.html">購物商城</a>
                     </div>
                 </div>                
             </div>
@@ -475,7 +457,7 @@ try{
             <div class="alertTitle">提示</div>
             <div class="alertContent">我是內容</div>
             <div class="closeWrap">
-                <div class="yesButton whiteButton">取消</div>
+                <div class="yesButton whiteButton">確定</div>
                 <div class="cancelButton whiteButton">取消</div>
             </div>
             <div class="alertClose">
