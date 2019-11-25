@@ -267,7 +267,7 @@ body{
 }
 
 .competitionVoteTitle{
-    font-family: "華康秀風體";
+    font-family: 'Noto Serif TC', serif;
     font-size: 24px;
     padding-top: 20px;
     display: flex;
@@ -558,7 +558,6 @@ body{
 }
 
 .competitionDescriptionSpan p{
-    /* font-family: "華康秀風體"; */
     text-align: left;
     font-size: 26px;
     margin: 30px;

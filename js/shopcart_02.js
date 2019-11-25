@@ -87,6 +87,7 @@ function shopcartInitPage2_1(){
                 itemName = "客製化T-shirt";
             }
 
+
             //數量及小計
             var itemStorage = `商城商品(編號, 商品數量, 商品小計)編號${picName}`
             var itemString = localStorage.getItem(itemStorage);
@@ -600,7 +601,7 @@ function orderSave(){
             }else{
                 console.log("------------");
                 console.log(xhr.responseText);
-                var saveResult = responseText;
+                var saveResult = xhr.responseText;
                 if(saveResult == "訂單明細存入資料庫成功"){
                     localStorage.clear();
                     window.location.href = "index.html";

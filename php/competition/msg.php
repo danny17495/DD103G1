@@ -13,6 +13,6 @@ $sql_INSERT =
 $data_INSERT = $pdo->prepare($sql_INSERT);
 $data_INSERT ->execute();
 
-echo $time;
+echo json_encode($time);
  
 ?> 
