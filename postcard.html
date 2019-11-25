@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="css/odometer-theme-default.css">        
     <link rel="stylesheet" href="css/stylePostcard.css">
     <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/odometer.js" defer></script>     
+    <script src="js/odometer.js" defer></script>    
+    <script src="js/typewriter.js" defer></script>    
     <script src="js/postcard.js" defer></script>
 </head>
 <body class="postcardBody">
@@ -42,7 +43,7 @@
                                 <a href="postcard.html"  class="nowpage">客製明信片</a>
                             </li>
                             <li>
-                                <a href="shop.php">購物商城</a>
+                                <a href="shop.html">購物商城</a>
                             </li>
                             <li>
                                 <a href="competition.php">投票比賽</a>
@@ -85,17 +86,17 @@
         <section class="postcardExample wrapA">
             <div class="container">
                 <div>
-                    <div class="postWhiteBack postWhiteBackDemo">
+                    <div class="postWhiteBack postWhiteBackDemo postDemo1">
                         <img src="images/postcard/postDemo_1.jpg" alt="postcard">
                     </div>
-                    <div class="postWhiteBack postWhiteBackDemo">
+                    <div class="postWhiteBack postWhiteBackDemo postDemo2">
                         <img src="images/postcard/postDemo_2.jpg" alt="postcard">
                     </div>
-                    <div class="postWhiteBack postWhiteBackDemo">
+                    <div class="postWhiteBack postWhiteBackDemo postDemo3">
                         <img src="images/postcard/postDemo_3.jpg" alt="postcard">
                     </div>
-                    <div class="postWhiteBack postWhiteBackDemo">
-                        <img src="images/postcard/postDemo_1.jpg" alt="postcard">
+                    <div class="postWhiteBack postWhiteBackDemo postDemo4">
+                        <img src="images/postcard/postDemo_4.jpg" alt="postcard">
                     </div>
                 </div>
                 <span>
@@ -234,6 +235,8 @@
                             <img src="images/postcard/uploadPlus.png" alt="upload">
                         </div>
                     </label>
+                    <span class="postcardTeach postcardTeach1" id="postcardTeach1">點擊照片</span>
+                    <span class="postcardTeach postcardTeach2" id="postcardTeach2">也可選擇上傳照片</span>
                 </div><!-- .postRightDIY_1結束div -->
                 <div>
                     <div class="whiteButton postDIYBtn_1_Next postDIYBtn" id="postDIYBtn_1_Next">下一步</div>   
@@ -273,23 +276,16 @@
                         <!-- (2)教學 -->
                         <div>
                             <div class="postcardTeachBox">
-                                <img src="images/postcard/teachCursors-1move.png" alt="teachPic">
+                                <img src="images/postcard/teachCursors-1move.png" alt="teachPic" id="stepTwoTypePic">
                                 <div class="postcardTeachText">
-                                    <p>1. 點擊移動</p>
-                                    <p>2. 點擊縮放</p>
-                                    <p>3. 點擊旋轉</p>
-                                    <p>4. 點兩下刪除</p>
+                                    <p id="stepTwoType1"></p>
+                                    <p id="stepTwoType2"></p>
+                                    <p id="stepTwoType3"></p>
+                                    <p id="stepTwoType4"></p>
                                 </div>
                             </div>
                         </div>                   
                     </div>
-                   
-
-
-                    
-
-
-
                 </div><!-- .postRightDIY結束div -->
                 <div class="postDIYBtn_Wrap">
                     <div class="whiteButton postDIYBtn_2_Back postDIYBtn" id="postDIYBtn_2_Back">上一步</div>
@@ -411,7 +407,7 @@
                             </tr>
                             <tr class="finishBox">
                                 <th>
-                                    <div class="leafButton postFinishBtn">分享</div>
+                                    <div class="leafButton postFinishBtn" id="sendToLine">分享</div>
                                 </th>
                                 <td>
                                     <p>免費分享</p>
@@ -511,6 +507,7 @@
             </div><!-- .container結束div -->
         </section>
     </div>
+
     <footer>
         <div>
             <a href="#">

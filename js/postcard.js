@@ -133,6 +133,8 @@ function toPR2(){
 	postStepYellowB3.classList.remove("postStepYellowHere");
 	postStepYellowB4.classList.remove("postStepYellowHere");
 	postStepYellowB5.classList.remove("postStepYellowHere");
+
+	startStepTwoType();
 }
 
 function toPR3(){
@@ -260,10 +262,6 @@ window.addEventListener("load", postcardInit, false);
 
 
 
-
-
-
-
 /*======================================================================*/
 /*第三支程式: 操作畫面步驟一(換背景)
   (1)換背景 (2)加框框標示*/
@@ -322,7 +320,6 @@ function aaPostcardChangeBGI_3(){
 //上傳窗格
 function aaPostcardChangeuploadBGI(){
 	alert("建議上傳橫式照片，最佳寬：高比例為3：2！");
-
 	document.getElementById("theFile").onchange = fileChange;
 
 	aapostBGC_1.classList.remove("aapostBGC_1_Selected");
@@ -355,27 +352,19 @@ function fileChange(){
     //同時重畫隱藏畫布
 	setTimeout(postcardInit8, 1000);
 
-    
-
-
 }
 
 function postcardInit2(){
 	aapostBGC_1.addEventListener("click", aaPostcardChangeBGI_1, false);
 	aapostBGC_2.addEventListener("click", aaPostcardChangeBGI_2, false);
 	aapostBGC_3.addEventListener("click", aaPostcardChangeBGI_3, false);
-	aauploadBGC.addEventListener("click", aaPostcardChangeuploadBGI, false);
+
+	//要綁訂在input, 綁在label會alert兩次
+	var theFileOnce = document.getElementById("theFile");
+	theFileOnce.addEventListener("click", aaPostcardChangeuploadBGI, false);
 }
 
 window.addEventListener("load", postcardInit2, false);
-
-
-
-
-
-
-
-
 
 
 
@@ -517,8 +506,6 @@ function postcardInit4(){
 window.addEventListener("load", postcardInit4, false);
 
 
-
-
 // if(postcardCanvas.getActiveObject()){
 // 	postcardCanvas.remove(postcardCanvas.getActiveObject());	
 // }
@@ -536,6 +523,18 @@ postcardCanvas.on('mouse:dblclick', e => {
     postcardCanvas.renderAll();
   }
 })
+
+//手機板
+// postcardCanvas.on('mouse:dblclick', e => {
+//   console.log(e)
+//   const active = e.target
+//   if (active) {
+//     // active.set({ fill: colorToggle ? 'red' : 'blue' })
+//     // colorToggle = !colorToggle
+//     postcardCanvas.remove(active);
+//     postcardCanvas.renderAll();
+//   }
+// })
 
 
 
@@ -659,11 +658,6 @@ function postcardInit5(){
 window.addEventListener("load", postcardInit5, false);
 
 
-
-
-
-
-
 // const iText111 = new fabric.IText('雙擊我編輯', {
 //   left: 0,
 //   top: 120,
@@ -699,8 +693,6 @@ window.addEventListener("load", postcardInit5, false);
 // 	strokeWidth: 2,
 // 	stroke: "#880E4F",
 // });
-
-
 
 
 
@@ -903,7 +895,6 @@ window.addEventListener("resize", postcardInit8, false);
 
 
 
-
 /*======================================================================*/
 /*第五支程式: 儲存canvas上的畫面進Server資料夾*/
 //建立html連結:demo畫面, 第三支程式裡已宣告過canvas2 = document.getElementById("postcardCanvas");
@@ -1064,13 +1055,237 @@ window.addEventListener("load", postcardInit10, false);
 
 
 /*======================================================================*/
-/*第八支程式: */
+/*第八支程式: 分享*/
+var lineBtn = document.getElementById("sendToLine");
+var lineTemp;
+
+function sendToline1(){
+	//五-1.抓第一張canvas上的圖
+	console.log("hi第五支程式:saveImage");
+	var canvas2 = document.getElementById("postcardCanvas");
+	var dataURL = canvas2.toDataURL("image/png");
+	document.getElementById('hidden_data').value = dataURL;
+
+	//測試code
+	var ee = document.getElementById('hidden_data').value;
+	console.log("dataURL1:", ee);
+
+	//五-2.將套件畫的圖貼到#postcardCanvasSecret關鍵
+	var img = new Image();
+	img.onload = function(){
+	    ctxPostcardCanvasSecret.drawImage(img,0,0,postcardCanvasSecretW ,postcardCanvasSecretH); //drawImage(img,x,y,width,height)
+	}
+	img.src = dataURL;
+
+	//五-3.抓第二張#postcardCanvasSecret上的圖
+	var postcardCanvasSecret = document.getElementById("postcardCanvasSecret");
+	var ctxPostcardCanvasSecret = postcardCanvasSecret.getContext("2d");
+	lineTemp = postcardCanvasSecret.toDataURL("image/jpeg");
+
+	setTimeout(sendToline2, 1000);
+}
+
+// function sendToline2(){
+// 	//五-4.再抓一次第二張#postcardCanvasSecret上的圖
+// 	var postcardCanvasSecret = document.getElementById("postcardCanvasSecret");
+// 	var ctxPostcardCanvasSecret = postcardCanvasSecret.getContext("2d");
+// 	lineTemp = postcardCanvasSecret.toDataURL("image/jpeg");
+
+// 	setTimeout(sendToline3, 100);
+// }
+
+function sendToline2(){
+	var mediaWidth = document.body.clientWidth;
+	var picLocation = `http://140.115.236.71/demo-projects/DD103/DD103G1/images/postcardClient/${newPostcardNo}.jpg`;
+	// var picLocation = `http://localhost/DD103G1/images/postcardClient/${newPostcardNo}.jpg`;
+
+	if(mediaWidth < 800){
+		console.log("現在設備可視寬度", mediaWidth);
+	    // mobile
+		// 只有　text ，但可以把網址帶入文字，他會自已解析
+		window.open(`line://msg/text/${encodeURIComponent(`這是我的九份明信片！${picLocation}`)}`, '_blank');	
+	}else{
+		// desktop
+		// 可以帶 url
+		// 帶 text (有字數長度限制)
+		window.open(`https://lineit.line.me/share/ui?url=${encodeURIComponent(picLocation)}&text=${encodeURIComponent("這是我的九份明信片！")}`);
+	}
+
+}
+
+
+// href="https://lineit.line.me/share/ui?url=http://localhost/test4/DD103G1/reserve.html"
+function postcardInit11(){
+	lineBtn.addEventListener("click", sendToline1, false);
+}
+
+window.addEventListener("load", postcardInit11, false);
+
+
+/*======================================================================*/
+/*第九支程式: 步驟二四的打字教學*/
+var w1 =1, w2 =1, w3 =1, w4 =1;
+var stepTwoTypePic = document.getElementById("stepTwoTypePic");
+function startStepTwoType(){
+    var message = "1. 點擊移動";
+    if( w1 <= message.length ){       
+        var txt = message.substring(0,w1);
+        var stepTwoType1 = document.getElementById("stepTwoType1");
+        stepTwoType1.style.fontWeight = "bold";
+        stepTwoType1.innerText = txt;
+        setTimeout("startStepTwoType()",200);
+        w1++;
+
+        if(stepTwoType1.innerText =="1. 點擊移動"){
+			setTimeout(startStepTwoType2, 2000);
+        }
+    }
+}
+
+function startStepTwoType2(){
+	stepTwoTypePic.src = "images/postcard/teachCursors-2resize.png";
+    var message = "2. 點擊縮放";
+    if( w2 <= message.length ){      
+        var txt = message.substring(0,w2);
+        var stepTwoType2 = document.getElementById("stepTwoType2");
+        stepTwoType1.style.fontWeight = "normal";
+        stepTwoType2.style.fontWeight = "bold";
+        stepTwoType2.innerText = txt;
+        setTimeout("startStepTwoType2()",200);
+        w2++;
+
+        if(stepTwoType2.innerText =="2. 點擊縮放"){
+			setTimeout(startStepTwoType3, 2000);
+        }
+    }
+}
+
+function startStepTwoType3(){
+	stepTwoTypePic.src = "images/postcard/teachCursors-3rotate.png";
+    var message = "3. 點擊旋轉";
+    if( w3 <= message.length ){       
+        var txt = message.substring(0,w3);
+        var stepTwoType3 = document.getElementById("stepTwoType3");
+        stepTwoType2.style.fontWeight = "normal";
+        stepTwoType3.style.fontWeight = "bold";
+        stepTwoType3.innerText = txt;
+        setTimeout("startStepTwoType3()",200);
+        w3++;
+
+        if(stepTwoType3.innerText =="3. 點擊旋轉"){
+			setTimeout(startStepTwoType4, 2000);
+        }
+    }
+}
+
+function startStepTwoType4(){
+	stepTwoTypePic.src = "images/postcard/teachCursors-4delete.png";
+	var mediaWidth = document.body.clientWidth;
+
+	if(mediaWidth < 350){
+		// console.log("現在設備可視寬度", mediaWidth);
+	    var message = "4. 拖出去刪掉";
+	    if( w4 <= message.length ){       
+	        var txt = message.substring(0,w4);
+	        var stepTwoType4 = document.getElementById("stepTwoType4");
+	        stepTwoType3.style.fontWeight = "normal";
+	        stepTwoType4.style.fontWeight = "bold";
+	        stepTwoType4.innerText = txt;
+	        setTimeout("startStepTwoType4()",200);
+	        w4++;
+
+	        if(stepTwoType4.innerText =="4. 拖出去刪掉"){
+				setTimeout(startStepTwoType5, 2000);
+	        }        
+	    }			
+	}else if(mediaWidth < 800){
+		// console.log("現在設備可視寬度", mediaWidth);
+	    var message = "4. 拖出畫布刪除";
+	    if( w4 <= message.length ){       
+	        var txt = message.substring(0,w4);
+	        var stepTwoType4 = document.getElementById("stepTwoType4");
+	        stepTwoType3.style.fontWeight = "normal";
+	        stepTwoType4.style.fontWeight = "bold";
+	        stepTwoType4.innerText = txt;
+	        setTimeout("startStepTwoType4()",200);
+	        w4++;
+
+	        if(stepTwoType4.innerText =="4. 拖出畫布刪除"){
+				setTimeout(startStepTwoType5, 2000);
+	        }        
+	    }			
+	}else{
+	    var message = "4. 點兩下刪除";
+	    if( w4 <= message.length ){       
+	        var txt = message.substring(0,w4);
+	        var stepTwoType4 = document.getElementById("stepTwoType4");
+	        stepTwoType3.style.fontWeight = "normal";
+	        stepTwoType4.style.fontWeight = "bold";
+	        stepTwoType4.innerText = txt;
+	        setTimeout("startStepTwoType4()",200);
+	        w4++;
+
+	        if(stepTwoType4.innerText =="4. 點兩下刪除"){
+				setTimeout(startStepTwoType5, 2000);
+	        }        
+	    }
+	}
+}
+
+function startStepTwoType5(){
+    stepTwoType4.style.fontWeight = "normal";
+}
+
+/*======================================================================*/
+/*第十支程式: 操作引導*/
+var postcardTeach1 = document.getElementById("postcardTeach1");
+var postcardTeach2 = document.getElementById("postcardTeach2");
+
+var typewriter = new Typewriter(postcardTeach1, {
+    loop: true
+});
+
+typewriter.typeString('點擊照片')
+    .pauseFor(2500)
+    .deleteAll()
+    .typeString('點擊照片')
+    .pauseFor(2500)
+    .start();
+
+function removePostcardTeach1(){
+	postcardTeach1.style.display = "none";
+	console.log("教學引導1");
+	setTimeout(addPostcardTeach2 ,2000);
+
+}
+
+function addPostcardTeach2(){
+	postcardTeach2.style.display = "block";
+	console.log("教學引導2");
+	
+	var typewriter2 = new Typewriter(postcardTeach2, {
+	    loop: true
+	});
+
+	typewriter2.typeString('也可選擇上傳照片')
+	    .pauseFor(2500)
+	    .deleteChars(4)
+	    .typeString('上傳照片')
+	    .pauseFor(2500)
+	    .deleteAll()
+	    .start();	
+}
 
 
 
+function postcardInit12(){
+	aapostBGC_1.addEventListener("click", removePostcardTeach1, false);
+	aapostBGC_2.addEventListener("click", removePostcardTeach1, false);
+	aapostBGC_3.addEventListener("click", removePostcardTeach1, false);
+	aauploadBGC.addEventListener("click", removePostcardTeach1, false);
+}
 
-
-
+window.addEventListener("load", postcardInit12, false);
 
 
 
