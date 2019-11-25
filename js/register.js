@@ -97,6 +97,8 @@ var form=new Vue({
                         if (memberInfoClick) { //判定原先有無按會員頁按鈕
                             document.location.href = "member.php";
                             memberInfoClick = false;
+                        }else{
+                            $id("loginRegister").style.display="none";
                         }
 
                     } else {

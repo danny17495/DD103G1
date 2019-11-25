@@ -196,7 +196,7 @@ function toPR5(){
 	postStepYellowB4.classList.remove("postStepYellowHere");
 	postStepYellowB5.classList.add("postStepYellowHere");
 
-	getPostcardNo();
+	//getPostcardNo();
 	btnNoFuntion();
 
 }
@@ -240,7 +240,7 @@ function postcardInit(){
 	pDIYBtn5.addEventListener("click", toPR4, false);	//at postRight_3
 
 	pDIYBtn6.addEventListener("click", toPR3, false);	//at postRight_4
-	pDIYBtn7.addEventListener("click", toPR5, false);	//at postRight_4
+//	pDIYBtn7.addEventListener("click", toPR5, false);	//at postRight_4
 
 	// pDIYBtn8.addEventListener("click", toPR4, false);	//at postRight_5
 

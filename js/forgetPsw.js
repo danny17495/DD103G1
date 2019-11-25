@@ -24,7 +24,10 @@ var form1=new Vue({
                     if (result.indexOf("emailError") != -1) {
                         alertWrap("無此信箱,請重新輸入");
                         this.email = '';
-                    } else {
+                    } else if (result.indexOf("success") == -1){
+                        this.email = '';
+                        alertWrap("系統錯誤");
+                    }else {
                         alertWrap("已成功寄出信件");
                         this.email = '';
                         document.getElementById('loginforget').style.display = "none";
