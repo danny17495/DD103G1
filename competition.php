@@ -466,7 +466,7 @@ try{
             </div>
         </div>
     </div>
-    <section id="login" class="Loginwrap">
+    <!-- <section id="login" class="Loginwrap">
         <div class="LoginForm">
             <div class="Loginhead" id="LoginForm-head">
                 <div data-tab="login">
@@ -501,8 +501,8 @@ try{
                 </div>
             </form>
         </div>
-    </section>
-    <section id="loginRegister" class="Loginwrap" style="display: none">
+    </section> -->
+    <!-- <section id="loginRegister" class="Loginwrap" style="display: none">
         <div class="LoginForm">
             <div class="Loginhead" id="LoginForm-head">
                 <div data-tab="login">
@@ -586,7 +586,7 @@ try{
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <script src="js/login.js"></script>
     <script src="js/alert.js"></script>
     <script src="js/animation.js"></script>
