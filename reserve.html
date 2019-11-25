@@ -78,28 +78,26 @@
     <div class="linearOrange">
         <section class="indexReserve">
             <h1 class="">預約行程</h1>
-            <div class="containerpa">
+            <div class="containerpa"  id="revform">
                 <div class="row">
                     <div class="col-12 col-md-6 indexReLeft">
-                        <form action="">
+                        <form action="#" >
                             <div class="indexReContent">
                                 <p>想要更加了解九份嗎?歡迎預約專屬行程!</p>
                                 <div class="reYuJourney">
                                     <label for="seYuJourney">想選的旅程:</label>
-                                    <select id="seYuJourney">
-                                        <option value="尋幽訪古">尋幽訪古</option>
-                                        <option value="漫遊山城">漫遊山城</option>
-                                        <option value="船遊秘境">船遊秘境</option>
+                                    <select id="seYuJourney" v-model="selectJourney" @change="queryDate">
+                                        <option v-for="journey in journeys">{{journey}}</option>
                                     </select>
                                 </div>
-                                <div class="reYuPeople">
+                                <div class="reYuPeople" >
                                     <label for="seYuPeople">選擇的人數:</label>
-                                    <select id="seYuPeople">
-                                        <option value="1">1</option>
+                                    <select id="seYuPeople"  v-model="selectPeople" @change="queryDate">
+                                        <option v-for="people in 20">{{people}}</option>
                                     </select>
                                 </div>
-                                <p>***不提供預約當日***<br>
-                                    <span class="reComfirmDate">2019/10/16</span>資訊如下:
+                                <p>請先選擇旅程及人數，再選擇可預約的日期<br>
+                                    <span class="reComfirmDate">!!!還未選擇日期!!!</span>
                                 </p>
                                 <div class="reComfirmInform">
                                     <div class="reInformLeft">
@@ -116,23 +114,23 @@
                                 <div class="verificationCode">
                                     <div class="textCode">
                                         <label for="enterCode">請輸入驗證碼:</label>
-                                        <input type="text" id="enterCode">
+                                        <input type="text" id="enterCode" v-model="inputCode">
                                         <div>
-                                            <span id="produceCode" onclick="createCode()"></span>
-                                            <img onclick="createCode()" src="images/reserve/produceCodeAgain.png" alt="produceCodeAgain">
+                                            <span id="produceCode" @click="createCode()">{{randomNum}}</span>
+                                            <img @click="createCode()" src="images/reserve/produceCodeAgain.png" alt="produceCodeAgain">
                                         </div>
                                     
                                     </div>
                                 </div>
                             </div>
-                            <div class="whiteButton" id="submit" onclick="validateCode()">送出</div>
+                            <div class="whiteButton" id="submit" @click="submitRev">送出</div>
                         </form>
                     </div>
                     <div class="col-12 col-md-5 indexReRight">
                         <div class="reserveCalendar">
                             <div class="calendarBox">
                                 <div class="calendarTitle">
-                                    <span class="caLeftArrow"></span>
+                                    <span class="caLeftArrow disabled"></span>
                                     <span id="calendarYear"></span>
                                     <span>/</span>
                                     <span id="calendarMonth"></span>
@@ -150,7 +148,7 @@
                                             <li>六</li>
                                         </ul>
                                     </div>
-                                    <div class="calendarBody"></div>
+                                    <div class="calendarBody" id="calendarCon"></div>
                                 </div>
                             </div>
                         </div>
@@ -217,9 +215,6 @@
                     <img src="images/reserve/busStop.png" alt="busstop">
                 </div>
                 <div class="waitLine">
-                    <div class="waitBoy">
-                        <img src="images/reserve/watchphoneman.png" alt="waitboy">
-                    </div>
                     <div class="waitGirl">
                         <img src="images/reserve/waitbuspeople.png" alt="waitgirl">
                     </div>
@@ -379,6 +374,8 @@
         </div>
     </section>
 <!-- <script src="js/busAPI.js"></script> -->
+<script src="js/vue-2.6.10.min.js"></script>
+<!-- <script src="js/vueReserve.js"></script> -->
 <script src="js/login.js"></script>
 <script src="js/reserveMove.js"></script>
 <script src="js/alert.js"></script>

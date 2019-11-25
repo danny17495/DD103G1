@@ -49,10 +49,10 @@
                             <a href="reserve.html">預約行程</a>
                         </li>
                         <li>
-                            <a href="postcard.html"  class="nowpage">客製明信片</a>
+                            <a href="postcard.html" >客製明信片</a>
                         </li>
                         <li>
-                            <a href="shop.html">購物商城</a>
+                            <a href="shop.html"  class="nowpage">購物商城</a>
                         </li>
                         <li>
                             <a href="competition.php">投票比賽</a>
@@ -65,7 +65,7 @@
             <a href="javascript:;"></a>
         </div>
         <div class="headerIcon">
-            <a href="javascript:;" id="shopcart">
+            <a href="shopcart.html" id="shopcart">
                 <img src="images/icon_shopcar.png" alt="icon_shopcar">
             </a>
             <a id="memberInfo" href="member.php">
@@ -322,7 +322,7 @@
     </div>
 </h4>
 <!---------------------------------- 購物按鈕----------------------------- --> 
-<span class="whiteButton shopMadeButton" onclick="cart()">加入購物車</span>
+<span class="whiteButton shopMadeButton" id="shopAddToCart">加入購物車</span>
 
 </div><!-- .shopRight結束div -->
 <div class="clearfix"></div>
@@ -401,7 +401,7 @@ window.onload=function () {
     type="1"; //商品種類
     color="1";//商品顏色
     pic="1";//商品圖案
-    var shopItemId=0;
+    var shopItemId=4;
 
     $(".leafButton span").click(function() {//商品種類
         type = $( this ).data("type");
@@ -491,12 +491,36 @@ function shopItemIdSet(){
     }
 }
 
+var shopAddToCartBtn = document.getElementById("shopAddToCart");
+
+
+function shopToCart(){
+
+    if(localStorage[`addShopItem:`] == null){
+        localStorage.setItem(`addShopItem:`,`${shopItemId}, `);
+    }else{
+        localStorage[`addShopItem:`] += `${shopItemId}, `;
+    }
+
+    // alert("加入購物車成功！");
+}
+
+function Init10(){
+    shopAddToCartBtn.addEventListener("click", shopToCart, false);
+    shopAddToCartBtn.addEventListener("click", cart, false);
+}
+
+window.addEventListener("load", Init10, false); 
+
+
+
 // console.log("shopItemId", shopItemId);
 
 
 </script>
 
 <script>
+
     function cart() {
 
         alertWrap("成功加入購物車")

@@ -17,8 +17,6 @@
     <script src="js/slick.js"></script>
     <script src="js/oneSlide.js"></script>
     <script src="js/cloudMove.js"></script>
-   
-    
 </head>
 <body>
         <header>
@@ -168,29 +166,38 @@
 
             <!----- indexSpot  首頁預約行程 ------>
         <section class="indexReserve">
-            <div class="containerpa">
-                <div class="row">
-                    <div class="col-12 col-md-6 indexReLeft">
+            <div class="containerpa" id="revform">
+                <div class="row" >
+                    <div class="col-12 col-md-6 indexReLeft" >
                         <h1>預約行程</h1>
-                            <form action="" >
+                            <form action="#"  >
                                 <div class="indexReContent">
                                     <p>想要更加了解九份嗎?歡迎預約專屬行程!</p>
                                     <div class="reYuJourney">
                                         <label for="seYuJourney">想選的旅程:</label>
-                                        <select id="seYuJourney">
+                                        <!-- <select id="seYuJourney">
                                             <option value="尋幽訪古">尋幽訪古</option>
                                             <option value="漫遊山城">漫遊山城</option>
                                             <option value="船遊秘境">船遊秘境</option>
+                                        </select> -->
+                                        <select id="seYuJourney" v-model="selectJourney" @change="queryDate">
+                                            <option v-for="journey in journeys">{{journey}}</option>
                                         </select>
                                     </div>
                                     <div class="reYuPeople">
                                         <label for="seYuPeople">選擇的人數:</label>
-                                        <select id="seYuPeople">
+                                        <!-- <select id="seYuPeople">
                                             <option value="1">1</option>
+                                        </select> -->
+                                        <select id="seYuPeople" v-model="selectPeople" @change="queryDate">
+                                            <option v-for="people in 20">{{people}}</option>
                                         </select>
                                     </div>
-                                     <p>***不提供預約當日***<br>
+                                     <!-- <p>***不提供預約當日***<br>
                                     <span class="reComfirmDate">2019/10/16</span>資訊如下:
+                                    </p> -->
+                                    <p>請先選擇旅程及人數，再選擇可預約的日期<br>
+                                        <span class="reComfirmDate">!!!還未選擇日期!!!</span>
                                     </p>
                                     <div class="reComfirmInform">
                                         <div class="reInformLeft">
@@ -216,7 +223,7 @@
                         <div class="reserveCalendar">
                             <div class="calendarBox">
                                 <div class="calendarTitle">
-                                    <span class="caLeftArrow"></span>
+                                    <span class="caLeftArrow disabled"></span>
                                     <span id="calendarYear"></span>
                                     <span>/</span>
                                     <span id="calendarMonth"></span>
@@ -234,7 +241,7 @@
                                             <li>六</li>
                                         </ul>
                                     </div>
-                                    <div class="calendarBody"></div>
+                                    <div class="calendarBody" id="calendarCon"></div>
                                 </div>
                             </div>
                             <div class="busStop">
@@ -442,8 +449,10 @@
                     <img src="images/image_abby/color.png" alt="color">
                 </span>
             </div>
-            <div class="cupPrice">200元</div>
-            <div class="whiteButton shopGameButton">製作我的馬克杯</div>
+            <div class="cupPrice">550元</div>
+            <a href="shop.html">
+                <div class="whiteButton shopGameButton">製作我的馬克杯</div>
+            </a>
         </div><!-- .shopRight結束div -->
         <div class="clearfix"></div>
     </section>
@@ -479,14 +488,18 @@
                         <p>中壢金城武</p>
                         <p>680票</p>
                         <div class="indexVoBtn">
-                            <div class="vote">
-                                <i class="fa fa-hand-o-down fa-2x voteIcon" aria-hidden="true"></i>
-                                <p>投票</p>
-                            </div>
-                            <div class="message">
-                                <i class="fa fa-commenting-o messIcon fa-2x" aria-hidden="true"></i>
-                                <p>留言</p>
-                            </div>
+                         
+                                <div class="vote">
+                                    <i class="fa fa-hand-o-down fa-2x voteIcon" aria-hidden="true"></i>
+                                    <p>投票</p>
+                                </div>
+                      
+                           
+                                <div class="message">
+                                        <i class="fa fa-commenting-o messIcon fa-2x" aria-hidden="true"></i>
+                                        <p>留言</p>
+                                </div>
+                         
                         </div>
                     </div>
                 </div>
@@ -499,14 +512,16 @@
                         <p>台北阿寶</p>
                         <p>470票</p>
                         <div class="indexVoBtn">
-                            <div class="vote">
-                                <i class="fa fa-hand-o-down fa-2x voteIcon" aria-hidden="true"></i>
-                                <p>投票</p>
-                            </div>
-                            <div class="message">
-                                <i class="fa fa-commenting-o messIcon fa-2x" aria-hidden="true"></i>
-                                <p>留言</p>
-                            </div>
+                      
+                                <div class="vote">
+                                    <i class="fa fa-hand-o-down fa-2x voteIcon" aria-hidden="true"></i>
+                                    <p>投票</p>
+                                </div>
+                    
+                                <div class="message">
+                                    <i class="fa fa-commenting-o messIcon fa-2x" aria-hidden="true"></i>
+                                    <p>留言</p>
+                                </div>
                         </div>
                     </div>
                 </div>
@@ -519,21 +534,26 @@
                         <p>板橋宋慧喬</p>
                         <p>325票</p>
                         <div class="indexVoBtn">
-                            <div class="vote">
-                                <i class="fa fa-hand-o-down fa-2x voteIcon" aria-hidden="true"></i>
-                                <p>投票</p>
-                            </div>
-                            <div class="message">
-                                <i class="fa fa-commenting-o messIcon fa-2x" aria-hidden="true"></i>
-                                <p>留言</p>
-                            </div>
+                                <div class="vote">
+                                    <i class="fa fa-hand-o-down fa-2x voteIcon" aria-hidden="true"></i>
+                                    <p>投票</p>
+                                </div>
+                                <div class="message">
+                                    <i class="fa fa-commenting-o messIcon fa-2x" aria-hidden="true"></i>
+                                    <p>留言</p>
+                                </div>
+                        
                         </div>
                     </div>
                 </div>
-                <div class="whiteButton order5" id="contestnow">馬上參加比賽</div>
-            </div>
+                    
+                    <div class="whiteButton order5" id="contestnow" onclick="window.location.href='competition.php'">
+                        馬上參加比賽
+                    </div>
         </div>
+            </div>
             <canvas id="canvas" class="canvasBox"></canvas>
+        
     </section>
    
 
@@ -620,7 +640,7 @@
                 <div data-tab="login">
                     <div class="Loginclose">
                         <h3>會員註冊</h3>
-                        <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true"></i>
+                        <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true" @click="clear"></i>
                     </div>
                 </div>
             </div>
@@ -657,7 +677,7 @@
                             </div>
                             <div class="LoginBtnL">
                                 <div class="whiteButton">
-                                    <a href="javascript:;">回上頁</a>
+                                    <a href="javascript:;" @click="clear">回上頁</a>
                                 </div>
                             </div>
                         </div>
@@ -672,39 +692,44 @@
                 <div data-tab="login">
                     <div class="Loginclose">
                         <h3>重設密碼</h3>
-                        <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true"></i>
+                        <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true" @click="clear"></i>
     
                     </div>
                 </div>
             </div>
-            <div class="Loginbody LoginForm-body">
-                <div class="login">
-                    <div class="LoginForm-row">
-                        <label class="LoginLabel" for="">email</label>
-                        <input class="Logininput" type="email" placeholder="email">
-                    </div>
-                    <p class="resetpsw">*請送出表單後,到信箱查看並重設密碼*</p>
-                    <div class="LoginForm-row fix">
-                        <div class="LoginBtnR">
-                            <div class="whiteButton">
-                                <a href="#">
-                                    送出
-                                </a>
-                            </div>
+            <form action="#"> 
+                <div class="Loginbody LoginForm-body">
+                    <div class="login">
+                        <div class="LoginForm-row">
+                            <label class="LoginLabel">Email<span class="errMsg">{{errMsg}}</span></label>
+                            <input class="Logininput" type="email" placeholder="輸入您的信箱" v-model="email" @change="test" id="inputEmail">
                         </div>
-                        <div class="LoginBtnL">
-                            <div class="whiteButton">
-                                <a href="javascript:;">回上頁</a>
+                        <p class="resetpsw">*請送出表單後,到信箱查看並重設密碼*</p>
+                        <div class="LoginForm-row fix">
+                            <div class="LoginBtnR">
+                                <div class="whiteButton">
+                                    <a href="#" @click="submitEmail">
+                                        送出
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="LoginBtnL">
+                                <div class="whiteButton">
+                                    <a href="javascript:;" @click="clear">回上頁</a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </section>
+
 <script src="js/alert.js"></script>
 <script src="js/login.js"></script>
 <script src="js/register.js"></script>
+<script src="js/forgetPsw.js"></script>
+<script src="js/reserveDate.js"></script>
 <script src="js/canlendar.js"></script>
 <script src="js/ScrollMagic.min.js"></script>
 <script src="js/animation.gsap.min.js"></script>

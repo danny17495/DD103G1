@@ -36,7 +36,7 @@ try {
 		$rowResult = $getOrderNo["orderNo"];
 	}
 
-	echo "目前已有的訂單編號: ", $rowResult;
+	// echo "目前已有的訂單編號: ", $rowResult;
 	$newOrderNo = $rowResult + 1;
 
 	// 2. sql2: 訂單存入orderform
@@ -119,7 +119,7 @@ try {
 	}
 
 	// echo json_encode($cart);
-	echo "訂單明細存入資料庫成功~~~";
+	echo "訂單明細存入資料庫成功";
 
 
 } catch (PDOException $e) {
