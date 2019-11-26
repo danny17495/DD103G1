@@ -196,7 +196,7 @@ function toPR5(){
 	postStepYellowB4.classList.remove("postStepYellowHere");
 	postStepYellowB5.classList.add("postStepYellowHere");
 
-	//getPostcardNo();
+	getPostcardNo();
 	btnNoFuntion();
 
 }
