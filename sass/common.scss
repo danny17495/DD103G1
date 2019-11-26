@@ -208,7 +208,6 @@ header.white{
 .headerStyle{
    position: relative;
    display: flex;
-   justify-content: space-between;
    align-items: center;
    height: 85px;
   
@@ -227,7 +226,7 @@ header.white{
     top: 100%;
     left: -100%;
     width: 100%;
-    height: calc(100vh - 100px);
+    height: calc(100vh - 85px);
     background:url(../images/menuBg1.png) no-repeat;
     background-position: center;
     transition:left 1s;
@@ -255,7 +254,7 @@ header.white{
             opacity: .3;
         }
       }
-    a{
+    ul a{
       color: #fff;
       font-weight: bold;
       padding-top: 12px;
@@ -273,22 +272,7 @@ header.white{
     }
 }
 
-.headerMemInfo{
-    position: relative;
-    right: 91px;
-    top: -3px;
-    #headerMemName{
-      display: flex;
-      a{
-          margin-left: 10px;
-          cursor: pointer;
-          padding-bottom:5px ;
-          &:hover{
-             color:#f39700
-          }
-      }
-  }
-}
+
 
 #headerCheck:checked ~ .navMenu{
       left:0;
@@ -393,10 +377,40 @@ header.white{
       .changeWhiteColor{
           background-color: #fff;
         }
+      .headerMemInfo{
+          padding-left: 17px;
+          #headerMemName{
+            color:#fff;
+            display: flex;
+            a{
+                margin-left: 10px;
+                cursor: pointer;
+                padding-bottom:5px ;
+                color:#fff;
+                font-weight: bold;    
+            }
+      }
+}
 }
 
 
   @include respondNine(){
+    .headerMemInfo{
+    position: absolute;
+    right: 93px;
+    top: 36px;
+    #headerMemName{
+      display: flex;
+      a{
+          margin-left: 10px;
+          cursor: pointer;
+          padding-bottom:5px ;
+          &:hover{
+             color:#f39700
+          }
+      }
+  }
+}
     .headerStyle{
         height: 105px;
     }
@@ -419,6 +433,7 @@ header.white{
       }
       ul{
         overflow: hidden;
+         margin-left:70px ;
       }
       li{
         float: left;
@@ -452,7 +467,7 @@ header.white{
 
    @include respondDesktop(){
         .navMenu ul{
-            margin-left:65px ;
+            margin-left:180px ;
         }
    }
 

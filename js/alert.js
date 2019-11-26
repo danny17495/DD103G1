@@ -15,6 +15,7 @@ function alertWrap(title) {
     });
 }
 
+
 // //alert
 // function alert(text,title){
 //     if(!title==""){

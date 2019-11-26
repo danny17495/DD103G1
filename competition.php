@@ -61,6 +61,7 @@ try{
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <script src="js/vue-2.6.10.min.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script> -->
     <title>Competition</title>
 </head>
@@ -90,7 +91,7 @@ try{
                         <div class="navDarken">
 							<ul>
 								<li>
-									<a href="spotIntro.html"  class="nowpage">行程介紹</a>
+									<a href="spotIntro.html">行程介紹</a>
 								</li>
 								<li>
 									<a href="reserve.html">預約行程</a>
@@ -102,7 +103,7 @@ try{
 									<a href="shop.html">購物商城</a>
 								</li>
 								<li>
-									<a href="competition.php">投票比賽</a>
+									<a href="competition.php" class="nowpage">投票比賽</a>
 								</li>
 							</ul>
                         </div>
@@ -587,10 +588,150 @@ try{
             </div>
         </div>
     </section> -->
+     <section id="login" class="Loginwrap">
+        <div class="LoginForm">
+            <div class="Loginhead" id="LoginForm-head">
+                <div data-tab="login">
+                    <div class="Loginclose">
+                        <h3>會員登入</h3>
+                        <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <form action="">
+                <div class="Loginbody" id="LoginForm-body">
+                    <div class="Login-login">
+                        <div class="LoginForm-row">
+                            <label class="LoginLabel" for="">帳號</label>
+                            <input class="Logininput" id="user-id" type="text" placeholder="account" autocomplete="on">
+                        </div>
+                        <div class="LoginForm-row">
+                            <label class="LoginLabel" for="">密碼</label>
+                            <input class="Logininput" type="password" id="user-psw" placeholder="Password"
+                                autocomplete="on">
+                        </div>
+                        <div class="Login-forget">
+                            <a class="Login-forget-password" id="linkLoginForget">
+                                <p class="LoginP">忘記密碼</p>
+                            </a>
+                        </div>
+                        <div class="LoginForm-row">
+                            <div class="LoginBtnCenter whiteButton">登入</div>
+                        </div>
+                        <a class="LoginForm-signup-now" href="javascript:;">立即註冊</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <section id="loginRegister" class="Loginwrap">
+        <div class="LoginForm">
+            <div class="Loginhead" id="LoginForm-head">
+                <div data-tab="login">
+                    <div class="Loginclose">
+                        <h3>會員註冊</h3>
+                        <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true" @click="clear"></i>
+                    </div>
+                </div>
+            </div>
+            <form action="" id="myForm">
+                <div class="Loginbody" id="LoginForm-body">
+                    <div class="Login-signup">
+                        <div class="LoginForm-row">
+                            <label class="Loginlabal">姓名</label>
+                            <input class="Logininput" type="text" placeholder="輸入您的名字" v-model="memName">
+                        </div>
+                        <div class="LoginForm-row">
+                            <label class="Loginlabal" >帳號<span class="errMsg">{{idMsg}}</span></label>
+                            <input class="Logininput" v-model="memId" @change="testId"  type="text" placeholder="4~10個英文字或數字" maxlength="10" >
+                        
+                        </div>
+                        <div class="LoginForm-row">
+                            <label class="Loginlabal" style="color:aliceblue;">密碼<span class="errMsg">{{pswMsg}}</span></label>
+                            <input class="Logininput" @change="testPsw" v-model="memPassword" type="password" placeholder="英文開頭且包含數字">
+                        </div>
+                        <div class="LoginForm-row">
+                            <label class="Loginlabal" style="color:aliceblue;">密碼確認<span class="errMsg">{{pswConfirmMsg}}</span></label>
+                            <input  class="Logininput"  type="password"
+                                placeholder="再次輸入您的密碼"  v-model="pswConfirm">
+                        </div>
+                        <div class="LoginForm-row">
+                            <label class="Loginlabal" style="color:aliceblue;" >Email<span class="errMsg">{{emailMsg}}</span></label>
+                            <input  class="Logininput" v-model="memEmail" type="text"  @change="testEmail" placeholder="輸入您的信箱">
+                        </div>
+                        <div class="LoginForm-row">
+                            <div class="LoginBtnR">
+                                <div class="whiteButton">
+                                    <a href="#" id="signup" name="signup"  @click="submit">註冊</a>
+                                </div>
+                            </div>
+                            <div class="LoginBtnL">
+                                <div class="whiteButton">
+                                    <a href="javascript:;" @click="clear">回上頁</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <section id="loginforget" class="Loginwrap" >
+        <div class="LoginForm">
+            <div class="Loginhead" id="LoginForm-head">
+                <div data-tab="login">
+                    <div class="Loginclose">
+                        <h3>重設密碼</h3>
+                        <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true" @click="clear"></i>
+    
+                    </div>
+                </div>
+            </div>
+            <form action="#"> 
+                <div class="Loginbody LoginForm-body">
+                    <div class="login">
+                        <div class="LoginForm-row">
+                            <label class="LoginLabel">Email<span class="errMsg">{{errMsg}}</span></label>
+                            <input class="Logininput" type="email" placeholder="輸入您的信箱" v-model="email" @change="test" id="inputEmail">
+                        </div>
+                        <p class="resetpsw">*請送出表單後,到信箱查看並重設密碼*</p>
+                        <div class="LoginForm-row fix">
+                            <div class="LoginBtnR">
+                                <div class="whiteButton">
+                                    <a href="#" @click="submitEmail">
+                                        送出
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="LoginBtnL">
+                                <div class="whiteButton">
+                                    <a href="javascript:;" @click="clear">回上頁</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
     <script src="js/login.js"></script>
     <script src="js/alert.js"></script>
+    <script src="js/register.js"></script>
+    <script src="js/forgetPsw.js"></script>
+    <script src="js/reserveDate.js"></script>
     <script src="js/animation.js"></script>
+    <script>
 
+    let join= document.getElementById('join'); 
+        join.addEventListener('click',function(){ 
+             if (!sessionStorage['memNo']) { 
+                     memberInfoClick = false;
+                   //  e.preventDefault();
+                     openLoginData();
+            }
+        });
+</script>
 
 </body>
 </html>

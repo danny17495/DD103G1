@@ -34,7 +34,7 @@ function sendData(){
                 alertWrap("帳號密碼錯誤");
             }else{
                 userData = JSON.parse(loginResult)[0];
-                alert(userData);
+                //alert(userData);
                 for (var i in userData) {
                     sessionStorage.setItem(i, userData[i]);
                 }

@@ -51,30 +51,7 @@ body {
 @font-face {
   font-family: '華康秀風體';
   src: url("華康秀風體.TTF") format("truetype");
- /* unicode-range: U+884C, U+7A0B, U+4ECB, U+7D39;*/
- unicode-range:U+4e5d,U+4efd,U+3001,U+004a,U+0049,U+0055,U+0046,U+0045,U+004e,U+3001,U+6df1,U+6fb3,U+5cfd,
- U+89d2,U+3001,U+0053,U+0048,U+0045,U+004e,U+0041,U+004f,U+3001,U+4e0d,U+53ad,U+4ead,U+3001,U+0042,U+0055,
- U+0059,U+0041,U+004e,U+3001,U+884c,U+7a0b,U+4ecb,U+7d39,U+3001,U+5c0b,U+5e7d,U+8a2a,U+53e4,U+4e4b,U+65c5,
- U+3001,U+6f2b,U+904a,U+5c71,U+57ce,U+4e4b,U+65c5,U+3001,U+8239,U+904a,U+79d8,U+5883,U+4e4b,U+65c5,U+3001,
- U+9810,U+7d04,U+884c,U+7a0b,U+3001,U+6211,U+8981,U+9810,U+7d04,U+3001,U+5ba2,U+88fd,U+5316,U+660e,U+4fe1,
- U+7247,U+9078,U+500b,U+559c,U+6b61,U+7684,U+80cc,U+666f,U+5427,U+3001,U+4e0b,U+4e00,U+6b65,U+3001,U+8cfc,
- U+7269,U+5546,U+57ce,U+3001,U+88fd,U+4f5c,U+6211,U+7684,U+99ac,U+514b,U+676f,U+3001,U+6295,U+7968,U+6bd4,
- U+8cfd,U+3001,U+99ac,U+4e0a,U+53c3,U+52a0,U+6bd4,U+8cfd,U+3001,U+73a9,U+904a,U+6232,U+3001,U+62ff,U+512a,
- U+60e0,U+5238,U+3001,U+745e,U+82b3,U+706b,U+8eca,U+7ad9,U+3001,U+0030,U+0031,U+3001,U+4e5d,U+4efd,U+8001,
- U+8857,U+3001,U+0030,U+0032,U+3001,U+9ec3,U+91d1,U+535a,U+7269,U+9928,U+3001,U+0030,U+0033,U+3001,U+9ec3,
- U+91d1,U+7011,U+5e03,U+3001,U+7409,U+6994,U+8def,U+89c0,U+5149,U+6b65,U+9053,U+3001,U+4e5d,U+4efd,U+91d1,
- U+7926,U+535a,U+7269,U+9928,U+3001,U+6df1,U+6fb3,U+6f01,U+6e2f,U+3001,U+6c34,U+6e73,U+6d1e,U+5341,U+4e09,
- U+5c64,U+907a,U+5740,U+3001,U+9001,U+51fa,U+3001,U+53bb,U+7a0b,U+3001,U+56de,U+7a0b,U+3001,U+7cbe,U+5f69,
- U+3001,U+751f,U+6210,U+6587,U+5b57,U+3001,U+4e0b,U+8f09,U+3001,U+5206,U+4eab,U+3001,U+6bd4,U+8cfd,U+3001,
- U+8cfc,U+8cb7,U+3001,U+4e0a,U+4e00,U+6b65,U+3001,U+5132,U+5b58,U+3001,U+6ce8,U+610f,U+4e8b,U+9805,U+3001,
- U+6295,U+7968,U+3001,U+7559,U+8a00,U+3001,U+53c3,U+8cfd,U+689d,U+4ef6,U+3001,U+5373,U+6642,U+516c,U+8cc7,
- U+8a0a,U+000d,U+000a,U+0031,U+002e,U+5fc5,U+9808,U+52a0,U+5165,U+6703,U+54e1,U+000d,U+000a,U+0032,U+002e,
- U+6bcf,U+65e5,U+66f4,U+65b0,U+7968,U+6578,U+002f,U+6bcf,U+6708,U+66f4,U+65b0,U+540d,U+6b21,U+000d,U+000a,
- U+0033,U+002e,U+524d,U+4e09,U+540d,U+6703,U+5728,U+5546,U+57ce,U+8ca9,U+552e,U+6301,U+7e8c,U+4e00,U+500b,
- U+6708,U+3001,U+8981,U+52a0,U+5165,U+6703,U+54e1,U+3001,U+8cfc,U+7269,U+8eca,U+0033,U+002e,U+0054,U+002d,
- U+0073,U+0068,U+0069,U+0072,U+0074,U+000d,U+000a,U+0034,U+002e,U+52a0,U+5165,U+8cfc,U+7269,U+9818,U+53d6,
- U+767b,U+5e8f,U+865f,U+0031,U+0020,U+0032,U+0020,U+0033,U+0020,U+0034,U+0020,U+0035,U+0020,U+0036,U+0020,
- U+0037,U+0020,U+0038,U+0020,U+0039,U+0020,U+0030;
+  /*unicode-range: U+884C, U+7A0B, U+4ECB, U+7D39;*/
 }
 
 h1 {
@@ -432,9 +409,6 @@ header.white {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -456,7 +430,7 @@ header.white {
   top: 100%;
   left: -100%;
   width: 100%;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 85px);
   background: url(../images/menuBg1.png) no-repeat;
   background-position: center;
   -webkit-transition: left 1s;
@@ -491,7 +465,7 @@ header.white {
   opacity: .3;
 }
 
-.navMenu a {
+.navMenu ul a {
   color: #fff;
   font-weight: bold;
   padding-top: 12px;
@@ -499,7 +473,7 @@ header.white {
   position: relative;
 }
 
-.navMenu a:after {
+.navMenu ul a:after {
   content: ">";
   position: absolute;
   left: calc(100% - 10px);
@@ -507,28 +481,6 @@ header.white {
   width: 10px;
   font-size: 10px;
   opacity: 1;
-}
-
-.headerMemInfo {
-  position: relative;
-  right: 91px;
-  top: -3px;
-}
-
-.headerMemInfo #headerMemName {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.headerMemInfo #headerMemName a {
-  margin-left: 10px;
-  cursor: pointer;
-  padding-bottom: 5px;
-}
-
-.headerMemInfo #headerMemName a:hover {
-  color: #f39700;
 }
 
 #headerCheck:checked ~ .navMenu {
@@ -566,10 +518,8 @@ header.white {
 
 .headerClick span:nth-child(1) {
   top: 5%;
-  -webkit-animation: makeCross1Backward 0.25s ease 0s 1 forwards, 
- moveDownBackward 0.25s ease 0.25s 1 forwards;
-          animation: makeCross1Backward 0.25s ease 0s 1 forwards, 
- moveDownBackward 0.25s ease 0.25s 1 forwards;
+  -webkit-animation: makeCross1Backward 0.25s ease 0s 1 forwards,  moveDownBackward 0.25s ease 0.25s 1 forwards;
+          animation: makeCross1Backward 0.25s ease 0s 1 forwards,  moveDownBackward 0.25s ease 0.25s 1 forwards;
 }
 
 .headerClick span:nth-child(2) {
@@ -580,10 +530,8 @@ header.white {
 
 .headerClick span:nth-child(3) {
   top: 95%;
-  -webkit-animation: makeCross2Backward 0.25s ease 0s 1 forwards,
- moveUpBackward 0.25s ease 0.25s 1 forwards;
-          animation: makeCross2Backward 0.25s ease 0s 1 forwards,
- moveUpBackward 0.25s ease 0.25s 1 forwards;
+  -webkit-animation: makeCross2Backward 0.25s ease 0s 1 forwards, moveUpBackward 0.25s ease 0.25s 1 forwards;
+          animation: makeCross2Backward 0.25s ease 0s 1 forwards, moveUpBackward 0.25s ease 0.25s 1 forwards;
 }
 
 @-webkit-keyframes makeCross1Backward {
@@ -691,10 +639,8 @@ header.white {
 }
 
 #headerCheck:checked + .headerClick span:nth-child(1) {
-  -webkit-animation: moveDown 0.25s ease 0s 1 forwards, 
- makeCross1 0.25s ease 0.25s 1 forwards;
-          animation: moveDown 0.25s ease 0s 1 forwards, 
- makeCross1 0.25s ease 0.25s 1 forwards;
+  -webkit-animation: moveDown 0.25s ease 0s 1 forwards,  makeCross1 0.25s ease 0.25s 1 forwards;
+          animation: moveDown 0.25s ease 0s 1 forwards,  makeCross1 0.25s ease 0.25s 1 forwards;
 }
 
 #headerCheck:checked + .headerClick span:nth-child(2) {
@@ -702,10 +648,8 @@ header.white {
 }
 
 #headerCheck:checked + .headerClick span:nth-child(3) {
-  -webkit-animation: moveUp 0.25s ease 0s 1 forwards,
- makeCross2 0.25s ease 0.25s 1 forwards;
-          animation: moveUp 0.25s ease 0s 1 forwards,
- makeCross2 0.25s ease 0.25s 1 forwards;
+  -webkit-animation: moveUp 0.25s ease 0s 1 forwards, makeCross2 0.25s ease 0.25s 1 forwards;
+          animation: moveUp 0.25s ease 0s 1 forwards, makeCross2 0.25s ease 0.25s 1 forwards;
 }
 
 @-webkit-keyframes moveDown {
@@ -831,9 +775,43 @@ header.white {
   .changeWhiteColor {
     background-color: #fff;
   }
+  .headerMemInfo {
+    padding-left: 17px;
+  }
+  .headerMemInfo #headerMemName {
+    color: #fff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .headerMemInfo #headerMemName a {
+    margin-left: 10px;
+    cursor: pointer;
+    padding-bottom: 5px;
+    color: #fff;
+    font-weight: bold;
+  }
 }
 
 @media all and (min-width: 992px) {
+  .headerMemInfo {
+    position: absolute;
+    right: 93px;
+    top: 36px;
+  }
+  .headerMemInfo #headerMemName {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  .headerMemInfo #headerMemName a {
+    margin-left: 10px;
+    cursor: pointer;
+    padding-bottom: 5px;
+  }
+  .headerMemInfo #headerMemName a:hover {
+    color: #f39700;
+  }
   .headerStyle {
     height: 105px;
   }
@@ -857,6 +835,7 @@ header.white {
   }
   .navMenu ul {
     overflow: hidden;
+    margin-left: 70px;
   }
   .navMenu li {
     float: left;
@@ -895,7 +874,7 @@ header.white {
 
 @media all and (min-width: 1200px) {
   .navMenu ul {
-    margin-left: 65px;
+    margin-left: 180px;
   }
 }
 
