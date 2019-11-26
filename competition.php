@@ -36,8 +36,8 @@ try{
     $sql_member_vote = 
     "select member.memName,competition.vote,competition.memNo,postcard.postcardPic
     from `member`, `competition`, `postcard`
-    where member.memNo=competition.memNo and member.memNo=postcard.memNo and YEAR(startDate) = 2019 
-    order by competition.vote desc";
+    where member.memNo=competition.memNo and member.memNo=postcard.memNo 
+    order by competition.vote  desc";
 
     $memberVote = $pdo->prepare($sql_member_vote);
     $memberVote ->execute();
@@ -219,7 +219,7 @@ try{
             ?>
                     <div class="competitionButton indexVoBtn">
                         <div href="#" class="indexVoBtn voteBtn" data-vote="1">
-                        <i class="fa fa-hand-o-down fa-2x voteIcon" aria-hidden="true"></i>
+                        <i class="fa fa-thumbs-o-up fa-2x voteIcon" aria-hidden="true"></i>
                         <p>投票</p>
                             <input type="hidden" name="competNo2" value="">
                         </div>
@@ -273,7 +273,7 @@ try{
                     ?>
                     <div class="competitionButton indexVoBtn">
                         <div href="#" class="indexVoBtn voteBtn" data-vote="2">
-                        <i class="fa fa-hand-o-down fa-2x voteIcon" aria-hidden="true"></i>
+                        <i class="fa fa-thumbs-o-up fa-2x voteIcon" aria-hidden="true"></i>
                             <p>投票</p>
                             <input type="hidden" name="competNo2" value="">
                         </div>
@@ -323,7 +323,7 @@ try{
 
                     <div class="competitionButton indexVoBtn">
                         <div href="#" class="indexVoBtn voteBtn" data-vote="3">
-                        <i class="fa fa-hand-o-down fa-2x voteIcon" aria-hidden="true"></i>
+                        <i class="fa fa-thumbs-o-up fa-2x voteIcon" aria-hidden="true"></i>
                             <p>投票</p>
                             <input type="hidden" name="competNo2" value="">
                         </div>
@@ -368,7 +368,7 @@ try{
                 <div class="smallMessage">
                     <img src="images/postcardClient/<?=$memberVoteRow["postcardPic"]?>" alt="">
                     <div class="smallMessageButton">                       
-                        <div class="competitionVoteTitle">
+                        <div class="competitionVoteTitle1">
                             <input type="hidden"  name="competNo">
                             <span><span id="memName"><?=$memberVoteRow["memName"]?></span></span>
                             <span><span class="vote<?php echo $i?>"><?=$memberVoteRow["vote"]?>票</span></span>
@@ -376,7 +376,7 @@ try{
 
                         <div class="competitionButton indexVoBtn">
                             <div href="#" class="indexVoBtn voteBtn" data-vote="<?php echo $i?>">
-                                <i class="fa fa-hand-o-down fa-2x voteIcon" aria-hidden="true"></i>
+                                <i class="fa fa-thumbs-o-up fa-2x voteIcon" aria-hidden="true"></i>
                                 <p>投票</p>
                                 <input type="hidden" name="competNo2" value="">
                             </div>
@@ -426,13 +426,13 @@ try{
                     </div>
                     
                     <div class="whiteButton" id="join">
-                        <a href="#">參加比賽</a>
+                        <a href="#"><p>參加比賽</p></a>
                     </div>
                     <div class="whiteButton">
-                        <a href="postcard.html">客製明信片</a>
+                        <a href="postcard.html"><p>客製明信片</p></a>
                     </div>
                     <div class="whiteButton">
-                        <a href="shop.html">購物商城</a>
+                        <a href="shop.html"><p>購物商城</p></a>
                     </div>
                 </div>                
             </div>
@@ -467,127 +467,6 @@ try{
             </div>
         </div>
     </div>
-    <!-- <section id="login" class="Loginwrap">
-        <div class="LoginForm">
-            <div class="Loginhead" id="LoginForm-head">
-                <div data-tab="login">
-                    <div class="Loginclose">
-                        <h3>會員登入</h3>
-                        <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true"></i>
-                    </div>
-                </div>
-            </div>
-            <form action="">
-                <div class="Loginbody" id="LoginForm-body">
-                    <div class="Login-login">
-                        <div class="LoginForm-row">
-                            <label class="LoginLabel" for="">帳號</label>
-                            <input class="Logininput" id="user-id" type="text" placeholder="account" autocomplete="on">
-                        </div>
-                        <div class="LoginForm-row">
-                            <label class="LoginLabel" for="">密碼</label>
-                            <input class="Logininput" type="password" id="user-psw" placeholder="Password"
-                                autocomplete="on">
-                        </div>
-                        <div class="Login-forget">
-                            <a class="Login-forget-password" id="linkLoginForget">
-                                <p class="LoginP">忘記密碼</p>
-                            </a>
-                        </div>
-                        <div class="LoginForm-row">
-                            <div class="LoginBtnCenter whiteButton">登入</div>
-                        </div>
-                        <a class="LoginForm-signup-now" href="javascript:;">立即註冊</a>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </section> -->
-    <!-- <section id="loginRegister" class="Loginwrap" style="display: none">
-        <div class="LoginForm">
-            <div class="Loginhead" id="LoginForm-head">
-                <div data-tab="login">
-                    <div class="Loginclose">
-                        <h3>會員註冊</h3>
-                        <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true"></i>
-                    </div>
-                </div>
-            </div>
-            <form action="">
-                <div class="Loginbody" id="LoginForm-body">
-                    <div class="Login-signup">
-                        <div class="LoginForm-row">
-                            <label class="Loginlabal" for="">姓名</label>
-                            <input id="name" class="Logininput" name="name" type="text" placeholder="Name">
-                        </div>
-                        <div class="LoginForm-row">
-                            <label class="Loginlabal" style="color:aliceblue;" for="">密碼</label>
-                            <input id="password" class="Logininput" name="password" type="password" placeholder="Password"
-                                autocomplete="on">
-    
-                        </div>
-                        <div class="LoginForm-row">
-                            <label class="Loginlabal" style="color:aliceblue;" for="">密碼確認</label>
-                            <input id="passwordcheck" class="Logininput" name="passwordcheck" type="password"
-                                placeholder="passwordcheck" autocomplete="on">
-                        </div>
-                        <div class="LoginForm-row">
-                            <label class="Loginlabal" style="color:aliceblue;">Email</label>
-                            <input id="Email" class="Logininput" name="email" type="text" size=20 placeholder="email">
-                        </div>
-                        <div class="LoginForm-row">
-                            <div class="LoginBtnR">
-                                <div class="whiteButton">
-                                    <a href="#" id="signup" name="signup">註冊</a>
-                                </div>
-                            </div>
-                            <div class="LoginBtnL">
-                                <div class="whiteButton">
-                                    <a href="javascript:;">回上頁</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </section>
-    <section id="loginforget" class="Loginwrap" style="display: none">
-        <div class="LoginForm">
-            <div class="Loginhead" id="LoginForm-head">
-                <div data-tab="login">
-                    <div class="Loginclose">
-                        <h3>重設密碼</h3>
-                        <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true"></i>
-    
-                    </div>
-                </div>
-            </div>
-            <div class="Loginbody LoginForm-body">
-                <div class="login">
-                    <div class="LoginForm-row">
-                        <label class="LoginLabel" for="">email</label>
-                        <input class="Logininput" type="email" placeholder="email">
-                    </div>
-                    <p class="resetpsw">*請送出表單後,到信箱查看並重設密碼*</p>
-                    <div class="LoginForm-row fix">
-                        <div class="LoginBtnR">
-                            <div class="whiteButton">
-                                <a href="#">
-                                    送出
-                                </a>
-                            </div>
-                        </div>
-                        <div class="LoginBtnL">
-                            <div class="whiteButton">
-                                <a href="javascript:;">回上頁</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
      <section id="login" class="Loginwrap">
         <div class="LoginForm">
             <div class="Loginhead" id="LoginForm-head">

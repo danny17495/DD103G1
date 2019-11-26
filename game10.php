@@ -6,6 +6,7 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="css/common.css">
@@ -180,7 +181,7 @@ session_start();
         </div>
     </div>
   </div>
-  <!-- <section id="login" class="Loginwrap">
+  <section id="login" class="Loginwrap">
     <div class="LoginForm">
         <div class="Loginhead" id="LoginForm-head">
             <div data-tab="login">
@@ -302,8 +303,9 @@ session_start();
             </div>
         </div>
     </div>
-   </section> -->
-   <section id="login" class="Loginwrap">
+   </section>
+
+   <!-- <section id="login" class="Loginwrap">
     <div class="LoginForm">
         <div class="Loginhead" id="LoginForm-head">
             <div data-tab="login">
@@ -434,7 +436,7 @@ session_start();
             </div>
         </form>
     </div>
-</section>
+</section> -->
 <script>
 
 // let contestnow= document.getElementById('contestnow'); //註冊你那個按鈕點擊事件
@@ -590,10 +592,10 @@ function sendData(){
 }
 
 ?>
-<script src="js/vue-2.6.10.min.js"></script>
+<!-- <script src="js/vue-2.6.10.min.js"></script> -->
 <script src="js/alert.js"></script>
 <!-- <script src="js/login.js"></script> -->
-<script src="js/register.js"></script>
-<script src="js/forgetPsw.js"></script>
+<!-- <script src="js/register.js"></script>
+<script src="js/forgetPsw.js"></script> -->
 </body>
 </html>

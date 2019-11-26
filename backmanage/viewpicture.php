@@ -1,7 +1,8 @@
 <?php
   $errMsg = "";
   try{
-    require_once("connect.php");
+    session_start();
+    require_once('connect.php');
     $sql = "select * from `scenicspots`";
     $spots  = $pdo->query($sql);
     $spotRows = $spots -> fetchAll(PDO::FETCH_ASSOC);

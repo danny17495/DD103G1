@@ -54,46 +54,46 @@ window.addEventListener("load", init1, false);
 	2.左下角標示狀態也要註冊*/
 
 //1+2共用.建立html連結:操作視窗div.postRight
-let pr1 = document.getElementById("postRight_1");
-let pr2 = document.getElementById("postRight_2");
-let pr3 = document.getElementById("postRight_3");
-let pr4 = document.getElementById("postRight_4");
-let pr5 = document.getElementById("postRight_5");
+var pr1 = document.getElementById("postRight_1");
+var pr2 = document.getElementById("postRight_2");
+var pr3 = document.getElementById("postRight_3");
+var pr4 = document.getElementById("postRight_4");
+var pr5 = document.getElementById("postRight_5");
 
 //1-1.建立html連結:按鈕
-let pDIYBtn1 = document.getElementById("postDIYBtn_1_Next");
-let pDIYBtn2 = document.getElementById("postDIYBtn_2_Back");
-let pDIYBtn3 = document.getElementById("postDIYBtn_3_Next");
-let pDIYBtn4 = document.getElementById("postDIYBtn_4_Back");
-let pDIYBtn5 = document.getElementById("postDIYBtn_5_Next");
-let pDIYBtn6 = document.getElementById("postDIYBtn_6_Back");
-let pDIYBtn7 = document.getElementById("postDIYBtn_7_Next");
-let pDIYBtn8 = document.getElementById("postDIYBtn_8_Back");
+var pDIYBtn1 = document.getElementById("postDIYBtn_1_Next");
+var pDIYBtn2 = document.getElementById("postDIYBtn_2_Back");
+var pDIYBtn3 = document.getElementById("postDIYBtn_3_Next");
+var pDIYBtn4 = document.getElementById("postDIYBtn_4_Back");
+var pDIYBtn5 = document.getElementById("postDIYBtn_5_Next");
+var pDIYBtn6 = document.getElementById("postDIYBtn_6_Back");
+var pDIYBtn7 = document.getElementById("postDIYBtn_7_Next");
+var pDIYBtn8 = document.getElementById("postDIYBtn_8_Back");
 //console.log(postDIYBtn_1_Next);
 
 //1-2.建立html連結:步驟黃底
-let postStepYellow1 = document.getElementById("postStepYellow1");
-let postStepYellow2 = document.getElementById("postStepYellow2");
-let postStepYellow3 = document.getElementById("postStepYellow3");
-let postStepYellow4 = document.getElementById("postStepYellow4");
-let postStepYellow5 = document.getElementById("postStepYellow5");
-let postStepYellowB1 = document.getElementById("postStepYellowBig1");
-let postStepYellowB2 = document.getElementById("postStepYellowBig2");
-let postStepYellowB3 = document.getElementById("postStepYellowBig3");
-let postStepYellowB4 = document.getElementById("postStepYellowBig4");
-let postStepYellowB5 = document.getElementById("postStepYellowBig5");
+var postStepYellow1 = document.getElementById("postStepYellow1");
+var postStepYellow2 = document.getElementById("postStepYellow2");
+var postStepYellow3 = document.getElementById("postStepYellow3");
+var postStepYellow4 = document.getElementById("postStepYellow4");
+var postStepYellow5 = document.getElementById("postStepYellow5");
+var postStepYellowB1 = document.getElementById("postStepYellowBig1");
+var postStepYellowB2 = document.getElementById("postStepYellowBig2");
+var postStepYellowB3 = document.getElementById("postStepYellowBig3");
+var postStepYellowB4 = document.getElementById("postStepYellowBig4");
+var postStepYellowB5 = document.getElementById("postStepYellowBig5");
 
 //1-2.建立html連結:步驟圈圈
-let aapostStepS1 = document.getElementById("aapostStepS1");
-let aapostStepS2 = document.getElementById("aapostStepS2");
-let aapostStepS3 = document.getElementById("aapostStepS3");
-let aapostStepS4 = document.getElementById("aapostStepS4");
-let aapostStepS5 = document.getElementById("aapostStepS5");
-let aapostStepB1 = document.getElementById("aapostStepB1");
-let aapostStepB2 = document.getElementById("aapostStepB2");
-let aapostStepB3 = document.getElementById("aapostStepB3");
-let aapostStepB4 = document.getElementById("aapostStepB4");
-let aapostStepB5 = document.getElementById("aapostStepB5");
+var aapostStepS1 = document.getElementById("aapostStepS1");
+var aapostStepS2 = document.getElementById("aapostStepS2");
+var aapostStepS3 = document.getElementById("aapostStepS3");
+var aapostStepS4 = document.getElementById("aapostStepS4");
+var aapostStepS5 = document.getElementById("aapostStepS5");
+var aapostStepB1 = document.getElementById("aapostStepB1");
+var aapostStepB2 = document.getElementById("aapostStepB2");
+var aapostStepB3 = document.getElementById("aapostStepB3");
+var aapostStepB4 = document.getElementById("aapostStepB4");
+var aapostStepB5 = document.getElementById("aapostStepB5");
 
 function toPR1(){
 	pr1.style.display = "block";
@@ -902,6 +902,7 @@ window.addEventListener("resize", postcardInit8, false);
 var newPostcardNo = 0;
 function getPostcardNo(){
 	//傳送一個假資料
+	console.log("1126測試")
     var formData1 = new FormData(document.getElementById("form1"));
 
     var xhr = new XMLHttpRequest();
@@ -911,7 +912,7 @@ function getPostcardNo(){
                 alert("Error");
             }else{
                 console.log("------------");
-                console.log(xhr.responseText);
+                console.log("1126測試",xhr.responseText);
                 newPostcardNo = xhr.responseText;
                 newPostcardNo = newPostcardNo.replace(' ', '');
                 saveImageStep1();
@@ -1000,6 +1001,7 @@ function postcardToDb(){
 	document.getElementById('hidden_data3').value = newPostcardNo;  //postcardNo
 	document.getElementById('hidden_data4').value = memNo;  //memNo
 	document.getElementById('hidden_data5').value = `${newPostcardNo}.jpg`;  //postcardPic
+
 	postcardToDb2();
 
 }
@@ -1021,7 +1023,6 @@ function postcardToDb2(){
 	}
 
 	xhr.open('POST', 'postcardToDb.php', true);
-	// xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	xhr.send(formData3);	
 }
 

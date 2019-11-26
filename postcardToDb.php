@@ -5,34 +5,9 @@ $memNo = $_POST['hidden_data4'];
 $postcardPic = $_POST['hidden_data5'];
 
 try {
-<<<<<<< HEAD
-	// require_once("connectg1.php");
-	$dsn = "mysql:host=localhost;port=3306;dbname=dd103g1;charset=utf8";
-	$user = "dd103g1";
-	$password = "dd103g1";
-	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-	$pdo = new PDO( $dsn, $user, $password, $options);  
-=======
-<<<<<<< HEAD
-	$dsn = "mysql:host=localhost;port=3306;dbname=dd103g1;charset=utf8";
-	$user = "root";
-	$password = "01258963";
-	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-	$pdo = new PDO( $dsn, $user, $password, $options);  
-	$sql = "INSERT INTO postcard(postcardNo, memNo, postcardPic) VALUES(:postcardNo, :memNo,:postcardPic)";
-=======
 	require_once("connectg1.php");
-	// $dsn = "mysql:host=localhost;port=3306;dbname=dd103g1;charset=utf8";
-	// $user = "dd103g1";
-	// $password = "dd103g1";
-	// $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-	// $pdo = new PDO( $dsn, $user, $password, $options);  
->>>>>>> 45100c152b4e82db664e7e08d7d0768bfd863525
-	$sql = "INSERT INTO `postcard`(postcardNo, memNo, postcardPic) VALUES(:postcardNo, :memNo,:postcardPic)";
->>>>>>> 46ec4ed1e6e4773d3bfc54d4a475629bc1cc1e3b
 
-	//INSERT INTO postcard(postcardNo, memNo, postcardPic) VALUES(1, 1,'m001p01')
-
+	$sql = "INSERT INTO postcard(postcardNo, memNo, postcardPic) VALUES(:postcardNo, :memNo,:postcardPic)";
 	$postcard = $pdo->prepare($sql);
 	$postcard->bindValue(":postcardNo", $postcardNo);
 	$postcard->bindValue(":memNo", $memNo);
