@@ -368,7 +368,7 @@ try{
                 <div class="smallMessage">
                     <img src="images/postcardClient/<?=$memberVoteRow["postcardPic"]?>" alt="">
                     <div class="smallMessageButton">                       
-                        <div class="competitionVoteTitle">
+                        <div class="competitionVoteTitle1">
                             <input type="hidden"  name="competNo">
                             <span><span id="memName"><?=$memberVoteRow["memName"]?></span></span>
                             <span><span class="vote<?php echo $i?>"><?=$memberVoteRow["vote"]?>票</span></span>
@@ -426,13 +426,13 @@ try{
                     </div>
                     
                     <div class="whiteButton" id="join">
-                        <a href="#">參加比賽</a>
+                        <a href="#"><p>參加比賽</p></a>
                     </div>
                     <div class="whiteButton">
-                        <a href="postcard.html">客製明信片</a>
+                        <a href="postcard.html"><p>客製明信片</p></a>
                     </div>
                     <div class="whiteButton">
-                        <a href="shop.html">購物商城</a>
+                        <a href="shop.html"><p>購物商城</p></a>
                     </div>
                 </div>                
             </div>
