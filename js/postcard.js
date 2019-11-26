@@ -1096,7 +1096,7 @@ function sendToline1(){
 
 function sendToline2(){
 	var mediaWidth = document.body.clientWidth;
-	var picLocation = `http://140.115.236.71/demo-projects/DD103/DD103G1/images/postcardClient/${newPostcardNo}.jpg`;
+	var picLocation = `http://140.115.236.71/demo-projects/DD103/DD103G1/images/postcardClient[]====/${newPostcardNo}.jpg`;
 	// var picLocation = `http://localhost/DD103G1/images/postcardClient/${newPostcardNo}.jpg`;
 
 	if(mediaWidth < 800){
@@ -1108,6 +1108,7 @@ function sendToline2(){
 		// desktop
 		// 可以帶 url
 		// 帶 text (有字數長度限制)
+		// window.open(`https://lineit.line.me/share/ui?url=${picLocation}&text="這是我的九份明信片！"`);
 		window.open(`https://lineit.line.me/share/ui?url=${encodeURIComponent(picLocation)}&text=${encodeURIComponent("這是我的九份明信片！")}`);
 	}
 
@@ -1255,7 +1256,7 @@ typewriter.typeString('點擊照片')
 function removePostcardTeach1(){
 	postcardTeach1.style.display = "none";
 	console.log("教學引導1");
-	setTimeout(addPostcardTeach2 ,2000);
+	setTimeout(addPostcardTeach2 ,1200);
 
 }
 
@@ -1275,8 +1276,6 @@ function addPostcardTeach2(){
 	    .deleteAll()
 	    .start();	
 }
-
-
 
 function postcardInit12(){
 	aapostBGC_1.addEventListener("click", removePostcardTeach1, false);
