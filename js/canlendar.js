@@ -35,7 +35,9 @@ function getDate() {
     for (let i = 0; i < perMonth[month - 1]; i++) {  
         liDates[dayofweek + i].innerText = i + 1;
         liDates[dayofweek + i].classList.add('yesDate');
-        if (i == dayofweek + today - 1 && month == date.getMonth() + 1) { //今天日期
+        console.log(i,month);
+        if (i == dayofweek + today-1 && month == date.getMonth() + 1) { //今天日期
+            alert('aa');
             liDates[i].classList.remove('yesDate');
             liDates[i].classList.add('today');
         } else if (i < dayofweek + today - 1 && month == date.getMonth() + 1) { //今天日期以前
