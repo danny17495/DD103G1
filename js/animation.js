@@ -75,7 +75,9 @@ function join_php(){
 
 function report(){
      if (!sessionStorage['memNo']) {
-         $id('login').style.display = 'block';
+         //$id('login').style.display = 'block';
+         memberInfoClick = false;//固定寫法 一定要有
+         openLoginData();//固定寫法 一定要有 打開燈箱
          return ;
         //  alert(1);
     } 
@@ -223,12 +225,12 @@ function reload(){
             {
                 addThirdContent += '<div class="competitionText"><div class="textContent" id="msg3">'+data.third[x].msgContent+'</div></div>';
             }
-            console.log(data.vote.length);
+            console.log(data.vote.length) ;
             for(let x = 3; x < data.vote.length; x++)
             {
                 addVoteContent += '<div class="smallMessage"><img src="images/postcardClient/'+data.vote[x].postcardPic+'" alt="">';
                 addVoteContent += '<div class="smallMessageButton">';
-                addVoteContent += '<div class="competitionVoteTitle">';
+                addVoteContent += '<div class="competitionVoteTitle1">';
                 addVoteContent += '<input type="hidden"  name="competNo">';
                 addVoteContent += '<span><span id="memName">'+data.vote[x].memName+'</span></span>';
                 addVoteContent += '<span><span class="vote'+x+'">'+data.vote[x].vote+'票</span></span></div>';
@@ -320,7 +322,7 @@ for (let i = 0; i < message_arr.length; i++) {
 
 add += '<div class="message_itme messageWrap" id="message_itme'+i+'">';
 add += '<div id="memText" class="memText">';
-add += '<div class="megsageMemName">';
+add += '<div class="megsageMemName" style="color:#000;">';
 add += '<p id="messageMemName">'+message_arr[i]['memName']+'</p>';
 add += '<p class="messageDate" id="messageDate">'+message_arr[i]['msgDate']+'</p>';
 add += '</div><div class="messageBox">';
