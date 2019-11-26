@@ -813,15 +813,23 @@
     <script src="js/register.js"></script>
     <script src="js/forgetPsw.js"></script>
     <script>
-        let postDIYBtn_7_Next = document.getElementById('postDIYBtn_7_Next'); //註冊你那個按鈕點擊事件
-        postDIYBtn_7_Next.addEventListener('click', function (e) { //點擊按鈕時 判定有無登入
+        var htmlToPR51 = document.getElementById('postDIYBtn_7_Next'); //註冊你那個按鈕點擊事件
+        htmlToPR51.addEventListener('click', function (e) { //點擊按鈕時 判定有無登入
             if (!sessionStorage['memNo']) { //固定寫法 一定要有
                 memberInfoClick = false;//固定寫法 一定要有
                 openLoginData();//固定寫法 一定要有 打開燈箱
             }else{
                  toPR5();
             }
-
+        });
+        var htmlToPR52 = document.getElementById('aapostStepB5'); //註冊你那個按鈕點擊事件
+        htmlToPR52.addEventListener('click', function (e) { //點擊按鈕時 判定有無登入
+            if (!sessionStorage['memNo']) { //固定寫法 一定要有
+                memberInfoClick = false;//固定寫法 一定要有
+                openLoginData();//固定寫法 一定要有 打開燈箱
+            }else{
+                 toPR5();
+            }
         });
     </script>
 </body>
