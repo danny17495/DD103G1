@@ -179,15 +179,13 @@ session_start();
         </div>
     </div>
   </div>
-  <section id="login" class="Loginwrap">
+   <section id="login" class="Loginwrap">
     <div class="LoginForm">
         <div class="Loginhead" id="LoginForm-head">
             <div data-tab="login">
                 <div class="Loginclose">
                     <h3>會員登入</h3>
-                    <a href="game.html">
                     <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true"></i>
-                    </a>
                 </div>
             </div>
         </div>
@@ -217,47 +215,55 @@ session_start();
         </form>
     </div>
 </section>
-<section id="loginRegister" class="Loginwrap" style="display: none">
+<section id="loginRegister" class="Loginwrap">
     <div class="LoginForm">
         <div class="Loginhead" id="LoginForm-head">
             <div data-tab="login">
                 <div class="Loginclose">
                     <h3>會員註冊</h3>
-                    <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true"></i>
+                    <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true" @click="clear"></i>
                 </div>
             </div>
         </div>
-        <form action="">
+        <form action="" id="myForm">
             <div class="Loginbody" id="LoginForm-body">
                 <div class="Login-signup">
                     <div class="LoginForm-row">
-                        <label class="Loginlabal" for="">姓名</label>
-                        <input id="name" class="Logininput" name="name" type="text" placeholder="Name">
+                        <label class="Loginlabal">姓名</label>
+                        <input class="Logininput" type="text" placeholder="輸入您的名字" v-model="memName">
                     </div>
                     <div class="LoginForm-row">
-                        <label class="Loginlabal" style="color:aliceblue;" for="">密碼</label>
-                        <input id="password" class="Logininput" name="password" type="password" placeholder="Password"
-                            autocomplete="on">
+                        <label class="Loginlabal">帳號<span class="errMsg">{{idMsg}}</span></label>
+                        <input class="Logininput" v-model="memId" @change="testId" type="text" placeholder="4~10個英文字或數字"
+                            maxlength="10">
 
                     </div>
                     <div class="LoginForm-row">
-                        <label class="Loginlabal" style="color:aliceblue;" for="">密碼確認</label>
-                        <input id="passwordcheck" class="Logininput" name="passwordcheck" type="password"
-                            placeholder="passwordcheck" autocomplete="on">
+                        <label class="Loginlabal" style="color:aliceblue;">密碼<span
+                                class="errMsg">{{pswMsg}}</span></label>
+                        <input class="Logininput" @change="testPsw" v-model="memPassword" type="password"
+                            placeholder="英文開頭且包含數字">
                     </div>
                     <div class="LoginForm-row">
-                        <label class="Loginlabal" style="color:aliceblue;">Email</label>
-                        <input id="Email" class="Logininput" name="email" type="text" size=20 placeholder="email">
+                        <label class="Loginlabal" style="color:aliceblue;">密碼確認<span
+                                class="errMsg">{{pswConfirmMsg}}</span></label>
+                        <input class="Logininput" type="password" placeholder="再次輸入您的密碼" v-model="pswConfirm">
+                    </div>
+                    <div class="LoginForm-row">
+                        <label class="Loginlabal" style="color:aliceblue;">Email<span
+                                class="errMsg">{{emailMsg}}</span></label>
+                        <input class="Logininput" v-model="memEmail" type="text" @change="testEmail"
+                            placeholder="輸入您的信箱">
                     </div>
                     <div class="LoginForm-row">
                         <div class="LoginBtnR">
                             <div class="whiteButton">
-                                <a href="#" id="signup" name="signup">註冊</a>
+                                <a href="#" id="signup" name="signup" @click="submit">註冊</a>
                             </div>
                         </div>
                         <div class="LoginBtnL">
                             <div class="whiteButton">
-                                <a href="javascript:;">回上頁</a>
+                                <a href="javascript:;" @click="clear">回上頁</a>
                             </div>
                         </div>
                     </div>
@@ -266,54 +272,46 @@ session_start();
         </form>
     </div>
 </section>
-<section id="loginforget" class="Loginwrap" style="display: none">
+<section id="loginforget" class="Loginwrap">
     <div class="LoginForm">
         <div class="Loginhead" id="LoginForm-head">
             <div data-tab="login">
                 <div class="Loginclose">
                     <h3>重設密碼</h3>
-                    <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true"></i>
+                    <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true" @click="clear"></i>
 
                 </div>
             </div>
         </div>
-        <div class="Loginbody LoginForm-body">
-            <div class="login">
-                <div class="LoginForm-row">
-                    <label class="LoginLabel" for="">email</label>
-                    <input class="Logininput" type="email" placeholder="email">
-                </div>
-                <p class="resetpsw">*請送出表單後,到信箱查看並重設密碼*</p>
-                <div class="LoginForm-row fix">
-                    <div class="LoginBtnR">
-                        <div class="whiteButton">
-                            <a href="#">
-                                送出
-                            </a>
-                        </div>
+        <form action="#">
+            <div class="Loginbody LoginForm-body">
+                <div class="login">
+                    <div class="LoginForm-row">
+                        <label class="LoginLabel">Email<span class="errMsg">{{errMsg}}</span></label>
+                        <input class="Logininput" type="email" placeholder="輸入您的信箱" v-model="email" @change="test"
+                            id="inputEmail">
                     </div>
-                    <div class="LoginBtnL">
-                        <div class="whiteButton">
-                            <a href="javascript:;">回上頁</a>
+                    <p class="resetpsw">*請送出表單後,到信箱查看並重設密碼*</p>
+                    <div class="LoginForm-row fix">
+                        <div class="LoginBtnR">
+                            <div class="whiteButton">
+                                <a href="#" @click="submitEmail">
+                                    送出
+                                </a>
+                            </div>
+                        </div>
+                        <div class="LoginBtnL">
+                            <div class="whiteButton">
+                                <a href="javascript:;" @click="clear">回上頁</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
-   </section>
-   <script>
+</section>
 
-let contestnow= document.getElementById('contestnow'); //註冊你那個按鈕點擊事件
-    contestnow.addEventListener('click',function(e){ //點擊按鈕時 判定有無登入
-         if (!sessionStorage['memNo']) { //固定寫法 一定要有
-                 memberInfoClick = false;//固定寫法 一定要有
-                 e.preventDefault();//如果點擊的按鈕是a標籤 必須加入
-                 openLoginData();//固定寫法 一定要有 打開燈箱
-        }
-     
-    });
-</script>
 
 <?php
 if(isset( $_SESSION['memNo'])){
@@ -446,7 +444,7 @@ function sendData(){
             }
             
         }
-        xhr.open("post", "login.php", true);
+        xhr.open("post", "php/login/login.php", true);
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         xhr.send(`user_id=${userId}&user_psw=${userPsw}`);
     }
@@ -458,5 +456,11 @@ function sendData(){
 }
 
 ?>
+
+<script src="js/vue-2.6.10.min.js"></script>
+<!-- <script src="js/alert.js"></script> -->
+<!-- <script src="js/login.js"></script> -->
+<script src="js/register.js"></script>
+<script src="js/forgetPsw.js"></script>
 </body>
 </html>

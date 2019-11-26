@@ -86,7 +86,7 @@ function openLoginData(){ //登入 註冊 盒子
             $id("user-psw").value = '';
         });
     });
-    loginClose.forEach(function(dom) {
+    loginClose.forEach(function(dom,index) {
         dom.addEventListener('click', function () {
             login.style.display="none";
             loginforget.style.display = "none";

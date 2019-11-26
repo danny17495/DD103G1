@@ -37,6 +37,7 @@ function join_php(){
             alert("參加過了喔");
         }else{
              alertWrap("參加成功");
+             reload();
         }}};
 
 
@@ -82,9 +83,8 @@ function report(){
     // let m= document.getElementsByClassName("btnCloudb").value
        console.log(m);
     let u =sessionStorage['memNo'];
-    //    let r = prompt("為什麼你檢舉他了呢", "");
         // alertWrap("為什麼")
-        alertWrap(`<p style="color:#ddd">檢舉原因?</p><input type="text" id="report_msg" value="" style="width:80%;"><br><br><a " class="yesButton whiteButton report_true">確認</a>`);
+        alertWrap(`<p style="color:#ddd">檢舉原因?</p><input type="text" id="report_msg" value="" style="width:80%;"><br><br><a " </a>`);
     let r;
         document.getElementsByClassName('report_true')[0].addEventListener('click',send_report);
         
@@ -120,13 +120,11 @@ function report_php(){
 //投票
 $(".voteBtn").click(function(){
     let voteNo = $(this).data('vote');
-    // alert(voteNo);
     vote(voteNo);
 });
 
 function vote(voteNo){
 
-    // console.log(voteNo);
     let e = voteNo;
     
     $.ajax({
@@ -140,7 +138,7 @@ function vote(voteNo){
         "success": function (data) {	
             // 同步更新票數
             $(".vote"+voteNo).text(data+"票");
-            // (message_arr); 
+
         },
         "error":function(data){
             // console.log(data);
@@ -190,6 +188,68 @@ function msg_xml(e){
         "cache": false,
         "success": function (data) {	
             message_btn(e);
+            reload();
+        },
+        "error":function(data){
+            console.log(data);
+        }
+    });
+}
+
+//重新
+function reload(){
+    $.ajax({
+        "type": "GET",
+        "dataType": "json",
+        "url": "php/competition/reload.php",		
+        "cache": false,
+        "success": function (data) {	
+            console.log(data);
+            let addFirstContent = '',
+                addSecondContent = '',
+                addThirdContent = '',
+                addVoteContent = '';
+            $('div.competitionText').remove();
+            $('div.messageOtherBoard').empty();
+            for(let x = 0; x < data.first.length; x++)
+            {
+                addFirstContent += '<div class="competitionText"><div class="textContent" id="msg1">'+data.first[x].msgContent+'</div></div>';
+            }
+            for(let x = 0; x < data.second.length; x++)
+            {
+                addSecondContent += '<div class="competitionText"><div class="textContent" id="msg2">'+data.second[x].msgContent+'</div></div>';
+            }
+            for(let x = 0; x < data.third.length; x++)
+            {
+                addThirdContent += '<div class="competitionText"><div class="textContent" id="msg3">'+data.third[x].msgContent+'</div></div>';
+            }
+            console.log(data.vote.length);
+            for(let x = 3; x < data.vote.length; x++)
+            {
+                addVoteContent += '<div class="smallMessage"><img src="images/postcardClient/'+data.vote[x].postcardPic+'.jpg" alt="">';
+                addVoteContent += '<div class="smallMessageButton">';
+                addVoteContent += '<div class="competitionVoteTitle">';
+                addVoteContent += '<input type="hidden"  name="competNo">';
+                addVoteContent += '<span><span id="memName">'+data.vote[x].memName+'</span></span>';
+                addVoteContent += '<span><span class="vote'+x+'">'+data.vote[x].vote+'票</span></span></div>';
+                addVoteContent += '<div class="competitionButton indexVoBtn">';
+                addVoteContent += '<div href="#" class="indexVoBtn voteBtn" data-vote="'+x+'">';
+                addVoteContent += '<i class="fa fa-hand-o-down fa-2x voteIcon" aria-hidden="true"></i>';
+                addVoteContent += '<p>投票</p>';
+                addVoteContent += '<input type="hidden" name="competNo2" value=""></div>';
+                addVoteContent += '<div href="#"  class="indexVoBtn messageBtn">';
+                addVoteContent += '<i class="fa fa-commenting-o messIcon fa-2x" aria-hidden="true"></i>';
+                addVoteContent += '<p>留言</p>';
+                addVoteContent += '<input type="hidden" name="competNo3" value="'+x+'"></div></div></div></div>';
+
+            }
+            $('div.messageNo1 .competitionPost').after(addFirstContent);
+            $('div.messageNo2 .competitionPost2').after(addSecondContent);
+            $('div.messageNo2 .competitionPost3').after(addThirdContent);
+            $('div.messageOtherBoard').append(addVoteContent);
+
+
+
         },
         "error":function(data){
             console.log(data);
@@ -202,6 +262,7 @@ function msg_xml(e){
 //參加比賽
 $("#join").click(function() {
     join();
+    reload();
  });
 
 //留言    
@@ -209,7 +270,7 @@ $("#join").click(function() {
     let e =$(this).find("input")[0].value;
     console.log(e); 
     $('.messageWrapInput input:eq(0)').val(e).attr({name:'competNo',id:'msgBtnNo'});
-    message_xml(e)
+    message_xml(e);
     
      
 });
@@ -281,15 +342,14 @@ function msg_value() {
    
      $id('login').style.display = 'block';
      return ;
-} 
-if ($(`#inputText`).val()==0)
-{  
-    alert("請輸入文字");
+    } 
+    if ($(`#inputText`).val()==0)
+    {  
+        alert("請輸入文字");
 
-    return ;
-}
-
-let e =$(`#msgBtnNo`).val();
+        return ;
+    }
+    let e =$(`#msgBtnNo`).val();
     msg_xml(e);
     console.log(e);
     setTimeout(() => {

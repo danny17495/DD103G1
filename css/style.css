@@ -254,7 +254,7 @@
 .indexSpotBtns .indexSpotBtn2,
 .indexSpotBtns .indexSpotBtn3
 {
-    font-size: 16px;
+    font-size: 14px;
     padding: 2px 5px;
     border: 1.5px solid #f39700;
 }
@@ -1812,7 +1812,8 @@
     display: block;    
 }
 .indexGame .indexGameBtn{
-    margin: 30px auto;    
+    margin: 30px auto;  
+    font-size: 14px;  
 }
 /* ---------indexSpot  首頁小遊戲(網頁板)------- */
 @media screen and (min-width: 768px){
@@ -4645,7 +4646,12 @@
     left: 0;
     background-image: linear-gradient(to left, rgba(255, 255, 255, 0) 0%, #eed7ff 100%);
 }
-
+@media all and (max-width: 776px) {
+    .indexBanner .slideText:first-child {
+        font-size: 40px;
+        margin-bottom: 35px;
+    }
+}
 
 
 

@@ -238,7 +238,7 @@ try{
             ?> 
 
             <div class="clearfix"></div>
-
+            </div>
             <!-- 第二、三名天燈 -->
             <div class="messageNo2 row">
                 <div class="messageBoard">
@@ -251,7 +251,7 @@ try{
                         </span>
                         <span>得票數:<span class="vote2"><?=$memberVoteRow["vote"]?>票</span></span>
                     </div>
-                    <div class="competitionPost">
+                    <div class="competitionPost competitionPost2">
                     <img src="images/postcardClient/<?=$memberVoteRow["postcardPic"]?>.jpg" alt="">
                     </div>
                     <?php
@@ -263,7 +263,7 @@ try{
                     ?>
 
 
-                    <div class="competitionText">
+                    <div class="competitionText" id="cText">
                         <div class="textContent" id="msg2"><?=$msgMemberRow3["msgContent"]?></div>
                     </div>
 
@@ -299,7 +299,7 @@ try{
                         <span>得票數:<span class="vote3"><?=$memberVoteRow["vote"]?>票</span></span>
 
                     </div>
-                    <div class="competitionPost">
+                    <div class="competitionPost competitionPost3">
                     <img src="images/postcardClient/<?=$memberVoteRow["postcardPic"]?>.jpg" alt="">
                     </div>
                     <?php
@@ -334,7 +334,7 @@ try{
                     </div>
                 </div>
             </div>
-        </div>
+       
 
         <div class="clearfix"></div>
     </section>
@@ -364,29 +364,29 @@ try{
                             
 
                 ?>
-                    <div class="smallMessage">
+                <div class="smallMessage">
                     <img src="images/postcardClient/<?=$memberVoteRow["postcardPic"]?>.jpg" alt="">
-                        <div class="smallMessageButton">                       
-                            <div class="competitionVoteTitle">
-                                <input type="hidden"  name="competNo">
-                                <span><span id="memName"><?=$memberVoteRow["memName"]?></span></span>
-                                <span><span class="vote<?echo $i?>"><?=$memberVoteRow["vote"]?>票</span></span>
-                            </div>
-
-                            <div class="competitionButton indexVoBtn">
-                                <div href="#" class="indexVoBtn voteBtn" data-vote="<?echo $i?>">
-                                <i class="fa fa-hand-o-down fa-2x voteIcon" aria-hidden="true"></i>
-                                    <p>投票</p>
-                                    <input type="hidden" name="competNo2" value="">
-                                </div>
-                                <div href="#"  class="indexVoBtn messageBtn">
-                                <i class="fa fa-commenting-o messIcon fa-2x" aria-hidden="true"></i>
-                                    <p>留言</p>
-                                    <input type="hidden" name="competNo3" value="<?echo $i?>">
+                    <div class="smallMessageButton">                       
+                        <div class="competitionVoteTitle">
+                            <input type="hidden"  name="competNo">
+                            <span><span id="memName"><?=$memberVoteRow["memName"]?></span></span>
+                            <span><span class="vote<?php echo $i?>"><?=$memberVoteRow["vote"]?>票</span></span>
                         </div>
+
+                        <div class="competitionButton indexVoBtn">
+                            <div href="#" class="indexVoBtn voteBtn" data-vote="<?php echo $i?>">
+                                <i class="fa fa-hand-o-down fa-2x voteIcon" aria-hidden="true"></i>
+                                <p>投票</p>
+                                <input type="hidden" name="competNo2" value="">
+                            </div>
+                            <div href="#"  class="indexVoBtn messageBtn">
+                                <i class="fa fa-commenting-o messIcon fa-2x" aria-hidden="true"></i>
+                                <p>留言</p>
+                                <input type="hidden" name="competNo3" value="<?php echo $i?>">
                             </div>
                         </div>
                     </div>
+                </div>
                     
                     <?php
                     }
@@ -466,7 +466,7 @@ try{
             </div>
         </div>
     </div>
-    <section id="login" class="Loginwrap">
+    <!-- <section id="login" class="Loginwrap">
         <div class="LoginForm">
             <div class="Loginhead" id="LoginForm-head">
                 <div data-tab="login">
@@ -501,8 +501,8 @@ try{
                 </div>
             </form>
         </div>
-    </section>
-    <section id="loginRegister" class="Loginwrap" style="display: none">
+    </section> -->
+    <!-- <section id="loginRegister" class="Loginwrap" style="display: none">
         <div class="LoginForm">
             <div class="Loginhead" id="LoginForm-head">
                 <div data-tab="login">
@@ -586,7 +586,7 @@ try{
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
     <script src="js/login.js"></script>
     <script src="js/alert.js"></script>
     <script src="js/animation.js"></script>
