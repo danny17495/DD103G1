@@ -10,7 +10,7 @@
     <meta name="description" content="CoreUI - Open Source Bootstrap Admin Template">
     <meta name="author" content="Łukasz Holeczek">
     <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
-    <title>CoreUI Pro Bootstrap Admin Template</title>
+    <title>九份客棧</title>
 
     <link href="css/coreui-icons.min.css" rel="stylesheet">
 <link href="css/flag-icon.min.css" rel="stylesheet">
@@ -116,10 +116,10 @@ function sendForm(e){
                 alert("帳號密碼錯誤!");
             }else{ 
                 console.log(xhr.responseText);
-                sessionStorage['admin_name'] = xhr.responseText;
+                sessionStorage['adminName'] = xhr.responseText;
                 // document.getElementById("spanLogin").innerText = "登出";
                 // document.getElementById("lightBox").style.display="none";
-                window.location.assign("animalHead.php");
+                window.location.assign("manage.html");
             }
 
         }else{                                  
