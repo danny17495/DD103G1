@@ -15,6 +15,11 @@
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+  <?php
+    session_start();
+    require_once('../connect.php');
+  ?>
+  
  <!-- top_header -->
  <header class="app-header navbar">
     <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
@@ -158,6 +163,23 @@
       <div class="container-fluid">
    
        <!-- 中間內容 -->
+             <div class="container-fluid">
+   
+       <!-- 中間內容 -->
+             <div class="container-fluid">
+    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+        <nav aria-label="breadcrumb" role="navigation">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="#">九份客棧</a>
+                </li>
+                <li class="breadcrumb-item">
+                    <a href="#">會員管理</a>
+                </li>
+            </ol>
+        </nav>
+    </div>
        <div class="row">
         <div class="col-md-12">
           <div class="card">
@@ -600,6 +622,37 @@
         </div>
       </footer>
   <!-- CoreUI and necessary plugins-->
+
+
+
+  <script>
+      function reversechange(e){
+        console.log(e.target.parentNode.parentNode.children[1]);   
+        e.target.parentNode.parentNode.children[5].firstChild.removeAttribute("readonly");
+        e.target.parentNode.parentNode.children[5].firstChild.classList.remove("dissinputstyle");
+        e.target.parentNode.parentNode.children[7].firstChild.removeAttribute("disabled");
+      }
+      
+    
+    var btn1= document.getElementsByClassName('btn1');
+    function doFirst(){
+      for(i=0; i<btn1.length;i++){
+        btn1[i].addEventListener('click',reversechange,false);
+      }
+    }
+    window.addEventListener('load',doFirst);
+    
+  </script>
+
+
+
+
+
+
+
+
+
+
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
   <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>

@@ -19,11 +19,12 @@ $startDate = date("Ymd");
 
 
 try {
-	$dsn = "mysql:host=localhost;port=3306;dbname=dd103g1;charset=utf8";
-	$user = "dd103g1";
-	$password = "dd103g1";
-	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-	$pdo = new PDO($dsn, $user, $password, $options);
+	require_once("connectg1.php");
+	// $dsn = "mysql:host=localhost;port=3306;dbname=dd103g1;charset=utf8";
+	// $user = "dd103g1";
+	// $password = "dd103g1";
+	// $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
+	// $pdo = new PDO($dsn, $user, $password, $options);
 
 	//1. sql1 取得編號訂單
 	$rowResult = 0;
@@ -36,7 +37,7 @@ try {
 		$rowResult = $getOrderNo["orderNo"];
 	}
 
-	echo "目前已有的訂單編號: ", $rowResult;
+	// echo "目前已有的訂單編號: ", $rowResult;
 	$newOrderNo = $rowResult + 1;
 
 	// 2. sql2: 訂單存入orderform
@@ -119,7 +120,7 @@ try {
 	}
 
 	// echo json_encode($cart);
-	echo "訂單明細存入資料庫成功~~~";
+	echo "訂單明細存入資料庫成功";
 
 
 } catch (PDOException $e) {

@@ -482,7 +482,7 @@
     height: 0;
     border-style: solid;
     border-width: 8.5px 15px 8.5px 0;
-    border-color: transparent #929191 transparent transparent;
+    border-color: transparent #f39700 transparent transparent;
     display: inline-block;
     margin-right: 5px;
 }
@@ -492,11 +492,16 @@
     height: 0;
     border-style: solid;
     border-width: 8.5px 0 8.5px 15px;
-    border-color: transparent transparent transparent #929191;
+    border-color: transparent transparent transparent #f39700;
     display: inline-block;
     margin-right: 5px;
 }
-
+.calendarTitle .caRightArrow.disabled{
+    border-color: transparent transparent transparent #929191;
+}
+.calendarTitle .caLeftArrow.disabled{
+    border-color: transparent #929191 transparent transparent;
+}
 .calendarWeek  ul,.calendarBody  ul{
     display: flex;
     justify-content: space-between;
@@ -506,7 +511,6 @@
    width: 14.28%;
    height: 20px;
    text-align: center;
-   cursor:pointer;
 }
 .indexReserve .bottomRoadBus{
     margin-top: 20px;
@@ -4490,8 +4494,21 @@
     right: 11px;
     top: 7px;
 }
-.reserveCalendar .disabledDate{
+.reserveCalendar .disabledDate,.reserveCalendar .fullDate{
     color:gray;
+}
+.reserveCalendar .yesDate{
+    color:brown;
+    cursor: pointer;
+    padding-bottom: 26px;
+}
+.reserveCalendar .yesDate:hover{
+    background-color: #f7ab49;
+    color:#fff;
+}
+.reserveCalendar .yesDate.active{
+    background-color: #f19822;
+    color:#fff;
 }
 .reserveCalendar .today{
     color:#f39700;
@@ -5891,7 +5908,6 @@ body.postcardBody .forWallDeco{
   display:block;
   padding:2px 12px 10px 0px;
   font-weight:600;
-  text-transform:uppercase;
 }
 .LoginForm .Loginbody .LoginForm-row .Logininput {
   width:100%;
@@ -6083,7 +6099,7 @@ body.postcardBody .forWallDeco{
 .LoginForm #myForm .Login-signup{
     padding: 0 20px;
 }
-#myForm .errMsg{
+#myForm .errMsg,#loginforget .errMsg{
     font-size: 8px;
     margin-left: 10px;
     color:red;

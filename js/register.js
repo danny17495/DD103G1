@@ -11,6 +11,16 @@ var form=new Vue({
         memName:''
     },
     methods:{
+        clear(){
+            this.memId='',
+            this.memPassword='',
+            this.pswConfirm='',
+            this.memEmail='',
+            this.memName='',
+            this.idMsg='',
+            this.pswMsg='',
+            this.emailMsg=''
+        },
         testId(){
             if (/[\u4e00-\u9fa5]/.test(this.memId)){ //測試出中文字
                 this.idMsg="不得輸入中文";
@@ -87,6 +97,8 @@ var form=new Vue({
                         if (memberInfoClick) { //判定原先有無按會員頁按鈕
                             document.location.href = "member.php";
                             memberInfoClick = false;
+                        }else{
+                            $id("loginRegister").style.display="none";
                         }
 
                     } else {

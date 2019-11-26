@@ -87,6 +87,7 @@ function shopcartInitPage2_1(){
                 itemName = "客製化T-shirt";
             }
 
+
             //數量及小計
             var itemStorage = `商城商品(編號, 商品數量, 商品小計)編號${picName}`
             var itemString = localStorage.getItem(itemStorage);
@@ -334,7 +335,9 @@ window.addEventListener("load", shopcartInitPage2_1, false);
 /*三-1.AJAX請求server取折扣卷資料*/
 var holdingCouponString;
 function cartMemCoupon(){
-	//傳送一個假資料
+    var memNo = sessionStorage.getItem('memNo');
+	document.getElementById("hidden_data").value = memNo;
+            
 	var formData1 = new FormData(document.getElementById("form1"));
 
 	var xhr = new XMLHttpRequest();
@@ -349,11 +352,13 @@ function cartMemCoupon(){
 			// console.log(aa);
 
 			//三-1-1.處理字串取得折扣卷金額=========================================
-			console.log(holdingCouponString);
-			var holdingCoupon = holdingCouponString.replace('["', '');
-			holdingCoupon = holdingCoupon.replace(']', ',"');
-			var holdingCoupon = holdingCoupon.substr(0,holdingCoupon.length-4).split('","');
-			console.log(holdingCoupon);  //成功變成陣列
+            if(holdingCouponString != null || holdingCouponString != [""]){
+                console.log(holdingCouponString);
+                var holdingCoupon = holdingCouponString.replace('["', '');
+                holdingCoupon = holdingCoupon.replace(']', ',"');
+                var holdingCoupon = holdingCoupon.substr(0,holdingCoupon.length-4).split('","');
+                console.log(holdingCoupon);  //成功變成陣列
+            }
 
 			//三-1-2.持有張數
 			holdingCouponNum = holdingCoupon.length;
@@ -596,6 +601,11 @@ function orderSave(){
             }else{
                 console.log("------------");
                 console.log(xhr.responseText);
+                var saveResult = xhr.responseText;
+                if(saveResult == "訂單明細存入資料庫成功"){
+                    localStorage.clear();
+                    window.location.href = "index.html";
+                }
             }
         }else{
             alert(xhr.status)

@@ -9,10 +9,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="css/common.css">
     <!-- <link rel="stylesheet" href="css/style.css"> -->
-    <link rel="stylesheet" href="css/odometer-theme-default.css">        
+    <link rel="stylesheet" href="css/odometer-theme-default.css">
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/stylePostcard.css">
     <script src="js/jquery-3.4.1.min.js"></script>
-    <script src="js/odometer.js" defer></script>     
+    <script src="js/odometer.js" defer></script>    
+    <script src="js/typewriter.js" defer></script>    
     <script src="js/postcard.js" defer></script>
 </head>
 <body class="postcardBody">
@@ -42,7 +44,7 @@
                                 <a href="postcard.html"  class="nowpage">客製明信片</a>
                             </li>
                             <li>
-                                <a href="shop.php">購物商城</a>
+                                <a href="shop.html">購物商城</a>
                             </li>
                             <li>
                                 <a href="competition.php">投票比賽</a>
@@ -85,17 +87,17 @@
         <section class="postcardExample wrapA">
             <div class="container">
                 <div>
-                    <div class="postWhiteBack postWhiteBackDemo">
+                    <div class="postWhiteBack postWhiteBackDemo postDemo1">
                         <img src="images/postcard/postDemo_1.jpg" alt="postcard">
                     </div>
-                    <div class="postWhiteBack postWhiteBackDemo">
+                    <div class="postWhiteBack postWhiteBackDemo postDemo2">
                         <img src="images/postcard/postDemo_2.jpg" alt="postcard">
                     </div>
-                    <div class="postWhiteBack postWhiteBackDemo">
+                    <div class="postWhiteBack postWhiteBackDemo postDemo3">
                         <img src="images/postcard/postDemo_3.jpg" alt="postcard">
                     </div>
-                    <div class="postWhiteBack postWhiteBackDemo">
-                        <img src="images/postcard/postDemo_1.jpg" alt="postcard">
+                    <div class="postWhiteBack postWhiteBackDemo postDemo4">
+                        <img src="images/postcard/postDemo_4.jpg" alt="postcard">
                     </div>
                 </div>
                 <span>
@@ -234,6 +236,8 @@
                             <img src="images/postcard/uploadPlus.png" alt="upload">
                         </div>
                     </label>
+                    <span class="postcardTeach postcardTeach1" id="postcardTeach1">點擊照片</span>
+                    <span class="postcardTeach postcardTeach2" id="postcardTeach2">也可選擇上傳照片</span>
                 </div><!-- .postRightDIY_1結束div -->
                 <div>
                     <div class="whiteButton postDIYBtn_1_Next postDIYBtn" id="postDIYBtn_1_Next">下一步</div>   
@@ -273,23 +277,17 @@
                         <!-- (2)教學 -->
                         <div>
                             <div class="postcardTeachBox">
-                                <img src="images/postcard/teachCursors-1move.png" alt="teachPic">
+                                <img src="images/postcard/teachCursors-1move.png" alt="teachPic" id="stepTwoTypePic">
                                 <div class="postcardTeachText">
-                                    <p>1. 點擊移動</p>
-                                    <p>2. 點擊縮放</p>
-                                    <p>3. 點擊旋轉</p>
-                                    <p>4. 點兩下刪除</p>
+                                    <p id="stepTwoType1"></p>
+                                    <p id="stepTwoType2"></p>
+                                    <p id="stepTwoType3"></p>
+                                    <p id="stepTwoType4"></p>
                                 </div>
                             </div>
                         </div>                   
                     </div>
-                   
-
-
-                    
-
-
-
+                    <span class="postcardTeach postcardTeach3" id="postcardTeach3">點擊芋園試試</span>
                 </div><!-- .postRightDIY結束div -->
                 <div class="postDIYBtn_Wrap">
                     <div class="whiteButton postDIYBtn_2_Back postDIYBtn" id="postDIYBtn_2_Back">上一步</div>
@@ -402,7 +400,9 @@
                         <table>
                             <tr class="finishBox">
                                 <th>
-                                    <a href="#" download="postcard.png" onclick="this.href=postcardCanvasSecret.toDataURL();" ><div class="leafButton postFinishBtn">下載</div></a>
+                                    <a href="#" download="postcard.png" onclick="this.href=postcardCanvasSecret.toDataURL();">
+                                        <div class="leafButton postFinishBtn">下載</div>
+                                    </a>
                                 </th>
                                 <td>
                                     <p class="postcardFinishTextS">免費儲存</p>
@@ -411,7 +411,7 @@
                             </tr>
                             <tr class="finishBox">
                                 <th>
-                                    <div class="leafButton postFinishBtn">分享</div>
+                                    <div class="leafButton postFinishBtn" id="sendToLine">分享</div>
                                 </th>
                                 <td>
                                     <p>免費分享</p>
@@ -511,6 +511,7 @@
             </div><!-- .container結束div -->
         </section>
     </div>
+
     <footer>
         <div>
             <a href="#">
@@ -525,7 +526,7 @@
         </div>
         <p>DD103 G1 copyright</p>
     </footer>
-    <div class="alertWindow">
+    <!-- <div class="alertWindow">
         <div class="alert">
             <div class="alertTitle">提示</div>
             <div class="alertContent">我是內容</div>
@@ -658,8 +659,169 @@
                 </div>
             </div>
         </div>
+    </section> -->
+    <div class="alertWindow">
+        <div class="alert">
+            <div class="alertTitle">提示</div>
+            <div class="alertContent">我是內容</div>
+            <div class="closeWrap">
+                <div class="yesButton whiteButton">確認</div>
+                <div class="cancelButton whiteButton">取消</div>
+            </div>
+            <div class="alertClose">
+                <i class="fa fa-times-circle Trip2_lightBoxBTN" aria-hidden="true" id="Trip2_lightBoxBTN02"></i>
+            </div>
+    
+        </div>
+    </div>
+    <section id="login" class="Loginwrap">
+        <div class="LoginForm">
+            <div class="Loginhead" id="LoginForm-head">
+                <div data-tab="login">
+                    <div class="Loginclose">
+                        <h3>會員登入</h3>
+                        <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <form action="">
+                <div class="Loginbody" id="LoginForm-body">
+                    <div class="Login-login">
+                        <div class="LoginForm-row">
+                            <label class="LoginLabel" for="">帳號</label>
+                            <input class="Logininput" id="user-id" type="text" placeholder="account" autocomplete="on">
+                        </div>
+                        <div class="LoginForm-row">
+                            <label class="LoginLabel" for="">密碼</label>
+                            <input class="Logininput" type="password" id="user-psw" placeholder="Password"
+                                autocomplete="on">
+                        </div>
+                        <div class="Login-forget">
+                            <a class="Login-forget-password" id="linkLoginForget">
+                                <p class="LoginP">忘記密碼</p>
+                            </a>
+                        </div>
+                        <div class="LoginForm-row">
+                            <div class="LoginBtnCenter whiteButton">登入</div>
+                        </div>
+                        <a class="LoginForm-signup-now" href="javascript:;">立即註冊</a>
+                    </div>
+                </div>
+            </form>
+        </div>
     </section>
+    <section id="loginRegister" class="Loginwrap">
+        <div class="LoginForm">
+            <div class="Loginhead" id="LoginForm-head">
+                <div data-tab="login">
+                    <div class="Loginclose">
+                        <h3>會員註冊</h3>
+                        <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true" @click="clear"></i>
+                    </div>
+                </div>
+            </div>
+            <form action="" id="myForm">
+                <div class="Loginbody" id="LoginForm-body">
+                    <div class="Login-signup">
+                        <div class="LoginForm-row">
+                            <label class="Loginlabal">姓名</label>
+                            <input class="Logininput" type="text" placeholder="輸入您的名字" v-model="memName">
+                        </div>
+                        <div class="LoginForm-row">
+                            <label class="Loginlabal">帳號<span class="errMsg">{{idMsg}}</span></label>
+                            <input class="Logininput" v-model="memId" @change="testId" type="text" placeholder="4~10個英文字或數字"
+                                maxlength="10">
+    
+                        </div>
+                        <div class="LoginForm-row">
+                            <label class="Loginlabal" style="color:aliceblue;">密碼<span
+                                    class="errMsg">{{pswMsg}}</span></label>
+                            <input class="Logininput" @change="testPsw" v-model="memPassword" type="password"
+                                placeholder="英文開頭且包含數字">
+                        </div>
+                        <div class="LoginForm-row">
+                            <label class="Loginlabal" style="color:aliceblue;">密碼確認<span
+                                    class="errMsg">{{pswConfirmMsg}}</span></label>
+                            <input class="Logininput" type="password" placeholder="再次輸入您的密碼" v-model="pswConfirm">
+                        </div>
+                        <div class="LoginForm-row">
+                            <label class="Loginlabal" style="color:aliceblue;">Email<span
+                                    class="errMsg">{{emailMsg}}</span></label>
+                            <input class="Logininput" v-model="memEmail" type="text" @change="testEmail"
+                                placeholder="輸入您的信箱">
+                        </div>
+                        <div class="LoginForm-row">
+                            <div class="LoginBtnR">
+                                <div class="whiteButton">
+                                    <a href="#" id="signup" name="signup" @click="submit">註冊</a>
+                                </div>
+                            </div>
+                            <div class="LoginBtnL">
+                                <div class="whiteButton">
+                                    <a href="javascript:;" @click="clear">回上頁</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <section id="loginforget" class="Loginwrap">
+        <div class="LoginForm">
+            <div class="Loginhead" id="LoginForm-head">
+                <div data-tab="login">
+                    <div class="Loginclose">
+                        <h3>重設密碼</h3>
+                        <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true" @click="clear"></i>
+    
+                    </div>
+                </div>
+            </div>
+            <form action="#">
+                <div class="Loginbody LoginForm-body">
+                    <div class="login">
+                        <div class="LoginForm-row">
+                            <label class="LoginLabel">Email<span class="errMsg">{{errMsg}}</span></label>
+                            <input class="Logininput" type="email" placeholder="輸入您的信箱" v-model="email" @change="test"
+                                id="inputEmail">
+                        </div>
+                        <p class="resetpsw">*請送出表單後,到信箱查看並重設密碼*</p>
+                        <div class="LoginForm-row fix">
+                            <div class="LoginBtnR">
+                                <div class="whiteButton">
+                                    <a href="#" @click="submitEmail">
+                                        送出
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="LoginBtnL">
+                                <div class="whiteButton">
+                                    <a href="javascript:;" @click="clear">回上頁</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <script src="js/vue-2.6.10.min.js"></script>
     <script src="js/login.js"></script>
     <script src="js/alert.js"></script>
+    <script src="js/register.js"></script>
+    <script src="js/forgetPsw.js"></script>
+    <script>
+        let postDIYBtn_7_Next = document.getElementById('postDIYBtn_7_Next'); //註冊你那個按鈕點擊事件
+        postDIYBtn_7_Next.addEventListener('click', function (e) { //點擊按鈕時 判定有無登入
+            if (!sessionStorage['memNo']) { //固定寫法 一定要有
+                memberInfoClick = false;//固定寫法 一定要有
+                openLoginData();//固定寫法 一定要有 打開燈箱
+            }else{
+                 toPR5();
+            }
+
+        });
+    </script>
 </body>
 </html>

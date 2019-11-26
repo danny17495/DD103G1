@@ -86,7 +86,7 @@ function openLoginData(){ //登入 註冊 盒子
             $id("user-psw").value = '';
         });
     });
-    loginClose.forEach(function(dom) {
+    loginClose.forEach(function(dom,index) {
         dom.addEventListener('click', function () {
             login.style.display="none";
             loginforget.style.display = "none";
@@ -111,12 +111,12 @@ window.addEventListener('load',function(){
 
     $id('memberInfo').onclick = function (e) {
         if (!sessionStorage['memNo']) { //未登入
-            alert('未登入');
+           // alert('未登入');
             memberInfoClick = true;
             e.preventDefault();
             openLoginData();
         }else{
-            alert('已登入');
+           // alert('已登入');
             window.location.href = "member.php";
         }
     }
