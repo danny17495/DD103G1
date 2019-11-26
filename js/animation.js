@@ -226,7 +226,7 @@ function reload(){
             console.log(data.vote.length);
             for(let x = 3; x < data.vote.length; x++)
             {
-                addVoteContent += '<div class="smallMessage"><img src="images/postcardClient/'+data.vote[x].postcardPic+'.jpg" alt="">';
+                addVoteContent += '<div class="smallMessage"><img src="images/postcardClient/'+data.vote[x].postcardPic+'" alt="">';
                 addVoteContent += '<div class="smallMessageButton">';
                 addVoteContent += '<div class="competitionVoteTitle">';
                 addVoteContent += '<input type="hidden"  name="competNo">';

@@ -202,7 +202,7 @@ try{
                         <span>得票數:<span class="vote1"><?=$memberVoteRow["vote"]?>票</span></span>
                     </div>
                     <div class="competitionPost">
-                        <img src="images/postcardClient/<?=$memberVoteRow["postcardPic"]?>.jpg" alt="">
+                        <img src="images/postcardClient/<?=$memberVoteRow["postcardPic"]?>" alt="">
                     </div>
             <?php
             }
@@ -253,7 +253,7 @@ try{
                         <span>得票數:<span class="vote2"><?=$memberVoteRow["vote"]?>票</span></span>
                     </div>
                     <div class="competitionPost competitionPost2">
-                    <img src="images/postcardClient/<?=$memberVoteRow["postcardPic"]?>.jpg" alt="">
+                    <img src="images/postcardClient/<?=$memberVoteRow["postcardPic"]?>" alt="">
                     </div>
                     <?php
                         }
@@ -301,7 +301,7 @@ try{
 
                     </div>
                     <div class="competitionPost competitionPost3">
-                    <img src="images/postcardClient/<?=$memberVoteRow["postcardPic"]?>.jpg" alt="">
+                    <img src="images/postcardClient/<?=$memberVoteRow["postcardPic"]?>" alt="">
                     </div>
                     <?php
                         }
@@ -366,7 +366,7 @@ try{
 
                 ?>
                 <div class="smallMessage">
-                    <img src="images/postcardClient/<?=$memberVoteRow["postcardPic"]?>.jpg" alt="">
+                    <img src="images/postcardClient/<?=$memberVoteRow["postcardPic"]?>" alt="">
                     <div class="smallMessageButton">                       
                         <div class="competitionVoteTitle">
                             <input type="hidden"  name="competNo">

@@ -202,6 +202,10 @@ cursor:pointer;
 }	
 
 /*----------選擇圖案區塊-----桌機---------------*/
+.shopPicSrc img{
+	cursor:pointer;
+}
+
 .shopCustomerProduct{
 	display: flex;
 	align-items: center;
@@ -356,6 +360,10 @@ cursor:pointer;
     	width: 25%;
     	max-width: 250px;
     	height: auto;
+	}
+
+	#SS1,#SS2,#SS3{
+		cursor: pointer;
 	}
 
 }
@@ -712,6 +720,10 @@ font-family: "華康仿宋體W2";
 
 /*-------選擇圖案區塊 直立圖 --手機(隱藏)---------*/
 @media all and (max-width: 767px){
+	.shopBird{
+		display: none;
+	}
+	
 	#shopLeftSide{
 		display: none;
 	}

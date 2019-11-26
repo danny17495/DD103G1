@@ -2,12 +2,11 @@
 $errMsg ="";
 
 try {
-	require_once("connectg1.php");
-	// $dsn = "mysql:host=localhost;port=3306;dbname=dd103g1;charset=utf8";
-	// $user = "dd103g1";
-	// $password = "dd103g1";
-	// $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-	// $pdo = new PDO($dsn, $user, $password, $options);
+	$dsn = "mysql:host=localhost;port=3306;dbname=dd103g1;charset=utf8";
+	$user = "root";
+	$password = "01258963";
+	$options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
+	$pdo = new PDO($dsn, $user, $password, $options);
 
 	//取得已有的明信片編號
 	$rowResult = 0;

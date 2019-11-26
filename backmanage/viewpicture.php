@@ -1,3 +1,15 @@
+<?php
+  $errMsg = "";
+  try{
+    require_once("connect.php");
+    $sql = "select * from `scenicspots`";
+    $spots  = $pdo->query($sql);
+    $spotRows = $spots -> fetchAll(PDO::FETCH_ASSOC);
+  }catch(PDOException $e){
+    $errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";
+    $errMsg .= "錯誤行號 : ".$e -> getLine(). "<br>";
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +24,27 @@
   <link href="node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
   <!-- Main styles for this application-->
   <link href="css/style.css" rel="stylesheet">
+  <style>
+    *{
+      /*outline: red solid 1px;*/
+    }
+    .dissinputstyle{
+      border:none;
+      border:transparent;
+    }
+    .spotcss td:nth-child(2){
+      width: 12%;
+    }
+    .spotcss td:nth-child(3) textarea{
+      width: 100%;
+    }
+    .spotcss th:nth-child(5),
+    .spotcss th:nth-child(6),
+    .spotcss td:nth-child(5),
+    .spotcss td:nth-child(6){
+      text-align:center;
+    }
+  </style>
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
@@ -27,87 +60,13 @@
     <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
       <span class="navbar-toggler-icon"></span>
     </button>
-   <!--  <ul class="nav navbar-nav d-md-down-none">
-      <li class="nav-item px-3">
-        <a class="nav-link" href="#">Dashboard</a>
-      </li>
-      <li class="nav-item px-3">
-        <a class="nav-link" href="#">Users</a>
-      </li>
-      <li class="nav-item px-3">
-        <a class="nav-link" href="#">Settings</a>
-      </li>
-    </ul> -->
+   
     <ul class="nav navbar-nav ml-auto">
       <li class="mr-5">豪豪 您好</li>
 
 
-     <!--  <li class="nav-item d-md-down-none">
-        <a class="nav-link" href="#">
-          <i class="icon-bell"></i>
-          <span class="badge badge-pill badge-danger">5</span>
-        </a>
-      </li>
-      <li class="nav-item d-md-down-none">
-        <a class="nav-link" href="#">
-          <i class="icon-list"></i>
-        </a>
-      </li>
-      <li class="nav-item d-md-down-none">
-        <a class="nav-link" href="#">
-          <i class="icon-location-pin"></i>
-        </a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-          <img class="img-avatar" src="img/avatars/6.jpg" alt="admin@bootstrapmaster.com">
-        </a>
-        <div class="dropdown-menu dropdown-menu-right">
-          <div class="dropdown-header text-center">
-            <strong>Account</strong>
-          </div>
-          <a class="dropdown-item" href="#">
-            <i class="fa fa-bell-o"></i> Updates
-            <span class="badge badge-info">42</span>
-          </a>
-          <a class="dropdown-item" href="#">
-            <i class="fa fa-envelope-o"></i> Messages
-            <span class="badge badge-success">42</span>
-          </a>
-          <a class="dropdown-item" href="#">
-            <i class="fa fa-tasks"></i> Tasks
-            <span class="badge badge-danger">42</span>
-          </a>
-          <a class="dropdown-item" href="#">
-            <i class="fa fa-comments"></i> Comments
-            <span class="badge badge-warning">42</span>
-          </a>
-          <div class="dropdown-header text-center">
-            <strong>Settings</strong>
-          </div>
-          <a class="dropdown-item" href="#">
-            <i class="fa fa-user"></i> Profile</a>
-          <a class="dropdown-item" href="#">
-            <i class="fa fa-wrench"></i> Settings</a>
-          <a class="dropdown-item" href="#">
-            <i class="fa fa-usd"></i> Payments
-            <span class="badge badge-secondary">42</span>
-          </a>
-          <a class="dropdown-item" href="#">
-            <i class="fa fa-file"></i> Projects
-            <span class="badge badge-primary">42</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">
-            <i class="fa fa-shield"></i> Lock Account</a>
-          <a class="dropdown-item" href="#">
-            <i class="fa fa-lock"></i> Logout</a>
-        </div>
-      </li> -->
     </ul>
-    <!-- <button class="navbar-toggler aside-menu-toggler d-md-down-none" type="button" data-toggle="aside-menu-lg-show">
-      <span class="navbar-toggler-icon"></span>
-    </button> -->
+   
     <button class="navbar-toggler aside-menu-toggler d-lg-none" type="button" data-toggle="aside-menu-show">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -119,12 +78,7 @@
        <!-- sidebar  menu -->
       <nav class="sidebar-nav">
     <ul class="nav">
-      <!-- <li class="nav-item">
-        <a class="nav-link" href="index.html">
-          <i class="nav-icon icon-speedometer"></i> Dashboard
-          <span class="badge badge-primary">NEWs</span>
-        </a>
-      </li> -->
+     
       <li class="nav-title">後台管理</li>
          <a class="nav-link" href="manage.html">
          <i class="nav-icon icon-drop"></i> 管理員管理</a>
@@ -138,14 +92,13 @@
           <i class="nav-icon icon-pencil"></i> 訂單管理</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="viewpicture.html">
+        <a class="nav-link" href="viewpicture.php">
           <i class="nav-icon icon-pencil"></i> 景點圖片管理</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="postcard.html">
           <i class="nav-icon icon-pencil"></i> 客製化明信片管理</a>
       </li>
-     
     </ul>
   </nav>
       <button class="sidebar-minimizer brand-minimizer" type="button"></button>
@@ -180,68 +133,52 @@
           <div class="card">
             <div class="card-header">景點圖片管理</div>
             <div class="card-body">
-              <button class="btn btn-block btn-outline-primary" type="button">新增景點圖片</button>
+              <!-- <button class="btn btn-block btn-outline-primary" type="button">新增景點圖片</button> -->
 
 
               <!-- 每一頁主要改這個table -->
-              <table class="table table-responsive-sm table-sm">
+<?php
+if( $errMsg != ""){ //例外
+        echo "<div><center>$errMsg</center></div>";
+    }elseif($spots->rowCount()==0){
+        echo "<div><center>無此資料</center></div>";
+    }else{
+?>
+<?php
+  
+    foreach( $spotRows as $i => $spotRow){
+    
+?>
+      <form action="updatespotData.php">
+              <table class="table table-responsive-sm table-sm spotcss">
                 <thead>
                   <tr>
                     <th>景點編號</th>
-                    <th>景點</th>
-                    <th>照片編號</th>
+                    <th>景點名稱</th>
+                    <th>景點描述</th>
                     <th>照片</th>
-                    <th>停用</th>
+                    <th>編輯</th>
                     <th>修改</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>01</td>
-                    <td>景點名稱1</td>
-                    <td>0101</td>
-                    <td>
-                      <img class="navbar-brand-full" src="img/pic.jpg" width="40" height="30" alt="CoreUI Logo">
+                    <td><?php echo $spotRow['spotsNo'];?><input name="spotsNo" type="hidden" value="<?= $spotRow['spotsNo']?>" class="dissinputstyle"></td>
+                    <td class="spot_td2_name"><input type="text" name="spotsName" value="<?php echo $spotRow['spotsName'];?>" readonly="true" class="dissinputstyle"></td>
+                    <td class="spot_td3_dec"><textarea type="text" name="spotsDec" readonly="true" class="dissinputstyle" cols="50"><?php echo $spotRow['spotsDec'];?>
+                    </textarea></td>
+                    <td class="spot_td4_pic"><textarea type="text" name="spotsPic" readonly="true" class="dissinputstyle"><?php echo $spotRow['spotsPic'];?></textarea></td>
+                    <td><input class="btn1" type="button" value="編輯">
                     </td>
-                    <td><button>停用</button></td>
-                    <td><button>修改</button></td>
+                    <td><input type="submit"  value="修改完成" disabled></td>
                   </tr>
-                  <tr>
-                    <td>02</td>
-                    <td>景點名稱2</td>
-                    <td>0102</td>
-                    <td>
-                      <img class="navbar-brand-full" src="img/pic_02.jpg" width="40" height="30" alt="CoreUI Logo">
-                    </td>
-                    <td><button>停用</button></td>
-                    <td><button>修改</button></td>
-                  </tr>
-                  <tr>
-                    <td>03</td>
-                    <td>景點名稱3</td>
-                    <td>0103</td>
-                    <td>
-                      <img class="navbar-brand-full" src="img/pic_03.jpg" width="40" height="30" alt="CoreUI Logo">
-                    </td>
-                    <td><button>停用</button></td>
-                    <td><button>修改</button></td>
-                  </tr>
-                  <tr>
-                    <td>04</td>
-                    <td>景點名稱4</td>
-                    <td>0104</td>
-                    <td>
-                      <img class="navbar-brand-full" src="img/pic_04.jpg" width="40" height="30" alt="CoreUI Logo">
-                    </td>
-                    <td><button>停用</button></td>
-                    <td><button>修改</button></td>
-                    
-                  </tr>
-      
                 </tbody>
               </table>
-
-
+  </form>
+ <?php
+    }
+  }
+  ?>
             </div>
           </div>
         </div>
@@ -249,6 +186,28 @@
        <!-- end -->
       </div>
     </main>
+  <script>
+    var btn1=document.getElementsByClassName("btn1");
+
+    function changeSpot(e){
+      console.log(e.target.parentNode.parentNode.children[3].firstChild);
+
+    e.target.parentNode.parentNode.children[1].firstChild.removeAttribute("readonly");   
+     e.target.parentNode.parentNode.children[1].firstChild.classList.remove("dissinputstyle"); 
+     e.target.parentNode.parentNode.children[2].firstChild.removeAttribute("readonly");   
+     e.target.parentNode.parentNode.children[2].firstChild.classList.remove("dissinputstyle");
+     e.target.parentNode.parentNode.children[3].firstChild.removeAttribute("readonly");   
+     e.target.parentNode.parentNode.children[3].firstChild.classList.remove("dissinputstyle");
+     e.target.parentNode.parentNode.children[5].firstChild.removeAttribute("disabled");
+    }
+
+    function doFirst(){
+      for(var i=0; i<btn1.length; i++){
+        btn1[i].addEventListener("click", changeSpot,false);
+      }
+    }
+    window.addEventListener('load',doFirst);
+  </script>
     <aside class="aside-menu">
       <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
