@@ -120,7 +120,7 @@ try {
 	}
 
 	// echo json_encode($cart);
-	echo "訂單明細存入資料庫成功";
+	echo "訂單成立";
 
 
 } catch (PDOException $e) {
