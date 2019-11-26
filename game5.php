@@ -6,8 +6,12 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>小遊戲</title>
+=======
+    <title>Document</title>
+>>>>>>> b39cfb53570fb1289e2a76a9df77b44695ddc982
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="css/common.css">
