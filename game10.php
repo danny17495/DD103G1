@@ -5,12 +5,15 @@ session_start();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小遊戲</title>
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/login.js"></script>
+        <script src="js/login.js"></script>
+
     <style>
         .loginToCheck{
             margin-top: -25px;
@@ -57,13 +60,13 @@ session_start();
                                     <a href="competition.html">投票比賽</a>
                                 </li>
                             </ul>
-                              <div class="headerMemInfo">
+                               <div class="headerMemInfo">
                                     <span id="headerMemName"></span>
                                     <a href="javascript:;"></a>
                                 </div>
                         </div>
                     </nav>
-                  
+                 
                     <div class="headerIcon">
                         <a href="javascript:;" id="shopcart">
                             <img src="images/icon_shopcar.png" alt="icon_shopcar">
@@ -165,144 +168,21 @@ session_start();
         <div class="alertTitle">提示</div>
         <div class="alertContent">您已成功獲得優惠券!</div>
         <a href="#">
-        <div class="loginToCheck">查看優惠券</div>
+        <!-- <div class="loginToCheck">查看優惠券</div> -->
         </a>
         <div class="closeWrap">
-            <a href="game.html">
-            <div class="yesButton whiteButton">確認</div>
-            </a>
+            <!-- <a href="game.html"> -->
+            <div class="yesButton whiteButton" onclick="window.location.href='game.html';">確認</div>
+            <!-- </a> -->
             <div class="cancelButton whiteButton">取消</div>
         </div>
         <div class="alertClose">
-            <a href="game.html">
+            <!-- <a href="game.html"> -->
                 <i class="fa fa-times-circle Trip2_lightBoxBTN" aria-hidden="true" id="Trip2_lightBoxBTN02"></i>
-            </a>
+            <!-- </a> -->
         </div>
     </div>
   </div>
-  <!-- <section id="login" class="Loginwrap">
-    <div class="LoginForm">
-        <div class="Loginhead" id="LoginForm-head">
-            <div data-tab="login">
-                <div class="Loginclose">
-                    <h3>會員登入</h3>
-                    <a href="game.html">
-                    <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <form action="">
-            <div class="Loginbody" id="LoginForm-body">
-                <div class="Login-login">
-                    <div class="LoginForm-row">
-                        <label class="LoginLabel" for="">帳號</label>
-                        <input class="Logininput" id="user-id" type="text" placeholder="account" autocomplete="on">
-                    </div>
-                    <div class="LoginForm-row">
-                        <label class="LoginLabel" for="">密碼</label>
-                        <input class="Logininput" type="password" id="user-psw" placeholder="Password"
-                            autocomplete="on">
-                    </div>
-                    <div class="Login-forget">
-                        <a class="Login-forget-password" id="linkLoginForget">
-                            <p class="LoginP">忘記密碼</p>
-                        </a>
-                    </div>
-                    <div class="LoginForm-row">
-                        <div class="LoginBtnCenter whiteButton">登入</div>
-                    </div>
-                    <a class="LoginForm-signup-now" href="javascript:;">立即註冊</a>
-                </div>
-            </div>
-        </form>
-    </div>
-</section>
-<section id="loginRegister" class="Loginwrap" style="display: none">
-    <div class="LoginForm">
-        <div class="Loginhead" id="LoginForm-head">
-            <div data-tab="login">
-                <div class="Loginclose">
-                    <h3>會員註冊</h3>
-                    <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true"></i>
-                </div>
-            </div>
-        </div>
-        <form action="">
-            <div class="Loginbody" id="LoginForm-body">
-                <div class="Login-signup">
-                    <div class="LoginForm-row">
-                        <label class="Loginlabal" for="">姓名</label>
-                        <input id="name" class="Logininput" name="name" type="text" placeholder="Name">
-                    </div>
-                    <div class="LoginForm-row">
-                        <label class="Loginlabal" style="color:aliceblue;" for="">密碼</label>
-                        <input id="password" class="Logininput" name="password" type="password" placeholder="Password"
-                            autocomplete="on">
-
-                    </div>
-                    <div class="LoginForm-row">
-                        <label class="Loginlabal" style="color:aliceblue;" for="">密碼確認</label>
-                        <input id="passwordcheck" class="Logininput" name="passwordcheck" type="password"
-                            placeholder="passwordcheck" autocomplete="on">
-                    </div>
-                    <div class="LoginForm-row">
-                        <label class="Loginlabal" style="color:aliceblue;">Email</label>
-                        <input id="Email" class="Logininput" name="email" type="text" size=20 placeholder="email">
-                    </div>
-                    <div class="LoginForm-row">
-                        <div class="LoginBtnR">
-                            <div class="whiteButton">
-                                <a href="#" id="signup" name="signup">註冊</a>
-                            </div>
-                        </div>
-                        <div class="LoginBtnL">
-                            <div class="whiteButton">
-                                <a href="javascript:;">回上頁</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
-</section>
-<section id="loginforget" class="Loginwrap" style="display: none">
-    <div class="LoginForm">
-        <div class="Loginhead" id="LoginForm-head">
-            <div data-tab="login">
-                <div class="Loginclose">
-                    <h3>重設密碼</h3>
-                    <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true"></i>
-
-                </div>
-            </div>
-        </div>
-        <div class="Loginbody LoginForm-body">
-            <div class="login">
-                <div class="LoginForm-row">
-                    <label class="LoginLabel" for="">email</label>
-                    <input class="Logininput" type="email" placeholder="email">
-                </div>
-                <p class="resetpsw">*請送出表單後,到信箱查看並重設密碼*</p>
-                <div class="LoginForm-row fix">
-                    <div class="LoginBtnR">
-                        <div class="whiteButton">
-                            <a href="#">
-                                送出
-                            </a>
-                        </div>
-                    </div>
-                    <div class="LoginBtnL">
-                        <div class="whiteButton">
-                            <a href="javascript:;">回上頁</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-   </section> -->
    <section id="login" class="Loginwrap">
     <div class="LoginForm">
         <div class="Loginhead" id="LoginForm-head">
@@ -435,18 +315,10 @@ session_start();
         </form>
     </div>
 </section>
-<script>
+     <script src="js/vue-2.6.10.min.js"></script>
+ <script src="js/register.js"></script>
+<script src="js/forgetPsw.js"></script>
 
-// let contestnow= document.getElementById('contestnow'); //註冊你那個按鈕點擊事件
-//     contestnow.addEventListener('click',function(e){ //點擊按鈕時 判定有無登入
-//          if (!sessionStorage['memNo']) { //固定寫法 一定要有
-//                  memberInfoClick = false;//固定寫法 一定要有
-//                  e.preventDefault();//如果點擊的按鈕是a標籤 必須加入
-//                  openLoginData();//固定寫法 一定要有 打開燈箱
-//         }
-     
-//     });
-// </script>
 <?php
 if(isset( $_SESSION['memNo'])){
     $memNo=$_SESSION['memNo'];
@@ -515,7 +387,9 @@ if(isset( $_SESSION['memNo'])){
     $id("user-id").value = '';
     $id("user-psw").value = '';
     linkLoginForget.addEventListener("click",function(){
-        login.style.display = "none";
+       // alert('click');
+      login.style.display = "none";
+      //console.log(loginforget);
         loginforget.style.display="block";
     });
     linkLoginRegister.addEventListener('click',function(){
@@ -578,7 +452,8 @@ function sendData(){
             }
             
         }
-        xhr.open("post", "login.php", true);
+        xhr.open("post", "php/login/login.php", true);
+        // xhr.open("post", "login.php", true);
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         xhr.send(`user_id=${userId}&user_psw=${userPsw}`);
     }
@@ -589,11 +464,10 @@ function sendData(){
 <?php
 }
 
-?>
-<script src="js/vue-2.6.10.min.js"></script>
-<script src="js/alert.js"></script>
-<!-- <script src="js/login.js"></script> -->
-<script src="js/register.js"></script>
-<script src="js/forgetPsw.js"></script>
+?> 
+    
+ <script src="js/alert.js"></script>
+<!-- <script src="js/login.js"></script>  -->
+
 </body>
 </html>
