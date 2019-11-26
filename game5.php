@@ -10,7 +10,8 @@ session_start();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/login.js"></script>
+        <script src="js/login.js"></script>
+
     <style>
         .loginToCheck{
             margin-top: -25px;
@@ -57,12 +58,13 @@ session_start();
                                     <a href="competition.html">投票比賽</a>
                                 </li>
                             </ul>
+                               <div class="headerMemInfo">
+                                    <span id="headerMemName"></span>
+                                    <a href="javascript:;"></a>
+                                </div>
                         </div>
                     </nav>
-                    <div class="headerMemInfo">
-                        <span id="headerMemName"></span>
-                        <a href="javascript:;"></a>
-                    </div>
+                 
                     <div class="headerIcon">
                         <a href="javascript:;" id="shopcart">
                             <img src="images/icon_shopcar.png" alt="icon_shopcar">
@@ -164,18 +166,18 @@ session_start();
         <div class="alertTitle">提示</div>
         <div class="alertContent">您已成功獲得優惠券!</div>
         <a href="#">
-        <div class="loginToCheck">查看優惠券</div>
+        <!-- <div class="loginToCheck">查看優惠券</div> -->
         </a>
         <div class="closeWrap">
-            <a href="game.html">
+            <!-- <a href="game.html"> -->
             <div class="yesButton whiteButton">確認</div>
-            </a>
+            <!-- </a> -->
             <div class="cancelButton whiteButton">取消</div>
         </div>
         <div class="alertClose">
-            <a href="game.html">
+            <!-- <a href="game.html"> -->
                 <i class="fa fa-times-circle Trip2_lightBoxBTN" aria-hidden="true" id="Trip2_lightBoxBTN02"></i>
-            </a>
+            <!-- </a> -->
         </div>
     </div>
   </div>
@@ -311,7 +313,9 @@ session_start();
         </form>
     </div>
 </section>
-
+     <script src="js/vue-2.6.10.min.js"></script>
+ <script src="js/register.js"></script>
+<script src="js/forgetPsw.js"></script>
 
 <?php
 if(isset( $_SESSION['memNo'])){
@@ -381,7 +385,9 @@ if(isset( $_SESSION['memNo'])){
     $id("user-id").value = '';
     $id("user-psw").value = '';
     linkLoginForget.addEventListener("click",function(){
-        login.style.display = "none";
+       // alert('click');
+      login.style.display = "none";
+      //console.log(loginforget);
         loginforget.style.display="block";
     });
     linkLoginRegister.addEventListener('click',function(){
@@ -456,11 +462,10 @@ function sendData(){
 }
 
 ?>
+   
+    
+ <script src="js/alert.js"></script>
+<!-- <script src="js/login.js"></script>  -->
 
-<script src="js/vue-2.6.10.min.js"></script>
-<!-- <script src="js/alert.js"></script> -->
-<!-- <script src="js/login.js"></script> -->
-<script src="js/register.js"></script>
-<script src="js/forgetPsw.js"></script>
 </body>
 </html>

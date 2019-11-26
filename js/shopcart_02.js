@@ -601,8 +601,10 @@ function orderSave(){
             }else{
                 console.log("------------");
                 console.log(xhr.responseText);
+                alert(xhr.responseText);                
                 var saveResult = xhr.responseText;
-                if(saveResult == "訂單明細存入資料庫成功"){
+                if(xhr.responseText){
+                    console.log("2");
                     localStorage.clear();
                     window.location.href = "index.html";
                 }

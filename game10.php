@@ -57,12 +57,13 @@ session_start();
                                     <a href="competition.html">投票比賽</a>
                                 </li>
                             </ul>
+                              <div class="headerMemInfo">
+                                    <span id="headerMemName"></span>
+                                    <a href="javascript:;"></a>
+                                </div>
                         </div>
                     </nav>
-                    <div class="headerMemInfo">
-                        <span id="headerMemName"></span>
-                        <a href="javascript:;"></a>
-                    </div>
+                  
                     <div class="headerIcon">
                         <a href="javascript:;" id="shopcart">
                             <img src="images/icon_shopcar.png" alt="icon_shopcar">
