@@ -20,11 +20,6 @@ $startDate = date("Ymd");
 
 try {
 	require_once("connectg1.php");
-	// $dsn = "mysql:host=localhost;port=3306;dbname=dd103g1;charset=utf8";
-	// $user = "dd103g1";
-	// $password = "dd103g1";
-	// $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-	// $pdo = new PDO($dsn, $user, $password, $options);
 
 	//1. sql1 取得編號訂單
 	$rowResult = 0;
