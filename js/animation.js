@@ -75,7 +75,9 @@ function join_php(){
 
 function report(){
      if (!sessionStorage['memNo']) {
-         $id('login').style.display = 'block';
+         //$id('login').style.display = 'block';
+         memberInfoClick = false;//固定寫法 一定要有
+         openLoginData();//固定寫法 一定要有 打開燈箱
          return ;
         //  alert(1);
     } 
