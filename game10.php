@@ -5,13 +5,15 @@ session_start();
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小遊戲</title>
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/login.js"></script>
+        <script src="js/login.js"></script>
+
     <style>
         .loginToCheck{
             margin-top: -25px;
@@ -58,13 +60,13 @@ session_start();
                                     <a href="competition.html">投票比賽</a>
                                 </li>
                             </ul>
-                              <div class="headerMemInfo">
+                               <div class="headerMemInfo">
                                     <span id="headerMemName"></span>
                                     <a href="javascript:;"></a>
                                 </div>
                         </div>
                     </nav>
-                  
+                 
                     <div class="headerIcon">
                         <a href="javascript:;" id="shopcart">
                             <img src="images/icon_shopcar.png" alt="icon_shopcar">
@@ -166,21 +168,24 @@ session_start();
         <div class="alertTitle">提示</div>
         <div class="alertContent">您已成功獲得優惠券!</div>
         <a href="#">
-        <div class="loginToCheck">查看優惠券</div>
+        <!-- <div class="loginToCheck">查看優惠券</div> -->
         </a>
         <div class="closeWrap">
-            <a href="game.html">
-            <div class="yesButton whiteButton">確認</div>
-            </a>
+            <!-- <a href="game.html"> -->
+            <div class="yesButton whiteButton" onclick="window.location.href='game.html';">確認</div>
+            <!-- </a> -->
             <div class="cancelButton whiteButton">取消</div>
         </div>
         <div class="alertClose">
-            <a href="game.html">
+            <!-- <a href="game.html"> -->
                 <i class="fa fa-times-circle Trip2_lightBoxBTN" aria-hidden="true" id="Trip2_lightBoxBTN02"></i>
-            </a>
+            <!-- </a> -->
         </div>
     </div>
   </div>
+<<<<<<< HEAD
+   <section id="login" class="Loginwrap">
+=======
   <section id="login" class="Loginwrap">
     <div class="LoginForm">
         <div class="Loginhead" id="LoginForm-head">
@@ -306,6 +311,7 @@ session_start();
    </section>
 
    <!-- <section id="login" class="Loginwrap">
+>>>>>>> b39cfb53570fb1289e2a76a9df77b44695ddc982
     <div class="LoginForm">
         <div class="Loginhead" id="LoginForm-head">
             <div data-tab="login">
@@ -436,19 +442,16 @@ session_start();
             </div>
         </form>
     </div>
+<<<<<<< HEAD
+</section>
+     <script src="js/vue-2.6.10.min.js"></script>
+ <script src="js/register.js"></script>
+<script src="js/forgetPsw.js"></script>
+=======
 </section> -->
 <script>
+>>>>>>> b39cfb53570fb1289e2a76a9df77b44695ddc982
 
-// let contestnow= document.getElementById('contestnow'); //註冊你那個按鈕點擊事件
-//     contestnow.addEventListener('click',function(e){ //點擊按鈕時 判定有無登入
-//          if (!sessionStorage['memNo']) { //固定寫法 一定要有
-//                  memberInfoClick = false;//固定寫法 一定要有
-//                  e.preventDefault();//如果點擊的按鈕是a標籤 必須加入
-//                  openLoginData();//固定寫法 一定要有 打開燈箱
-//         }
-     
-//     });
-// </script>
 <?php
 if(isset( $_SESSION['memNo'])){
     $memNo=$_SESSION['memNo'];
@@ -517,7 +520,9 @@ if(isset( $_SESSION['memNo'])){
     $id("user-id").value = '';
     $id("user-psw").value = '';
     linkLoginForget.addEventListener("click",function(){
-        login.style.display = "none";
+       // alert('click');
+      login.style.display = "none";
+      //console.log(loginforget);
         loginforget.style.display="block";
     });
     linkLoginRegister.addEventListener('click',function(){
@@ -580,7 +585,8 @@ function sendData(){
             }
             
         }
-        xhr.open("post", "login.php", true);
+        xhr.open("post", "php/login/login.php", true);
+        // xhr.open("post", "login.php", true);
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         xhr.send(`user_id=${userId}&user_psw=${userPsw}`);
     }
@@ -591,11 +597,19 @@ function sendData(){
 <?php
 }
 
+<<<<<<< HEAD
+?> 
+    
+ <script src="js/alert.js"></script>
+<!-- <script src="js/login.js"></script>  -->
+
+=======
 ?>
 <!-- <script src="js/vue-2.6.10.min.js"></script> -->
 <script src="js/alert.js"></script>
 <!-- <script src="js/login.js"></script> -->
 <!-- <script src="js/register.js"></script>
 <script src="js/forgetPsw.js"></script> -->
+>>>>>>> b39cfb53570fb1289e2a76a9df77b44695ddc982
 </body>
 </html>
