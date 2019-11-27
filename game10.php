@@ -30,7 +30,7 @@ session_start();
 <body>
 <header>
             <div class="container headerStyle">
-                <a href="index.html">
+                <a href="home.html">
                     <h1>
                         <img src="images/logo.png" alt="logo">
                     </h1>
@@ -68,7 +68,7 @@ session_start();
                     </nav>
                  
                     <div class="headerIcon">
-                        <a href="javascript:;" id="shopcart">
+                        <a href="shopcart.html" id="shopcart">
                             <img src="images/icon_shopcar.png" alt="icon_shopcar">
                         </a>
                         <a id="memberInfo" href="member.php">
