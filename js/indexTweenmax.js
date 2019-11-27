@@ -44,6 +44,8 @@ window.addEventListener("load", function () {
         reverse:false,
     }).setClassToggle('.postGirl', 'postGirlShow').addTo(controller);
 
+
+    //z-index
      var postsOuter = new ScrollMagic.Scene({
         triggerElement: '.postBGC_3',
         reverse:false,

@@ -754,11 +754,11 @@ $memNo = $_SESSION['memNo'];
             {
                 if(data[x].used == 0)
                 {
-                    addContentUsed += '<div class="memberBigBoxdiv2"><div class="memberboxdiv3">折抵$'+data[x].discount+'</div><div class="memberboxdiv3">';
+                    addContentUsed += '<div class="memberBigBoxdiv2"><div class="memberboxdiv3">折抵$'+data[x].discount+'<p>序號0000'+data[x].couponNo+'</p></div><div class="memberboxdiv3">';
                     addContentUsed += '<img src="images/member/memberCoupon.jpg">';
                     addContentUsed += '</div></div>';
                 }else{
-                    addContentUnused += '<div class="memberBigBoxdiv2 used"><div class="memberboxdiv3">折抵$'+data[x].discount+'</div><div class="memberboxdiv3">';
+                    addContentUnused += '<div class="memberBigBoxdiv2 used"><div class="memberboxdiv3">折抵$'+data[x].discount+'<p>序號0000'+data[x].couponNo+'</p></div><div class="memberboxdiv3">';
                     addContentUnused += '<img src="images/member/memberCoupon.jpg">';
                     addContentUnused += '</div></div>';
                 }    
