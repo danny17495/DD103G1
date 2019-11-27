@@ -601,7 +601,8 @@ function orderSave(){
             }else{
                 console.log("------------");
                 console.log(xhr.responseText);
-                alert(xhr.responseText);                
+                // alert(xhr.responseText);           
+                alert("訂單成立");           
                 var saveResult = xhr.responseText;
                 if(xhr.responseText){
                     console.log("2");
