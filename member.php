@@ -863,7 +863,7 @@ $memNo = $_SESSION['memNo'];
             {
                 addContent += '<div id="discount">折抵：'+discount+'元</div>';
             }
-            addContent += '<div id="totalPrice">總金額：NT.'+totalPrice+'元</div>';
+            addContent += '<div id="totalPrice">總金額：'+totalPrice+'元</div>';
             addContent += '</div>';
         }else{
             addContent += '<div class="ifNull"><p>尚未有訂單</p></div>';
