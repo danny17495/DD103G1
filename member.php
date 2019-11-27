@@ -733,7 +733,7 @@ $memNo = $_SESSION['memNo'];
                 postcardNoArr[x] = data[x].postcardNo;
                 addContent += '<div class="memberBigBoxdiv"><div class="memberboxdiv"><li class="memberli">';
                 addContent += '<img class="postcardPic" src="images/postcardClient/'+data[x].postcardPic+'">';
-                addContent += '</li></div><div class="memberboxdiv"><span class="downloadPic"><a href="#">下載圖片</a></span><span class="LineShare"><a href="#">LINE</a></span><span class="delPostcard"><a href="#">刪除</a></span></div></div>';
+                addContent += '</li></div><div class="memberboxdiv"><span class="delPostcard"><a href="#">刪除</a></span></div></div>';
             }
         }else{
             addContent += '<div class="ifNull"><p>尚未有明信片</p></div>';
