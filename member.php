@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -250,13 +247,13 @@ $memNo = $_SESSION['memNo'];
                         </span>
 <!---------- 第四頁-訂單查詢 -->
                         <!-- order -->
-                        <span id="memberTab4" class="memberTabInfo" style="margin-left:15%;">
+                        <span id="memberTab4" class="memberTabInfo">
                             <ul id="memberOrder" class="memberul">
                             </ul>
                         </span>
 <!---------- 第五頁-預約行程 -->
                         <!-- reserve -->
-                        <span id="memberTab5" class="memberTabInfo" style="margin-left:20%;">
+                        <span id="memberTab5" class="memberTabInfo">
                             <ul id="memberReserve" class="memberul">
                             </ul>
                         </span>
@@ -838,6 +835,7 @@ $memNo = $_SESSION['memNo'];
             addContent += '<li class="memberthead"><ol class="memberol"><li class="memberli">訂單明<br>細編號</li><li class="memberli">圖片</li><li class="memberli">商品名稱</li><li class="memberli">單價</li><li class="memberli">數量</li><li class="memberli">小計</li></ol></li>';
             for(let x = 0; x < data.length; x++)
             {
+            if (data[x].productType == '商城商品'){
                 discount -= parseInt(data[x].orderItemTotal);
                 addContent += '<li class="membertbody"><ol class="memberol">';
                 addContent += '<li class="memberli" data-title="訂單明細編號">'+data[x].orderDetailNo+'</li>';
@@ -846,7 +844,17 @@ $memNo = $_SESSION['memNo'];
                 addContent += '<li class="memberli" data-title="單價">'+data[x].orderPrice+'</li>';
                 addContent += '<li class="memberli" data-title="數量">'+data[x].orderItemNum+'</li>';
                 addContent += '<li class="memberli" data-title="小計">'+data[x].orderItemTotal+'</li></ol></li>';
+            }else{
+                discount -= parseInt(data[x].orderItemTotal);
+                addContent += '<li class="membertbody"><ol class="memberol">';
+                addContent += '<li class="memberli" data-title="訂單明細編號">'+data[x].orderDetailNo+'</li>';
+                addContent += '<li class="memberli" data-title="圖片"><img class="orderItemPic" src="images/postcardClient/'+data[x].orderItemPic+'"></li>';
+                addContent += '<li class="memberli" data-title="商品名稱">'+data[x].orderItemName+'</li>';
+                addContent += '<li class="memberli" data-title="單價">'+data[x].orderPrice+'</li>';
+                addContent += '<li class="memberli" data-title="數量">'+data[x].orderItemNum+'</li>';
+                addContent += '<li class="memberli" data-title="小計">'+data[x].orderItemTotal+'</li></ol></li>';
             }
+        }
             discount -= 120;
             discount = Math.abs(discount);
             addContent += '<div id="others">';
@@ -855,7 +863,7 @@ $memNo = $_SESSION['memNo'];
             {
                 addContent += '<div id="discount">折抵：'+discount+'元</div>';
             }
-            addContent += '<div id="totalPrice">總金額：'+totalPrice+'元</div>';
+            addContent += '<div id="totalPrice">總金額：NT.'+totalPrice+'元</div>';
             addContent += '</div>';
         }else{
             addContent += '<div class="ifNull"><p>尚未有訂單</p></div>';

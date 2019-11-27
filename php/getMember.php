@@ -84,7 +84,8 @@ try{
 						   `orderdetails`.`orderPrice`, 
 						   `orderdetails`.`orderItemNum`, 
 						   `orderdetails`.`orderItemTotal`, 
-						   `orderdetails`.`orderItemPic`
+						   `orderdetails`.`orderItemPic`,
+						   `orderdetails`.`productType`
 					FROM `dd103g1`.`orderdetails`
                     WHERE `orderdetails`.`orderNo` = :orderNo";
 			$memOrderDetail=$pdo->prepare($sql);
