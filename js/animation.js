@@ -416,25 +416,13 @@ T3.to('#skylight3', .1,{
 })
 
 T4.to('#skylight4', 3,{
-    y:-50,
+    y:-25,
 }).to('#skylight4', 3,{
     y:0,
 });
 
-T5.to('#fly1', 3,{
-    y:15,
-}).to('#fly1', 3,{
-    y:0,
-})
-
-T6.to('#fly2', 3,{
-    y:15,
-}).to('#fly2', 3,{
-    y:0,
-})
-
 T7.to('#skylight5', 3,{
-    y:-50,
+    y:-25,
 }).to('#skylight5', 3,{
     y:0,
 })

@@ -76,7 +76,7 @@ try{
 
 <header>
             <div class="container headerStyle">
-                <a href="index.html">
+                <a href="home.html">
                     <h1>
                         <img src="images/logo.png" alt="logo">
                     </h1>

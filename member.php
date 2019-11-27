@@ -250,13 +250,13 @@ $memNo = $_SESSION['memNo'];
                         </span>
 <!---------- 第四頁-訂單查詢 -->
                         <!-- order -->
-                        <span id="memberTab4" class="memberTabInfo">
+                        <span id="memberTab4" class="memberTabInfo" style="margin-left:15%;">
                             <ul id="memberOrder" class="memberul">
                             </ul>
                         </span>
 <!---------- 第五頁-預約行程 -->
                         <!-- reserve -->
-                        <span id="memberTab5" class="memberTabInfo">
+                        <span id="memberTab5" class="memberTabInfo" style="margin-left:20%;">
                             <ul id="memberReserve" class="memberul">
                             </ul>
                         </span>
@@ -565,10 +565,10 @@ $memNo = $_SESSION['memNo'];
             case 0:
                 memInfoBtn = false;
                 memPswBtn = false;
-                $('#memberTab1 .top_part input').attr('disabled', true).css('background', '#FFFFFF').css('border', '1px solid #EEEEEE').css('color', '#666666').css('padding', '3px');
-                $('#memberTab1 .bottom_part input').css('padding', '3px').css('background', '#FFFFFF').css('border', '1px solid #CCCCCC');
-                $('#memberTab1 .bottom_part input').val("").attr('disabled', true).css('border', '1px solid #EEEEEE').css('color', '#666666');
-                $('#memberPassword').attr('disabled', false).css('border', '1px solid #CCCCCC').css('color', '#000000');
+                $('#memberTab1 .top_part input').attr('disabled', true).css('background', '#FFFFFF').css('border', '2px solid #EEEEEE').css('color', '#666666').css('padding', '3px');
+                $('#memberTab1 .bottom_part input').css('padding', '3px').css('background', '#FFFFFF').css('border', '2px solid #CCCCCC');
+                $('#memberTab1 .bottom_part input').val("").attr('disabled', true).css('border', '2px solid #EEEEEE').css('color', '#666666');
+                $('#memberPassword').attr('disabled', false).css('border', '2px solid #CCCCCC').css('color', '#000000');
                 break;
             case 1:
                 $('#memberPostcard').empty();
@@ -736,7 +736,7 @@ $memNo = $_SESSION['memNo'];
                 postcardNoArr[x] = data[x].postcardNo;
                 addContent += '<div class="memberBigBoxdiv"><div class="memberboxdiv"><li class="memberli">';
                 addContent += '<img class="postcardPic" src="images/postcardClient/'+data[x].postcardPic+'">';
-                addContent += '</li></div><div class="memberboxdiv"><span class="downloadPic">下載圖片</span><span class="LineShare">LINE</span><span class="delPostcard">刪除</span></div></div>';
+                addContent += '</li></div><div class="memberboxdiv"><span class="downloadPic"><a href="#">下載圖片</a></span><span class="LineShare"><a href="#">LINE</a></span><span class="delPostcard"><a href="#">刪除</a></span></div></div>';
             }
         }else{
             addContent += '<div class="ifNull"><p>尚未有明信片</p></div>';
@@ -754,11 +754,11 @@ $memNo = $_SESSION['memNo'];
             {
                 if(data[x].used == 0)
                 {
-                    addContentUsed += '<div class="memberBigBoxdiv2"><div class="memberboxdiv3">折抵$'+data[x].discount+'</div><div class="memberboxdiv3">';
+                    addContentUsed += '<div class="memberBigBoxdiv2"><div class="memberboxdiv3">折抵$'+data[x].discount+'<p>序號0000'+data[x].couponNo+'</p></div><div class="memberboxdiv3">';
                     addContentUsed += '<img src="images/member/memberCoupon.jpg">';
                     addContentUsed += '</div></div>';
                 }else{
-                    addContentUnused += '<div class="memberBigBoxdiv2 used"><div class="memberboxdiv3">折抵$'+data[x].discount+'</div><div class="memberboxdiv3">';
+                    addContentUnused += '<div class="memberBigBoxdiv2 used"><div class="memberboxdiv3">折抵$'+data[x].discount+'<p>序號0000'+data[x].couponNo+'</p></div><div class="memberboxdiv3">';
                     addContentUnused += '<img src="images/member/memberCoupon.jpg">';
                     addContentUnused += '</div></div>';
                 }    
@@ -777,7 +777,7 @@ $memNo = $_SESSION['memNo'];
             addContent = '';
         if(data.length > 0)
         {
-            addContent += '<li class="memberthead"><ol class="memberol"><li class="memberli">訂單<br>編號</li><li class="memberli">訂購<br>日期</li><li class="memberli">總金額</li><li class="memberli">明細</li><li class="memberli">取消<br>訂單</li></ol></li>';
+            addContent += '<li class="memberthead"><ol class="memberol"><li class="memberli">訂單編號</li><li class="memberli">訂購日期</li><li class="memberli">總金額</li><li class="memberli">明細</li><li class="memberli">取消訂單</li></ol></li>';
             for(let x = 0; x < data.length; x++)
             {
                 if(data[x].cancelDate == null)
@@ -810,7 +810,7 @@ $memNo = $_SESSION['memNo'];
         let addContent = '';
         if(data.length > 0)
         {
-            addContent += '<li class="memberthead"><ol class="memberol"><li class="memberli">預約日期</li><li class="memberli">行程</li><li class="memberli">人數</li><li class="memberli">取消<br />預約</li></ol></li>';
+            addContent += '<li class="memberthead"><ol class="memberol"><li class="memberli">預約日期</li><li class="memberli">行程</li><li class="memberli">人數</li><li class="memberli">取消預約</li></ol></li>';
             for(let x = 0; x < data.length; x++)
             {
                 reserveNoArr[x] = data[x].reserveNo;
@@ -835,7 +835,7 @@ $memNo = $_SESSION['memNo'];
             addContent = '<div id="orderDetailMask"></div><div id="orderDetailLightbox"><div id="orderDetailTable">';
         if(data.length > 0)
         {
-            addContent += '<li class="memberthead"><ol class="memberol"><li class="memberli">訂單明<br>細編號</li><li class="memberli">圖片</li><li class="memberli">商品<br />名稱</li><li class="memberli">單價</li><li class="memberli">數量</li><li class="memberli">小計</li></ol></li>';
+            addContent += '<li class="memberthead"><ol class="memberol"><li class="memberli">訂單明<br>細編號</li><li class="memberli">圖片</li><li class="memberli">商品名稱</li><li class="memberli">單價</li><li class="memberli">數量</li><li class="memberli">小計</li></ol></li>';
             for(let x = 0; x < data.length; x++)
             {
                 discount -= parseInt(data[x].orderItemTotal);

@@ -221,9 +221,11 @@ body{
 }
 
 .skylightBanner h2{
+    font-family: '華康秀風體';
+    font-size: 35px;
     text-align: center;
     color: #fff;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 
@@ -251,12 +253,12 @@ body{
 
 }
 
-.skylightBanner h2{
+/* .skylightBanner h2{
     text-align: center;
     border-radius: 50px;
     width: 150px;
     margin: 0 auto;
-}
+} */
 
 
 .competitionMessageBoard{
@@ -428,7 +430,8 @@ body{
 .skylightBanner #skylight4,.skylightBanner #skylight5{
     float: left;
     margin-left: 35%;
-    margin-top: -4%;
+    margin-right: -45%;
+    margin-top: -5%;
 }
 
 .chooseButton{
@@ -621,19 +624,31 @@ body{
     animation: Bus 12s ease-out infinite;
     z-index: 1;
 }
+@media all and (max-width:575px){
 
-
-
-
-
-@media all and (max-width:425px){
     #skylight1,#skylight2,#skylight3{
         display: none;
     }
 
-    .skylightBanner #skylight4{
-        margin-top: -10%;
+    .skylightBanner #skylight4,.skylightBanner #skylight5{
+        float: left;
+        margin-left: 20%;
+        margin-right: -35%;
+        margin-top: -5%;
     }
+
+    .skylightBanner h2{
+        font-size: 24px;
+    }
+
+    .skylightBanner img{
+        width: 15%;
+    }
+
+    .whiteButton p{
+        font-size: 12px;
+    }
+
     .messageNo1 .competitionPost img{
         width: 45%;
     }
@@ -660,27 +675,27 @@ body{
     }
 
     .messageNo2 #under{
-        margin-top: 20px;
-        margin-left: 38px;
+        margin-top: 50px;
+        margin-left: 65px;
     }
 
     .whiteButton{
         margin: 10px;
     }
 
-    .whiteButton p{
-        font-size: 20px;
+    .whiteButton a{
+        font-size: 12px;
     }
 
-    .messageNo1 .textContent{
+    .messageNo1 .textContent,.messageNo2 .textContent{
         width: 120px;
         height: 50px;
     }
     .competitionDescriptionSpan p {
         /* font-family: "華康秀風體"; */
         text-align: left;
-        font-size: 15px;
-        margin: 15px;
+        font-size: 10px;
+        margin: 30px;
     }
     .competitionGo .Bus{
 
@@ -691,15 +706,33 @@ body{
         animation: Bu 12s ease-out;
         z-index: 1;
     }
-
 }
 
-@media all and (max-width:375px){
+
+@media all and (max-width:425px){
 
     #skylight1,#skylight2,#skylight3{
         display: none;
     }
 
+    .skylightBanner #skylight4,.skylightBanner #skylight5{
+        float: left;
+        margin-left: 20%;
+        margin-right: -35%;
+        margin-top: -5%;
+    }
+
+    .skylightBanner h2{
+        font-size: 24px;
+    }
+
+    .skylightBanner img{
+        width: 15%;
+    }
+
+    .whiteButton p{
+        font-size: 12px;
+    }
 
     .messageNo1 .competitionPost img{
         width: 45%;
@@ -727,7 +760,91 @@ body{
     }
 
     .messageNo2 #under{
-        margin-top: 20px;
+        margin-top: 50px;
+        margin-left: 35px;
+    }
+
+    .whiteButton{
+        margin: 10px;
+    }
+
+    .whiteButton a{
+        font-size: 12px;
+    }
+
+    .messageNo1 .textContent,.messageNo2 .textContent{
+        width: 120px;
+        height: 50px;
+    }
+    .competitionDescriptionSpan p {
+        /* font-family: "華康秀風體"; */
+        text-align: left;
+        font-size: 10px;
+        margin: 30px;
+    }
+    .competitionGo .Bus{
+
+        width: 60%;
+        margin-left: 50px;
+        /* height: 100%; */
+        position: relative;
+        animation: Bu 12s ease-out;
+        z-index: 1;
+    }
+}
+
+@media all and (max-width:375px){
+
+    #skylight1,#skylight2,#skylight3{
+        display: none;
+    }
+
+    .skylightBanner #skylight4,.skylightBanner #skylight5{
+        float: left;
+        margin-left: 20%;
+        margin-right: -35%;
+        margin-top: -5%;
+    }
+
+    .skylightBanner h2{
+        font-size: 24px;
+    }
+
+    .skylightBanner img{
+        width: 15%;
+    }
+
+    .whiteButton p{
+        font-size: 12px;
+    }
+
+    .messageNo1 .competitionPost img{
+        width: 45%;
+    }
+
+    .messageBoard img{
+        margin-left: 25px;
+    }
+
+    .messageNo2{
+        flex-flow: column nowrap;
+        justify-content: center;
+    }
+
+    .competitionVoteTitle{
+        font-size: 20px;
+    }
+    .messageNo2 .messageBoard{
+        max-width: 350px;
+        height: 260px;
+    }
+    .messageBoard{
+        max-width: 350px;
+        height: 260px;
+    }
+
+    .messageNo2 #under{
+        margin-top: 50px;
         margin-left: 13px;
     }
 
@@ -739,7 +856,7 @@ body{
         font-size: 12px;
     }
 
-    .messageNo1 .textContent{
+    .messageNo1 .textContent,.messageNo2 .textContent{
         width: 120px;
         height: 50px;
     }
@@ -747,7 +864,7 @@ body{
         /* font-family: "華康秀風體"; */
         text-align: left;
         font-size: 10px;
-        margin: 15px;
+        margin: 30px;
     }
     .competitionGo .Bus{
 
