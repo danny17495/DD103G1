@@ -372,7 +372,7 @@
 
 /*----------------index reserve 預約行程-------------------*/
 .indexReserve{
-    margin-top: -23px;
+    margin-top: -38px;
     padding: 45px 10px;
     overflow: hidden;
     position: relative;
@@ -405,9 +405,16 @@
 }
 .indexReContent{
     position: relative;
+    font-size: 15px
 }
 .indexReContent>p{
-    margin-bottom: 25px;
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+
+.indexReContent .knowUs{
+    color:#ca8f31 ;
+     font-size: 19px;
 }
 .reYuJourney label,.reYuPeople label{
     margin-right: 10px;
