@@ -160,7 +160,7 @@
         </a>
       </li> -->
       <li class="nav-title">後台管理</li>
-         <a class="nav-link" href="manage.html">
+         <a class="nav-link" href="manage.php">
          <i class="nav-icon icon-drop"></i> 管理員管理</a>
       <li class="nav-title">前台管理</li>
       <li class="nav-item">
@@ -168,7 +168,7 @@
           <i class="nav-icon icon-drop"></i> 會員資料管理</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="order.html">
+        <a class="nav-link" href="order.php">
           <i class="nav-icon icon-pencil"></i> 訂單管理</a>
       </li>
       <li class="nav-item">
@@ -181,7 +181,7 @@
       </li>
          <li class="nav-item">
         <a class="nav-link" href="report.html">
-          <i class="nav-icon icon-pencil"></i> 檢舉留言管理\</a>
+          <i class="nav-icon icon-pencil"></i> 檢舉留言管理</a>
       </li>
      
     </ul>

@@ -1946,9 +1946,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
 }
-
+.linearOrange .chooseBusPlace{
+        margin-left: 15px;
+}
 .linearOrange  .leafButton{
     margin-right: 20px;
     margin-bottom: 10px;
@@ -1978,6 +1980,7 @@
 }
 .linearOrange  .etaNonStop{
     color:rgb(158, 157, 157);
+    font-size: 14px;
 }
 .linearOrange .mobileShow .ms{
     display: flex;
@@ -2082,7 +2085,7 @@
     }
     .linearOrange .computerShow .stop{
         width: 140px;
-        height: 130px;
+        height: 172px;
     }
     .linearOrange .computerShow .left{
         float: left;
@@ -2140,13 +2143,13 @@
         z-index: 10;
     }
     .linearOrange .computerShow .b{
-        height: 97px;
+        height: 140px;
     }
     .linearOrange .computerShow .stopnameC{
         width: 103px;
         height: 105px;
         padding-top: 5px;
-        font-size: 16px;
+        font-size: 15px;
         overflow: hidden;
         position: absolute;
         left: -39px;

@@ -14,7 +14,7 @@ function logout(){
     //     openLoginData();
     // }
     if (window.location.href.indexOf("member.php") != -1) {
-        window.location.href = "index.html"
+        window.location.href = "home.html"
     }
     return false;
 }

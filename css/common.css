@@ -305,7 +305,7 @@ a {
 }
 
 /*----------------- 共用 button -----------------------*/
-.whiteButton, .leafButton {
+.whiteButton, .commonButton, .leafButton {
   cursor: pointer;
   display: inline-block;
   border-radius: 50px;
@@ -328,6 +328,25 @@ a {
   color: #fff;
   -webkit-box-shadow: 0 0 0 transparent;
           box-shadow: 0 0 0 transparent;
+}
+
+.commonButton {
+  border: 1.5px solid #f39700;
+  font-weight: bold;
+  padding: 2px 5px;
+  position: relative;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+.commonButton:hover {
+  background-color: #f39700;
+  color: #fff;
+}
+
+.commonButton.active {
+  background-color: #f39700;
+  color: #fff;
 }
 
 .leafButton {
@@ -361,7 +380,7 @@ a {
 }
 
 @media all and (min-width: 768px) {
-  .leafButton {
+  .leafButton, .commonButton {
     border: 2px solid #f39700;
     font-size: 22px;
     padding: 2px 15px;
