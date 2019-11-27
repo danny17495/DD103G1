@@ -487,7 +487,7 @@ function orderCheck(){
     }else{
         //存入orderdetails的資料=========================================================
         //1.如果有買明信片就存cartPost陣列
-        var cartPost = [], jsonStr, jsonStr2;
+        var cartPost = [], jsonStr =0;
         if(postcardNum >= 1 && postcardArr[0] != [""]){
             for(var key in postcardArr){
                 console.log("11/22測試",key);
@@ -506,7 +506,7 @@ function orderCheck(){
                 prodItem.orderPrice = 60;  //4.商品價格
                 prodItem.orderItemNum = itemStringArr[1];//5.商品數量
                 prodItem.orderItemTotal = itemStringArr[2];  //6.單項商品小計
-                prodItem.orderItemPic = `${prodItem.orderItemNum}.jpg`;  //7.商品圖片檔名
+                prodItem.orderItemPic = `${itemId}.jpg`;  //7.商品圖片檔名
                 // console.log("11/22測試", prodItem.orderItemTotal); 
 
                 cartPost[key] = prodItem;
@@ -519,7 +519,7 @@ function orderCheck(){
         }
 
         //2.如果有買商城商品就存cartShop陣列
-        var cartShop = [];
+        var cartShop = [], jsonStr2=0;
         if(shopItemNum >= 1 && shopItemArr[0] != [""]){
             for(var key in shopItemArr){
                 //處理字串得到編號及數量及小計
@@ -554,7 +554,7 @@ function orderCheck(){
                 prodItem.orderPrice = itemPrice;  //4.商品價格
                 prodItem.orderItemNum = itemStringArr[1];//5.商品數量
                 prodItem.orderItemTotal = itemStringArr[2];  //6.單項商品小計
-                prodItem.orderItemPic = `${prodItem.orderItemNum}.jpg`;  //7.商品圖片檔名
+                prodItem.orderItemPic = `${itemId}.png`;  //7.商品圖片檔名
                 // console.log("11/22測試", prodItem.orderItemTotal); 
 
                 cartShop[key] = prodItem;
@@ -607,7 +607,7 @@ function orderSave(){
                 if(xhr.responseText){
                     console.log("2");
                     localStorage.clear();
-                    window.location.href = "index.html";
+                    window.location.href = "home.html";
                 }
             }
         }else{
