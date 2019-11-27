@@ -134,7 +134,7 @@
           <i class="nav-icon icon-drop"></i> 會員資料管理</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="order.html">
+        <a class="nav-link" href="order.php">
           <i class="nav-icon icon-pencil"></i> 訂單管理</a>
       </li>
       <li class="nav-item">
@@ -144,6 +144,11 @@
       <li class="nav-item">
         <a class="nav-link" href="postcard.html">
           <i class="nav-icon icon-pencil"></i> 客製化明信片管理</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" href="report.html">
+          <i class="nav-icon icon-pencil"></i> 檢舉留言管理</a>
       </li>
      
     </ul>
@@ -170,7 +175,7 @@
                     <a href="#">九份客棧</a>
                 </li>
                 <li class="breadcrumb-item">
-                    <a href="#">訂單管理</a>
+                    <a href="#">檢舉留言管理</a>
                 </li>
             </ol>
         </nav>
@@ -178,74 +183,110 @@
        <div class="row">
         <div class="col-md-12">
           <div class="card">
-            <div class="card-header">訂單管理</div>
+            <div class="card-header">檢舉留言管理</div>
             <div class="card-body">
-              <button class="btn btn-block btn-outline-primary" type="button">新增訂單</button>
+              
 
 
               <!-- 每一頁主要改這個table -->
               <table class="table table-responsive-sm table-sm">
                 <thead>
                   <tr>
-                    <th>訂單編號</th>
-                    <th>訂購會員標號</th>
-                    <th>訂購日期</th>
-                    <th>訂單項目</th>
-                    <th>總金額</th>
-                    <th>取消訂單</th>
+                    <th>檢舉編號</th>
+                    <th>會員編號</th>
+                    <th>留言編號</th>
+                    <th>檢舉原因</th>
+                    <th>檢舉日期</th>
+                    <th>檢舉狀態</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td>191008001</td>
-                    <td>03</td>
-                    <td>2019/11/29  18:00</td>
                     <td>1</td>
-                    <td>450</td>
-                    <td><button>取消</button></td>
-                  </tr>
-                  <tr>
-                    <td>191008002</td>
-                    <td>03</td>
-                    <td>2019/11/29  18:00</td>
-                    <td>1</td>
-                    <td>650</td>
-
-                    <td><button>取消</button></td>
-                  </tr>
-                  <tr>
-                    <td>191008003</td>
-                    <td>13</td>
-                    <td>2019/11/29  18:00</td>
-                    <td>3</td>
-                    <td>1350</td>
-                    <td><button>取消</button></td>
-                  </tr>
-                  <tr>
-                    <td>191008004</td>
-                    <td>08</td>
-                    <td>2019/11/29  18:00</td>
-                    <td>2</td>
-                    <td>1100</td>
-                    <td><button>取消</button></td>
-                  </tr>
-                  <tr>
-                    <td>191008005</td>
                     <td>20</td>
-                   <td>2019/11/29  18:00</td>
-                    <td>2</td>
-                    <td>900</td>
-                    <td><button>取消</button></td>
+                   <td>01</td>
+                    <td>閉嘴</td>
+                    <td>2019-11-25</td>
+                    <td>
+                      <label class="switch switch-3d switch-success">
+                        <input type="checkbox" class="switch-input">
+                        <span class="switch-slider" data-checked="" data-unchecked="">                  
+                        </span>      
+                      </label>
+                    </td>
                   </tr>
                   <tr>
-                    <td>191008006</td>
+                    <td>2</td>
+                    <td>05</td>
+                   <td>02</td>
+                    <td>不妥</td>
+                    <td>2019-11-25</td>
+
+                    <td>
+                      <label class="switch switch-3d switch-success">
+                        <input type="checkbox" class="switch-input">
+                        <span class="switch-slider" data-checked="" data-unchecked="">                  
+                        </span>      
+                      </label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>13</td>
+                    <td>03</<td>
+                    <td>不雅</td>
+                    <td>2019-11-26</td>
+                    <td>
+                      <label class="switch switch-3d switch-success">
+                        <input type="checkbox" class="switch-input">
+                        <span class="switch-slider" data-checked="" data-unchecked="">                  
+                        </span>      
+                      </label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>08</td>
+                    <td>04</td>
+                    <td>廢話</td>
+                    <td>2019-11-27</td>
+                    <td>
+                      <label class="switch switch-3d switch-success">
+                        <input type="checkbox" class="switch-input">
+                        <span class="switch-slider" data-checked="" data-unchecked="">                  
+                        </span>      
+                      </label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>20</td>
+                   <td>05</td>
+                    <td>無意義</td>
+                    <td>2019-11-27</td>
+                    <td>
+                      <label class="switch switch-3d switch-success">
+                        <input type="checkbox" class="switch-input">
+                        <span class="switch-slider" data-checked="" data-unchecked="">                  
+                        </span>      
+                      </label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>6</td>
                     <td>14</td>
-                    <td>2019/11/29  18:00</td>
-                    <td>1</td>
-                    <td>550</td>
+                    <td>06</td>
+                    <td>吵死了</td>
+                    <td>2019-11-28</td>
 
 
-<td><button>取消</button></td>                  </tr>
+<td>
+                      <label class="switch switch-3d switch-success">
+                        <input type="checkbox" class="switch-input">
+                        <span class="switch-slider" data-checked="" data-unchecked="">                  
+                        </span>      
+                      </label>
+                    </td>                  </tr>
                 </tbody>
               </table>
 

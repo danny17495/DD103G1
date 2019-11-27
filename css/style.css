@@ -5,7 +5,7 @@
 }
 *{
     list-style: none;
-	 /*outline:solid 1px red; */
+	/* outline:solid 1px red; */
 }
 /*----------------index Banner(手機板)-----------------*/
 
@@ -908,6 +908,8 @@
 
 /*按鈕*/
 .postGameButton{
+    position: relative;
+    z-index: 1;
 	margin: 15px 0 30px;
 }
 
@@ -1330,7 +1332,8 @@
     overflow: hidden;
 }
 .trsOuterHidden{
-    z-index: 1;
+    z-index: -100;
+    transition: z-index 0.5s 2s;
   /*  display: none;*/
 }
 
@@ -1834,6 +1837,9 @@
         margin: 0 auto;
         border-radius: 80px;
         overflow: hidden;
+    }
+    .indexGame .indexGameBtn{  
+        font-size: 22px; 
     }
 }
 
@@ -3293,7 +3299,29 @@
 		font-size: 18px;
         cursor: none;
 }
-
+.spotIntroTrip2 .introBus{
+        width: 50px;
+        position: absolute;
+        top: -40px;
+        right: 30px;
+    }
+.spotIntroTrip2 .introBus img{
+    width: 100%;
+}
+.spotIntroTrip2 .seeBus{
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        top: 0px;
+        right: 0px;
+        font-size: 30px;
+        border-radius: 50%;
+        background-color: #fff;
+        color: #f39800;
+        text-align: center;
+        font-weight: bold;
+        animation:busstop 2s infinite
+    }
 
 
 /*-----------行程介紹 Trip2 漫遊山城之旅(網頁版)----------*/ 

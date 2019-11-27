@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>九份客棧</title>
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="css/slick.css">
+    <link rel="stylesheet" type="text/css" href="css/slick-theme.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/vue-2.6.10.min.js"></script>
+    <script src="js/slick.js"></script>
+    <script src="js/oneSlide.js"></script>
+    <script src="js/cloudMove.js"></script>
+</head>
+<body>
+        <header>
+            <div class="container headerStyle">
+                <a href="home.html">
+                    <h1>
+                        <img src="images/logo.png" alt="logo">
+                    </h1>
+                </a>
+                <input type="checkbox" id="headerCheck" >
+                <label for="headerCheck" class="headerClick">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </label>
+                    <nav  class="navMenu">
+                        <div class="navDarken">
+                            <ul>
+                                <li>
+                                    <a href="spotIntro.html">行程介紹</a> 
+                                </li>
+                                <li>
+                                    <a href="reserve.html">預約行程</a> 
+                                </li>
+                                <li>
+                                    <a href="postcard.html">客製明信片</a>
+                                </li>
+                                <li>
+                                    <a href="shop.html">購物商城</a> 
+                                </li>
+                                <li>
+                                    <a href="competition.php">投票比賽</a> 
+                                </li>
+                            </ul>
+                            <div class="headerMemInfo">
+                                <span id="headerMemName"></span>
+                                <a href="javascript:;"></a>
+                            </div>
+                        </div>
+                    </nav>
+                    
+                <div class="headerIcon">
+                    <a href="shopcart.html" id="shopcart">
+                        <img src="images/icon_shopcar.png" alt="icon_shopcar">
+                    </a>
+                    <a id="memberInfo" href="member.php">
+                        <img src="images/icon_login.png" alt="icon_login">
+                    </a>
+                </div>
+            </div>
+        </header>
+        <section class="indexBanner">
+            <div class="cont">
+                <div class="slider">
+                    <!-- <div class="headerBg01"></div> -->
+            
+                </div>
+                <div data-target='right' class="sidenav sidenavRight"></div>
+                <div data-target='left' class="sidenav sidenavLeft"></div>
+            </div>
+            <div class="cloudAnimation">
+                <li>
+                <img src="images/cloud01--1.png" id="moveCloud1"> 
+               </li>
+               <li>
+                <img src="images/cloud01--2.png" id="moveCloud2"> 
+               </li>
+               <li>
+                <img src="images/cloud01--1.png" id="moveCloud3"> 
+               </li>
+               <li>
+                <img src="images/cloud03.png" id="moveCloud3_1"> 
+               </li>
+               <li>
+                <img src="images/cloud04.png" id="moveCloud4"> 
+               </li>  
+               <li>
+                <img src="images/cloud01_mobile.png" alt="" id="moveCloud_mobile"> 
+               </li>
+        </div>
+            <div class="topCloud"></div>
+            <div class="bottomCloud"></div>
+        </section>
+
+<!-- indexSpot  首頁行程介紹 -->
+<div class="spotOuter">
+    <section class="indexSpot">
+      <div class="container spotContainer">
+            <div class="indexSpotIntro" id="indexSpot_01">
+                <h1>行程介紹</h1>
+                <h2>尋幽訪古之旅</h2>
+                <p class="indexSpotTree_start">如果您喜歡充滿歷史氣息的旅行，那麼您一定不能錯過這條路線！景點包括九份老街、黃金博物館、黃金瀑布，過去因採礦業相當繁榮的地方，隨著礦業的衰退跟著沒落，卻留下不可彌滅的歷史痕跡。</p>
+                <a href="spotIntro.html">
+                    <div class="more">more</div>
+                </a>
+            </div>
+            <div class="indexSpotPic" id="indexSpot_pic01">
+                <div class="indexSpotPic_OOuter">
+                    <div class="indexSpotPic_outer">
+                    <img src="images/indexSpot/pic.jpg" alt="">
+                    </div>
+                </div>
+                    <div class="indexSpotTree treeGrow">
+                        <img src="images/indexSpot/tree.png" alt="">
+                    </div>
+            </div>
+            <div class="indexSpotIntro" id="indexSpot_02">
+                <h1>行程介紹</h1>
+                <h2>漫遊山城之旅</h2>
+                <p>九份金礦博物館位在九份老街旁，館中展示許多九份採礦的資料與圖片，介紹九份的採金歷史。金礦博物館中還有一座九番坑小礦坑，猶如是一座小型的礦場。上午步行漫遊琉榔路觀光步道，接著參觀金礦博物館，最後再至九份老街品茗、吃美食，結束豐富知性的九份之旅。</p>
+                <a href="spotIntro.html">
+                    <div class="more">more</div>
+                </a>
+            </div>
+            <div class="indexSpotPic" id="indexSpot_pic02">
+                <div class="indexSpotPic_OOuter_2">
+                    <div class="indexSpotPic_outer">
+                    <img src="images/indexSpot/pic_02.jpg" alt="">
+                </div>
+                </div>
+            </div>
+            <div class="indexSpotIntro" id="indexSpot_03">
+                <h1>行程介紹</h1>
+                <h2>船遊秘境之旅</h2>
+                <p>您聽過「台灣天空之城」嗎？水湳洞選煉廠遺址原身為日治時期挖礦留下的建築，在2019年由台電推出「點亮十三層」公共藝術重新回到大眾面前。參加深澳小旅行可以搭船出海賞景，太陽下山後迎來十三層點燈，最後彎進九份老街尋覓山城美食、好茶。</p>
+                <a href="spotIntro.html">
+                    <div class="more">more</div>
+                </a>
+            </div>
+            <div class="indexSpotPic" id="indexSpot_pic03">
+                <div class="indexSpotPic_OOuter_3">
+                    <div class="indexSpotPic_outer">
+                    <img src="images/indexSpot/pic_03.jpg" alt="">
+                </div>
+                </div>
+            </div>
+            <div class="indexSpotBtns">
+                <div class="indexSpotBtn1 leafButton" id="indexSpotBtn1">
+                    尋幽訪古之旅
+                </div>
+                <div class="indexSpotBtn2 leafButton" id="indexSpotBtn2">
+                    漫遊山城之旅
+                </div>
+                <div class="indexSpotBtn1 leafButton" id="indexSpotBtn3">
+                    船遊秘境之旅
+                </div>
+            </div>
+      </div>
+    </section>
+    <script>
+            // console.log("hi");
+
+    </script>
+
+            <!----- indexSpot  首頁預約行程 ------>
+        <section class="indexReserve">
+            <div class="containerpa" id="revform">
+                <div class="row" >
+                    <div class="col-12 col-md-6 indexReLeft" >
+                        <h1>預約行程</h1>
+                            <form action="#"  >
+                                <div class="indexReContent">
+                                    <p>想要更加了解九份嗎?歡迎預約專屬行程!</p>
+                                    <div class="reYuJourney">
+                                        <label for="seYuJourney">想選的旅程:</label>
+                                        <!-- <select id="seYuJourney">
+                                            <option value="尋幽訪古">尋幽訪古</option>
+                                            <option value="漫遊山城">漫遊山城</option>
+                                            <option value="船遊秘境">船遊秘境</option>
+                                        </select> -->
+                                        <select id="seYuJourney" v-model="selectJourney" @change="queryDate">
+                                            <option v-for="journey in journeys">{{journey}}</option>
+                                        </select>
+                                    </div>
+                                    <div class="reYuPeople">
+                                        <label for="seYuPeople">選擇的人數:</label>
+                                        <!-- <select id="seYuPeople">
+                                            <option value="1">1</option>
+                                        </select> -->
+                                        <select id="seYuPeople" v-model="selectPeople" @change="queryDate">
+                                            <option v-for="people in 20">{{people}}</option>
+                                        </select>
+                                    </div>
+                                     <!-- <p>***不提供預約當日***<br>
+                                    <span class="reComfirmDate">2019/10/16</span>資訊如下:
+                                    </p> -->
+                                    <p>請先選擇旅程及人數，再選擇可預約的日期<br>
+                                        <span class="reComfirmDate">!!!還未選擇日期!!!</span>
+                                    </p>
+                                    <div class="reComfirmInform">
+                                        <div class="reInformLeft">
+                                            <p>時間</p>
+                                            <p>集合地點</p>
+                                        </div>
+                                        <div class="reInformRight">
+                                            <p>9:00~12:00</p>
+                                            <p id="peopleShouldGo">九份客棧</p>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="tree">
+                                        <img src="images/reserveTree.png" alt="tree">
+                                    </div>
+                                </div>
+                                <a href="reserve.html">
+                                    <div class="whiteButton">我要預約</div>
+                                </a>
+                            </form>
+                    </div>
+                    <div class="col-12 col-md-5 indexReRight">
+                        <div class="reserveCalendar">
+                            <div class="calendarBox">
+                                <div class="calendarTitle">
+                                    <span class="caLeftArrow disabled"></span>
+                                    <span id="calendarYear"></span>
+                                    <span>/</span>
+                                    <span id="calendarMonth"></span>
+                                    <span class="caRightArrow"></span>
+                                </div>
+                                <div class="calendarBody">
+                                    <div class="calendarWeek">
+                                        <ul>
+                                            <li>日</li>
+                                            <li>一</li>
+                                            <li>二</li>
+                                            <li>三</li>
+                                            <li>四</li>
+                                            <li>五</li>
+                                            <li>六</li>
+                                        </ul>
+                                    </div>
+                                    <div class="calendarBody" id="calendarCon"></div>
+                                </div>
+                            </div>
+                            <div class="busStop">
+                                <a href="reserve.html#submit">
+                                    <img src="images/busStop.png" alt="busstop">
+                                    <div class="seeBus">+</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottomRoadBus">
+                    <div class="roadTree">
+                    </div>
+                    <div class="roadBus">
+                        <img src="images/bus.png" alt="bus">
+                    </div>
+                </div>
+            </div>
+        </section>
+</div>
+
+<!-- 明信片開始 -->
+<div class="wrapper wrapperPost">
+    <div class="indexPost_trsOuter">
+        <div class="indexPost_trs1">
+        <img src="images/indexSpot/trs1.png" alt="">
+        </div>
+        <div class="indexPost_trs2">
+            <img src="images/indexSpot/trs2.png" alt="">
+        </div>
+        <div class="indexPost_trs3">
+            <img src="images/indexSpot/trs3.png" alt="">
+        </div>
+    </div>
+    <div class="wrapper wrapperPostLine"></div><!-- 明信片裝飾斜線 -->
+    <div class="wrapperPostPa">
+            <section class="container containerTitle">
+                <div class="postGirl">
+                    <img src="images/image_abby/postGirl.png" alt="postGirl">
+                </div>
+                <h1>客製化明信片</h1>
+                <div class="stemp">
+                    <img src="images/image_abby/stemp.png" alt="stemp">
+                </div>
+            </section>
+
+            <section class="container containerPost">
+                <div class="postLeft">
+                    <div class="postStepBox postStepBoxSmall">
+                        <div class="postStep postStep1">
+                            <p>選背景</p>
+                        </div>
+                        <div class="postStep postStep2">
+                            <p>選貼圖</p>
+                        </div>
+                        <div class="postStep postStep3">
+                            <p>寫文字</p>
+                        </div>
+                        <div class="postStep postStep4">
+                            <p>選郵戳</p>
+                        </div>
+                    </div>
+                    <div class="postBack">
+                        <!-- .postBack明信片白底陰影 -->
+                        <img src="images/image_abby/postBlack.jpg" alt="postCard" id="indexPostBG0">
+                        <img src="images/image_abby/postBGC_1_BIG.jpg" alt="postCard" id="indexPostBG1">
+                        <img src="images/image_abby/postBGC_2_BIG.jpg" alt="postCard" id="indexPostBG2">
+                        <img src="images/image_abby/postBGC_3_BIG.jpg" alt="postCard" id="indexPostBG3">
+                    </div>
+                    <div class="postStepBox postStepBoxBig">
+                       <!--  <div id="tripper_Outer"></div> -->
+                        <div class="postStep postStep1">
+                            <p>選背景</p>
+                        </div>
+                        <div class="postStep postStep2"><a href="postcard.html">
+                            <p>選貼圖</p></a>
+                        </div>
+                        <div class="postStep postStep3">
+                            <a href="postcard.html">
+                            <p>寫文字</p></a>
+                        </div>
+                        <div class="postStep postStep4">
+                            <a href="postcard.html">
+                            <p>選郵戳</p></a>
+                        </div>
+                    </div>
+                </div><!-- .postLeft結束div -->
+
+                <div class="postRight">
+                    <div class="postDIY">
+                        <h3>選個喜歡的背景吧</h3>
+                        <div class="postBGC postBGC_1">
+                            <img src="images/image_abby/postBGC_1.jpg" alt="postBGC"
+                            id="indexPostOption01">
+                        </div>
+                        <div class="postBGC postBGC_2">
+                            <img src="images/image_abby/postBGC_2.jpg" alt="postBGC" id="indexPostOption02">
+                        </div>
+                        <div class="postBGC postBGC_3">
+                            <img src="images/image_abby/postBGC_3.jpg" alt="postBGC" id="indexPostOption03">
+                        </div>
+
+                        <!-- <div class="uploadBGC">
+                            <p>上傳圖片</p>
+                            <div>
+                                <img src="images/image_abby/uploadPlus.png" alt="upload">
+                            </div>
+                        </div> -->
+                    </div>
+
+                    <a href="postcard.html">
+                        <div class="whiteButton postGameButton">下一步</div>
+                    </a>
+                </div><!-- .postRight結束div -->
+                <div class="clearfix"></div>
+            </section>
+        </div>
+    <div class="wrapper wrapperPostLine"></div><!-- 明信片裝飾斜線 -->
+</div><!-- .wrapperPost結束div -->
+
+
+
+
+
+
+<!-- 商城開始 -->
+<div class="wrapper wrapperShop">
+    <section class="container containerTitle">
+        <h1>購物商城</h1>
+        <img src="images/image_abby/birdAbby_01.png" alt="bird">
+        <img src="images/image_abby/birdAbby_02.png" alt="bird">
+    </section>
+    <section class="container containerShop">
+        <!-- 768以下選擇圖案區:輪播套件 -->
+        <div class="shopLeftSmall">
+            <div>
+                <span>選擇圖案</span>
+                <div class="shopDIYSmall">
+                    <span>10月比賽優勝者</span>
+                    <div class="shopOneSlider">
+                        <div>
+                            <div class="shopDemoS">
+                                <img src="images/image_abby/postDemo_1.jpg" alt="">
+                            </div>
+                            <span>第一名</span>
+                        </div>
+                        <div>
+                            <div class="shopDemoS">
+                                <img src="images/image_abby/postDemo_2.jpg" alt="">
+                            </div>
+                            <span>第二名</span>
+                        </div>
+                        <div>
+                            <div class="shopDemoS">
+                                <img src="images/image_abby/postDemo_3.jpg" alt="">
+                            </div>
+                            <span>第三名</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 768以上選擇圖案區 -->
+        <div class="shopLeft">
+            <span>選擇圖案</span>
+            <div class="shopDIY">
+                <span>10月比賽優勝者</span>
+                <ul>
+                    <li>
+                        <div class="shopPic" id="shopPic1">
+                            <img src="images/image_abby/postDemo_1.jpg" alt="postDemo">
+                        </div>
+                        <span>第一名</span>
+                    </li>
+                    <li>
+                        <div class="shopPic" id="shopPic2">
+                            <img src="images/image_abby/postDemo_2.jpg" alt="postDemo">
+                        </div>
+                        <span>第二名</span>
+                    </li>
+                    <li>
+                        <div class="shopPic" id="shopPic3">
+                            <img src="images/image_abby/postDemo_3.jpg" alt="postDemo">
+                        </div>
+                        <span>第三名</span>
+                    </li>
+                </ul>
+
+            </div>
+        </div><!-- .shopLeft結束div -->
+
+        <div class="shopRight">
+            <div class="indexCupDemo">
+                <div>
+                    <img src="images/redcup.png" alt="cup" id="changeCupStyle">
+                    <div id="changeSrc"></div>
+                </div>
+            </div>
+            <div class="cupColorChoose">
+                <span class="cupColor cupColor1"></span>
+                <span class="cupColor cupColor2 active"></span>
+                <span class="cupColor cupColor3">
+                    <img src="images/image_abby/color.png" alt="color">
+                </span>
+            </div>
+            <div class="cupPrice">550元</div>
+            <a href="shop.html">
+                <div class="whiteButton shopGameButton">製作我的馬克杯</div>
+            </a>
+        </div><!-- .shopRight結束div -->
+        <div class="clearfix"></div>
+    </section>
+    <!-- 商城裝飾鐵軌 -->
+    <section class="mountainTrain">
+            <div class="wrapper wrapperShop2">
+                <div>
+                    <img src="images/image_abby/train.png" alt="">
+                </div>
+            </div>
+    </section>
+
+</div>
+
+
+
+<!-- 商城與投票比賽的漸層區塊,裝飾用div -->
+<div class="wrapper wrapperShop3"></div>
+
+    <!----- indexVote  首頁投票比賽 ------>
+    <section class="indexVoteGame">
+        <div class="containerpa voteContent">
+            <h1>投票比賽</h1>
+           
+            <div class="row">
+                <p class="col-12">2019年10月份比賽結果</p>
+                <div class="col-12 col-md-4 order3">
+                    <div class=" gameResult">
+                        <h2>第一名</h2>
+                        <div class="voteSrc">
+                            <img src="images/indexSpot/card01.png" alt="card">
+                        </div>
+                        <p>中壢金城武</p>
+                        <p>680票</p>
+                        <div class="indexVoBtn">
+                         
+                                <div class="vote">
+                                    <i class="fa fa-thumbs-o-up fa-2x voteIcon" aria-hidden="true"></i>
+                                    <p>投票</p>
+                                </div>
+                      
+                           
+                                <div class="message">
+                                        <i class="fa fa-commenting-o messIcon fa-2x" aria-hidden="true"></i>
+                                        <p>留言</p>
+                                </div>
+                         
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 order2">
+                    <div class="gameResult">
+                        <h2>第二名</h2>
+                        <div class="voteSrc">
+                            <img src="images/indexSpot/card02.png" alt="card">
+                        </div>
+                        <p>台北阿寶</p>
+                        <p>470票</p>
+                        <div class="indexVoBtn">
+                      
+                                <div class="vote">
+                                    <i class="fa fa-thumbs-o-up fa-2x voteIcon" aria-hidden="true"></i>
+                                    <p>投票</p>
+                                </div>
+                    
+                                <div class="message">
+                                    <i class="fa fa-commenting-o messIcon fa-2x" aria-hidden="true"></i>
+                                    <p>留言</p>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-4 order4">
+                    <div class="gameResult">
+                        <h2>第三名</h2>
+                        <div class="voteSrc">
+                            <img src="images/indexSpot/card03.png" alt="card">
+                        </div>
+                        <p>板橋宋慧喬</p>
+                        <p>325票</p>
+                        <div class="indexVoBtn">
+                                <div class="vote">
+                                    <i class="fa fa-thumbs-o-up fa-2x voteIcon" aria-hidden="true"></i>
+                                    <p>投票</p>
+                                </div>
+                                <div class="message">
+                                    <i class="fa fa-commenting-o messIcon fa-2x" aria-hidden="true"></i>
+                                    <p>留言</p>
+                                </div>
+                        
+                        </div>
+                    </div>
+                </div>
+                    
+                    <div class="whiteButton order5" id="contestnow" onclick="window.location.href='competition.php'">
+                        馬上參加比賽
+                    </div>
+        </div>
+            </div>
+            <canvas id="canvas" class="canvasBox"></canvas>
+        
+    </section>
+   
+
+     <!-- indexSpot  首頁小遊戲 -->
+    <section class="indexGame">
+        <div class="container  indexGameContainer">
+            <h1>玩遊戲</h1>
+            <div class="indexGameOuter">
+                <!-- <img src="images/indexGame/game.png" alt=""> -->
+                <video src="images/indexGame/GameRecord_Mobile.mp4" controls loop muted autoplay id="indexGameVideoSmall"></video>
+                <video src="images/indexGame/GameRecord.mp4" controls loop muted autoplay id="indexGameVideo"></video>
+            </div>
+            <div class="indexGameBtn whiteButton">玩遊戲拿優惠券
+            </div>
+        </div>  
+    </section>
+    <footer>
+        <div>
+            <a href="#">
+                <i class="fa fa-facebook" aria-hidden="true"></i>
+            </a>
+            <a href="#">
+                <i class="fa fa-twitter" aria-hidden="true"></i>
+            </a>
+            <a href="#">
+                <i class="fa fa-instagram" aria-hidden="true"></i>
+            </a>
+        </div>
+        <p>DD103 G1 copyright</p>
+    </footer>
+    <div class="alertWindow">
+        <div class="alert">
+            <div class="alertTitle">提示</div>
+            <div class="alertContent">我是內容</div>
+            <div class="closeWrap">
+                <div class="yesButton whiteButton">確認</div>
+                <div class="cancelButton whiteButton">取消</div>
+            </div>
+            <div class="alertClose">
+                <i class="fa fa-times-circle Trip2_lightBoxBTN" aria-hidden="true" id="Trip2_lightBoxBTN02"></i>
+            </div>
+    
+        </div>
+    </div>
+    <section id="login" class="Loginwrap">
+        <div class="LoginForm">
+            <div class="Loginhead" id="LoginForm-head">
+                <div data-tab="login">
+                    <div class="Loginclose">
+                        <h3>會員登入</h3>
+                        <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+            <form action="">
+                <div class="Loginbody" id="LoginForm-body">
+                    <div class="Login-login">
+                        <div class="LoginForm-row">
+                            <label class="LoginLabel" for="">帳號</label>
+                            <input class="Logininput" id="user-id" type="text" placeholder="account" autocomplete="on">
+                        </div>
+                        <div class="LoginForm-row">
+                            <label class="LoginLabel" for="">密碼</label>
+                            <input class="Logininput" type="password" id="user-psw" placeholder="Password"
+                                autocomplete="on">
+                        </div>
+                        <div class="Login-forget">
+                            <a class="Login-forget-password" id="linkLoginForget">
+                                <p class="LoginP">忘記密碼</p>
+                            </a>
+                        </div>
+                        <div class="LoginForm-row">
+                            <div class="LoginBtnCenter whiteButton">登入</div>
+                        </div>
+                        <a class="LoginForm-signup-now" href="javascript:;">立即註冊</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <section id="loginRegister" class="Loginwrap">
+        <div class="LoginForm">
+            <div class="Loginhead" id="LoginForm-head">
+                <div data-tab="login">
+                    <div class="Loginclose">
+                        <h3>會員註冊</h3>
+                        <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true" @click="clear"></i>
+                    </div>
+                </div>
+            </div>
+            <form action="" id="myForm">
+                <div class="Loginbody" id="LoginForm-body">
+                    <div class="Login-signup">
+                        <div class="LoginForm-row">
+                            <label class="Loginlabal">姓名</label>
+                            <input class="Logininput" type="text" placeholder="輸入您的名字" v-model="memName">
+                        </div>
+                        <div class="LoginForm-row">
+                            <label class="Loginlabal" >帳號<span class="errMsg">{{idMsg}}</span></label>
+                            <input class="Logininput" v-model="memId" @change="testId"  type="text" placeholder="4~10個英文字或數字" maxlength="10" >
+                        
+                        </div>
+                        <div class="LoginForm-row">
+                            <label class="Loginlabal" style="color:aliceblue;">密碼<span class="errMsg">{{pswMsg}}</span></label>
+                            <input class="Logininput" @change="testPsw" v-model="memPassword" type="password" placeholder="英文開頭且包含數字">
+                        </div>
+                        <div class="LoginForm-row">
+                            <label class="Loginlabal" style="color:aliceblue;">密碼確認<span class="errMsg">{{pswConfirmMsg}}</span></label>
+                            <input  class="Logininput"  type="password"
+                                placeholder="再次輸入您的密碼"  v-model="pswConfirm">
+                        </div>
+                        <div class="LoginForm-row">
+                            <label class="Loginlabal" style="color:aliceblue;" >Email<span class="errMsg">{{emailMsg}}</span></label>
+                            <input  class="Logininput" v-model="memEmail" type="text"  @change="testEmail" placeholder="輸入您的信箱">
+                        </div>
+                        <div class="LoginForm-row">
+                            <div class="LoginBtnR">
+                                <div class="whiteButton">
+                                    <a href="#" id="signup" name="signup"  @click="submit">註冊</a>
+                                </div>
+                            </div>
+                            <div class="LoginBtnL">
+                                <div class="whiteButton">
+                                    <a href="javascript:;" @click="clear">回上頁</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <section id="loginforget" class="Loginwrap" >
+        <div class="LoginForm">
+            <div class="Loginhead" id="LoginForm-head">
+                <div data-tab="login">
+                    <div class="Loginclose">
+                        <h3>重設密碼</h3>
+                        <i class="fa fa-times-circle Trip2_lightBoxBTN game_close" aria-hidden="true" @click="clear"></i>
+    
+                    </div>
+                </div>
+            </div>
+            <form action="#"> 
+                <div class="Loginbody LoginForm-body">
+                    <div class="login">
+                        <div class="LoginForm-row">
+                            <label class="LoginLabel">Email<span class="errMsg">{{errMsg}}</span></label>
+                            <input class="Logininput" type="email" placeholder="輸入您的信箱" v-model="email" @change="test" id="inputEmail">
+                        </div>
+                        <p class="resetpsw">*請送出表單後,到信箱查看並重設密碼*</p>
+                        <div class="LoginForm-row fix">
+                            <div class="LoginBtnR">
+                                <div class="whiteButton">
+                                    <a href="#" @click="submitEmail">
+                                        送出
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="LoginBtnL">
+                                <div class="whiteButton">
+                                    <a href="javascript:;" @click="clear">回上頁</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+<script src="js/alert.js"></script>
+<script src="js/login.js"></script>
+<script src="js/register.js"></script>
+<script src="js/forgetPsw.js"></script>
+<script src="js/reserveDate.js"></script>
+<script src="js/canlendar.js"></script>
+<script src="js/ScrollMagic.min.js"></script>
+<script src="js/animation.gsap.min.js"></script>
+<script src="js/debug.addIndicators.min.js"></script>
+<script src="js/TweenMax.min.js"></script>
+<script src="js/indexTweenmax.js"></script>
+<script src="js/changePic.js"></script>
+<script src="js/star.js"></script> 
+<script src="js/banner.js"></script>
+</body>
+</html>
