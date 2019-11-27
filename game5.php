@@ -6,7 +6,8 @@ session_start();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>小遊戲</title>
     <link href="https://fonts.googleapis.com/css?family=Noto+Serif+TC&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="css/common.css">
@@ -29,7 +30,7 @@ session_start();
 <body>
 <header>
             <div class="container headerStyle">
-                <a href="index.html">
+                <a href="home.html">
                     <h1>
                         <img src="images/logo.png" alt="logo">
                     </h1>
@@ -67,7 +68,7 @@ session_start();
                     </nav>
                  
                     <div class="headerIcon">
-                        <a href="javascript:;" id="shopcart">
+                        <a href="shopcart.html" id="shopcart">
                             <img src="images/icon_shopcar.png" alt="icon_shopcar">
                         </a>
                         <a id="memberInfo" href="member.php">
@@ -171,7 +172,7 @@ session_start();
         </a>
         <div class="closeWrap">
             <!-- <a href="game.html"> -->
-            <div class="yesButton whiteButton">確認</div>
+            <div class="yesButton whiteButton" onclick="window.location.href='game.html';">確認</div>
             <!-- </a> -->
             <div class="cancelButton whiteButton">取消</div>
         </div>
@@ -452,6 +453,7 @@ function sendData(){
             
         }
         xhr.open("post", "php/login/login.php", true);
+        // xhr.open("post", "login.php", true);
         xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
         xhr.send(`user_id=${userId}&user_psw=${userPsw}`);
     }
@@ -462,8 +464,7 @@ function sendData(){
 <?php
 }
 
-?>
-   
+?> 
     
  <script src="js/alert.js"></script>
 <!-- <script src="js/login.js"></script>  -->

@@ -36,8 +36,8 @@ try{
     $sql_member_vote = 
     "select member.memName,competition.vote,competition.memNo,postcard.postcardPic
     from `member`, `competition`, `postcard`
-    where member.memNo=competition.memNo and member.memNo=postcard.memNo and YEAR(startDate) = 2019 
-    order by competition.vote desc";
+    where member.memNo=competition.memNo and member.memNo=postcard.memNo 
+    order by competition.vote  desc";
 
     $memberVote = $pdo->prepare($sql_member_vote);
     $memberVote ->execute();
@@ -76,7 +76,7 @@ try{
 
 <header>
             <div class="container headerStyle">
-                <a href="index.html">
+                <a href="home.html">
                     <h1>
                         <img src="images/logo.png" alt="logo">
                     </h1>
@@ -219,7 +219,7 @@ try{
             ?>
                     <div class="competitionButton indexVoBtn">
                         <div href="#" class="indexVoBtn voteBtn" data-vote="1">
-                        <i class="fa fa-hand-o-down fa-2x voteIcon" aria-hidden="true"></i>
+                        <i class="fa fa-thumbs-o-up fa-2x voteIcon" aria-hidden="true"></i>
                         <p>投票</p>
                             <input type="hidden" name="competNo2" value="">
                         </div>
@@ -273,7 +273,7 @@ try{
                     ?>
                     <div class="competitionButton indexVoBtn">
                         <div href="#" class="indexVoBtn voteBtn" data-vote="2">
-                        <i class="fa fa-hand-o-down fa-2x voteIcon" aria-hidden="true"></i>
+                        <i class="fa fa-thumbs-o-up fa-2x voteIcon" aria-hidden="true"></i>
                             <p>投票</p>
                             <input type="hidden" name="competNo2" value="">
                         </div>
@@ -323,7 +323,7 @@ try{
 
                     <div class="competitionButton indexVoBtn">
                         <div href="#" class="indexVoBtn voteBtn" data-vote="3">
-                        <i class="fa fa-hand-o-down fa-2x voteIcon" aria-hidden="true"></i>
+                        <i class="fa fa-thumbs-o-up fa-2x voteIcon" aria-hidden="true"></i>
                             <p>投票</p>
                             <input type="hidden" name="competNo2" value="">
                         </div>
@@ -376,7 +376,7 @@ try{
 
                         <div class="competitionButton indexVoBtn">
                             <div href="#" class="indexVoBtn voteBtn" data-vote="<?php echo $i?>">
-                                <i class="fa fa-hand-o-down fa-2x voteIcon" aria-hidden="true"></i>
+                                <i class="fa fa-thumbs-o-up fa-2x voteIcon" aria-hidden="true"></i>
                                 <p>投票</p>
                                 <input type="hidden" name="competNo2" value="">
                             </div>

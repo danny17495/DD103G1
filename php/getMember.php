@@ -53,7 +53,8 @@ try{
 			break;
 		case "memCoupon"://新的在最上面還是下面?上面
 			$sql = "SELECT `holdingcoupon`.`discount`, 
-						   `holdingcoupon`.`used` 
+						   `holdingcoupon`.`used`,
+						   `holdingcoupon`.`couponNo` 
 					FROM `dd103g1`.`holdingcoupon` 
 					WHERE `holdingcoupon`.`memNo` = :memNo";
 			$memCoupon=$pdo->prepare($sql);
@@ -83,7 +84,8 @@ try{
 						   `orderdetails`.`orderPrice`, 
 						   `orderdetails`.`orderItemNum`, 
 						   `orderdetails`.`orderItemTotal`, 
-						   `orderdetails`.`orderItemPic`
+						   `orderdetails`.`orderItemPic`,
+						   `orderdetails`.`productType`
 					FROM `dd103g1`.`orderdetails`
                     WHERE `orderdetails`.`orderNo` = :orderNo";
 			$memOrderDetail=$pdo->prepare($sql);

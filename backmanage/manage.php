@@ -164,7 +164,7 @@
          <i class="nav-icon icon-drop"></i> 管理員管理</a>
       <li class="nav-title">前台管理</li>
       <li class="nav-item">
-        <a class="nav-link" href="member.html">
+        <a class="nav-link" href="member.php">
           <i class="nav-icon icon-drop"></i> 會員資料管理</a>
       </li>
       <li class="nav-item">
@@ -217,11 +217,20 @@
        <div class="row">
         <div class="col-md-12">
           <div class="card">
+<<<<<<< HEAD:backmanage/manage.php
             <div class="card-header">管理員管理</div>
             <div class="card-body">
               <!-- <button class="btn btn-block btn-outline-primary" type="button">新增管理員</button> -->
 
+=======
+         
+                            <div class="card-header justify-content-end d-flex">
+                  <button type="button" class="btn btn-warning mr-1" id="addAdmin">新增管理員</button>
+>>>>>>> 8275468050060abbaac83cd66f9e0ba475c7997d:backmanage/manage.html
 
+                </div>
+            <div class="card-body">
+             
               <!-- 每一頁主要改這個table -->
               <table class="table table-responsive-sm table-sm">
                 <thead>
@@ -229,6 +238,7 @@
                     <th>管理員名稱</th>
                     <th>管理員帳號</th>
                     <th>管理員密碼</th>
+<<<<<<< HEAD:backmanage/manage.php
                     <th></th>
                     <th></th>
                     <th>管理員權限</th>
@@ -354,10 +364,25 @@
                       <option value="">管理員</option>
                     </select></td>
                     <td> <button type="button" class="btn btn-pill btn-primary btn-xl">編輯</button></td>
+=======
+                    <th>管理員帳號移除</th>
+                  </tr>
+                </thead>
+                <tbody class="admAdd">
+                  <tr>
+                    <td>豪豪</td>
+                    <td>admin1</td>
+                    <td>123</td>
+>>>>>>> 8275468050060abbaac83cd66f9e0ba475c7997d:backmanage/manage.html
                     <td>
-                      <button type="button" class="btn btn-pill btn-danger btn-xl">刪除</button>
+
                     </td>
+<<<<<<< HEAD:backmanage/manage.php
                   </tr> -->
+=======
+                  </tr>
+                  
+>>>>>>> 8275468050060abbaac83cd66f9e0ba475c7997d:backmanage/manage.html
                 </tbody>
               </table>
 
@@ -671,6 +696,8 @@
       </div>
     </aside>
   </div>
+
+
   <footer class="app-footer">
         <div>
           <a href="https://coreui.io">CoreUI</a>
@@ -681,6 +708,143 @@
           <a href="https://coreui.io">CoreUI</a>
         </div>
       </footer>
+
+
+
+
+
+<script>
+      $('document').ready(function(){
+
+        $('body').on('click', '#addAdmin', function () {
+          // alert('hello');
+        let newAdmin = $("<tr id='newAdmin'></tr>").html(
+                          `
+                          <td><input id="adminName" type="text"></td>
+                          <td><input id="adminId" type="text"></td>
+                          <td><input id="adminPsw" type="text"></td>
+                          <td>
+                          <button type="button" class="btn btn-pill btn-success btn-xl" id="yesAddAdmin">新增</button>
+                          </td>
+                          <td>    
+                          <button type="button" class="btn btn-pill btn-secondary btn-xl" id="cancelAddAdmin">取消</button>
+                          </td>`);
+              if ($('.newAdmin').length == 0) {
+              $('.admAdd').append(newAdmin);
+              }
+        })
+
+          $('body').on('click', '#cancelAddAdmin', function () {
+                          this.parentElement.parentElement.remove();
+                      })
+
+
+          $('body').on('click', '#yesAddAdmin', function () {
+                          let adminId = $('#adminId').val();
+                          let adminPsw = $('#adminPsw').val();
+                          let adminName = $('#adminName').val();
+                          let adminStat = $('#adminStatus').val();
+
+                          if ((adminId && adminPsw)) {
+                              $.ajax({
+                                  type: 'POST',
+                                  url: `./php/newAdmin.php`,
+                                  data: {
+                                     
+                                      adminId,
+                                      adminPsw,
+                                      adminName,
+                                      adminStatus,
+                                      action: 'addAdmin',
+                                  },
+                                  success: function (getNoRows) {
+                                      let getNo = JSON.parse(getNoRows);
+                                      let newAdmin = "";
+                                        newAdmin += `<tr>`;
+                                        newAdmin += `<td>${adminId}</td>`;
+                                        newAdmin += `<td>${adminPsw}</td>`;
+                                        newAdmin += `<td>${adminName}</td>`;
+                                        // newAdmin += `<td>${adminStat}</td>`;
+                                        newAdmin += `<td>
+                                                    <button class="btn btn-danger" type="button" data-toggle="modal"
+                                                            data-target="#alertModal" id="delAdmin">刪除
+                                                    </button>
+                                                    </td>`;
+                                        newAdmin += `</tr>`;                               
+                                      $('.admAdd').append(newAdmin);
+                                      $('#newAdmin').remove();
+                                      alert('新增成功');
+                                  },
+                              });
+                          } else {
+                              alert('帳號或密碼不能為空白');
+                          }
+                      })
+          $('body').on('click', '#delAdmin', function () {
+            let adminNo = $(this).parent().parent().children().first().text();
+            let dead = this;
+            //  alert(adminNo);
+                  $.ajax({
+                          type: "POST",
+                          url: `./php/delAdmin.php`,
+                          data:{
+                            adminNo:adminNo
+                          },
+                          success: function (deleteBack) {
+                            alert('刪除成功');
+                            $(dead.parentElement.parentElement).remove();
+                          },
+                          error: function () {
+                              alert('fail');
+                          }
+                      })
+            })             
+    
+
+
+      //-------------------------------------------------------------------------------------------
+      let storage = sessionStorage;
+      let url = "./php/admin.php";
+        function admManage(){
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function(){
+          if(xhr.status == 200){ //server OK
+            let dataString = JSON.parse(xhr.responseText);
+            let htmlStr = '';
+            for (i = 0; i < dataString.length; i++) {
+                      htmlStr += `<tr>`;
+                      htmlStr += `<td>${dataString[i].adminId}</td>`;
+                      htmlStr += `<td>${dataString[i].adminPsw}</td>`;
+                      htmlStr += `<td>${dataString[i].adminName}</td>`;
+                      // htmlStr += `<td>${dataString[i].adminStat}</td>`;
+                      htmlStr += `<td>
+                                  <button class="btn btn-danger" type="button" data-toggle="modal"
+                                          data-target="#alertModal" data-whatever="@delete" id="delAdmin">刪除
+                                  </button>
+                                  </td>`;
+                      htmlStr += `</tr>`;
+                      // $('.memAdd').append(htmlStr);
+                      document.querySelector(".admAdd").innerHTML= htmlStr;
+            }  
+          }else{ //error
+            alert(xhr.status);
+          }
+        } //xhr function end
+        xhr.open("get", "./php/admin.php", true);
+        // xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+        xhr.send( null );
+        }
+        admManage();
+      })    
+    </script>
+    <script>
+    
+    
+    
+    </script>
+
+
+
   <!-- CoreUI and necessary plugins-->
   <script src="node_modules/jquery/dist/jquery.min.js"></script>
   <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>

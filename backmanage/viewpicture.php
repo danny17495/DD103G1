@@ -1,8 +1,7 @@
 <?php
   $errMsg = "";
   try{
-    session_start();
-    require_once('connect.php');
+    require_once("connect.php");
     $sql = "select * from `scenicspots`";
     $spots  = $pdo->query($sql);
     $spotRows = $spots -> fetchAll(PDO::FETCH_ASSOC);
@@ -26,9 +25,10 @@
   <!-- Main styles for this application-->
   <link href="css/style.css" rel="stylesheet">
   <style>
-    *{
-      /*outline: red solid 1px;*/
+     #logout{
+    text-decoration: none;
     }
+    
     .dissinputstyle{
       border:none;
       border:transparent;
@@ -63,8 +63,8 @@
     </button>
    
     <ul class="nav navbar-nav ml-auto">
-      <li class="mr-5">豪豪 您好</li>
-
+      <li class="mr-5"> 您好</li>
+ <a class="nav-item mr-3 logOut" href="admin_login.html" id="logout">登出</a>
 
     </ul>
    
@@ -81,15 +81,15 @@
     <ul class="nav">
      
       <li class="nav-title">後台管理</li>
-         <a class="nav-link" href="manage.html">
+         <a class="nav-link" href="manage.php">
          <i class="nav-icon icon-drop"></i> 管理員管理</a>
       <li class="nav-title">前台管理</li>
       <li class="nav-item">
-        <a class="nav-link" href="member.html">
+        <a class="nav-link" href="member.php">
           <i class="nav-icon icon-drop"></i> 會員資料管理</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="order.html">
+        <a class="nav-link" href="order.php">
           <i class="nav-icon icon-pencil"></i> 訂單管理</a>
       </li>
       <li class="nav-item">
@@ -99,6 +99,10 @@
       <li class="nav-item">
         <a class="nav-link" href="postcard.html">
           <i class="nav-icon icon-pencil"></i> 客製化明信片管理</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="report.html">
+          <i class="nav-icon icon-pencil"></i> 檢舉留言管理</a>
       </li>
     </ul>
   </nav>
@@ -112,23 +116,6 @@
       <div class="container-fluid">
    
        <!-- 中間內容 -->
-             <div class="container-fluid">
-   
-       <!-- 中間內容 -->
-             <div class="container-fluid">
-    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
-        <nav aria-label="breadcrumb" role="navigation">
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item">
-                    <i class="ace-icon fa fa-home home-icon"></i>
-                    <a href="#">九份客棧</a>
-                </li>
-                <li class="breadcrumb-item">
-                    <a href="#">景點圖片管理</a>
-                </li>
-            </ol>
-        </nav>
-    </div>
        <div class="row">
         <div class="col-md-12">
           <div class="card">
@@ -150,7 +137,7 @@ if( $errMsg != ""){ //例外
     foreach( $spotRows as $i => $spotRow){
     
 ?>
-      <form action="updatespotData.php">
+      <form action="updatespotData.php" method="post" enctype="multipart/form-data">
               <table class="table table-responsive-sm table-sm spotcss">
                 <thead>
                   <tr>
@@ -168,10 +155,12 @@ if( $errMsg != ""){ //例外
                     <td class="spot_td2_name"><input type="text" name="spotsName" value="<?php echo $spotRow['spotsName'];?>" readonly="true" class="dissinputstyle"></td>
                     <td class="spot_td3_dec"><textarea type="text" name="spotsDec" readonly="true" class="dissinputstyle" cols="50"><?php echo $spotRow['spotsDec'];?>
                     </textarea></td>
-                    <td class="spot_td4_pic"><textarea type="text" name="spotsPic" readonly="true" class="dissinputstyle"><?php echo $spotRow['spotsPic'];?></textarea></td>
+                    <td>
+                      <input type="file" name="spotsPic" disabled>
+                    </td>
                     <td><input class="btn1" type="button" value="編輯">
                     </td>
-                    <td><input type="submit"  value="修改完成" disabled></td>
+                    <td><input type="submit"  value="修改" disabled></td>
                   </tr>
                 </tbody>
               </table>
@@ -191,14 +180,14 @@ if( $errMsg != ""){ //例外
     var btn1=document.getElementsByClassName("btn1");
 
     function changeSpot(e){
-      console.log(e.target.parentNode.parentNode.children[3].firstChild);
+      console.log(e.target.parentNode.parentNode.children[3].firstChild.nextSibling);
 
     e.target.parentNode.parentNode.children[1].firstChild.removeAttribute("readonly");   
      e.target.parentNode.parentNode.children[1].firstChild.classList.remove("dissinputstyle"); 
      e.target.parentNode.parentNode.children[2].firstChild.removeAttribute("readonly");   
      e.target.parentNode.parentNode.children[2].firstChild.classList.remove("dissinputstyle");
-     e.target.parentNode.parentNode.children[3].firstChild.removeAttribute("readonly");   
-     e.target.parentNode.parentNode.children[3].firstChild.classList.remove("dissinputstyle");
+     // e.target.parentNode.parentNode.children[3].firstChild.removeAttribute("readonly");   
+     e.target.parentNode.parentNode.children[3].firstChild.nextSibling.removeAttribute("disabled");
      e.target.parentNode.parentNode.children[5].firstChild.removeAttribute("disabled");
     }
 
