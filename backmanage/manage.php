@@ -217,16 +217,10 @@
        <div class="row">
         <div class="col-md-12">
           <div class="card">
-<<<<<<< HEAD:backmanage/manage.php
             <div class="card-header">管理員管理</div>
             <div class="card-body">
               <!-- <button class="btn btn-block btn-outline-primary" type="button">新增管理員</button> -->
 
-=======
-         
-                            <div class="card-header justify-content-end d-flex">
-                  <button type="button" class="btn btn-warning mr-1" id="addAdmin">新增管理員</button>
->>>>>>> 8275468050060abbaac83cd66f9e0ba475c7997d:backmanage/manage.html
 
                 </div>
             <div class="card-body">
@@ -238,7 +232,6 @@
                     <th>管理員名稱</th>
                     <th>管理員帳號</th>
                     <th>管理員密碼</th>
-<<<<<<< HEAD:backmanage/manage.php
                     <th></th>
                     <th></th>
                     <th>管理員權限</th>
@@ -364,25 +357,10 @@
                       <option value="">管理員</option>
                     </select></td>
                     <td> <button type="button" class="btn btn-pill btn-primary btn-xl">編輯</button></td>
-=======
-                    <th>管理員帳號移除</th>
-                  </tr>
-                </thead>
-                <tbody class="admAdd">
-                  <tr>
-                    <td>豪豪</td>
-                    <td>admin1</td>
-                    <td>123</td>
->>>>>>> 8275468050060abbaac83cd66f9e0ba475c7997d:backmanage/manage.html
                     <td>
 
                     </td>
-<<<<<<< HEAD:backmanage/manage.php
                   </tr> -->
-=======
-                  </tr>
-                  
->>>>>>> 8275468050060abbaac83cd66f9e0ba475c7997d:backmanage/manage.html
                 </tbody>
               </table>
 
