@@ -90,20 +90,24 @@
             <div class="container">
                 <!-- (2-1)欄位名稱 -->
                 <div class="cartHeader">
-                    <h3>圖片</h3>
-                    <h3>名稱</h3>
+                    <h3 id="cartHeaderText1">圖片</h3>
+                    <h3 id="cartHeaderText2">名稱</h3>
                     <!-- <h3>顏色</h3> -->
-                    <h3>單價</h3>
-                    <h3>數量</h3>
-                    <h3>小計</h3>
-                    <h3>刪除</h3>
+                    <h3 id="cartHeaderText3">單價</h3>
+                    <h3 id="cartHeaderText4">數量</h3>   
+                    <h3 id="cartHeaderText5">小計</h3>
+                    <h3 id="cartHeaderText6">刪除</h3>
                     <div class="clearfix"></div>
+                </div>
+                <div class="bornItemList smallItemHeader" id="smallItemHeader"></div>
+                <div class="bornItemList noItemHeader" id="noItemHeader"></div>
+                <div class="bornItemList noItem" id="noItem">
+                    <h4>
+                    <span>您現在沒有購物商品, </span><span>推薦您去&nbsp;<a href="postcard.html">客製化明信片</a>&nbsp;</span><span>或者&nbsp;<a href="shop.html">購物商城</a>&nbsp;逛一逛！</span>
+                    </h4>
                 </div>
                 <div class="bornItemList" id="bornItemList1"></div>
                 <div class="bornItemList" id="bornItemList2"></div>
-
-
-
 
                 <!-- (2-2)商品列開始做動態生成 -->
                 <!-- (2-2)商品列1 -->
@@ -208,7 +212,7 @@
                 <!-- (2-4)按鈕 -->
                 <div class="cartBtn">
                     <a href="shop.html" class="cartContinueBtn"><div class="whiteButton">繼續購物</div></a>
-                    <a href="shopcart_02.html" class="cartNextBtn"><div class="whiteButton" id="cartNextBtn">馬上結帳</div></a>
+                    <div class="whiteButton cartNextBtn" id="cartNextBtn">馬上結帳</div>
                 </div>
     
             </div><!-- .container結束div -->
@@ -383,5 +387,16 @@
     <script src="js/login.js"></script>
     <script src="js/register.js"></script>
     <script src="js/forgetPsw.js"></script>
+    <script>
+        var htmlToPR51 = document.getElementById('cartNextBtn'); //註冊你那個按鈕點擊事件
+        htmlToPR51.addEventListener('click', function (e) { //點擊按鈕時 判定有無登入
+            if (!sessionStorage['memNo']) { //固定寫法 一定要有
+                memberInfoClick = false;//固定寫法 一定要有
+                openLoginData();//固定寫法 一定要有 打開燈箱
+            }else{
+                cartNextPage();
+            }
+        });
+    </script>
 </body>
 </html>

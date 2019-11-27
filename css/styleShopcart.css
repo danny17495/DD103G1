@@ -6,7 +6,7 @@
 
 section.pageTitle .container{
     text-align: center;
-    padding: 200px 0 50px;
+    padding: 150px 0 30px;
     position: relative;
 }
 
@@ -29,7 +29,7 @@ body{
 /*=============0.最外層為了雲消失包的=============*/
 .forCloudAnimation{
     overflow: hidden;
-    min-height: 800px;
+    min-height: 840px;
     background: rgb(255, 230, 193) url(../images/shopcart/mountain_01_90.png) no-repeat center bottom / contain;
 }
 
@@ -63,17 +63,49 @@ section.cart .container .cartHeader h3{
 }
 
 /*=============2-2.商品列=============*/
-section.cart .container .cartRow{
+section.cart .container .cartRow,
+section.cart .container .noItem{
     background-color: rgb(255, 255, 255, .5);
     border-bottom: 1px solid #ccc;
     padding: 30px 0;
     position: relative;
 }
 
+section.cart .container .noItem{
+    padding: 70px 30px;
+    text-align: center;
+
+}
+
+section.cart .container .noItem h4{
+    color: rgba(0, 0, 0, .7);
+    line-height: 1.7; 
+}
+
+section.cart .container .noItem span{
+    display: block;
+}
+
+section.cart .container .noItem a{
+    display: inline;
+    text-decoration: underline;
+    font-size: 18px;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+
+
 /*<768以下的表頭*/
-section.cart .container .cartRow1{
+
+section.cart .container .noItemHeader,
+section.cart .container .smallItemHeader{
     border-top: 20px solid rgba(243, 152, 0, .8);
     border-radius: 20px 20px 0 0;
+}
+
+section.cart .container .smallItemHeader{
+    display: none;
 }
 
 section.cart .container .cartRow .cartRowPic{
@@ -238,7 +270,6 @@ section.cart .cartBtn div.whiteButton:hover{
     }
 
     section.cart .container .cartHeader h3{
-        display: block;
         width: 16.6666%;
         text-align: center;
         float: left;
@@ -246,10 +277,8 @@ section.cart .cartBtn div.whiteButton:hover{
     }
 
     /*=============2-2.商品列=============*/
-    /*清除<768以下的表頭*/
-    section.cart .container .cartRow1{
-        border-top: none;
-        border-radius: 0;
+    section.cart .container .noItem span{
+        display: inline;
     }
 
     section.cart .container{

@@ -4,11 +4,6 @@ $memNo = $_POST['hidden_data'];
 
 try{
 	require_once("connectg1.php");	
-	// $dsn = "mysql:host=localhost;port=3306;dbname=dd103g1;charset=utf8";
-	// $user = "dd103g1";
-	// $password = "dd103g1";
-	// $options = array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION);
-	// $pdo = new PDO( $dsn, $user, $password, $options); 
 
   	$sql = "select * from `holdingcoupon` where memNo = :memNo and used = 0";
   	//used = 0表示未使用
