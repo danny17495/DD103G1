@@ -758,24 +758,24 @@ function cartNextPage(){
     /*六-1.撈取LocalStorage重新確認最後放入購物車的明細*/
     var addPostcardString = localStorage.getItem('addPostcard:');    // var itemString = storage['addItemList'];
     console.log("1125測試",addPostcardString);
-    if(localStorage["addPostcard:"] && localStorage["addPostcard:"] != null && localStorage["addPostcard:"] != ""){
+    if(buyPostcard == 1){
         var postcardArrLatest = addPostcardString.substr(0,addPostcardString.length-2).split(', ');
         console.log("最後放入購物車的明信片編號", postcardArrLatest);     //(2) ["1", "3"]
         var postcardNumLatest = postcardArrLatest.length;  //加入購物車幾個明信片
         console.log(postcardNumLatest);
     }
 
-    // if(addShopItemString != null){
+    if(buyShopItem == 1){
         var addShopItemString = localStorage.getItem('addShopItem:');    // var itemString = storage['addItemList'];
         var shopItemArrLatest = addShopItemString.substr(0,addShopItemString.length-2).split(', ');
         console.log("最後放入購物車的商城商品編號", shopItemArrLatest);     //(3) ["2", "18", "15"]
         var shopItemNumLatest = shopItemArrLatest.length;  //加入購物車幾個商城商品
         console.log(shopItemNumLatest);
-    // }
+    }
 
 
     //六-2-1.如果有買明信片就存入LocalStorage
-    // if(postcardNumLatest >= 1 && postcardArrLatest[0] != [""]){
+    if(buyPostcard == 1){
         for(var key in postcardArrLatest){
             console.log("postcardArrLatest的key",key);
             itemId = postcardArrLatest[key];  //itemId明信片編號
@@ -790,10 +790,10 @@ function cartNextPage(){
 
             localStorage.setItem(`明信片(編號, 商品數量, 商品小計)編號${itemId}`, `${itemId}, ${cartItemNum}, ${cartItemNum * 60}, `);
         }
-    // }
+    }
 
     //六-2-2.如果有買商城商品就存入LocalStorage
-    // if(shopItemNumLatest >= 1 && shopItemArrLatest[0] != ""){
+    if(buyShopItem == 1){
         for(var key in shopItemArrLatest){
             console.log(key);
             itemIdsi = shopItemArrLatest[key];  //itemIdsi商城商品編號
@@ -823,7 +823,7 @@ function cartNextPage(){
 
             localStorage.setItem(`商城商品(編號, 商品數量, 商品小計)編號${itemIdsi}`, `${itemIdsi}, ${cartItemNumsi}, ${cartItemNumsi * itemPrice}, `);
         }
-    // }
+    }
 
     location.href = "shopcart_02.html"; 
 }

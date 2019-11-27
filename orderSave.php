@@ -57,7 +57,8 @@ try {
 
 	//3. sql3 +sql4 : 訂單存入orderdetails
 	// 如果有買明信片, $cart資料存入資料庫
-	if( count($cart2) > 0 ){
+	//11月27日: 未買東西的話$cart是 0
+	if( $cart2 > 0 ){
 		foreach($cart2 as $key =>$data){
 			$productType = $data->productType;
 			$orderItemNo = $data->orderItemNo;
@@ -88,7 +89,7 @@ try {
 
 	//3. sql3 +sql4 : 訂單存入orderdetails
 	// 如果有買商城商品, $cart資料存入資料庫
-	if( count($cart) > 0 ){
+	if( $cart > 0 ){
 		foreach($cart as $key =>$data){
 			$productType = $data->productType;
 			$orderItemNo = $data->orderItemNo;
@@ -115,12 +116,12 @@ try {
 	}
 
 	// echo json_encode($cart);
-	echo "訂單成立";
+	// echo "訂單成立";
 
 
 } catch (PDOException $e) {
 	$errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";
   	$errMsg .= "錯誤行號 : ".$e -> getLine(). "<br>";
-  	echo $errMsg;
+  	// echo $errMsg;
 }
 ?> 
