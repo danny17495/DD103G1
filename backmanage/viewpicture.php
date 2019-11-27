@@ -25,9 +25,10 @@
   <!-- Main styles for this application-->
   <link href="css/style.css" rel="stylesheet">
   <style>
-    *{
-      /*outline: red solid 1px;*/
+     #logout{
+    text-decoration: none;
     }
+    
     .dissinputstyle{
       border:none;
       border:transparent;
@@ -63,7 +64,7 @@
    
     <ul class="nav navbar-nav ml-auto">
       <li class="mr-5"> 您好</li>
-
+ <a class="nav-item mr-3 logOut" href="admin_login.html" id="logout">登出</a>
 
     </ul>
    
@@ -80,7 +81,7 @@
     <ul class="nav">
      
       <li class="nav-title">後台管理</li>
-         <a class="nav-link" href="manage.html">
+         <a class="nav-link" href="manage.php">
          <i class="nav-icon icon-drop"></i> 管理員管理</a>
       <li class="nav-title">前台管理</li>
       <li class="nav-item">
