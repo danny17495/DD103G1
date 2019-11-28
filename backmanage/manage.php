@@ -265,7 +265,7 @@
                     <input name="adminNo" type="hidden" value="<?= $adminRow['adminNo']?>" style="display:none">
                     <td><input type="text" readonly="true" class="dissinputstyle" name="adminName" value="<?php echo $adminRow['adminName'];?>"></td>
                     <td><input type="text" readonly="true" class="dissinputstyle" name="adminId" value="<?php echo $adminRow['adminId'];?>"></td>
-                    <td><input type="text" readonly="true" class="dissinputstyle" name="adminPsw"  value="<?php echo $adminRow['adminPsw'];?>"></td>
+                    <td><input type="password" readonly="true" class="dissinputstyle" name="adminPsw"  value="<?php echo $adminRow['adminPsw'];?>"></td>
                     <td> 
                         <button type="button" class="btn btn-pill btn-danger btn-xl edit" >編輯</button>
                     </td>
