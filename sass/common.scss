@@ -143,7 +143,23 @@ h1, h2, h3, h4, p, a, li, span, button, input {
         box-shadow :0 0 0 transparent;
      }
 }
-
+.commonButton{
+     @extend %commBtnStyle;
+    border: 1.5px solid #f39700;
+    font-weight:bold;
+    padding:2px 5px;
+    position: relative;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    &:hover{
+        background-color: #f39700;
+        color:#fff
+     }
+}
+.commonButton.active{
+    background-color: #f39700;
+    color:#fff
+}
 .leafButton{
     @extend %commBtnStyle;
     border: 1.5px solid #f39700;
@@ -171,7 +187,7 @@ h1, h2, h3, h4, p, a, li, span, button, input {
 
 }
   @include respondMedium(){
-      .leafButton{
+      .leafButton,.commonButton{
            border:2px solid #f39700;
            font-size: 22px;
            padding: 2px 15px;

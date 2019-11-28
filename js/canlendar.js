@@ -36,13 +36,12 @@ function getDate() {
         liDates[dayofweek + i].innerText = i + 1;
         liDates[dayofweek + i].classList.add('yesDate');
         console.log(i,month);
-        if (i == dayofweek + today-1 && month == date.getMonth() + 1) { //今天日期
-            alert('aa');
-            liDates[i].classList.remove('yesDate');
-            liDates[i].classList.add('today');
-        } else if (i < dayofweek + today - 1 && month == date.getMonth() + 1) { //今天日期以前
-            liDates[i].classList.remove('yesDate');
-            liDates[i].classList.add('disabledDate');
+        if (i == today-1 && month == date.getMonth() + 1) { //今天日期
+            liDates[i + dayofweek].classList.remove('yesDate');
+            liDates[i + dayofweek].classList.add('today');
+        } else if (i < today - 1 && month == date.getMonth() + 1) { //今天日期以前
+            liDates[i + dayofweek].classList.remove('yesDate');
+            liDates[i + dayofweek].classList.add('disabledDate');
         }
     }
   

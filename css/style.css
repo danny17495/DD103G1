@@ -372,7 +372,7 @@
 
 /*----------------index reserve 預約行程-------------------*/
 .indexReserve{
-    margin-top: -23px;
+    margin-top: -38px;
     padding: 45px 10px;
     overflow: hidden;
     position: relative;
@@ -405,9 +405,16 @@
 }
 .indexReContent{
     position: relative;
+    font-size: 15px
 }
 .indexReContent>p{
-    margin-bottom: 25px;
+    margin-bottom: 30px;
+    font-size: 15px;
+}
+
+.indexReContent .knowUs{
+    color:#ca8f31 ;
+     font-size: 19px;
 }
 .reYuJourney label,.reYuPeople label{
     margin-right: 10px;
@@ -1939,9 +1946,11 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin-bottom: 30px;
+    margin-bottom: 60px;
 }
-
+.linearOrange .chooseBusPlace{
+        margin-left: 15px;
+}
 .linearOrange  .leafButton{
     margin-right: 20px;
     margin-bottom: 10px;
@@ -1971,6 +1980,7 @@
 }
 .linearOrange  .etaNonStop{
     color:rgb(158, 157, 157);
+    font-size: 14px;
 }
 .linearOrange .mobileShow .ms{
     display: flex;
@@ -2075,7 +2085,7 @@
     }
     .linearOrange .computerShow .stop{
         width: 140px;
-        height: 130px;
+        height: 172px;
     }
     .linearOrange .computerShow .left{
         float: left;
@@ -2133,13 +2143,13 @@
         z-index: 10;
     }
     .linearOrange .computerShow .b{
-        height: 97px;
+        height: 140px;
     }
     .linearOrange .computerShow .stopnameC{
         width: 103px;
         height: 105px;
         padding-top: 5px;
-        font-size: 16px;
+        font-size: 15px;
         overflow: hidden;
         position: absolute;
         left: -39px;

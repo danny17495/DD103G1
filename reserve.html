@@ -26,7 +26,7 @@
 <body>
     <header>
         <div class="container headerStyle">
-            <a href="index.html">
+            <a href="home.html">
                 <h1>
                     <img src="images/logo.png" alt="logo">
                 </h1>
@@ -84,7 +84,7 @@
                     <div class="col-12 col-md-6 indexReLeft">
                         <form action="#" >
                             <div class="indexReContent">
-                                <p>想要更加了解九份嗎?歡迎預約專屬行程!</p>
+                                <p class="knowUs">想要更加了解九份嗎?歡迎預約專屬行程!</p>
                                 <div class="reYuJourney">
                                     <label for="seYuJourney">想選的旅程:</label>
                                     <select id="seYuJourney" v-model="selectJourney" @change="queryDate">
@@ -167,8 +167,8 @@
                         <div class="leafButton route " data-route="788">船遊秘境</div>
                     </div>
                     <div class="chooseBusDirection">
-                        <div class="leafButton direction active" data-target="0">去程</div>
-                        <div class="leafButton direction " data-target="1">回程</div>
+                        <div class="commonButton direction active" data-target="0">去程</div>
+                        <div class="commonButton direction " data-target="1">回程</div>
                     </div>
                     <h3 id="busStopName">
                         <span class="chplace"></span>

@@ -1,3 +1,18 @@
+<?php
+  $errMsg = "";
+  try{
+    require_once("connect.php");
+
+    $sql = "select * from admin";
+    $admins  = $pdo->query($sql);
+    $adminRows = $admins -> fetchAll(PDO::FETCH_ASSOC);
+   // echo print_r($adminRows);
+
+  }catch(PDOException $e){
+    $errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";
+    $errMsg .= "錯誤行號 : ".$e -> getLine(). "<br>";
+  }
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,6 +27,25 @@
   <link href="node_modules/simple-line-icons/css/simple-line-icons.css" rel="stylesheet">
   <!-- Main styles for this application-->
   <link href="css/style.css" rel="stylesheet">
+  <style>
+  .dissinputstyle {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: 0;
+    border: 1px solid transparent;
+}
+ .switch-input:checked + label .switch-slider {
+    background-color: #4dbd74;
+    border-color: #3a9d5d;
+}
+ .switch-input:checked + label .switch-slider:before {
+    border-color: #3a9d5d;
+    transform: translateX(14px);
+ }
+#add td{
+  padding-top:10px
+}
+  </style>
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
@@ -39,7 +73,7 @@
       </li>
     </ul> -->
     <ul class="nav navbar-nav ml-auto">
-      <li class="mr-5">豪豪 您好</li>
+      <li class="mr-5">登出</li>
 
 
      <!--  <li class="nav-item d-md-down-none">
@@ -126,7 +160,7 @@
         </a>
       </li> -->
       <li class="nav-title">後台管理</li>
-         <a class="nav-link" href="manage.html">
+         <a class="nav-link" href="manage.php">
          <i class="nav-icon icon-drop"></i> 管理員管理</a>
       <li class="nav-title">前台管理</li>
       <li class="nav-item">
@@ -134,7 +168,7 @@
           <i class="nav-icon icon-drop"></i> 會員資料管理</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="order.html">
+        <a class="nav-link" href="order.php">
           <i class="nav-icon icon-pencil"></i> 訂單管理</a>
       </li>
       <li class="nav-item">
@@ -144,6 +178,10 @@
       <li class="nav-item">
         <a class="nav-link" href="postcard.html">
           <i class="nav-icon icon-pencil"></i> 客製化明信片管理</a>
+      </li>
+         <li class="nav-item">
+        <a class="nav-link" href="report.html">
+          <i class="nav-icon icon-pencil"></i> 檢舉留言管理</a>
       </li>
      
     </ul>
@@ -175,12 +213,14 @@
             </ol>
         </nav>
     </div>
+
        <div class="row">
         <div class="col-md-12">
           <div class="card">
-         
-                            <div class="card-header justify-content-end d-flex">
-                  <button type="button" class="btn btn-warning mr-1" id="addAdmin">新增管理員</button>
+            <div class="card-header">管理員管理</div>
+            <div class="card-body">
+              <!-- <button class="btn btn-block btn-outline-primary" type="button">新增管理員</button> -->
+
 
                 </div>
             <div class="card-body">
@@ -192,19 +232,135 @@
                     <th>管理員名稱</th>
                     <th>管理員帳號</th>
                     <th>管理員密碼</th>
-                    <th>管理員帳號移除</th>
+                    <th></th>
+                    <th></th>
+                    <th>管理員權限</th>
                   </tr>
                 </thead>
-                <tbody class="admAdd">
+                <tbody>
+                  <tr> 
+                        <form action="addAdminData.php" method="post" id="add">
+                          
+                              <td>
+                                <input type="text" name="adminName" id="" maxlength="10" required>
+                              </td>
+                              <td>
+                                <input type="text" name="adminId" id="" maxlength="10" required>
+                              </td>
+                              <td>
+                                <input type="text" name="adminPsw" id="" maxlength="15" required>
+                              </td>
+                              <td colspan="2">
+                                <input class="btn btn-block btn-outline-primary addbtn" type="submit" value="新增">
+                              </td>
+                      
+                          </form>
+                </tr>
+            <?php
+     foreach( $adminRows as $i => $adminRow){
+  ?>
+           
                   <tr>
-                    <td>豪豪</td>
-                    <td>admin1</td>
-                    <td>123</td>
+                  <form action="updateAdminData.php" method="post">
+                    <input name="adminNo" type="hidden" value="<?= $adminRow['adminNo']?>" style="display:none">
+                    <td><input type="text" readonly="true" class="dissinputstyle" name="adminName" value="<?php echo $adminRow['adminName'];?>"></td>
+                    <td><input type="text" readonly="true" class="dissinputstyle" name="adminId" value="<?php echo $adminRow['adminId'];?>"></td>
+                    <td><input type="text" readonly="true" class="dissinputstyle" name="adminPsw"  value="<?php echo $adminRow['adminPsw'];?>"></td>
+                    <td> 
+                        <button type="button" class="btn btn-pill btn-danger btn-xl edit" >編輯</button>
+                    </td>
+                  </form>
+      
+                    <td>
+                       <form action="deleteAdminDate.php" id="statusForm" method="GET">
+                            <input name="adminNo" type="hidden" value="<?= $adminRow['adminNo']?>">
+                            <input class="btn btn-pill btn-primary btn-xl" type="submit" value="刪除">
+                        </form>
+     
+                    </td>
+                   
+                    <td>
+                     <form action="#" class="status">
+                            <input name="adminNo" type="hidden" class="No" value="<?= $adminRow['adminNo']?>" style="display:none">
+                            <input type="hidden"  name="adminStatus" value="<?= $adminRow['adminStatus']?>" style="opacity:0">
+                            <input type="checkbox" class="switch-input change" id="change<?= $adminRow['adminNo']?>"  value="<?= $adminRow['adminStatus']?>">
+                            <label class="switch switch-3d  switch-success status " for="change<?= $adminRow['adminNo']?>">
+                              <span class="switch-slider">
+                              </span>      
+                            </label>
+                   </form>
+                       
+                    </td>
+                     
+                  </tr>
+                  <script>
+                  
+                  
+                  </script>
+            
+   <?php
+     }
+   ?>
+                  <!-- <tr>
+                    <td>月月</td>
+                    <td>b123456</td>
+                    <td><select name="" id="">
+                      <option value="">唯獨</option>
+                      <option value="">管理員</option>
+                    </select></td>
+                    <td> <button type="button" class="btn btn-pill btn-primary btn-xl">編輯</button></td>
+                    <td>
+                      <button type="button" class="btn btn-pill btn-danger btn-xl">刪除</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>喬喬</td>
+                    <td>g123456</td>
+                    <td><select name="" id="">
+                        <option value="">唯獨</option>
+                      <option value="">管理員</option>
+                    </select></td>
+                    <td> <button type="button" class="btn btn-pill btn-primary btn-xl">編輯</button></td>
+                    <td>
+                      <button type="button" class="btn btn-pill btn-danger btn-xl">刪除</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>亭亭</td>
+                    <td>c123456</td>
+                    <td><select name="" id="">
+                        <option value="">唯獨</option>
+                      <option value="">管理員</option>
+                    </select></td>
+                    <td> <button type="button" class="btn btn-pill btn-primary btn-xl">編輯</button></td>
+                    <td>
+                      <button type="button" class="btn btn-pill btn-danger btn-xl">刪除</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>愷愷</td>
+                    <td>d123456</td>
+                   <td><select name="" id="">
+                        <option value="">唯獨</option>
+                      <option value="">管理員</option>
+                   </select></td>
+                    <td> <button type="button" class="btn btn-pill btn-primary btn-xl">編輯</button></td>
+                    <td>
+                      <button type="button" class="btn btn-pill btn-danger btn-xl">刪除</button>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>靜靜</td>
+                    <td>e123456</td>
+                    <td><select name="" id="">
+                      <option value="">唯獨</option>
+                      <option value="">管理員</option>
+                    </select></td>
+                    <td> <button type="button" class="btn btn-pill btn-primary btn-xl">編輯</button></td>
                     <td>
 
                     </td>
-                  </tr>
-                  
+                  </tr> -->
                 </tbody>
               </table>
 
@@ -424,8 +580,9 @@
               <small>
                 <b>Option 1</b>
               </small>
+            
               <label class="switch switch-label switch-pill switch-success switch-sm float-right">
-                <input class="switch-input" type="checkbox" checked="">
+                  <input class="switch-input" type="checkbox">
                 <span class="switch-slider" data-checked="On" data-unchecked="Off"></span>
               </label>
             </div>
@@ -673,5 +830,54 @@
   <script src="node_modules/pace-progress/pace.min.js"></script>
   <script src="node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js"></script>
   <script src="node_modules/@coreui/coreui/dist/js/coreui.min.js"></script>
+
+  <script>
+
+     let change=document.querySelectorAll('.change');
+      change.forEach(function(dom){
+          if(dom.value=="0"){ //停用
+              dom.setAttribute("checked",true);
+          }
+      });
+
+  $('.edit').click(function(){
+  
+  
+    if( $(this).text()=="編輯"){
+      $(this).parent().prevAll().children().attr("readonly",false);
+      $(this).text("完成");
+    //  $(this).attr('type','submit');
+    }else{
+        $(this).parent().prevAll().children().attr("readonly",true);
+       $(this).text("編輯");
+        $(this).attr('type','submit');
+    }
+      $(this).parent().prevAll().children().toggleClass('dissinputstyle');
+    
+  });
+
+
+$(".change").change(function() { 
+
+    if ($(this).prop('checked')) { 
+      $(this).val(0);
+      $(this).prev().val(0);  
+    } 
+    else { 
+      $(this).val(1);
+      $(this).prev().val(1);
+    } 
+
+
+    $.get(`updateAdminData2.php?adminNo=${$(this).prev('input').prev('input').val()}&&adminStatus=${$(this).val()}`,function(data){
+            console.log('data');
+    });
+    
+
+});
+
+  </script>
+
+  
 </body>
 </html>

@@ -14,7 +14,7 @@ function logout(){
     //     openLoginData();
     // }
     if (window.location.href.indexOf("member.php") != -1) {
-        window.location.href = "index.html"
+        window.location.href = "home.html"
     }
     return false;
 }
@@ -34,20 +34,24 @@ function sendData(){
                 alertWrap("帳號密碼錯誤");
             }else{
                 userData = JSON.parse(loginResult)[0];
-                //alert(userData);
-                for (var i in userData) {
-                    sessionStorage.setItem(i, userData[i]);
-                }
-                sessionStorage.setItem('memPassword', "");//不顯示
-                sessionStorage.setItem('memVisa', "");//不顯示
-                //console.log(userData.name);
-                $id("login").style.display = "none";
-                $id("headerMemName").innerHTML = `${userData.memName}<a id="logout" href="javascript:;">登出</a>`;
-                $id("logout").onclick=logout;
-                if (memberInfoClick){ //判定原先有無按會員頁按鈕
-                    window.location.href = "member.php";
-                    memberInfoClick=false;
-                }
+                console.log(userData);
+                if (userData.memLoginStatus=='0') {
+                    alertWrap("您的帳號已被停權")
+                } else {
+                    for (var i in userData) {
+                        sessionStorage.setItem(i, userData[i]);
+                    }
+                    sessionStorage.setItem('memPassword', "");//不顯示
+                    sessionStorage.setItem('memVisa', "");//不顯示
+                    //console.log(userData.name);
+                    $id("login").style.display = "none";
+                    $id("headerMemName").innerHTML = `${userData.memName}<a id="logout" href="javascript:;">登出</a>`;
+                    $id("logout").onclick=logout;
+                    if (memberInfoClick){ //判定原先有無按會員頁按鈕
+                        window.location.href = "member.php";
+                        memberInfoClick=false;
+                    }
+            }
             }
             
         }
