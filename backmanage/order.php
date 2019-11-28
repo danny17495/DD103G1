@@ -25,6 +25,11 @@
   <!-- Main styles for this application-->
   <link href="css/style.css" rel="stylesheet">
 </head>
+<style>
+  #logout{
+    text-decoration: none;
+  }
+</style>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
  <!-- top_header -->
@@ -51,7 +56,8 @@
       </li>
     </ul> -->
     <ul class="nav navbar-nav ml-auto">
-      <li class="mr-5">豪豪 您好</li>
+  
+      <a class="nav-item mr-3 logOut" href="admin_login.html" id="logout">登出</a>
 
 
      <!--  <li class="nav-item d-md-down-none">
@@ -137,7 +143,9 @@
           <span class="badge badge-primary">NEWs</span>
         </a>
       </li> -->
-       <li class="nav-title">後台管理</li>
+
+      <li class="nav-title">後台管理</li>
+
          <a class="nav-link" href="manage.php">
          <i class="nav-icon icon-drop"></i> 管理員管理</a>
       <li class="nav-title">前台管理</li>
@@ -157,7 +165,11 @@
         <a class="nav-link" href="postcard.html">
           <i class="nav-icon icon-pencil"></i> 客製化明信片管理</a>
       </li>
+
+            <li class="nav-item">
+
      <li class="nav-item">
+
         <a class="nav-link" href="report.html">
           <i class="nav-icon icon-pencil"></i> 檢舉留言管理</a>
       </li>

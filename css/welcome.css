@@ -45,7 +45,7 @@
 .welcomebird #welcomebird1{
     /* position: absolute;
     top:35%; */
-    width: 100%;
+    width: 50%;
     max-width:100px;
     float:right;
 }
@@ -141,7 +141,7 @@
 .welocmeHouse img{
     width: 100%;
     max-width: 300px;
-    margin: 0 auto;
+    margin: 5% auto;
     display: block;
 
 }
@@ -149,7 +149,7 @@
 
 /* 前端板子圖片 */
 .welocmeItem .welocmeHouse-Front img.welocmeboard2 {
-    width: 100%;
+    width: 80%;
     position: absolute;
     top: 0px;
     left: 0;
@@ -158,7 +158,7 @@
 }
 /* 後端板子圖片 */
 .welocmeItem .welocmeHouse-Back img.welocmeboard1 {
-    width: 100%;
+    width: 80%;
     position: absolute;
     top: 0px;
     left: 0px;
@@ -169,6 +169,10 @@
 /* 太陽圖片 */
 .welocmeSun img{
     width: 60%;
+
+    margin-left: 20%;
+
+
     /* margin-left: 30%; */
        
 }
@@ -178,7 +182,7 @@
 }
 /* 天空 雲圖片 */
 .welocmeCloud img{
-    width: 80%;
+    width: 100%;
     /* margin-left: 10%; */
 }
 /* 前端房子 */
@@ -212,7 +216,7 @@
 
 /*房子*2 板子*2 前端後端全部圖片*/
 .welocmeHouse img{
-    width: 100%;
+    width: 70%;
     max-width: 600px;
     margin: 0 auto;
     display: block;

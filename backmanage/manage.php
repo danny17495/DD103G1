@@ -234,7 +234,7 @@
                     <th>管理員密碼</th>
                     <th></th>
                     <th></th>
-                    <th>管理員權限</th>
+                    <th>管理員停權</th>
                   </tr>
                 </thead>
                 <tbody>
