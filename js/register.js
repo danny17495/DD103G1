@@ -71,7 +71,7 @@ var form=new Vue({
 
             if (err>0){
                 alertWrap("請輸入正確資料");
-                alert(err);
+                //alert(err);
             }else{
                 console.log('success');
                 let data={

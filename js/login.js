@@ -104,7 +104,7 @@ function openLoginData(){ //登入 註冊 盒子
 
 function judgeLogin(){
     fetch("php/login/loginJudge.php").then(loginJudge => loginJudge.text().then(loginJudge => {
-        if (loginJudge != "not login") {   //已登入
+        if (loginJudge != "not login" && sessionStorage.memName) {   //已登入
             $id("headerMemName").innerHTML = `${sessionStorage.memName}<a id="logout" href="javascript:;">登出</a>`;
             $id("logout").onclick = logout;
         }
